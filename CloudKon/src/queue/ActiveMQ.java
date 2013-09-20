@@ -1,5 +1,6 @@
 package queue;
 
+import java.util.List;
 import java.util.Properties;
 
 import javax.jms.Connection;
@@ -13,10 +14,12 @@ import javax.naming.InitialContext;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
+import utility.ActiveMqUtility;
 import entity.QueueDetails;
+import entity.Task;
 
 
-public class ActiveMQ implements DistributedQueue {
+public class ActiveMQ implements DistributedQueue,TaskQueue {
 
 	@Override
 	public void pushToQueue(QueueDetails queueDetails) {
@@ -92,6 +95,21 @@ public class ActiveMQ implements DistributedQueue {
 			}
 		}
 		return details;
+	}
+
+	@Override
+	public Task retrieveTask(String qName, String url) {
+		// TODO Auto-generated method stub
+		 ActiveMqUtility utility = new ActiveMqUtility();
+		Task task = utility.retrieveMessage(qName, url);
+		return task;
+	}
+
+	@Override
+	public void postTask(List<Task> objects, String qName, String url) {
+		// TODO Auto-generated method stub
+		 ActiveMqUtility utility = new ActiveMqUtility();
+		 utility.postMessage(objects, qName, url);
 	}
 
 	

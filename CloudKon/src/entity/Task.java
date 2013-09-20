@@ -17,5 +17,12 @@ public abstract class Task implements Serializable,Callable<Boolean> {
 	public String responseQueueName;
 	
 	public String queueUrl;
-
+	
+	public boolean equals(Task task){
+		return taskId.equals(task.taskId);
+	}
+	
+	public String toString(){
+		return taskId;
+	}
 }

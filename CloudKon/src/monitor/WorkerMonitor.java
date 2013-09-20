@@ -127,4 +127,18 @@ public class WorkerMonitor implements Runnable {
 		System.out.println(" Instance ID " + EC2Id);
 		return EC2Id;
 	}
+	
+	
+	public static int getNumOfWorkerThreads(){
+		return 1*10;
+	}
+	
+	public static boolean isTimeLimitReached(){
+		//String ec2Id = retrieveInstanceId();
+		/**
+		 * Code for timeout reached if so return true;
+		 */
+		return false;
+	}
+	
 }

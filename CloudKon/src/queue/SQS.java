@@ -11,7 +11,7 @@ import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
 import com.amazonaws.services.sqs.model.ReceiveMessageResult;
 import com.amazonaws.services.sqs.model.SendMessageRequest;
-
+import static utility.Constants.MASTER;
 import entity.QueueDetails;
 
 public class SQS implements DistributedQueue {
@@ -19,7 +19,7 @@ public class SQS implements DistributedQueue {
 	AWSCredentials credentials = new BasicAWSCredentials(
 			"AKIAISAKBFD5OKP3GJTA", "VfhFqZTqMqNLatuRY+r86SZlwRmJOUCq2WYxVPPR");
 
-	public static final String MASTER = "Master";
+	
 
 	public void pushToQueue(QueueDetails details) {
 		// TODO Auto-generated method stub

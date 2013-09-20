@@ -1,10 +1,13 @@
 package queue;
 
+import java.util.List;
+
 import queue.hazelcast.QueueHazelcastUtil;
 import utility.Constants;
 import entity.QueueDetails;
+import entity.Task;
 
-public class HazleCast implements DistributedQueue {
+public class HazleCast implements DistributedQueue,TaskQueue {
 
 	QueueHazelcastUtil queueHazelcastUtil = new QueueHazelcastUtil();
 
@@ -33,6 +36,36 @@ public class HazleCast implements DistributedQueue {
 			e.printStackTrace();
 		}
 		return queueDetails;
+	}
+
+	@Override
+	public Task retrieveTask(String qName, String url) {
+		// TODO Auto-generated method stub
+		Task task = null;
+		try {
+			Object obj = queueHazelcastUtil.getObjValue(Constants.MASTER);
+			if (obj != null && obj instanceof Task) {
+				task = (Task) obj;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return task;
+	}
+
+	@Override
+	public void postTask(List<Task> objects, String qName, String url) {
+		// TODO Auto-generated method stub
+		try {
+			for(Object object:objects){
+				queueHazelcastUtil.putObject(qName,object);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

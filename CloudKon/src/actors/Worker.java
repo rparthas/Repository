@@ -12,15 +12,17 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+import monitor.WorkerMonitor;
+
 import queue.DistributedQueue;
 import queue.QueueFactory;
-import utility.QueueUtility;
+import utility.ActiveMqUtility;
 import entity.QueueDetails;
 import entity.Task;
 
-public class Worker extends TimerTask {
+public class Worker extends TimerTask  implements Runnable{
 
-	static QueueUtility utility = new QueueUtility();
+	static ActiveMqUtility utility = new ActiveMqUtility();
 	Map<String, List<Task>> results = new HashMap<>();
 	static int poolSize = 10;
 	static ExecutorService es = Executors.newFixedThreadPool(poolSize);
@@ -52,7 +54,7 @@ public class Worker extends TimerTask {
 			/**
 			 * loop for getting the tasks
 			 */
-			while (clientCounter < 10) {
+			while (clientCounter < poolSize) {
 
 				if(queueDetails!=null){
 					Task task = utility.retrieveMessage(
@@ -90,10 +92,10 @@ public class Worker extends TimerTask {
 			}
 		}
 		sendBatchResults();
-		if (taskMap.isEmpty() && resultMap.isEmpty()) {
+		if (taskMap.isEmpty() && resultMap.isEmpty() && WorkerMonitor.isTimeLimitReached()) {
 			try {
 				System.out.println("Terminating the instance");
-				// Runtime.getRuntime().exec("shutdown -h 0");
+				Runtime.getRuntime().exec("shutdown -h 0");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -20,7 +20,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import entity.Task;
 
-public class QueueUtility implements Serializable {
+public class ActiveMqUtility implements Serializable {
 
 	InitialContext ctx = null;
 
@@ -29,7 +29,7 @@ public class QueueUtility implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public QueueUtility() {
+	public ActiveMqUtility() {
 		buildContext();
 	}
 
