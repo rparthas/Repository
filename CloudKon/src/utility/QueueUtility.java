@@ -1,4 +1,7 @@
-package Utility;
+package utility;
+
+import static utility.Constants.REQUESTQ;
+import static utility.Constants.RESPONSEQ;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +18,7 @@ import javax.naming.InitialContext;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-import client.Task;
+import entity.Task;
 
 public class QueueUtility implements Serializable {
 
@@ -26,12 +29,8 @@ public class QueueUtility implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public QueueUtility()  {
-	
-	}
-	
-	public QueueUtility(Properties prop){
-		buildContext(prop);
+	public QueueUtility() {
+		buildContext();
 	}
 
 	public Task retrieveMessage(String qName, String url) {
@@ -43,7 +42,6 @@ public class QueueUtility implements Serializable {
 			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(url);
 			connection = cf.createQueueConnection();
 			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-		
 			connection.start();
 			Queue queue = (Queue) ctx.lookup(qName);
 			MessageConsumer consumer = session.createConsumer(queue);
@@ -98,16 +96,24 @@ public class QueueUtility implements Serializable {
 			}
 		}
 	}
-	
-	
-	public void buildContext(Properties props){
-		try{
-			 ctx = new InitialContext(props);
+
+	public void buildContext() {
+		try {
+			ctx = new InitialContext(formProperties());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
+	}
+
+	public static Properties formProperties() {
+		Properties props = new Properties();
+		props.setProperty("java.naming.factory.initial",
+				"org.apache.activemq.jndi.ActiveMQInitialContextFactory");
+		props.setProperty("queue." + REQUESTQ, REQUESTQ);
+		props.setProperty("queue." + RESPONSEQ, RESPONSEQ);
+		return props;
 	}
 
 }

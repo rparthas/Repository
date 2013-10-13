@@ -1,13 +1,10 @@
-package server;
+package queue;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
-import java.util.ArrayList;
-import java.util.List;
 
-import Utility.QueueDetails;
-import Utility.QueueUtility;
-import client.Task;
+import utility.QueueDetails;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -18,37 +15,38 @@ import com.amazonaws.services.sqs.model.CreateQueueRequest;
 import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
 import com.amazonaws.services.sqs.model.ReceiveMessageResult;
+import com.amazonaws.services.sqs.model.SendMessageRequest;
 
-public class Server {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+public class SQS implements DistributedQueue {
+
+	AWSCredentials credentials = new BasicAWSCredentials(
+			"AKIAISAKBFD5OKP3GJTA", "VfhFqZTqMqNLatuRY+r86SZlwRmJOUCq2WYxVPPR");
+	
+	public static final String DQ ="Queue";
+
+	public void pushToQueue(ByteArrayOutputStream bos) {
 		// TODO Auto-generated method stub
-
-		List<QueueDetails> queueDetailsList = receiveViaSQS();
-		for (QueueDetails qu : queueDetailsList) {
-			QueueUtility utility = new QueueUtility(qu.getProps());
-			Task task = utility.retrieveMessage(qu.getRequestQueue(),
-					"tcp://"+qu.getHostName()+":61616");
-			if (task != null) {
-				task.execute();
-			}
-		}
+		AmazonSQSClient sqs = new AmazonSQSClient(credentials);
+		Region region = Region.getRegion(Regions.US_EAST_1);
+		sqs.setRegion(region);
+		CreateQueueRequest createQueueRequest = new CreateQueueRequest(DQ);
+		String myQueueUrl = sqs.createQueue(createQueueRequest).getQueueUrl();
+		SendMessageRequest req = new SendMessageRequest();
+		req.setQueueUrl(myQueueUrl);
+		req.setMessageBody(bos.toString());
+		sqs.sendMessage(req);
 	}
 
-	private static List<QueueDetails> receiveViaSQS() {
-		List<QueueDetails> details = new ArrayList<QueueDetails>();
+	@Override
+	public QueueDetails pullFromQueue() {
+		// TODO Auto-generated method stub
+		QueueDetails details = null;
 		try {
-			AWSCredentials credentials = new BasicAWSCredentials(
-					"AKIAISAKBFD5OKP3GJTA",
-					"VfhFqZTqMqNLatuRY+r86SZlwRmJOUCq2WYxVPPR");
 			AmazonSQSClient sqs = new AmazonSQSClient(credentials);
 			Region region = Region.getRegion(Regions.US_EAST_1);
 			sqs.setRegion(region);
-			CreateQueueRequest createQueueRequest = new CreateQueueRequest(
-					"Queue");
+			CreateQueueRequest createQueueRequest = new CreateQueueRequest(DQ	);
 			String myQueueUrl = sqs.createQueue(createQueueRequest)
 					.getQueueUrl();
 			ReceiveMessageRequest res = new ReceiveMessageRequest();
@@ -60,8 +58,7 @@ public class Server {
 				ObjectInputStream oInputStream = new ObjectInputStream(bis);
 				Object obj = oInputStream.readObject();
 				if (obj instanceof QueueDetails) {
-					QueueDetails qu = (QueueDetails) obj;
-					details.add(qu);
+					details = (QueueDetails) obj;
 				}
 			}
 		} catch (Exception e) {
@@ -70,4 +67,5 @@ public class Server {
 		}
 		return details;
 	}
+
 }
