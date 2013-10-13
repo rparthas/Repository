@@ -5,11 +5,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.util.Properties;
 
-import javax.jms.BytesMessage;
 import javax.jms.Connection;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
+import javax.jms.ObjectMessage;
 import javax.jms.Queue;
 import javax.jms.Session;
 import javax.naming.InitialContext;
@@ -31,15 +31,16 @@ public class ActiveMQ implements DistributedQueue {
 					"org.apache.activemq.jndi.ActiveMQInitialContextFactory");
 			props.setProperty("queue.master","master");
 			InitialContext ctx = new InitialContext(props);
-			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory("");
+			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory("tcp://localhost:61616");
 			connection = cf.createQueueConnection();
 			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 			connection.start();
 			Queue queue = (Queue) ctx.lookup("master");
 			MessageProducer producer = session.createProducer(queue);
-			BytesMessage message = session.createBytesMessage();
-			message.setStringProperty("byte", bos.toString());
-			producer.send(message);
+			ObjectInputStream stream = new ObjectInputStream(new ByteArrayInputStream(bos.toByteArray()));
+			QueueDetails queueDetails =  (QueueDetails)stream.readObject();
+			ObjectMessage msg = session.createObjectMessage(queueDetails);
+			producer.send(msg);
 			System.out.println("Messages sent");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -68,21 +69,19 @@ public class ActiveMQ implements DistributedQueue {
 					"org.apache.activemq.jndi.ActiveMQInitialContextFactory");
 			props.setProperty("queue.master","master");
 			InitialContext ctx = new InitialContext(props);
-			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory("");
+			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory("tcp://localhost:61616");
 			connection = cf.createQueueConnection();
 			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 			connection.start();
-			Queue queue = (Queue) ctx.lookup("");
+			Queue queue = (Queue) ctx.lookup("master");
 			MessageConsumer consumer = session.createConsumer(queue);
 			Message message = consumer.receive();
 		
-		ByteArrayInputStream bis = new ByteArrayInputStream(message
-				.getStringProperty("byte").getBytes());
-		ObjectInputStream oInputStream = new ObjectInputStream(bis);
-		Object obj = oInputStream.readObject();
-		if (obj instanceof QueueDetails) {
-			 details = (QueueDetails) obj;
-		}
+			if (message instanceof ObjectMessage) {
+				ObjectMessage obj = (ObjectMessage) message;
+				details = (QueueDetails) obj.getObject();
+			}
+			System.out.println("Messages received");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

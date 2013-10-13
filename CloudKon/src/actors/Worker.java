@@ -50,12 +50,15 @@ public class Worker extends TimerTask {
 			/**
 			 * loop for getting the tasks
 			 */
-			while (clientCounter < 10) {
+			while (clientCounter < 20) {
 
 				Task task = utility.retrieveMessage(
 						queueDetails.getRequestQueue(), queueDetails.getUrl());
-				Future<Boolean> future = es.submit(task);
-				taskMap.put(task, future);
+				if(task!=null){
+					Future<Boolean> future = es.submit(task);
+					taskMap.put(task, future);
+					
+				}
 				clientCounter++;
 			}
 
@@ -118,6 +121,7 @@ public class Worker extends TimerTask {
 	public void addResult(Task task) {
 		if (task != null) {
 			String clientName = task.clientName;
+			System.out.println(clientName);
 			List<Task> tasks = new ArrayList<>();
 			if (resultMap.containsKey(clientName)) {
 				tasks = resultMap.get(clientName);

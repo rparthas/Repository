@@ -31,6 +31,7 @@ public class Client {
 		for(int i=0;i<10;i++){
 			Task task = new ThousandSecTask();
 			task.clientName="me";
+			task.taskId =i+"";
 			task.queueUrl="tcp://localhost:61616";
 			task.responseQueueName=RESPONSEQ;
 			objects.add(task);
