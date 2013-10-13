@@ -1,8 +1,14 @@
 package utility;
 
+import java.io.Serializable;
 
-public class QueueDetails {
 
+public class QueueDetails implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String requestQueue;
 	private String responseQueue;
 	private String clientName;

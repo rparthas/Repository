@@ -34,8 +34,8 @@ public class Client {
 			task.queueUrl="tcp://localhost:61616";
 			task.responseQueueName=RESPONSEQ;
 			objects.add(task);
-			utility.postMessage(objects, REQUESTQ, "tcp://localhost:61616");
 		}
+		utility.postMessage(objects, REQUESTQ, "tcp://localhost:61616");
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		ObjectOutputStream os = new ObjectOutputStream(bos);
 		os.writeObject(qu);
