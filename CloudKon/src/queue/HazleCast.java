@@ -1,14 +1,12 @@
 package queue;
 
-import java.io.ByteArrayOutputStream;
-
 import utility.QueueDetails;
 
 
 public class HazleCast implements DistributedQueue {
 
 	@Override
-	public void pushToQueue(ByteArrayOutputStream bos) {
+	public void pushToQueue(QueueDetails queueDetails) {
 		// TODO Auto-generated method stub
 
 	}

@@ -24,8 +24,10 @@ public class Worker extends TimerTask {
 	Map<String, List<Task>> results = new HashMap<>();
 	static int poolSize = 10;
 	static ExecutorService es = Executors.newFixedThreadPool(poolSize);
+	static Map<String, Integer> waitCounter = new ConcurrentHashMap<>();
 	static Map<String, List<Task>> resultMap = new ConcurrentHashMap<>();
 	static Map<Task, Future<Boolean>> taskMap = new ConcurrentHashMap<>();
+	static final int batchInterval = 10;
 
 	/**
 	 * Main method for starting the worker
@@ -50,14 +52,16 @@ public class Worker extends TimerTask {
 			/**
 			 * loop for getting the tasks
 			 */
-			while (clientCounter < 20) {
+			while (clientCounter < 10) {
 
-				Task task = utility.retrieveMessage(
-						queueDetails.getRequestQueue(), queueDetails.getUrl());
-				if(task!=null){
-					Future<Boolean> future = es.submit(task);
-					taskMap.put(task, future);
-					
+				if(queueDetails!=null){
+					Task task = utility.retrieveMessage(
+							queueDetails.getRequestQueue(), queueDetails.getUrl());
+					if (task != null) {
+						Future<Boolean> future = es.submit(task);
+						taskMap.put(task, future);
+	
+					}
 				}
 				clientCounter++;
 			}
@@ -72,8 +76,6 @@ public class Worker extends TimerTask {
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		System.out.println(resultMap);
-		System.out.println(taskMap);
 		for (Task task : taskMap.keySet()) {
 			Future<Boolean> future = taskMap.get(task);
 			try {
@@ -89,7 +91,13 @@ public class Worker extends TimerTask {
 		}
 		sendBatchResults();
 		if (taskMap.isEmpty() && resultMap.isEmpty()) {
-
+			try {
+				System.out.println("Terminating the instance");
+				// Runtime.getRuntime().exec("shutdown -h 0");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 	}
@@ -102,14 +110,22 @@ public class Worker extends TimerTask {
 		for (String client : resultMap.keySet()) {
 			List<Task> tasks = resultMap.get(client);
 			/**
-			 * or expiry time 
+			 * or expiry time
 			 */
-		
-			if(tasks.size()  >= 10){
-				Task task=tasks.get(0);
-				utility.postMessage(tasks,task.responseQueueName , task.queueUrl);
+			int counter = 1;
+			if (waitCounter.containsKey(client)) {
+				counter = waitCounter.get(client) + 1;
+			}
+			waitCounter.put(client, counter);
+
+			if (tasks != null
+					&& (tasks.size() >= 10 || counter == batchInterval)) {
+				Task task = tasks.get(0);
+				utility.postMessage(tasks, task.responseQueueName,
+						task.queueUrl);
 			}
 			resultMap.remove(client);
+			waitCounter.remove(client);
 		}
 	}
 
@@ -121,7 +137,6 @@ public class Worker extends TimerTask {
 	public void addResult(Task task) {
 		if (task != null) {
 			String clientName = task.clientName;
-			System.out.println(clientName);
 			List<Task> tasks = new ArrayList<>();
 			if (resultMap.containsKey(clientName)) {
 				tasks = resultMap.get(clientName);

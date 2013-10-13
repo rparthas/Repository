@@ -38,7 +38,6 @@ public class QueueUtility implements Serializable {
 		Connection connection = null;
 		Session session = null;
 		try {
-
 			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(url);
 			connection = cf.createQueueConnection();
 			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);

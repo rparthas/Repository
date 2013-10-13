@@ -1,8 +1,5 @@
 package queue;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
 import java.util.Properties;
 
 import javax.jms.Connection;
@@ -21,7 +18,7 @@ import utility.QueueDetails;
 public class ActiveMQ implements DistributedQueue {
 
 	@Override
-	public void pushToQueue(ByteArrayOutputStream bos) {
+	public void pushToQueue(QueueDetails queueDetails) {
 		// TODO Auto-generated method stub
 		Connection connection = null;
 		Session session = null;
@@ -37,8 +34,6 @@ public class ActiveMQ implements DistributedQueue {
 			connection.start();
 			Queue queue = (Queue) ctx.lookup("master");
 			MessageProducer producer = session.createProducer(queue);
-			ObjectInputStream stream = new ObjectInputStream(new ByteArrayInputStream(bos.toByteArray()));
-			QueueDetails queueDetails =  (QueueDetails)stream.readObject();
 			ObjectMessage msg = session.createObjectMessage(queueDetails);
 			producer.send(msg);
 			System.out.println("Messages sent");

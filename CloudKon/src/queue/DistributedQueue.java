@@ -1,13 +1,11 @@
 package queue;
 
-import java.io.ByteArrayOutputStream;
-
 import utility.QueueDetails;
 
 
 public interface DistributedQueue {
 
-	public void pushToQueue(ByteArrayOutputStream bos);
+	public void pushToQueue(QueueDetails details);
 
 	public QueueDetails pullFromQueue();
 
