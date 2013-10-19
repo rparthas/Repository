@@ -13,7 +13,8 @@ import javax.naming.InitialContext;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-import utility.QueueDetails;
+import entity.QueueDetails;
+
 
 public class ActiveMQ implements DistributedQueue {
 

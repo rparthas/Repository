@@ -1,6 +1,6 @@
 package queue;
 
-import utility.QueueDetails;
+import entity.QueueDetails;
 
 
 public class HazleCast implements DistributedQueue {

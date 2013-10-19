@@ -8,8 +8,8 @@ import java.util.List;
 
 import queue.DistributedQueue;
 import queue.QueueFactory;
-import utility.QueueDetails;
 import utility.QueueUtility;
+import entity.QueueDetails;
 import entity.Task;
 import entity.ThousandSecTask;
 

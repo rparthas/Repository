@@ -14,8 +14,8 @@ import java.util.concurrent.TimeUnit;
 
 import queue.DistributedQueue;
 import queue.QueueFactory;
-import utility.QueueDetails;
 import utility.QueueUtility;
+import entity.QueueDetails;
 import entity.Task;
 
 public class Worker extends TimerTask {

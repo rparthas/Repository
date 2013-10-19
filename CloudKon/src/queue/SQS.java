@@ -1,6 +1,5 @@
 package queue;
 
-import utility.QueueDetails;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -12,6 +11,8 @@ import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
 import com.amazonaws.services.sqs.model.ReceiveMessageResult;
 import com.amazonaws.services.sqs.model.SendMessageRequest;
+
+import entity.QueueDetails;
 
 public class SQS implements DistributedQueue {
 
