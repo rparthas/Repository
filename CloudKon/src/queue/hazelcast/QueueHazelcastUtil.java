@@ -141,5 +141,6 @@ public class QueueHazelcastUtil {
 		strQname = queuename;
 		return customQstr;
 	}
-
+	
+	
 }

@@ -57,5 +57,11 @@ public class Client implements Runnable {
 		}
 		System.exit(0);
 	}
-
+	
+	/**
+	 * Method for resubmitting tasks
+	 */
+	public void resubmitTasks(Task... tasks){
+		
+	}
 }
