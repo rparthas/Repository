@@ -1,6 +1,7 @@
 package monitor;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
@@ -9,6 +10,7 @@ import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import monitor.cassandra.SimpleClient;
 
@@ -39,7 +41,15 @@ public class WorkerMonitor implements Runnable {
 		cassServerlist = strcassServerlist;
 	}
 	public static void main(String[] args) {
-		new Thread(new WorkerMonitor(args[0])).start();
+		try (FileReader reader = new FileReader("CloudKon.properties")) {
+			Properties properties = new Properties();
+			properties.load(reader);
+			String url = properties.getProperty("cassServerlist");
+			System.out.println(url);
+			new Thread(new WorkerMonitor(url)).start();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
