@@ -13,16 +13,16 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import monitor.WorkerMonitor;
-
 import queue.DistributedQueue;
 import queue.QueueFactory;
-import utility.ActiveMqUtility;
+import queue.TaskQueueFactory;
 import entity.QueueDetails;
 import entity.Task;
+import entity.TaskBatch;
 
 public class Worker extends TimerTask  implements Runnable{
 
-	static ActiveMqUtility utility = new ActiveMqUtility();
+	
 	Map<String, List<Task>> results = new HashMap<>();
 	static int poolSize = 10;
 	static ExecutorService es = Executors.newFixedThreadPool(poolSize);
@@ -57,7 +57,8 @@ public class Worker extends TimerTask  implements Runnable{
 			while (clientCounter < poolSize) {
 
 				if(queueDetails!=null){
-					Task task = utility.retrieveMessage(
+					Task task = TaskQueueFactory.getQueue()
+							.retrieveTask(
 							queueDetails.getRequestQueue(), queueDetails.getUrl());
 					if (task != null) {
 						Future<Boolean> future = es.submit(task);
@@ -123,7 +124,11 @@ public class Worker extends TimerTask  implements Runnable{
 			if (tasks != null
 					&& (tasks.size() >= 10 || counter == batchInterval)) {
 				Task task = tasks.get(0);
-				utility.postMessage(tasks, task.responseQueueName,
+				List<Task> batches = new ArrayList<>();
+				Task taskBatch= new TaskBatch();
+				taskBatch.tasks=tasks;
+				batches.add(taskBatch);
+				TaskQueueFactory.getQueue().postTask(batches, task.responseQueueName,
 						task.queueUrl);
 			}
 			resultMap.remove(client);

@@ -109,13 +109,22 @@ public class Client implements Runnable {
 		// TODO Auto-generated method stub
 		long startTime = System.currentTimeMillis();
 		while (!submittedTasks.isEmpty()) {
-			//System.out.println("Pending Task length[" + submittedTasks.size()
-				//	+ "]");
+			// System.out.println("Pending Task length[" + submittedTasks.size()
+			// + "]");
 			Task task = TaskQueueFactory.getQueue()
 					.retrieveTask(RESPONSEQ, url);
 			if (task != null) {
-				System.out.println("Task[" + task.taskId + "]completed");
-				submittedTasks.remove(task.taskId);
+				if (task.isMultiTask) {
+					for (Task tasks : task.tasks) {
+						System.out.println("Task[" + tasks.taskId
+								+ "]completed");
+						submittedTasks.remove(tasks.taskId);
+					}
+				} else {
+					System.out.println("Task[" + task.taskId + "]completed");
+					submittedTasks.remove(task.taskId);
+				}
+
 			}
 			/**
 			 * Advertise tasks again after some time
