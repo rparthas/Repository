@@ -3,11 +3,16 @@ package actors;
 import static utility.Constants.REQUESTQ;
 import static utility.Constants.RESPONSEQ;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.UUID;
+
+import com.datastax.driver.core.utils.UUIDs;
 
 import monitor.WorkerMonitor;
 import queue.DistributedQueue;
@@ -26,53 +31,20 @@ public class Client implements Runnable {
 
 	public static void main(String args[]) throws Exception {
 		Client client = new Client();
-		client.postTasks();
+		client.postTasks(args);
 
 	}
 
-	private void postTasks() {
-		Scanner scanner = new Scanner(System.in);
-		String clientName = getInput(scanner, "Enter client name");
-		// url = getInput(scanner, "Enter the ActiveMQ url");
-		int taskCount = 0;
-		long sleepTime = 0;
-		// String value ="N";
-		// do{
-		while (true) {
-			String taskCnt = getInput(scanner, "Enter task count");
-			try {
-				taskCount = Integer.parseInt(taskCnt);
-				break;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-
-		while (true) {
-			String time = getInput(scanner, "Enter sleep Time");
-			try {
-				sleepTime = Long.parseLong(time);
-				break;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-
+	private void postTasks(String args[]) throws NumberFormatException,
+			FileNotFoundException {
+		// kamlanath : Client will be now get a unique id.
+		String clientName = genUniQID();
+		List<Task> objects = readFileAndMakeTasks(args[1], clientName);
 		qu.setUrl(url);
 		qu.setClientName(clientName);
 		qu.setRequestQueue(REQUESTQ);
 		qu.setResponseQueue(RESPONSEQ);
 
-		List<Task> objects = new ArrayList<>();
-		for (int i = 0; i < taskCount; i++) {
-			Task task = new TemplateTask(sleepTime);
-			task.clientName = clientName;
-			task.taskId = clientName + ":" + System.nanoTime();
-			task.queueUrl = url;
-			task.responseQueueName = RESPONSEQ;
-			objects.add(task);
-			submittedTasks.put(task.taskId, task);
-		}
 		TaskQueueFactory.getQueue().postTask(objects, REQUESTQ, url);
 		new Thread(this).start();
 
@@ -84,25 +56,9 @@ public class Client implements Runnable {
 			DistributedQueue queue = QueueFactory.getQueue();
 			queue.pushToQueue(qu);
 		}
-
-		// value= getInput(scanner,
-		// "Do you want to add more tasks ? Please Enter Y/N");
-		// while(!"Y".equals(value) && !"N".equals(value)){
-		// value= getInput(scanner,
-		// "Do you want to add more tasks ? Please Enter Y/N");
-		// }
-		// }while("Y".equals(value));
-
 	}
 
-	private static String getInput(Scanner scanner, String text) {
-		String input = null;
-		while (input == null || "".equals(input.trim())) {
-			System.out.println(text);
-			input = scanner.nextLine();
-		}
-		return input;
-	}
+	
 
 	@Override
 	public void run() {
@@ -114,15 +70,16 @@ public class Client implements Runnable {
 			Task task = TaskQueueFactory.getQueue()
 					.retrieveTask(RESPONSEQ, url);
 			if (task != null) {
-				if (task.isMultiTask) {
-					for (Task tasks : task.tasks) {
-						System.out.println("Task[" + tasks.taskId
+				if (task.isMultiTask()) {
+					for (Task tasks : task.getTasks()) {
+						System.out.println("Task[" + tasks.getTaskId()
 								+ "]completed");
-						submittedTasks.remove(tasks.taskId);
+						submittedTasks.remove(tasks.getTaskId());
 					}
 				} else {
-					System.out.println("Task[" + task.taskId + "]completed");
-					submittedTasks.remove(task.taskId);
+					System.out.println("Task[" + task.getTaskId()
+							+ "]completed");
+					submittedTasks.remove(task.getTaskId());
 				}
 
 			}
@@ -139,4 +96,24 @@ public class Client implements Runnable {
 		System.exit(0);
 	}
 
+	private ArrayList<Task> readFileAndMakeTasks(String fileName,
+			String clientName) throws NumberFormatException,
+			FileNotFoundException {
+		Scanner s = new Scanner(new File(fileName));
+		ArrayList<Task> list = new ArrayList<Task>();
+		Task task = null;
+		while (s.hasNext()) {
+			task = new TemplateTask(genUniQID(), clientName, url, RESPONSEQ,
+					Long.parseLong(s.next()));
+			list.add(task);
+			submittedTasks.put(task.getTaskId(), task);
+		}
+		s.close();
+		return list;
+	}
+
+	private String genUniQID() {
+		UUID uniqueID = UUIDs.timeBased();
+		return uniqueID.toString();
+	}
 }

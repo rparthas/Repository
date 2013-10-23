@@ -6,23 +6,77 @@ import java.util.concurrent.Callable;
 
 public abstract class Task implements Serializable,Callable<Boolean> {
 
-	/**
-	 * 
-	 */
-	public String taskId;
+	private String taskId;
 	
-	public List<Task> tasks;
+	private List<Task> tasks;
 	
-	public boolean isMultiTask=false;
+	private boolean isMultiTask=false;
 	
 	private static final long serialVersionUID = -2392409082449596204L;
 	
-	public String clientName;
+	private String clientName;
 	
-	public String responseQueueName;
+	private String responseQueueName;
 	
-	public String queueUrl;
+	private String queueUrl;
 	
+	public Task(String taskId, String clientName, String responseQueueName,
+			String queueUrl) {
+		super();
+		this.taskId = taskId;
+		this.clientName = clientName;
+		this.responseQueueName = responseQueueName;
+		this.queueUrl = queueUrl;
+	}
+
+	public String getTaskId() {
+		return taskId;
+	}
+
+	public void setTaskId(String taskId) {
+		this.taskId = taskId;
+	}
+
+	public List<Task> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
+	}
+
+	public boolean isMultiTask() {
+		return isMultiTask;
+	}
+
+	public void setMultiTask(boolean isMultiTask) {
+		this.isMultiTask = isMultiTask;
+	}
+
+	public String getClientName() {
+		return clientName;
+	}
+
+	public void setClientName(String clientName) {
+		this.clientName = clientName;
+	}
+
+	public String getResponseQueueName() {
+		return responseQueueName;
+	}
+
+	public void setResponseQueueName(String responseQueueName) {
+		this.responseQueueName = responseQueueName;
+	}
+
+	public String getQueueUrl() {
+		return queueUrl;
+	}
+
+	public void setQueueUrl(String queueUrl) {
+		this.queueUrl = queueUrl;
+	}
+
 	public boolean equals(Task task){
 		return taskId.equals(task.taskId);
 	}

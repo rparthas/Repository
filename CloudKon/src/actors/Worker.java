@@ -126,10 +126,10 @@ public class Worker extends TimerTask  implements Runnable{
 				Task task = tasks.get(0);
 				List<Task> batches = new ArrayList<>();
 				Task taskBatch= new TaskBatch();
-				taskBatch.tasks=tasks;
+				taskBatch.setTasks(tasks);
 				batches.add(taskBatch);
-				TaskQueueFactory.getQueue().postTask(batches, task.responseQueueName,
-						task.queueUrl);
+				TaskQueueFactory.getQueue().postTask(batches, task.getResponseQueueName(),
+						task.getQueueUrl());
 			}
 			resultMap.remove(client);
 			waitCounter.remove(client);
@@ -143,7 +143,7 @@ public class Worker extends TimerTask  implements Runnable{
 	 */
 	public void addResult(Task task) {
 		if (task != null) {
-			String clientName = task.clientName;
+			String clientName = task.getClientName();
 			List<Task> tasks = new ArrayList<>();
 			if (resultMap.containsKey(clientName)) {
 				tasks = resultMap.get(clientName);
