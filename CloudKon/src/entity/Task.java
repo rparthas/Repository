@@ -19,6 +19,9 @@ public abstract class Task implements Serializable,Callable<Boolean> {
 	private String responseQueueName;
 	
 	private String queueUrl;
+	public Task(){
+		
+	}
 	
 	public Task(String taskId, String clientName, String responseQueueName,
 			String queueUrl) {

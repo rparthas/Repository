@@ -21,9 +21,18 @@ public class QueueHazelcastUtil {
 	private String strQname;
 	private String objQname;
 
-	public QueueHazelcastUtil() {
-		super();
-		this.clientConfig = new ClientConfig();
+	public QueueHazelcastUtil()  {
+		try (FileReader reader = new FileReader("CloudKon.properties")) {
+			this.clientConfig = new ClientConfig();
+			Properties properties = new Properties();
+			properties.load(reader);
+			String serverLoc = properties.getProperty("hazelCastServerList");
+			addHazelServerAddress(serverLoc);
+		}catch( IOException ex){
+			//TODO remove ex.print
+			ex.printStackTrace();
+		}
+		
 	}
 
 	public void addHazelServerAddress(String ipAddress_port) {
@@ -139,7 +148,7 @@ public class QueueHazelcastUtil {
 		}
 	}
 
-	private HazelcastInstance getClient() {
+	public HazelcastInstance getClient() {
 		client = HazelcastClient.newHazelcastClient(clientConfig);
 		return client;
 	}

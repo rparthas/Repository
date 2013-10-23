@@ -2,22 +2,9 @@ package entity;
 
 
 public class ThousandSecTask extends Task{
-
-
 	public ThousandSecTask(){
-		
 	}
-	
-	
-
-
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	
-	
 	@Override
 	public Boolean call() throws Exception {
 		// TODO Auto-generated method stub
@@ -32,27 +19,8 @@ public class ThousandSecTask extends Task{
 		return false;
 	}
 	
-
-	
-	
-	
-	
-	/*@Override
-	 * public void run() {
-		// TODO Auto-generated method stub
-		
-		try {
-			System.out.println("sleeping for 1000 secs");
-			Thread.sleep(1000);
-			result= true;
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		}*/
-	
 	public String toString(){
-		return taskId;
+		return getTaskId();
 	}
 		
 	}

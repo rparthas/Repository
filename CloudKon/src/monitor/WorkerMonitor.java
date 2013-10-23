@@ -83,7 +83,7 @@ public class WorkerMonitor implements Runnable {
 
 	private void recordCassandra(String whoAmI, double avgCPUUtilization, String sTrTimstamp) {
 		String[] values = { whoAmI, sTrTimstamp, String.valueOf(avgCPUUtilization) };
-		cassandraClient.insert(values);
+		cassandraClient.insertCPU(values);
 	}
 
 	private double monitorInstance(AWSCredentials credential, String instanceId) {
