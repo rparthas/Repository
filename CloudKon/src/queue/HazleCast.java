@@ -43,7 +43,7 @@ public class HazleCast implements DistributedQueue,TaskQueue {
 		// TODO Auto-generated method stub
 		Task task = null;
 		try {
-			Object obj = queueHazelcastUtil.getObjValue(Constants.MASTER);
+			Object obj = queueHazelcastUtil.getObjValue(qName);
 			if (obj != null && obj instanceof Task) {
 				task = (Task) obj;
 			}

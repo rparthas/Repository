@@ -9,4 +9,10 @@ public class QueueFactory {
 		 queue = new ActiveMQ();
 		 return queue;
 	 }
+
+	public static DistributedQueue getDistributedQueue() {
+		 DistributedQueue queue = null;
+		 queue = new HazleCast();
+		return queue;
+	}
 }

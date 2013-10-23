@@ -47,7 +47,7 @@ public class Worker extends TimerTask  implements Runnable{
 		 */
 		while (true) {
 
-			DistributedQueue queue = QueueFactory.getQueue();
+			DistributedQueue queue = QueueFactory.getDistributedQueue();
 			QueueDetails queueDetails = queue.pullFromQueue();
 
 			int clientCounter = 0;
