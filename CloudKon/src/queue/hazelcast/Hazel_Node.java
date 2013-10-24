@@ -26,7 +26,7 @@ public class Hazel_Node extends Thread {
 			IOException {
 		// Config cfg = new XmlConfigBuilder("ec2_hazelcast.xml").build();
 		Config cfg = new XmlConfigBuilder("hazelcast.xml").build();
-		HazelcastInstance h1 = Hazelcast.newHazelcastInstance(cfg);
+		Hazelcast.newHazelcastInstance(cfg);
 		ExecutorService executor = Executors.newFixedThreadPool(100);
 		for (int i = 0; i < 10; i++) {
 			Hazel_Node objHazel_Node = new Hazel_Node();

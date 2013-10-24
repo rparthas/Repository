@@ -6,11 +6,8 @@ import java.util.Properties;
 import java.util.Scanner;
 import java.util.concurrent.BlockingQueue;
 
-import monitor.WorkerMonitor;
-
 import com.hazelcast.client.ClientConfig;
 import com.hazelcast.client.HazelcastClient;
-import com.hazelcast.core.HazelcastInstance;
 
 public class QueueHazelcastUtil {
 
