@@ -17,6 +17,8 @@ public class SimpleClient {
 	final String[] columnsCPU = { "instance_id", "collected_at", "util_percent" };
 	final String[] columnsnodestatus = { "instance_id", "collected_at",
 			"nStatus" };
+	final String[] columnsQueuetatus = { "client_id", "collected_at",
+	"queueLength" };
 
 	public void connect(String node) {
 
@@ -53,6 +55,12 @@ public class SimpleClient {
 	public void insertNodeStatus(String[] values) {
 		Query query = QueryBuilder.insertInto("cs554_cloudkon", "nodestatus")
 				.values(columnsnodestatus, values);
+		session.execute(query);
+	}
+	
+	public void insertQlength(String[] values) {
+		Query query = QueryBuilder.insertInto("cs554_cloudkon", "queuestatus")
+				.values(columnsQueuetatus, values);
 		session.execute(query);
 	}
 

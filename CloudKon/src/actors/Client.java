@@ -11,20 +11,22 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
+import monitor.ClientMonior;
 import monitor.WorkerMonitor;
+import monitor.cassandra.SimpleClient;
 import queue.DistributedQueue;
 import queue.QueueFactory;
 import queue.TaskQueueFactory;
-import queue.hazelcast.QueueHazelcastUtil;
 
 import com.datastax.driver.core.utils.UUIDs;
+import com.hazelcast.client.ClientConfig;
 import com.hazelcast.client.HazelcastClient;
 
 import entity.QueueDetails;
@@ -33,72 +35,97 @@ import entity.TemplateTask;
 
 public class Client implements Runnable {
 
-	Map<String, Task> submittedTasks = new HashMap<>();
-	String url ;
-	QueueDetails qu ;
+	Map<String, Task> submittedTasks ;
+	String url;
+	QueueDetails qu;
 	long pollTime = 3000;
-	
-	QueueHazelcastUtil objQueueHazelcastUtil = new QueueHazelcastUtil();
-	HazelcastClient hazelClinetObj = objQueueHazelcastUtil.getClient();
-	long numIterations=0;
-	
-	
-	
+	HazelcastClient hazelClinetObj;
+	long numIterations = 1;
+	String fileName;
+	String resouceAllocationMode;
+	SimpleClient cassandraClient;
+    ClientMonior objClientMonior;
+    String clientName ;
 	public Client() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
+			 clientName = genUniQID();
 			Properties properties = new Properties();
 			properties.load(reader);
-			numIterations = Long.parseLong(properties.getProperty("workerIterations"));
-			pollTime = Long.parseLong(properties.getProperty("clientPollTime"));
-			System.out.println("numIterations "+numIterations);
-			System.out.println("clientPollTime "+pollTime);
+			// hazelClient
+			ClientConfig clientConfig = new ClientConfig();
+			String serverLoc = properties.getProperty("hazelCastServerList");
+			clientConfig.addAddress(serverLoc);
+			hazelClinetObj = HazelcastClient.newHazelcastClient(clientConfig);
+
+			// Cassandra Client
+			String cassServerlist = properties.getProperty("cassServerlist");
+			cassandraClient = new SimpleClient();
+			cassandraClient.connect(cassServerlist);
+			//Start monitor
+			objClientMonior = new ClientMonior(clientName, cassandraClient, submittedTasks);
+			new Thread(objClientMonior).start();
 			
+			numIterations = Long.parseLong(properties
+					.getProperty("workerIterations"));
+			pollTime = Long.parseLong(properties.getProperty("clientPollTime"));
+			fileName = properties.getProperty("taskFilePath");
+			resouceAllocationMode = properties
+					.getProperty("resouceAllocationMode");
+			submittedTasks = new ConcurrentHashMap<>();
+
 		} catch (IOException e) {
-			//TODO remove Exceptin
+			// TODO remove Exceptin
 			e.printStackTrace();
 		}
 	}
 
 	public static void main(String args[]) throws Exception {
 		Client client = new Client();
-		client.postTasks(args);
+		client.postTasks();
 
 	}
 
 	private String getUrl() {
 		InetAddress addr;
-		String ipAddress=null;
-		long port=0;
+		String ipAddress = null;
+		long port = 0;
 		try {
 			addr = InetAddress.getLocalHost();
 			ipAddress = addr.getHostAddress();
-			port = hazelClinetObj.getAtomicNumber(HAZEL_AN_PORT).incrementAndGet();
+			port = hazelClinetObj.getAtomicNumber(HAZEL_AN_PORT)
+					.incrementAndGet();
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "tcp://"+ipAddress+":"+port;
+		return "tcp://" + ipAddress + ":" + port;
 	}
 
-	private void postTasks(String args[]) throws NumberFormatException,
+	private void postTasks() throws NumberFormatException,
 			FileNotFoundException {
-		String clientName =genUniQID();
+		
 		url = getUrl();
-		qu = new QueueDetails(REQUESTQ, RESPONSEQ, clientName,
-				url);
-		List<Task> objects = readFileAndMakeTasks(args[0], clientName);
+		qu = new QueueDetails(REQUESTQ, RESPONSEQ, clientName, url);
+		List<Task> objects = readFileAndMakeTasks(fileName, clientName);
 		TaskQueueFactory.getQueue().postTask(objects, REQUESTQ, url);
 		new Thread(this).start();
-		
-		long numOfWorkers = WorkerMonitor.getNumOfWorkerThreads(hazelClinetObj);
-		long loopCount = objects.size() / (numOfWorkers*numIterations);
-		loopCount = loopCount == 0 ? 1 : loopCount;
+		if (resouceAllocationMode.equals("static")) {
+			// Get the already running workers
+			long numOfWorkers = WorkerMonitor
+					.getNumOfWorkerThreads(hazelClinetObj);
+			long loopCount = objects.size() / (numOfWorkers * numIterations);
+			loopCount = loopCount == 0 ? 1 : loopCount;
 
-		DistributedQueue queue = QueueFactory.getQueue();
-		for (int loopIndex = 0; loopIndex < loopCount; loopIndex++) {
-			queue.pushToQueue(qu);
+			DistributedQueue queue = QueueFactory.getQueue();
+			for (int loopIndex = 0; loopIndex < loopCount; loopIndex++) {
+				queue.pushToQueue(qu);
+			}
+		} else {
+			// TODO : logic for dynamic allocator where workers wont be stared
+			// up front
 		}
+
 	}
 
 	@Override
@@ -134,7 +161,9 @@ public class Client implements Runnable {
 			}
 
 		}
-		objQueueHazelcastUtil.closeClient();
+		// Shutdown Hazel
+		objClientMonior.setClientShutoff(true);
+		HazelcastClient.shutdownAll();
 		System.exit(0);
 	}
 

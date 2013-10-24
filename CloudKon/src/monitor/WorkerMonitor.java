@@ -35,14 +35,15 @@ public class WorkerMonitor implements Runnable {
 	
 
 	final static long offsetInMilliseconds = 1000 * 60 * 2;
-	private  String cassServerlist = "127.0.0.1";
 	SimpleClient cassandraClient;
 	public WorkerMonitor() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
 			Properties properties = new Properties();
 			properties.load(reader);
-			cassServerlist = properties.getProperty("cassServerlist");
+			String cassServerlist = properties.getProperty("cassServerlist");
+			cassandraClient = new SimpleClient();
+			cassandraClient.connect(cassServerlist);
 			System.out.println(cassServerlist);
 			
 		} catch (IOException e) {
@@ -57,8 +58,6 @@ public class WorkerMonitor implements Runnable {
 	public void run() {
 		AWSCredentials credentials = new ClasspathPropertiesFileCredentialsProvider().getCredentials();
 		//AWSCredentials credentials = new BasicAWSCredentials("AKIAISAKBFD5OKP3GJTA", "VfhFqZTqMqNLatuRY+r86SZlwRmJOUCq2WYxVPPR");
-		cassandraClient = new SimpleClient();
-		cassandraClient.connect(cassServerlist);
 		String whoAmI;
 		whoAmI = retrieveInstanceId();
 		// TODO remove Hard coding
@@ -78,7 +77,7 @@ public class WorkerMonitor implements Runnable {
 
 	}
 
-	private String getTimestamp(Date date) {
+	public static String getTimestamp(Date date) {
 		return sdf.format(date);
 	}
 
@@ -141,7 +140,13 @@ public class WorkerMonitor implements Runnable {
 	
 	
 	public static long getNumOfWorkerThreads(HazelcastClient hazelClinetObj){
+		return hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).get();
+	}
+	public static long incrNumOfWorkerThreads(HazelcastClient hazelClinetObj) {
 		return hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).incrementAndGet();
+	}
+	public static long decrNumOfWorkerThreads(HazelcastClient hazelClinetObj) {
+		return hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).decrementAndGet();
 	}
 	
 	public static boolean isTimeLimitReached(){
@@ -151,5 +156,4 @@ public class WorkerMonitor implements Runnable {
 		 */
 		return false;
 	}
-	
 }

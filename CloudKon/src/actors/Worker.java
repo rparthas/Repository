@@ -12,16 +12,20 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+import com.hazelcast.client.HazelcastClient;
+
 import monitor.WorkerMonitor;
 import queue.DistributedQueue;
 import queue.QueueFactory;
 import queue.TaskQueueFactory;
+import queue.hazelcast.QueueHazelcastUtil;
 import entity.QueueDetails;
 import entity.Task;
 import entity.TaskBatch;
 
 public class Worker extends TimerTask  implements Runnable{
-
+	static QueueHazelcastUtil objQueueHazelcastUtil = new QueueHazelcastUtil();
+	static HazelcastClient hazelClinetObj = objQueueHazelcastUtil.getClient();
 	
 	Map<String, List<Task>> results = new HashMap<>();
 	static int poolSize = 10;
@@ -40,8 +44,9 @@ public class Worker extends TimerTask  implements Runnable{
 		// TODO Auto-generated method stub
 
 		Timer timer = new Timer();
-		timer.schedule(new Worker(), 0, 2000);
-
+		Worker objWorker = new Worker();
+		timer.schedule(objWorker, 0, 2000);
+		
 		/**
 		 * Loop never ends once the worker begins execution
 		 */
@@ -54,8 +59,8 @@ public class Worker extends TimerTask  implements Runnable{
 			/**
 			 * loop for getting the tasks
 			 */
+			WorkerMonitor.incrNumOfWorkerThreads(hazelClinetObj);
 			while (clientCounter < poolSize) {
-
 				if(queueDetails!=null){
 					Task task = TaskQueueFactory.getQueue()
 							.retrieveTask(
@@ -96,6 +101,7 @@ public class Worker extends TimerTask  implements Runnable{
 		if (taskMap.isEmpty() && resultMap.isEmpty() && WorkerMonitor.isTimeLimitReached()) {
 			try {
 				System.out.println("Terminating the instance");
+				WorkerMonitor.decrNumOfWorkerThreads(hazelClinetObj);
 				Runtime.getRuntime().exec("shutdown -h 0");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -113,7 +119,7 @@ public class Worker extends TimerTask  implements Runnable{
 		for (String client : resultMap.keySet()) {
 			List<Task> tasks = resultMap.get(client);
 			/**
-			 * or expiry time
+			 * or expire time
 			 */
 			int counter = 1;
 			if (waitCounter.containsKey(client)) {

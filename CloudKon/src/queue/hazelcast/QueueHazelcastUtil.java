@@ -33,6 +33,7 @@ public class QueueHazelcastUtil {
 	}
 
 	public void addHazelServerAddress(String ipAddress_port) {
+		//TODO : add more nodes
 		clientConfig.addAddress(ipAddress_port);
 	}
 
