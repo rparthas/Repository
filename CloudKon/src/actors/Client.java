@@ -52,7 +52,7 @@ public class Client implements Runnable {
 		int loopCount = objects.size() / numOfWorkers;
 		loopCount = loopCount == 0 ? 1 : loopCount;
 		
-		DistributedQueue queue = QueueFactory.getDistributedQueue();
+		DistributedQueue queue = QueueFactory.getQueue();
 		for (int loopIndex = 0; loopIndex < loopCount; loopIndex++) {
 			queue.pushToQueue(qu);
 		}
