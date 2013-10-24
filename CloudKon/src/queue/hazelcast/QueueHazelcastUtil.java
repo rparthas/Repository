@@ -15,7 +15,7 @@ import com.hazelcast.core.HazelcastInstance;
 public class QueueHazelcastUtil {
 
 	private ClientConfig clientConfig;
-	private HazelcastInstance client;
+	private HazelcastClient client;
 	private BlockingQueue<Object> customQobj;
 	private BlockingQueue<String> customQstr;
 	private String strQname;
@@ -148,7 +148,7 @@ public class QueueHazelcastUtil {
 		}
 	}
 
-	public HazelcastInstance getClient() {
+	public HazelcastClient getClient() {
 		client = HazelcastClient.newHazelcastClient(clientConfig);
 		return client;
 	}

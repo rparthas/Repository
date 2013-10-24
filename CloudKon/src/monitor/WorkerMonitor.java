@@ -24,7 +24,8 @@ import com.amazonaws.services.cloudwatch.model.Datapoint;
 import com.amazonaws.services.cloudwatch.model.Dimension;
 import com.amazonaws.services.cloudwatch.model.GetMetricStatisticsRequest;
 import com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult;
-
+import com.hazelcast.client.HazelcastClient;
+import static utility.Constants.HAZEL_NUMWORKERS;
 public class WorkerMonitor implements Runnable {
 
 	/**
@@ -36,20 +37,20 @@ public class WorkerMonitor implements Runnable {
 	final static long offsetInMilliseconds = 1000 * 60 * 2;
 	private  String cassServerlist = "127.0.0.1";
 	SimpleClient cassandraClient;
-	public WorkerMonitor(String strcassServerlist) {
+	public WorkerMonitor() {
 		super();
-		cassServerlist = strcassServerlist;
-	}
-	public static void main(String[] args) {
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
 			Properties properties = new Properties();
 			properties.load(reader);
-			String url = properties.getProperty("cassServerlist");
-			System.out.println(url);
-			new Thread(new WorkerMonitor(url)).start();
+			cassServerlist = properties.getProperty("cassServerlist");
+			System.out.println(cassServerlist);
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	public static void main(String[] args) {
+		new Thread(new WorkerMonitor()).start();
 	}
 
 	@Override
@@ -139,8 +140,8 @@ public class WorkerMonitor implements Runnable {
 	}
 	
 	
-	public static int getNumOfWorkerThreads(){
-		return 1*10;
+	public static long getNumOfWorkerThreads(HazelcastClient hazelClinetObj){
+		return hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).incrementAndGet();
 	}
 	
 	public static boolean isTimeLimitReached(){

@@ -9,10 +9,20 @@ public class QueueDetails implements Serializable {
 	 * 
 	 */
 	public static final long serialVersionUID = 1L;
-	public String requestQueue;
-	public String responseQueue;
-	public String clientName;
-	public String url;
+	private String requestQueue;
+	private String responseQueue;
+	private String clientName;
+	private String url;
+
+	
+	public QueueDetails(String requestQueue, String responseQueue,
+			String clientName, String url) {
+		super();
+		this.requestQueue = requestQueue;
+		this.responseQueue = responseQueue;
+		this.clientName = clientName;
+		this.url = url;
+	}
 
 	public String getRequestQueue() {
 		return requestQueue;
