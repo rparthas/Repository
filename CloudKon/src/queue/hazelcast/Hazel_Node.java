@@ -1,9 +1,8 @@
 package queue.hazelcast;
 
+import static utility.Constants.HAZEL_NUMWORKERS;
+
 import java.io.IOException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 import com.hazelcast.config.Config;
 import com.hazelcast.config.XmlConfigBuilder;
@@ -27,18 +26,9 @@ public class Hazel_Node extends Thread {
 		// Config cfg = new XmlConfigBuilder("ec2_hazelcast.xml").build();
 		Config cfg = new XmlConfigBuilder("hazelcast.xml").build();
 		Hazelcast.newHazelcastInstance(cfg);
-		ExecutorService executor = Executors.newFixedThreadPool(100);
-		for (int i = 0; i < 10; i++) {
-			Hazel_Node objHazel_Node = new Hazel_Node();
-			executor.execute(objHazel_Node);
-		}
-		executor.shutdown();
-		try {
-			executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-			} catch (InterruptedException e) {
-			  e.printStackTrace();
-			}
-		Hazelcast.shutdownAll();
+		QueueHazelcastUtil utilObj = new QueueHazelcastUtil();
+		HazelcastInstance hazelClinetObj = utilObj.getClient();
+		hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).set(1);
 	}
 
 	public void run() {

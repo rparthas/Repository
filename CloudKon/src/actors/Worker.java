@@ -125,6 +125,7 @@ public class Worker extends TimerTask implements Runnable {
 				e.printStackTrace();
 			}
 		}
+		
 		sendBatchResults();
 		if (taskMap.isEmpty() && resultMap.isEmpty()
 				&& WorkerMonitor.isTimeLimitReached()) {
@@ -155,7 +156,7 @@ public class Worker extends TimerTask implements Runnable {
 			waitCounter.put(client, counter);
 
 			if (tasks != null
-					&& (tasks.size() >= 10 || counter == batchInterval)) {
+					&& (tasks.size() >= numberofWorkerThreads || counter == batchInterval)) {
 				Task task = tasks.get(0);
 				List<Task> batches = new ArrayList<>();
 				Task taskBatch = new TaskBatch();

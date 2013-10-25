@@ -18,7 +18,7 @@ public class SimpleClient {
 	final String[] columnsnodestatus = { "instance_id", "collected_at",
 			"nStatus" };
 	final String[] columnsQueuetatus = { "client_id", "collected_at",
-	"queueLength" };
+			"queueLength" };
 
 	public void connect(String node) {
 
@@ -57,7 +57,7 @@ public class SimpleClient {
 				.values(columnsnodestatus, values);
 		session.execute(query);
 	}
-	
+
 	public void insertQlength(String[] values) {
 		Query query = QueryBuilder.insertInto("cs554_cloudkon", "queuestatus")
 				.values(columnsQueuetatus, values);
@@ -77,6 +77,18 @@ public class SimpleClient {
 		System.out.println("counter " + counter);
 	}
 
+	public void getQStatus() {
+		Query query = QueryBuilder.select().all()
+				.from("cs554_cloudkon", "queuestatus");
+		ResultSetFuture results = session.executeAsync(query);
+		int counter = 0;
+		for (Row row : results.getUninterruptibly()) {
+			System.out.printf("%s: %s / %s\n", row.getString("client_id"),
+					row.getString("collected_at"), row.getString("queueLength"));
+			counter++;
+		}
+		System.out.println("counter " + counter);
+	}
 	public void getRowsCpu() {
 		Query query = QueryBuilder.select().all()
 				.from("cs554_cloudkon", "cpuUtil");
@@ -87,4 +99,26 @@ public class SimpleClient {
 					row.getString("util_percent"));
 		}
 	}
+
+	public void createSchema() {
+		session.execute("DROP KEYSPACE cs554_cloudkon ; ");
+		session.execute("CREATE KEYSPACE cs554_cloudkon WITH replication "
+				+ "= {'class':'SimpleStrategy', 'replication_factor':2};");
+		session.execute("CREATE TABLE cs554_cloudkon.nodestatus ("
+				+ "instance_id text," + "collected_at text," + "nStatus text,"
+				+ "PRIMARY KEY (instance_id, collected_at)"
+				+ ") WITH COMPACT STORAGE");
+
+		session.execute("CREATE TABLE cs554_cloudkon.cpuUtil ("
+				+ "instance_id text," + "collected_at text,"
+				+ "util_percent text,"
+				+ "PRIMARY KEY (instance_id, collected_at)"
+				+ ")WITH COMPACT STORAGE");
+
+		session.execute("CREATE TABLE cs554_cloudkon.queuestatus ("
+				+ "client_id text," + "collected_at text,"
+				+ "queueLength text," + "PRIMARY KEY (client_id, collected_at)"
+				+ ")WITH COMPACT STORAGE");
+	}
+
 }

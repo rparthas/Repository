@@ -9,15 +9,15 @@ import java.util.concurrent.Executors;
 public class TestCass extends Thread {
 	private String cassServerlist = "127.0.0.1";
 	SimpleClient cassandraClient;
-	private int loopcount = 10000;
+	private int loopcount = 10;
 	final static SimpleDateFormat sdf = new SimpleDateFormat(
 			"yyyy/MM/dd HH:mm:ss:z");
 
 	public static void main(String[] args) throws Exception {
 		TestCass objTestCass = new TestCass();
-		/*objTestCass.cassandraClient = new SimpleClient();
+	/*	objTestCass.cassandraClient = new SimpleClient();
 		objTestCass.cassandraClient.connect("127.0.0.1");
-		objTestCass.cassandraClient.DropKey();
+		//objTestCass.cassandraClient.DropKey();
 		objTestCass.cassandraClient.createSchema();
 		objTestCass.cassandraClient.close();
 		Thread.sleep(1000);
@@ -32,11 +32,13 @@ public class TestCass extends Thread {
 		while (!executor.isTerminated()) {
 		}
 		System.out.println("Finished all threads");
-		System.out.println("finshed at "+getTimestamp(new Date()));
-		objTestCass = new TestCass();*/
+		System.out.println("finshed at "+getTimestamp(new Date()));*/
+		objTestCass = new TestCass();
 		objTestCass.cassandraClient = new SimpleClient();
+		
 		objTestCass.cassandraClient.connect("127.0.0.1");
-		objTestCass.cassandraClient.getRowsStatus();
+		objTestCass.cassandraClient.createSchema();
+		objTestCass.cassandraClient.getQStatus();
 		objTestCass.cassandraClient.close();
 	}
 
@@ -47,7 +49,7 @@ public class TestCass extends Thread {
 		for (int i = 0; i < loopcount; i++) {
 			try {
 				//Thread.sleep(1000);
-				String[] values = { "ami-" + Thread.currentThread().getName()+i,
+				String[] values = { "ami-" + Thread.currentThread().getName(),
 						getTimestamp(new Date()), "busy" };
 				cassandraClient.insertNodeStatus(values);
 			} catch (Exception e) {

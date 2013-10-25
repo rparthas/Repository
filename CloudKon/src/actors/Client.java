@@ -1,6 +1,5 @@
 package actors;
 
-import static utility.Constants.HAZEL_AN_PORT;
 import static utility.Constants.REQUESTQ;
 import static utility.Constants.RESPONSEQ;
 
@@ -46,10 +45,12 @@ public class Client implements Runnable {
 	SimpleClient cassandraClient;
     ClientMonior objClientMonior;
     String clientName ;
+    String mqPortnumber;
 	public Client() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
 			 clientName = genUniQID();
+			 submittedTasks = new ConcurrentHashMap<>();
 			Properties properties = new Properties();
 			properties.load(reader);
 			// hazelClient
@@ -72,7 +73,9 @@ public class Client implements Runnable {
 			fileName = properties.getProperty("taskFilePath");
 			resouceAllocationMode = properties
 					.getProperty("resouceAllocationMode");
-			submittedTasks = new ConcurrentHashMap<>();
+			mqPortnumber =properties
+					.getProperty("mqPortnumber");
+			
 
 		} catch (IOException e) {
 			// TODO remove Exceptin
@@ -89,17 +92,14 @@ public class Client implements Runnable {
 	private String getUrl() {
 		InetAddress addr;
 		String ipAddress = null;
-		long port = 0;
 		try {
 			addr = InetAddress.getLocalHost();
 			ipAddress = addr.getHostAddress();
-			port = hazelClinetObj.getAtomicNumber(HAZEL_AN_PORT)
-					.incrementAndGet();
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "tcp://" + ipAddress + ":" + port;
+		return "tcp://" + ipAddress + ":" + mqPortnumber;
 	}
 
 	private void postTasks() throws NumberFormatException,
@@ -110,6 +110,8 @@ public class Client implements Runnable {
 		List<Task> objects = readFileAndMakeTasks(fileName, clientName);
 		TaskQueueFactory.getQueue().postTask(objects, REQUESTQ, url);
 		new Thread(this).start();
+		
+		//check the mode of operation
 		if (resouceAllocationMode.equals("static")) {
 			// Get the already running workers
 			long numOfWorkers = WorkerMonitor
