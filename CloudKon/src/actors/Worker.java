@@ -10,11 +10,10 @@ import java.util.Properties;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-
 import monitor.WorkerMonitor;
 import queue.DistributedQueue;
 import queue.QueueFactory;
@@ -31,20 +30,26 @@ public class Worker extends TimerTask implements Runnable {
 	private QueueHazelcastUtil objQueueHazelcastUtil;
 	private HazelcastClient hazelClinetObj;
 	private int numberofWorkerThreads = 10;
-	private ExecutorService es;
+	private ThreadPoolExecutor threadPoolExecutor;
 	private Map<String, Integer> waitCounter;
 	private Map<String, List<Task>> resultMap;
 	private Map<Task, Future<Boolean>> taskMap;
 	private int interation;
+	private double workerExecutionLimit;
+	private Properties properties;
 	// TODO
 	private final int batchInterval = 10;
+
+	private long startTime = 0;
 
 	public Worker() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
-			Properties properties = new Properties();
+			properties = new Properties();
 			properties.load(reader);
-			this.es = Executors.newFixedThreadPool(numberofWorkerThreads);
+			threadPoolExecutor = new ThreadPoolExecutor(numberofWorkerThreads,
+					numberofWorkerThreads, 0L, TimeUnit.MILLISECONDS,
+					new LinkedBlockingQueue<Runnable>());
 			// hazelClient
 			this.objQueueHazelcastUtil = new QueueHazelcastUtil();
 			this.hazelClinetObj = objQueueHazelcastUtil.getClient();
@@ -52,11 +57,12 @@ public class Worker extends TimerTask implements Runnable {
 					.getProperty("numberofWorkerThreads"));
 			this.interation = Integer.parseInt(properties
 					.getProperty("interationPerWorker"));
-
+			this.workerExecutionLimit = Double.parseDouble(properties
+					.getProperty("initialLimit", "2"));
 			this.waitCounter = new ConcurrentHashMap<>();
 			this.resultMap = new ConcurrentHashMap<>();
 			this.taskMap = new ConcurrentHashMap<>();
-
+			this.startTime = System.nanoTime();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,7 +81,9 @@ public class Worker extends TimerTask implements Runnable {
 	public static void main(String[] args) {
 		Timer timer = new Timer();
 		Worker objWorker = new Worker();
-		timer.schedule(objWorker, 0, 2000);
+		WorkPoller poller = new WorkPoller(objWorker);
+		timer.schedule(objWorker, 2000, 2000);
+		timer.schedule(poller, 0, 2000);
 		// Loop never ends once the worker begins execution
 		WorkerMonitor.incrNumOfWorkerThreads(objWorker.hazelClinetObj);
 		while (true) {
@@ -101,10 +109,10 @@ public class Worker extends TimerTask implements Runnable {
 							queueDetails.getUrl());
 					if (task != null) {
 						// Starting the Task
-						Future<Boolean> future = objWorker.es.submit(task);
+						Future<Boolean> future = objWorker.threadPoolExecutor.submit(task);
 						objWorker.taskMap.put(task, future);
 					} else {
-						break clientLoop;//breaks if no tasks in client queue
+						break clientLoop;// breaks if no tasks in client queue
 					}
 
 					clientCounter++;
@@ -134,18 +142,38 @@ public class Worker extends TimerTask implements Runnable {
 		}
 
 		sendBatchResults();
-		if (taskMap.isEmpty() && resultMap.isEmpty()
-				&& WorkerMonitor.isTimeLimitReached()) {
+		if (isTimeLimitReached()) {
 			try {
 				System.out.println("Terminating the instance");
 				WorkerMonitor.decrNumOfWorkerThreads(hazelClinetObj);
 				// Runtime.getRuntime().exec("shutdown -h 0");
+				System.exit(0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 
+	}
+
+	private boolean isTimeLimitReached() {
+		// TODO Auto-generated method stub
+		double runTime = (System.nanoTime()) / (1e9 * 60) - startTime;
+		boolean limitBreached = Math.abs(runTime - workerExecutionLimit) <= 1000;
+		if (limitBreached) {
+			startTime = System.nanoTime();
+			workerExecutionLimit = Double.parseDouble(properties.getProperty(
+					"finalLimit", "60"));
+		}
+		if (isBusy() && limitBreached) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isBusy() {
+		boolean isBusy = taskMap.isEmpty() && resultMap.isEmpty() && threadPoolExecutor.getActiveCount() <= 0;
+		return isBusy;
 	}
 
 	/**
@@ -195,3 +223,21 @@ public class Worker extends TimerTask implements Runnable {
 	}
 
 }
+
+class WorkPoller extends TimerTask {
+	Worker worker;
+	
+	public WorkPoller(Worker worker){
+		this.worker=worker;
+	}
+	
+	public void run() {
+		if(worker.isBusy()){
+			/**
+			 * insert information
+			 */
+		}
+	}
+}
+	
+

@@ -86,7 +86,7 @@ public class Client implements Runnable {
 	public static void main(String args[]) throws Exception {
 		Client client = new Client();
 		client.postTasks();
-
+		new Thread(client).start();
 	}
 
 	private String getUrl() {
@@ -109,9 +109,10 @@ public class Client implements Runnable {
 		qu = new QueueDetails(REQUESTQ, RESPONSEQ, clientName, url);
 		List<Task> objects = readFileAndMakeTasks(fileName, clientName);
 		TaskQueueFactory.getQueue().postTask(objects, REQUESTQ, url);
-		new Thread(this).start();
+		
 		
 		//check the mode of operation
+		//Dont think this if else is needed as anyways will client post messages at the beginning
 		if (resouceAllocationMode.equals("static")) {
 			// Get the already running workers
 			long numOfWorkers = WorkerMonitor

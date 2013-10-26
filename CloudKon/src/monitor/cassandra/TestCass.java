@@ -2,9 +2,6 @@ package monitor.cassandra;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class TestCass extends Thread {
 	private String cassServerlist = "127.0.0.1";
