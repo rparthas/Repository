@@ -1,5 +1,6 @@
 package queue;
 
+import java.io.FileInputStream;
 import java.util.List;
 import java.util.Properties;
 
@@ -14,33 +15,31 @@ import javax.naming.InitialContext;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-import utility.ActiveMqUtility;
+import utility.Constants;
 import entity.QueueDetails;
 import entity.Task;
 
-
-public class ActiveMQ implements DistributedQueue,TaskQueue {
+public class ActiveMQ implements DistributedQueue, TaskQueue {
 
 	@Override
 	public void pushToQueue(QueueDetails queueDetails) {
 		// TODO Auto-generated method stub
 		Connection connection = null;
 		Session session = null;
-		try {
+		try (FileInputStream fis = new FileInputStream("activemq.properties")) {
 			Properties props = new Properties();
-			props.setProperty("java.naming.factory.initial",
-					"org.apache.activemq.jndi.ActiveMQInitialContextFactory");
-			props.setProperty("queue.master","master");
+			props.load(fis);
 			InitialContext ctx = new InitialContext(props);
-			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory("tcp://localhost:61616");
+			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(
+					queueDetails.getUrl());
 			connection = cf.createQueueConnection();
 			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 			connection.start();
-			Queue queue = (Queue) ctx.lookup("master");
+			Queue queue = (Queue) ctx.lookup(Constants.MASTER);
 			MessageProducer producer = session.createProducer(queue);
 			ObjectMessage msg = session.createObjectMessage(queueDetails);
 			producer.send(msg);
-			System.out.println("Messages sent");
+			System.out.println("Messages sent to Distributed ActiveMq");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,28 +58,27 @@ public class ActiveMQ implements DistributedQueue,TaskQueue {
 	@Override
 	public QueueDetails pullFromQueue() {
 		// TODO Auto-generated method stub
-		QueueDetails details =null;
+		QueueDetails details = null;
 		Connection connection = null;
 		Session session = null;
-		try {
+		try (FileInputStream fis = new FileInputStream("activemq.properties")) {
 			Properties props = new Properties();
-			props.setProperty("java.naming.factory.initial",
-					"org.apache.activemq.jndi.ActiveMQInitialContextFactory");
-			props.setProperty("queue.master","master");
+			props.load(fis);
 			InitialContext ctx = new InitialContext(props);
-			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory("tcp://localhost:61616");
+			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(
+					props.getProperty("distributedQueueUrl"));
 			connection = cf.createQueueConnection();
 			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 			connection.start();
-			Queue queue = (Queue) ctx.lookup("master");
+			Queue queue = (Queue) ctx.lookup(Constants.MASTER);
 			MessageConsumer consumer = session.createConsumer(queue);
 			Message message = consumer.receive();
-		
+
 			if (message instanceof ObjectMessage) {
 				ObjectMessage obj = (ObjectMessage) message;
 				details = (QueueDetails) obj.getObject();
 			}
-			System.out.println("Messages received");
+			System.out.println("Messages received from Distributed ActiveMq");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -100,18 +98,75 @@ public class ActiveMQ implements DistributedQueue,TaskQueue {
 	@Override
 	public Task retrieveTask(String qName, String url) {
 		// TODO Auto-generated method stub
-		 ActiveMqUtility utility = new ActiveMqUtility();
-		Task task = utility.retrieveMessage(qName, url);
+		Task task = null;
+		Connection connection = null;
+		Session session = null;
+		try (FileInputStream fis = new FileInputStream("activemq.properties")) {
+			Properties props = new Properties();
+			props.load(fis);
+			InitialContext ctx = new InitialContext(props);
+			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(url);
+			connection = cf.createQueueConnection();
+			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+			connection.start();
+			Queue queue = (Queue) ctx.lookup(qName);
+			MessageConsumer consumer = session.createConsumer(queue);
+			Message message = consumer.receive();
+			if (message instanceof ObjectMessage) {
+				ObjectMessage obj = (ObjectMessage) message;
+				task = (Task) obj.getObject();
+			}
+			System.out.println("Messages received");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				session.close();
+				connection.stop();
+				connection.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		return task;
 	}
 
 	@Override
 	public void postTask(List<Task> objects, String qName, String url) {
 		// TODO Auto-generated method stub
-		 ActiveMqUtility utility = new ActiveMqUtility();
-		 utility.postMessage(objects, qName, url);
-	}
 
-	
+		Connection connection = null;
+		Session session = null;
+		try (FileInputStream fis = new FileInputStream("activemq.properties")) {
+			Properties props = new Properties();
+			props.load(fis);
+			InitialContext ctx = new InitialContext(props);
+			ActiveMQConnectionFactory cf = new ActiveMQConnectionFactory(url);
+			connection = cf.createQueueConnection();
+			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+			connection.start();
+			Queue queue = (Queue) ctx.lookup(qName);
+			MessageProducer producer = session.createProducer(queue);
+			for (Task obj : objects) {
+				ObjectMessage msg = session.createObjectMessage(obj);
+				producer.send(msg);
+			}
+			System.out.println("Messages sent to Task Queue");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				session.close();
+				connection.stop();
+				connection.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 
 }

@@ -86,20 +86,27 @@ public class Worker extends TimerTask implements Runnable {
 			// loop for getting the tasks for the client mentioned in Q
 			// information we got.
 			// iteration per worker
-			while (objWorker.interation > 0) {
+			// objWorker.interation > 0
+			clientLoop: // runs till there are no tasks in client queue
+			while (true) {
 				// Pulling only tasks for the worker threads
 				clientCounter = 0;
+				if (queueDetails == null) {
+					break;
+				}
+
 				while (clientCounter < objWorker.numberofWorkerThreads) {
-					if (queueDetails != null) {
-						Task task = TaskQueueFactory.getQueue().retrieveTask(
-								queueDetails.getRequestQueue(),
-								queueDetails.getUrl());
-						if (task != null) {
-							// Starting the Task
-							Future<Boolean> future = objWorker.es.submit(task);
-							objWorker.taskMap.put(task, future);
-						}
+					Task task = TaskQueueFactory.getQueue().retrieveTask(
+							queueDetails.getRequestQueue(),
+							queueDetails.getUrl());
+					if (task != null) {
+						// Starting the Task
+						Future<Boolean> future = objWorker.es.submit(task);
+						objWorker.taskMap.put(task, future);
+					} else {
+						break clientLoop;//breaks if no tasks in client queue
 					}
+
 					clientCounter++;
 				}
 				objWorker.interation--;
@@ -125,7 +132,7 @@ public class Worker extends TimerTask implements Runnable {
 				e.printStackTrace();
 			}
 		}
-		
+
 		sendBatchResults();
 		if (taskMap.isEmpty() && resultMap.isEmpty()
 				&& WorkerMonitor.isTimeLimitReached()) {

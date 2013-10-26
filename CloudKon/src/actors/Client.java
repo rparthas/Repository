@@ -176,7 +176,7 @@ public class Client implements Runnable {
 		ArrayList<Task> list = new ArrayList<Task>();
 		Task task = null;
 		while (s.hasNext()) {
-			task = new TemplateTask(genUniQID(), clientName, url, RESPONSEQ,
+			task = new TemplateTask(genUniQID()+clientName, clientName,  RESPONSEQ,url,
 					Long.parseLong(s.next()));
 			list.add(task);
 			submittedTasks.put(task.getTaskId(), task);
