@@ -86,8 +86,8 @@ public class Worker extends TimerTask implements Runnable {
 		timer.schedule(poller, 0, 2000);
 		// Loop never ends once the worker begins execution
 		WorkerMonitor.incrNumOfWorkerThreads(objWorker.hazelClinetObj);
+		DistributedQueue queue = QueueFactory.getQueue();
 		while (true) {
-			DistributedQueue queue = QueueFactory.getQueue();
 			// Get one Q information
 			QueueDetails queueDetails = queue.pullFromQueue();
 			int clientCounter;

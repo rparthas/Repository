@@ -9,7 +9,7 @@ import entity.Task;
 
 public class HazleCast implements DistributedQueue,TaskQueue {
 
-	QueueHazelcastUtil queueHazelcastUtil = new QueueHazelcastUtil();
+	static QueueHazelcastUtil queueHazelcastUtil = new QueueHazelcastUtil();
 
 	@Override
 	public void pushToQueue(QueueDetails queueDetails) {

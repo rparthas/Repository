@@ -86,7 +86,7 @@ public class Client implements Runnable {
 	public static void main(String args[]) throws Exception {
 		Client client = new Client();
 		client.postTasks();
-		new Thread(client).start();
+		
 	}
 
 	private String getUrl() {
@@ -109,7 +109,8 @@ public class Client implements Runnable {
 		qu = new QueueDetails(REQUESTQ, RESPONSEQ, clientName, url);
 		List<Task> objects = readFileAndMakeTasks(fileName, clientName);
 		TaskQueueFactory.getQueue().postTask(objects, REQUESTQ, url);
-		
+		//Stop the client from exiting due to submittedTasks not filled.
+		new Thread(this).start();
 		
 		//check the mode of operation
 		//Dont think this if else is needed as anyways will client post messages at the beginning
@@ -136,8 +137,8 @@ public class Client implements Runnable {
 		// TODO Auto-generated method stub
 		long startTime = System.currentTimeMillis();
 		while (!submittedTasks.isEmpty()) {
-			// System.out.println("Pending Task length[" + submittedTasks.size()
-			// + "]");
+			 //System.out.println("Pending Task length[" + submittedTasks.size()
+			 //+ "]");
 			Task task = TaskQueueFactory.getQueue()
 					.retrieveTask(RESPONSEQ, url);
 			if (task != null) {

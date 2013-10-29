@@ -14,86 +14,38 @@ public class QueueHazelcastUtil {
 	private ClientConfig clientConfig;
 	private HazelcastClient client;
 	private BlockingQueue<Object> customQobj;
-	private BlockingQueue<String> customQstr;
-	private String strQname;
-	private String objQname;
 
-	public QueueHazelcastUtil()  {
+	public QueueHazelcastUtil() {
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
 			this.clientConfig = new ClientConfig();
 			Properties properties = new Properties();
 			properties.load(reader);
 			String serverLoc = properties.getProperty("hazelCastServerList");
 			addHazelServerAddress(serverLoc);
-		}catch( IOException ex){
-			//TODO remove ex.print
+		} catch (IOException ex) {
+			// TODO remove ex.print
 			ex.printStackTrace();
 		}
-		
+
 	}
 
 	public void addHazelServerAddress(String ipAddress_port) {
-		//TODO : add more nodes
+		// TODO : add more nodes
 		clientConfig.addAddress(ipAddress_port);
-	}
-
-	public void putString(String Qname, String Value)
-			throws InterruptedException, IOException {
-		if (customQstr == null) {
-			getStrQueue(Qname);
-			customQstr.put(Value);
-		} else if (customQstr != null && strQname != null
-				&& strQname.equals(Qname)) {
-			customQstr.put(Value);
-		} else {
-			throw new IOException("Qname mismatch");
-		}
-
 	}
 
 	public void putObject(String Qname, Object Value)
 			throws InterruptedException, IOException {
-		if (customQobj == null) {
-			getObjectQueue(Qname);
-			customQobj.put(Value);
-		} else if (customQobj != null && objQname != null
-				&& objQname.equals(Qname)) {
-			customQobj.put(Value);
-		} else {
-			throw new IOException("Qname mismatch");
-		}
+		getObjectQueue(Qname);
+		customQobj.put(Value);
 
-	}
-
-	public String getStrValue(String Qname) throws InterruptedException,
-			IOException {
-		String strValue = null;
-		if (customQstr == null) {
-			getStrQueue(Qname);
-			strValue = customQstr.take();
-		} else if (customQstr != null && strQname != null
-				&& strQname.equals(Qname)) {
-			strValue = customQstr.take();
-		} else {
-			throw new IOException(
-					"Qname mismatch or No Queue by that name present");
-		}
-		return strValue;
 	}
 
 	public Object getObjValue(String Qname) throws InterruptedException,
 			IOException {
 		Object objValue = null;
-		if (customQobj == null) {
-			getObjectQueue(Qname);
-			objValue = customQobj.take();
-		} else if (customQobj != null && objQname != null
-				&& objQname.equals(Qname)) {
-			objValue = customQobj.take();
-		} else {
-			throw new IOException(
-					"Qname mismatch or No Queue by that name present");
-		}
+		getObjectQueue(Qname);
+		objValue = customQobj.take();
 		return objValue;
 	}
 
@@ -102,7 +54,6 @@ public class QueueHazelcastUtil {
 		clientConfig = null;
 		client = null;
 		customQobj = null;
-		customQstr = null;
 	}
 
 	/**
@@ -128,11 +79,12 @@ public class QueueHazelcastUtil {
 					String qname = scanner.nextLine();
 					System.out.println("Enter value");
 					String value = scanner.nextLine();
-					objQueueHazelcastUtil.putString(qname, value);
+					objQueueHazelcastUtil.putObject(qname, value);
 				} else if (input.equals("2")) {
 					System.out.println("Enter Q name");
 					String qname = scanner.nextLine();
-					String value = objQueueHazelcastUtil.getStrValue(qname);
+					String value = (String) objQueueHazelcastUtil
+							.getObjValue(qname);
 					System.out.println(value);
 				} else {
 					keeprunning = false;
@@ -156,17 +108,7 @@ public class QueueHazelcastUtil {
 			getClient();
 		}
 		customQobj = client.getQueue(queuename);
-		objQname = queuename;
 		return customQobj;
-	}
-
-	private BlockingQueue<String> getStrQueue(String queuename) {
-		if (client == null) {
-			getClient();
-		}
-		customQstr = client.getQueue(queuename);
-		strQname = queuename;
-		return customQstr;
 	}
 
 }
