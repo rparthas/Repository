@@ -34,18 +34,18 @@ public class QueueHazelcastUtil {
 		clientConfig.addAddress(ipAddress_port);
 	}
 
-	public void putObject(String Qname, Object Value)
+	public void putObject(String Qname, String clientId, Object Value)
 			throws InterruptedException, IOException {
-		getObjectQueue(Qname);
+		getObjectQueue(clientId + Qname);
 		customQobj.put(Value);
 
 	}
 
-	public Object getObjValue(String Qname) throws InterruptedException,
-			IOException {
+	public Object getObjValue(String Qname, String clientId)
+			throws InterruptedException, IOException {
 		Object objValue = null;
-		getObjectQueue(Qname);
-		objValue = customQobj.take();
+		getObjectQueue(clientId + Qname);
+		objValue = customQobj.poll();
 		return objValue;
 	}
 
@@ -76,16 +76,16 @@ public class QueueHazelcastUtil {
 				String input = scanner.nextLine();
 				if (input.equals("1")) {
 					System.out.println("Enter Q name");
-					String qname = scanner.nextLine();
+					//String qname = scanner.nextLine();
 					System.out.println("Enter value");
-					String value = scanner.nextLine();
-					objQueueHazelcastUtil.putObject(qname, value);
+					//String value = scanner.nextLine();
+					// objQueueHazelcastUtil.putObject(qname, value);
 				} else if (input.equals("2")) {
 					System.out.println("Enter Q name");
-					String qname = scanner.nextLine();
-					String value = (String) objQueueHazelcastUtil
-							.getObjValue(qname);
-					System.out.println(value);
+					//String qname = scanner.nextLine();
+					// String value = (String) objQueueHazelcastUtil
+					// .getObjValue(qname);
+					// System.out.println(value);
 				} else {
 					keeprunning = false;
 					scanner.close();
@@ -109,6 +109,20 @@ public class QueueHazelcastUtil {
 		}
 		customQobj = client.getQueue(queuename);
 		return customQobj;
+	}
+
+	public void putObject(String master, Object queueDetails)
+			throws InterruptedException {
+		getObjectQueue(master);
+		customQobj.put(queueDetails);
+
+	}
+
+	public Object getObjValue(String master) throws InterruptedException {
+		Object objValue = null;
+		getObjectQueue(master);
+		objValue = customQobj.take();
+		return objValue;
 	}
 
 }

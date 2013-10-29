@@ -49,7 +49,7 @@ public class Client implements Runnable {
 	public Client() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
-			 clientName = genUniQID();
+			 clientName = "Test1 ";
 			 submittedTasks = new ConcurrentHashMap<>();
 			Properties properties = new Properties();
 			properties.load(reader);
@@ -108,7 +108,7 @@ public class Client implements Runnable {
 		url = getUrl();
 		qu = new QueueDetails(REQUESTQ, RESPONSEQ, clientName, url);
 		List<Task> objects = readFileAndMakeTasks(fileName, clientName);
-		TaskQueueFactory.getQueue().postTask(objects, REQUESTQ, url);
+		TaskQueueFactory.getQueue().postTask(objects, REQUESTQ, url,clientName);
 		//Stop the client from exiting due to submittedTasks not filled.
 		new Thread(this).start();
 		
@@ -140,7 +140,7 @@ public class Client implements Runnable {
 			 //System.out.println("Pending Task length[" + submittedTasks.size()
 			 //+ "]");
 			Task task = TaskQueueFactory.getQueue()
-					.retrieveTask(RESPONSEQ, url);
+					.retrieveTask(RESPONSEQ, url,clientName);
 			if (task != null) {
 				if (task.isMultiTask()) {
 					for (Task tasks : task.getTasks()) {

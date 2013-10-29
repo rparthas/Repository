@@ -39,11 +39,11 @@ public class HazleCast implements DistributedQueue,TaskQueue {
 	}
 
 	@Override
-	public Task retrieveTask(String qName, String url) {
+	public Task retrieveTask(String qName, String url,String clientId) {
 		// TODO Auto-generated method stub
 		Task task = null;
 		try {
-			Object obj = queueHazelcastUtil.getObjValue(qName);
+			Object obj = queueHazelcastUtil.getObjValue(qName,clientId);
 			if (obj != null && obj instanceof Task) {
 				task = (Task) obj;
 			}
@@ -55,11 +55,11 @@ public class HazleCast implements DistributedQueue,TaskQueue {
 	}
 
 	@Override
-	public void postTask(List<Task> objects, String qName, String url) {
+	public void postTask(List<Task> objects, String qName, String url,String clientId) {
 		// TODO Auto-generated method stub
 		try {
 			for(Object object:objects){
-				queueHazelcastUtil.putObject(qName,object);
+				queueHazelcastUtil.putObject(qName,clientId,object);
 			}
 			
 		} catch (Exception e) {

@@ -96,7 +96,7 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 	}
 
 	@Override
-	public Task retrieveTask(String qName, String url) {
+	public Task retrieveTask(String qName, String url,String clientId) {
 		// TODO Auto-generated method stub
 		Task task = null;
 		Connection connection = null;
@@ -134,7 +134,7 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 	}
 
 	@Override
-	public void postTask(List<Task> objects, String qName, String url) {
+	public void postTask(List<Task> objects, String qName, String url,String clientId) {
 		// TODO Auto-generated method stub
 
 		Connection connection = null;

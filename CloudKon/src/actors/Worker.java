@@ -14,6 +14,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
 import monitor.WorkerMonitor;
 import queue.DistributedQueue;
 import queue.QueueFactory;
@@ -106,7 +107,7 @@ public class Worker extends TimerTask implements Runnable {
 				while (clientCounter < objWorker.numberofWorkerThreads) {
 					Task task = TaskQueueFactory.getQueue().retrieveTask(
 							queueDetails.getRequestQueue(),
-							queueDetails.getUrl());
+							queueDetails.getUrl(),queueDetails.getClientName());
 					if (task != null) {
 						// Starting the Task
 						Future<Boolean> future = objWorker.threadPoolExecutor.submit(task);
@@ -198,7 +199,7 @@ public class Worker extends TimerTask implements Runnable {
 				taskBatch.setTasks(tasks);
 				batches.add(taskBatch);
 				TaskQueueFactory.getQueue().postTask(batches,
-						task.getResponseQueueName(), task.getQueueUrl());
+						task.getResponseQueueName(), task.getQueueUrl(),task.getClientName());
 			}
 			resultMap.remove(client);
 			waitCounter.remove(client);
