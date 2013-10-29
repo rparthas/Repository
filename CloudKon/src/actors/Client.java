@@ -39,7 +39,7 @@ public class Client implements Runnable {
 	QueueDetails qu;
 	long pollTime = 3000;
 	HazelcastClient hazelClinetObj;
-	long numIterations = 1;
+	long numberofWorkerThreads = 1;
 	String fileName;
 	String resouceAllocationMode;
 	SimpleClient cassandraClient;
@@ -49,7 +49,7 @@ public class Client implements Runnable {
 	public Client() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
-			 clientName = "Test1 ";
+			 clientName =genUniQID();
 			 submittedTasks = new ConcurrentHashMap<>();
 			Properties properties = new Properties();
 			properties.load(reader);
@@ -67,8 +67,8 @@ public class Client implements Runnable {
 			objClientMonior = new ClientMonior(clientName, cassandraClient, submittedTasks);
 			new Thread(objClientMonior).start();
 			
-			numIterations = Long.parseLong(properties
-					.getProperty("workerIterations"));
+			numberofWorkerThreads = Long.parseLong(properties
+					.getProperty("numberofWorkerThreads"));
 			pollTime = Long.parseLong(properties.getProperty("clientPollTime"));
 			fileName = properties.getProperty("taskFilePath");
 			resouceAllocationMode = properties
@@ -118,9 +118,11 @@ public class Client implements Runnable {
 			// Get the already running workers
 			long numOfWorkers = WorkerMonitor
 					.getNumOfWorkerThreads(hazelClinetObj);
-			long loopCount = objects.size() / (numOfWorkers * numIterations);
+			System.out.println("numOfWorkers "+numOfWorkers);
+			long loopCount = objects.size() / (numOfWorkers * numberofWorkerThreads);
+			System.out.println("loopCount "+loopCount);
 			loopCount = loopCount == 0 ? 1 : loopCount;
-
+			System.out.println("loopCount "+loopCount);
 			DistributedQueue queue = QueueFactory.getQueue();
 			for (int loopIndex = 0; loopIndex < loopCount; loopIndex++) {
 				queue.pushToQueue(qu);

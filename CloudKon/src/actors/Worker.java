@@ -40,7 +40,7 @@ public class Worker extends TimerTask implements Runnable {
 	private Properties properties;
 	// TODO
 	private final int batchInterval = 10;
-
+	boolean clientNomoreTask=false;
 	private long startTime = 0;
 
 	public Worker() {
@@ -88,6 +88,7 @@ public class Worker extends TimerTask implements Runnable {
 		// Loop never ends once the worker begins execution
 		WorkerMonitor.incrNumOfWorkerThreads(objWorker.hazelClinetObj);
 		DistributedQueue queue = QueueFactory.getQueue();
+		
 		while (true) {
 			// Get one Q information
 			QueueDetails queueDetails = queue.pullFromQueue();
@@ -98,6 +99,7 @@ public class Worker extends TimerTask implements Runnable {
 			// objWorker.interation > 0
 			clientLoop: // runs till there are no tasks in client queue
 			while (true) {
+				objWorker.clientNomoreTask=false;
 				// Pulling only tasks for the worker threads
 				clientCounter = 0;
 				if (queueDetails == null) {
@@ -113,6 +115,7 @@ public class Worker extends TimerTask implements Runnable {
 						Future<Boolean> future = objWorker.threadPoolExecutor.submit(task);
 						objWorker.taskMap.put(task, future);
 					} else {
+						objWorker.clientNomoreTask=true;
 						break clientLoop;// breaks if no tasks in client queue
 					}
 
@@ -192,7 +195,7 @@ public class Worker extends TimerTask implements Runnable {
 			waitCounter.put(client, counter);
 
 			if (tasks != null
-					&& (tasks.size() >= numberofWorkerThreads || counter == batchInterval)) {
+					&& ((tasks.size() >= numberofWorkerThreads || counter == batchInterval)||clientNomoreTask )) {
 				Task task = tasks.get(0);
 				List<Task> batches = new ArrayList<>();
 				Task taskBatch = new TaskBatch();
