@@ -28,7 +28,7 @@ public class Hazel_Node extends Thread {
 		Hazelcast.newHazelcastInstance(cfg);
 		QueueHazelcastUtil utilObj = new QueueHazelcastUtil();
 		HazelcastInstance hazelClinetObj = utilObj.getClient();
-		hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).set(1);
+		hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).set(0);
 	}
 
 	public void run() {

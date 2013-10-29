@@ -119,6 +119,7 @@ public class Client implements Runnable {
 			long numOfWorkers = WorkerMonitor
 					.getNumOfWorkerThreads(hazelClinetObj);
 			System.out.println("numOfWorkers "+numOfWorkers);
+			if(numOfWorkers==0){numOfWorkers=1;}
 			long loopCount = objects.size() / (numOfWorkers * numberofWorkerThreads);
 			System.out.println("loopCount "+loopCount);
 			loopCount = loopCount == 0 ? 1 : loopCount;
