@@ -134,7 +134,7 @@ public class Worker extends TimerTask implements Runnable {
 		for (Task task : taskMap.keySet()) {
 			Future<Boolean> future = taskMap.get(task);
 			try {
-				Boolean result = future.get(1, TimeUnit.SECONDS);
+				Boolean result = future.get();
 				if (result != null && true == result) {
 					taskMap.remove(task);
 					addResult(task);

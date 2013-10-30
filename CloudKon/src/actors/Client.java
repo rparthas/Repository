@@ -2,6 +2,8 @@ package actors;
 
 import static utility.Constants.REQUESTQ;
 import static utility.Constants.RESPONSEQ;
+import static utility.Constants.SLEEP_TASK;
+import static utility.Constants.IO_TASK;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,6 +32,7 @@ import com.hazelcast.client.HazelcastClient;
 
 import entity.QueueDetails;
 import entity.Task;
+import entity.TemplateIOTask;
 import entity.TemplateTask;
 
 public class Client implements Runnable {
@@ -46,6 +49,11 @@ public class Client implements Runnable {
     ClientMonior objClientMonior;
     String clientName ;
     String mqPortnumber;
+    String taskType;
+    String taskCount;
+    String tastLength;
+    String fileSize;
+    String filePath;
 	public Client() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
@@ -75,6 +83,16 @@ public class Client implements Runnable {
 					.getProperty("resouceAllocationMode");
 			mqPortnumber =properties
 					.getProperty("mqPortnumber");
+			taskType =properties
+					.getProperty("taskType");
+			taskCount =properties
+					.getProperty("taskCount");
+			tastLength =properties
+					.getProperty("tastLength");
+			fileSize =properties
+					.getProperty("fileSize");
+			filePath =properties
+					.getProperty("filePath");
 			
 
 		} catch (IOException e) {
@@ -104,10 +122,18 @@ public class Client implements Runnable {
 
 	private void postTasks() throws NumberFormatException,
 			FileNotFoundException {
-		
+		List<Task> objects=null;
 		url = getUrl();
 		qu = new QueueDetails(REQUESTQ, RESPONSEQ, clientName, url);
-		List<Task> objects = readFileAndMakeTasks(fileName, clientName);
+		
+		if (taskType.equalsIgnoreCase(SLEEP_TASK)){
+			objects = makeSleepTasks(clientName);
+		}else if(taskType.equalsIgnoreCase(IO_TASK)){
+			objects = makeIOTasks(clientName);
+		}else{
+			objects = readFileAndMakeTasks(fileName, clientName);
+		}
+		
 		TaskQueueFactory.getQueue().postTask(objects, REQUESTQ, url,clientName);
 		//Stop the client from exiting due to submittedTasks not filled.
 		new Thread(this).start();
@@ -133,6 +159,36 @@ public class Client implements Runnable {
 			// up front
 		}
 
+	}
+
+	private List<Task> makeIOTasks(String clientName) {
+		int itaskCount = Integer.parseInt(taskCount);
+		int counter=0;
+		ArrayList<Task> list = new ArrayList<Task>();
+		Task task = null;
+		while (counter<itaskCount) {
+			task = new TemplateIOTask(genUniQID()+clientName, clientName,  RESPONSEQ,url,
+					Long.parseLong(fileSize),filePath);
+			list.add(task);
+			submittedTasks.put(task.getTaskId(), task);
+			counter++;
+		}
+		return list;
+	}
+
+	private List<Task> makeSleepTasks(String clientName) {
+		int itaskCount = Integer.parseInt(taskCount);
+		int counter=0;
+		ArrayList<Task> list = new ArrayList<Task>();
+		Task task = null;
+		while (counter<itaskCount) {
+			task = new TemplateTask(genUniQID()+clientName, clientName,  RESPONSEQ,url,
+					Long.parseLong(tastLength));
+			list.add(task);
+			submittedTasks.put(task.getTaskId(), task);
+			counter++;
+		}
+		return list;
 	}
 
 	@Override
