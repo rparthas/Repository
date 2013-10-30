@@ -2,6 +2,8 @@ package monitor.cassandra;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class TestCass extends Thread {
 	private String cassServerlist = "127.0.0.1";
@@ -15,8 +17,6 @@ public class TestCass extends Thread {
 	/*	objTestCass.cassandraClient = new SimpleClient();
 		objTestCass.cassandraClient.connect("127.0.0.1");
 		//objTestCass.cassandraClient.DropKey();
-		objTestCass.cassandraClient.createSchema();
-		objTestCass.cassandraClient.close();
 		Thread.sleep(1000);
 		ExecutorService executor = Executors.newFixedThreadPool(100);
 		System.out.println();
@@ -29,10 +29,9 @@ public class TestCass extends Thread {
 		while (!executor.isTerminated()) {
 		}
 		System.out.println("Finished all threads");
-		System.out.println("finshed at "+getTimestamp(new Date()));*/
-		objTestCass = new TestCass();
+		System.out.println("finshed at "+getTimestamp(new Date()));
+		objTestCass = new TestCass();*/
 		objTestCass.cassandraClient = new SimpleClient();
-		
 		objTestCass.cassandraClient.connect("127.0.0.1");
 		objTestCass.cassandraClient.createSchema();
 		objTestCass.cassandraClient.getQStatus();

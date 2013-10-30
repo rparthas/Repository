@@ -130,7 +130,7 @@ public class SimpleClient {
 		session.execute("CREATE TABLE cs554_cloudkon.clientstatus ("
 				+ "client_id text," + "collected_at text,"
 				+ "status text," + "PRIMARY KEY (client_id, collected_at)"
-				+ ")WITH COMPACT STORAGE");
+				+ ")");
 		session.execute("CREATE INDEX ind_status on cs554_cloudkon.clientstatus(status) ;");
 	}
 
