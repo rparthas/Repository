@@ -8,5 +8,7 @@ public final class Constants {
 	public static final String HAZEL_NUMWORKERS ="HAZEL_NUMWORKERS";
 	public static final String SLEEP_TASK ="SLEEP";
 	public static final String IO_TASK ="IO";
+	public static final String STARTED ="STARTED";
+	public static final String FINISHED ="FINISHED";
 	
 }

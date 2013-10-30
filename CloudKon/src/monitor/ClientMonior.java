@@ -2,6 +2,8 @@ package monitor;
 
 import java.util.Date;
 import java.util.Map;
+import static utility.Constants.STARTED;
+import static utility.Constants.FINISHED;
 
 import monitor.cassandra.SimpleClient;
 import entity.Task;
@@ -60,15 +62,33 @@ public class ClientMonior implements Runnable {
 
 	@Override
 	public void run() {
-
+boolean isStartTimerecorded =false;
 		try {
 			while (!clientShutoff) {
+				if(!isStartTimerecorded&&submittedTasks.size()>0){
+					isStartTimerecorded=true;
+					//INSERT CODE TO RECROD START TIME
+					String[] values = { clientID,
+							WorkerMonitor.getTimestamp(new Date()),
+							STARTED };
+					cassandraClient.insertClientStatus(values);
+				}
 				String[] values = { clientID,
 						WorkerMonitor.getTimestamp(new Date()),
 						String.valueOf(submittedTasks.size()) };
 				cassandraClient.insertQlength(values);
+				
+				if(isStartTimerecorded&&submittedTasks.size()==0){
+					isStartTimerecorded=true;
+					String[] valFin = { clientID,
+							WorkerMonitor.getTimestamp(new Date()),
+							FINISHED };
+					cassandraClient.insertClientStatus(valFin);
+				}
+				
 				Thread.sleep(1000);
 			}
+			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -19,6 +19,8 @@ public class SimpleClient {
 			"nStatus" };
 	final String[] columnsQueuetatus = { "client_id", "collected_at",
 			"queueLength" };
+	final String[] columnsClientStatus = { "client_id", "collected_at",
+	"status" };
 
 	public void connect(String node) {
 
@@ -61,6 +63,12 @@ public class SimpleClient {
 	public void insertQlength(String[] values) {
 		Query query = QueryBuilder.insertInto("cs554_cloudkon", "queuestatus")
 				.values(columnsQueuetatus, values);
+		session.execute(query);
+	}
+	
+	public void insertClientStatus(String[] values) {
+		Query query = QueryBuilder.insertInto("cs554_cloudkon", "clientstatus")
+				.values(columnsClientStatus, values);
 		session.execute(query);
 	}
 
@@ -119,6 +127,11 @@ public class SimpleClient {
 				+ "client_id text," + "collected_at text,"
 				+ "queueLength text," + "PRIMARY KEY (client_id, collected_at)"
 				+ ")WITH COMPACT STORAGE");
+		session.execute("CREATE TABLE cs554_cloudkon.clientstatus ("
+				+ "client_id text," + "collected_at text,"
+				+ "status text," + "PRIMARY KEY (client_id, collected_at)"
+				+ ")WITH COMPACT STORAGE");
+		session.execute("CREATE INDEX ind_status on cs554_cloudkon.clientstatus(status) ;");
 	}
 
 }
