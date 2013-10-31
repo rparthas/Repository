@@ -35,7 +35,6 @@ public class Worker extends TimerTask implements Runnable {
 	private Map<String, Integer> waitCounter;
 	private Map<String, List<Task>> resultMap;
 	private Map<Task, Future<Boolean>> taskMap;
-	private int interation;
 	private double workerExecutionLimit;
 	private Properties properties;
 	// TODO
@@ -56,8 +55,6 @@ public class Worker extends TimerTask implements Runnable {
 			this.hazelClinetObj = objQueueHazelcastUtil.getClient();
 			this.numberofWorkerThreads = Integer.parseInt(properties
 					.getProperty("numberofWorkerThreads"));
-			this.interation = Integer.parseInt(properties
-					.getProperty("interationPerWorker"));
 			this.workerExecutionLimit = Double.parseDouble(properties
 					.getProperty("initialLimit", "2"));
 			this.waitCounter = new ConcurrentHashMap<>();
@@ -121,7 +118,6 @@ public class Worker extends TimerTask implements Runnable {
 
 					clientCounter++;
 				}
-				objWorker.interation--;
 			}
 		}
 	}

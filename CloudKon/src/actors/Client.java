@@ -1,5 +1,6 @@
 package actors;
 
+import static utility.Constants.FINISHED;
 import static utility.Constants.REQUESTQ;
 import static utility.Constants.RESPONSEQ;
 import static utility.Constants.SLEEP_TASK;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -226,7 +228,18 @@ public class Client implements Runnable {
 		}
 		// Shutdown Hazel
 		objClientMonior.setClientShutoff(true);
-		HazelcastClient.shutdownAll();
+		hazelClinetObj.shutdown();
+		//HazelcastClient.shutdownAll();
+		String[] valFin = { clientName,
+				WorkerMonitor.getTimestamp(new Date()),
+				FINISHED };
+		cassandraClient.insertClientStatus(valFin);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cassandraClient.close();
 	}
 
