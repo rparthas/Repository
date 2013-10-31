@@ -97,6 +97,20 @@ public class SimpleClient {
 		}
 		System.out.println("counter " + counter);
 	}
+	
+	public void getClientStatus() {
+		Query query = QueryBuilder.select().all()
+				.from("cs554_cloudkon", "clientstatus");
+		ResultSetFuture results = session.executeAsync(query);
+		int counter = 0;
+		for (Row row : results.getUninterruptibly()) {
+			System.out.printf("%s: %s / %s\n", row.getString("client_id"),
+					row.getString("collected_at"), row.getString("status"));
+			counter++;
+		}
+		System.out.println("counter " + counter);
+	}
+	
 	public void getRowsCpu() {
 		Query query = QueryBuilder.select().all()
 				.from("cs554_cloudkon", "cpuUtil");

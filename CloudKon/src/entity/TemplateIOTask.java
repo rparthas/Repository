@@ -8,6 +8,7 @@ public class TemplateIOTask extends Task {
 			String responseQueueName, String queueUrl, long fileSize,String filepath) {
 		super(taskId, clientName, responseQueueName, queueUrl);
 		this.fileSize = fileSize;
+		this.filePath = filepath;
 	}
 
 	private long fileSize = 0;

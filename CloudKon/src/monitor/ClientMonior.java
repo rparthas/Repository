@@ -62,37 +62,48 @@ public class ClientMonior implements Runnable {
 
 	@Override
 	public void run() {
-boolean isStartTimerecorded =false;
+		boolean isStartTimerecorded =false;
+		boolean isEndTimeRecorded =false;
+		int Qlength=0;
 		try {
 			while (!clientShutoff) {
-				if(!isStartTimerecorded&&submittedTasks.size()>0){
+				Qlength=submittedTasks.size();
+				if(!isStartTimerecorded&&Qlength>=1){
 					isStartTimerecorded=true;
 					//INSERT CODE TO RECROD START TIME
 					String[] values = { clientID,
 							WorkerMonitor.getTimestamp(new Date()),
 							STARTED };
 					cassandraClient.insertClientStatus(values);
+					System.out.println("RECROD START TIME");
 				}
 				String[] values = { clientID,
 						WorkerMonitor.getTimestamp(new Date()),
-						String.valueOf(submittedTasks.size()) };
+						String.valueOf(Qlength) };
 				cassandraClient.insertQlength(values);
 				
-				if(isStartTimerecorded&&submittedTasks.size()==0){
-					isStartTimerecorded=true;
+				if(isStartTimerecorded&&Qlength==0){
+					isEndTimeRecorded=true;
 					String[] valFin = { clientID,
 							WorkerMonitor.getTimestamp(new Date()),
 							FINISHED };
 					cassandraClient.insertClientStatus(valFin);
+					System.out.println("RECROD END TIME");
 					//INSERT CODE TO RECROD END TIME
 				}
-				
 				Thread.sleep(1000);
 			}
 			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		if(!isEndTimeRecorded){
+			String[] valFin = { clientID,
+					WorkerMonitor.getTimestamp(new Date()),
+					FINISHED };
+			cassandraClient.insertClientStatus(valFin);
+			//INSERT CODE TO RECROD END TIME
 		}
 		System.out.println("Shutting Client Moniter");
 

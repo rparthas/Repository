@@ -227,7 +227,7 @@ public class Client implements Runnable {
 		// Shutdown Hazel
 		objClientMonior.setClientShutoff(true);
 		HazelcastClient.shutdownAll();
-		System.exit(0);
+		cassandraClient.close();
 	}
 
 	private ArrayList<Task> readFileAndMakeTasks(String fileName,
