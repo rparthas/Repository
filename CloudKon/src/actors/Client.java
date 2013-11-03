@@ -195,7 +195,13 @@ public class Client implements Runnable {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		long startTime = System.currentTimeMillis();
 		while (!submittedTasks.isEmpty()) {
 			 //System.out.println("Pending Task length[" + submittedTasks.size()
@@ -235,7 +241,7 @@ public class Client implements Runnable {
 				FINISHED };
 		cassandraClient.insertClientStatus(valFin);
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

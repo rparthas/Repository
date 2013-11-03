@@ -91,7 +91,7 @@ public class ClientMonior implements Runnable {
 					System.out.println("RECROD END TIME");
 					//INSERT CODE TO RECROD END TIME
 				}
-				Thread.sleep(1000);
+				Thread.sleep(1);
 			}
 			
 		} catch (InterruptedException e) {
