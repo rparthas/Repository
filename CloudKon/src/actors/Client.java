@@ -1,6 +1,7 @@
 package actors;
 
 import static utility.Constants.FINISHED;
+import static utility.Constants.STARTED;
 import static utility.Constants.REQUESTQ;
 import static utility.Constants.RESPONSEQ;
 import static utility.Constants.SLEEP_TASK;
@@ -137,6 +138,10 @@ public class Client implements Runnable {
 		}
 		
 		TaskQueueFactory.getQueue().postTask(objects, REQUESTQ, url,clientName);
+		String[] valFin = { clientName,
+				WorkerMonitor.getTimestamp(new Date()),
+				STARTED };
+		cassandraClient.insertClientStatus(valFin);
 		//Stop the client from exiting due to submittedTasks not filled.
 		new Thread(this).start();
 		

@@ -31,7 +31,13 @@ public class QueueHazelcastUtil {
 
 	public void addHazelServerAddress(String ipAddress_port) {
 		// TODO : add more nodes
-		clientConfig.addAddress(ipAddress_port);
+		String[] splits = ipAddress_port.split("$");
+		System.out.println("splits.size: " + splits.length);
+		for (String asset : splits) {
+			System.out.println("address " +asset);
+			clientConfig.addAddress(asset);
+		}
+		
 	}
 
 	public void putObject(String Qname, String clientId, Object Value)

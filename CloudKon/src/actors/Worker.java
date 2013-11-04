@@ -41,6 +41,7 @@ public class Worker extends TimerTask implements Runnable {
 	private final int batchInterval = 10;
 	boolean clientNomoreTask=false;
 	private long startTime = 0;
+	private String name;
 
 	public Worker() {
 		super();
@@ -61,7 +62,7 @@ public class Worker extends TimerTask implements Runnable {
 			this.resultMap = new ConcurrentHashMap<>();
 			this.taskMap = new ConcurrentHashMap<>();
 			this.startTime = System.nanoTime();
-			new Thread(new WorkerMonitor()).start();
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -80,6 +81,7 @@ public class Worker extends TimerTask implements Runnable {
 	public static void main(String[] args) {
 		Timer timer = new Timer();
 		Worker objWorker = new Worker();
+		objWorker.setName(args[0]);
 		WorkPoller poller = new WorkPoller(objWorker);
 		timer.schedule(objWorker, 2000, 2000);
 		timer.schedule(poller, 0, 2000);
@@ -110,6 +112,7 @@ public class Worker extends TimerTask implements Runnable {
 							queueDetails.getUrl(),queueDetails.getClientName());
 					if (task != null) {
 						// Starting the Task
+						task.setWorker(objWorker.name);
 						Future<Boolean> future = objWorker.threadPoolExecutor.submit(task);
 						objWorker.taskMap.put(task, future);
 					} else {
@@ -121,6 +124,10 @@ public class Worker extends TimerTask implements Runnable {
 				}
 			}
 		}
+	}
+
+	private void setName(String strName) {
+		this.name= "worker "+strName;
 	}
 
 	/**

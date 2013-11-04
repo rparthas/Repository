@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import monitor.WorkerMonitor;
+
 import queue.hazelcast.Hazel_Node;
 
 public class CloudKonStartUp {
@@ -22,17 +24,17 @@ public class CloudKonStartUp {
 			
 			Properties properties = new Properties();
 			properties.load(reader);
-			if(properties.getProperty("numWorkers").equals("true"));{
+			if(properties.getProperty("numWorkers").equals("true")){
 				Hazel_Node.main(args);	
 			}
-			
+			new Thread(new WorkerMonitor()).start();
 			int numClients = Integer.parseInt(properties
 					.getProperty("numClients"));
 			int numWorkers = Integer.parseInt(properties
 					.getProperty("numWorkers"));
 			// Starting workers
 			for (int i = 0; i < numWorkers; i++) {
-				new WorkerStarter().start();
+				new WorkerStarter(i).start();
 			}
 
 			// Starting clients

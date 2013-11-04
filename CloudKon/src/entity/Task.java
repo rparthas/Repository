@@ -19,6 +19,8 @@ public abstract class Task implements Serializable,Callable<Boolean> {
 	private String responseQueueName;
 	
 	private String queueUrl;
+	
+	private String worker;
 	public Task(){
 		
 	}
@@ -86,5 +88,13 @@ public abstract class Task implements Serializable,Callable<Boolean> {
 	
 	public String toString(){
 		return taskId;
+	}
+
+	public String getWorker() {
+		return worker;
+	}
+
+	public void setWorker(String worker) {
+		this.worker = worker;
 	}
 }
