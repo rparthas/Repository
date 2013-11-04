@@ -2,6 +2,8 @@ package entity;
 
 import java.io.RandomAccessFile;
 
+import utility.PrintManager;
+
 public class TemplateIOTask extends Task {
 
 	public TemplateIOTask(String taskId, String clientName,
@@ -20,7 +22,7 @@ public class TemplateIOTask extends Task {
 	public Boolean call() throws Exception {
 		// TODO Auto-generated method stub
 		try {
-			System.out.println(this.getTaskId()+" Creating File of  [" + fileSize + "] Bytes");
+			PrintManager.PrintMessage(this.getTaskId()+" Creating File of  [" + fileSize + "] Bytes");
 			RandomAccessFile f = new RandomAccessFile(filePath+getTaskId()+getClientName(), "rw");
             f.setLength(fileSize);
             f.close();

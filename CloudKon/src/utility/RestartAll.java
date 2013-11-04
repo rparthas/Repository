@@ -1,11 +1,8 @@
 package utility;
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-
-import queue.hazelcast.QueueHazelcastUtil;
 
 import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
 import com.amazonaws.regions.Region;
@@ -20,7 +17,6 @@ import com.amazonaws.services.ec2.model.RebootInstancesRequest;
 import com.amazonaws.services.ec2.model.Reservation;
 import com.amazonaws.services.ec2.model.StopInstancesRequest;
 import com.amazonaws.services.ec2.model.Tag;
-import com.hazelcast.core.HazelcastInstance;
 
 public class RestartAll {
 
@@ -51,16 +47,16 @@ public class RestartAll {
             List<Instance> instances = reservation.getInstances();
             for (Instance instance : instances) {
             	instanceid =instance.getInstanceId();
-                System.out.println(instanceid);
+                PrintManager.PrintMessage(instanceid);
                 instanceIds.add(instanceid);
                List<Tag> abc = instance.getTags();
                for (Tag aaa:abc){
-            	   System.out.println(aaa.getKey()+" : "+aaa.getValue());
+            	   PrintManager.PrintMessage(aaa.getKey()+" : "+aaa.getValue());
                }
 
             }
         } 
-        System.out.println(instanceIds.remove("i-cb45adfc"));
+       instanceIds.remove("i-cb45adfc");
         StopInstancesRequest stopReq = new StopInstancesRequest(instanceIds);
         ec2.stopInstances(stopReq);
 		RebootInstancesRequest requestRe = new RebootInstancesRequest(instanceIds);

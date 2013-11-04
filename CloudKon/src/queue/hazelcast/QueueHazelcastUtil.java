@@ -6,6 +6,8 @@ import java.util.Properties;
 import java.util.Scanner;
 import java.util.concurrent.BlockingQueue;
 
+import utility.PrintManager;
+
 import com.hazelcast.client.ClientConfig;
 import com.hazelcast.client.HazelcastClient;
 
@@ -31,12 +33,8 @@ public class QueueHazelcastUtil {
 
 	public void addHazelServerAddress(String ipAddress_port) {
 		// TODO : add more nodes
-		String[] splits = ipAddress_port.split("$");
-		System.out.println("splits.size: " + splits.length);
-		for (String asset : splits) {
-			System.out.println("address " +asset);
-			clientConfig.addAddress(asset);
-		}
+		String[] splits = ipAddress_port.split(",");
+		clientConfig.addAddress(splits);
 		
 	}
 
@@ -81,17 +79,17 @@ public class QueueHazelcastUtil {
 						.println("Enter 1 for putting a value into Q  and 2 for taking and 3 for Closing");
 				String input = scanner.nextLine();
 				if (input.equals("1")) {
-					System.out.println("Enter Q name");
+					PrintManager.PrintMessage("Enter Q name");
 					//String qname = scanner.nextLine();
-					System.out.println("Enter value");
+					PrintManager.PrintMessage("Enter value");
 					//String value = scanner.nextLine();
 					// objQueueHazelcastUtil.putObject(qname, value);
 				} else if (input.equals("2")) {
-					System.out.println("Enter Q name");
+					PrintManager.PrintMessage("Enter Q name");
 					//String qname = scanner.nextLine();
 					// String value = (String) objQueueHazelcastUtil
 					// .getObjValue(qname);
-					// System.out.println(value);
+					// PrintManager.PrintMessage(value);
 				} else {
 					keeprunning = false;
 					scanner.close();

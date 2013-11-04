@@ -20,6 +20,7 @@ import queue.DistributedQueue;
 import queue.QueueFactory;
 import queue.TaskQueueFactory;
 import queue.hazelcast.QueueHazelcastUtil;
+import utility.PrintManager;
 
 import com.hazelcast.client.HazelcastClient;
 
@@ -152,7 +153,7 @@ public class Worker extends TimerTask implements Runnable {
 		sendBatchResults();
 		if (isTimeLimitReached()) {
 			try {
-				System.out.println("Terminating the instance");
+				PrintManager.PrintMessage("Terminating the instance");
 				WorkerMonitor.decrNumOfWorkerThreads(hazelClinetObj);
 				// Runtime.getRuntime().exec("shutdown -h 0");
 				System.exit(0);

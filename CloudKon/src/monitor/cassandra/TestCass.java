@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Properties;
 import java.util.Scanner;
 
+import utility.PrintManager;
+
 public class TestCass  {
 	SimpleClient cassandraClient;
 	final static SimpleDateFormat sdf = new SimpleDateFormat(
@@ -19,7 +21,7 @@ public class TestCass  {
 			String cassServerlist = properties.getProperty("cassServerlist");
 			objTestCass.cassandraClient = new SimpleClient();
 			objTestCass.cassandraClient.connect(cassServerlist);
-			System.out.println(cassServerlist);
+			PrintManager.PrintMessage(cassServerlist);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -27,14 +29,14 @@ public class TestCass  {
 		Scanner readinp = new Scanner(System.in);
 		boolean breakout=true;
 		while (breakout){
-			System.out.println("----------------------------------------------------");
-			System.out.println("Enter your choice");
-			System.out.println("1 ----------> Reset everything");
-			System.out.println("2 ----------> Report Q status");
-			System.out.println("3 ----------> Report CPU status");
-			System.out.println("4 ----------> Report Client status");
-			System.out.println("5 ----------> Exit");
-			System.out.println("----------------------------------------------------");
+			PrintManager.PrintMessage("----------------------------------------------------");
+			PrintManager.PrintMessage("Enter your choice");
+			PrintManager.PrintMessage("1 ----------> Reset everything");
+			PrintManager.PrintMessage("2 ----------> Report Q status");
+			PrintManager.PrintMessage("3 ----------> Report CPU status");
+			PrintManager.PrintMessage("4 ----------> Report Client status");
+			PrintManager.PrintMessage("5 ----------> Exit");
+			PrintManager.PrintMessage("----------------------------------------------------");
 			String inp = readinp.nextLine();
 			switch (inp){
 			case "1" : objTestCass.cassandraClient.createSchema();

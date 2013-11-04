@@ -1,11 +1,13 @@
 package monitor;
 
+import static utility.Constants.FINISHED;
+import static utility.Constants.STARTED;
+
 import java.util.Date;
 import java.util.Map;
-import static utility.Constants.STARTED;
-import static utility.Constants.FINISHED;
 
 import monitor.cassandra.SimpleClient;
+import utility.PrintManager;
 import entity.Task;
 
 public class ClientMonior implements Runnable {
@@ -75,7 +77,7 @@ public class ClientMonior implements Runnable {
 							WorkerMonitor.getTimestamp(new Date()),
 							STARTED };
 					cassandraClient.insertClientStatus(values);
-					System.out.println("RECROD START TIME");
+					PrintManager.PrintMessage("RECROD START TIME");
 				}
 				String[] values = { clientID,
 						WorkerMonitor.getTimestamp(new Date()),
@@ -88,7 +90,7 @@ public class ClientMonior implements Runnable {
 							WorkerMonitor.getTimestamp(new Date()),
 							FINISHED };
 					cassandraClient.insertClientStatus(valFin);
-					System.out.println("RECROD END TIME");
+					PrintManager.PrintMessage("RECROD END TIME");
 					//INSERT CODE TO RECROD END TIME
 				}
 				Thread.sleep(1);
@@ -105,7 +107,7 @@ public class ClientMonior implements Runnable {
 			cassandraClient.insertClientStatus(valFin);
 			//INSERT CODE TO RECROD END TIME
 		}
-		System.out.println("Shutting Client Moniter");
+		PrintManager.PrintMessage("Shutting Client Moniter");
 
 	}
 }

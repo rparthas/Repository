@@ -16,6 +16,7 @@ import javax.naming.InitialContext;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import utility.Constants;
+import utility.PrintManager;
 import entity.QueueDetails;
 import entity.Task;
 
@@ -39,7 +40,7 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 			MessageProducer producer = session.createProducer(queue);
 			ObjectMessage msg = session.createObjectMessage(queueDetails);
 			producer.send(msg);
-			System.out.println("Messages sent to Distributed ActiveMq");
+			PrintManager.PrintMessage("Messages sent to Distributed ActiveMq");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -78,7 +79,7 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 				ObjectMessage obj = (ObjectMessage) message;
 				details = (QueueDetails) obj.getObject();
 			}
-			System.out.println("Messages received from Distributed ActiveMq");
+			PrintManager.PrintMessage("Messages received from Distributed ActiveMq");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -116,7 +117,7 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 				ObjectMessage obj = (ObjectMessage) message;
 				task = (Task) obj.getObject();
 			}
-			System.out.println("Messages received");
+			PrintManager.PrintMessage("Messages received");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -153,7 +154,7 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 				ObjectMessage msg = session.createObjectMessage(obj);
 				producer.send(msg);
 			}
-			System.out.println("Messages sent to Task Queue");
+			PrintManager.PrintMessage("Messages sent to Task Queue");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

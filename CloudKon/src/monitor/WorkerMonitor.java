@@ -1,5 +1,7 @@
 package monitor;
 
+import static utility.Constants.HAZEL_NUMWORKERS;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.Properties;
 
 import monitor.cassandra.SimpleClient;
+import utility.PrintManager;
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.AWSCredentials;
@@ -25,7 +28,6 @@ import com.amazonaws.services.cloudwatch.model.Dimension;
 import com.amazonaws.services.cloudwatch.model.GetMetricStatisticsRequest;
 import com.amazonaws.services.cloudwatch.model.GetMetricStatisticsResult;
 import com.hazelcast.client.HazelcastClient;
-import static utility.Constants.HAZEL_NUMWORKERS;
 public class WorkerMonitor implements Runnable {
 
 	/**
@@ -44,7 +46,7 @@ public class WorkerMonitor implements Runnable {
 			String cassServerlist = properties.getProperty("cassServerlist");
 			cassandraClient = new SimpleClient();
 			cassandraClient.connect(cassServerlist);
-			System.out.println(cassServerlist);
+			PrintManager.PrintMessage(cassServerlist);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -64,7 +66,7 @@ public class WorkerMonitor implements Runnable {
 		// whoAmI = "i-6e9c5f5b";
 		while (true) {
 			try {
-				System.out.println("-----------------------------------------------");
+				PrintManager.PrintMessage("-----------------------------------------------");
 				monitorInstance(credentials, whoAmI);
 				Thread.sleep(1000 * 60);
 			} catch (Exception e) {
@@ -103,7 +105,7 @@ public class WorkerMonitor implements Runnable {
 				Datapoint dp = (Datapoint) aDataPoint;
 
 				avgCPUUtilization = dp.getAverage();
-				System.out.println(instanceId + " : " + dp.getTimestamp() + " : " + dp.getAverage());
+				PrintManager.PrintMessage(instanceId + " : " + dp.getTimestamp() + " : " + dp.getAverage());
 				recordCassandra(instanceId, avgCPUUtilization, getTimestamp(dp.getTimestamp()));
 			}
 
@@ -134,7 +136,7 @@ public class WorkerMonitor implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(" Instance ID " + EC2Id);
+		PrintManager.PrintMessage(" Instance ID " + EC2Id);
 		return EC2Id;
 	}
 	

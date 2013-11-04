@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import utility.PrintManager;
 import au.com.bytecode.opencsv.CSVWriter;
 
 import com.datastax.driver.core.Cluster;
@@ -35,7 +36,7 @@ public class SimpleClient {
 		Builder cBuilder = Cluster.builder().withPort(9042);
 		String[] splits = node.split(":");
 
-		System.out.println("splits.size: " + splits.length);
+		PrintManager.PrintMessage("splits.size: " + splits.length);
 
 		for (String asset : splits) {
 			cBuilder.addContactPoint(asset);
@@ -90,7 +91,7 @@ public class SimpleClient {
 					row.getString("collected_at"), row.getString("nStatus"));
 			counter++;
 		}
-		System.out.println("counter " + counter);
+		PrintManager.PrintMessage("counter " + counter);
 	}
 
 	public void getQStatus() throws IOException {
@@ -176,14 +177,14 @@ public class SimpleClient {
 	void writeCsvfile(List<String[]> data) throws IOException {
 		String csv = "./output.csv";
 		Scanner readinp = new Scanner(System.in);
-		System.out.println("Enter file name");
+		PrintManager.PrintMessage("Enter file name");
 		String inpFilename = readinp.nextLine();
 		if (inpFilename.length() >= 0) {
 			csv = inpFilename+".csv";
 		}
 		CSVWriter writer = new CSVWriter(new FileWriter(csv));
 		writer.writeAll(data);
-		System.out.println("CSV written successfully.");
+		PrintManager.PrintMessage("CSV written successfully.");
 		writer.close();
 	}
 

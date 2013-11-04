@@ -49,7 +49,7 @@ public class ActiveMqUtility implements Serializable {
 				ObjectMessage obj = (ObjectMessage) message;
 				task = (Task) obj.getObject();
 			}
-			System.out.println("Messages received");
+			PrintManager.PrintMessage("Messages received");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -80,7 +80,7 @@ public class ActiveMqUtility implements Serializable {
 				ObjectMessage msg = session.createObjectMessage(obj);
 				producer.send(msg);
 			}
-			System.out.println("Messages sent");
+			PrintManager.PrintMessage("Messages sent");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

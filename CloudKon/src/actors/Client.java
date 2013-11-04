@@ -1,11 +1,11 @@
 package actors;
 
 import static utility.Constants.FINISHED;
-import static utility.Constants.STARTED;
+import static utility.Constants.IO_TASK;
 import static utility.Constants.REQUESTQ;
 import static utility.Constants.RESPONSEQ;
 import static utility.Constants.SLEEP_TASK;
-import static utility.Constants.IO_TASK;
+import static utility.Constants.STARTED;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -28,9 +28,10 @@ import monitor.cassandra.SimpleClient;
 import queue.DistributedQueue;
 import queue.QueueFactory;
 import queue.TaskQueueFactory;
+import queue.hazelcast.QueueHazelcastUtil;
+import utility.PrintManager;
 
 import com.datastax.driver.core.utils.UUIDs;
-import com.hazelcast.client.ClientConfig;
 import com.hazelcast.client.HazelcastClient;
 
 import entity.QueueDetails;
@@ -65,11 +66,9 @@ public class Client implements Runnable {
 			Properties properties = new Properties();
 			properties.load(reader);
 			// hazelClient
-			ClientConfig clientConfig = new ClientConfig();
-			String serverLoc = properties.getProperty("hazelCastServerList");
-			clientConfig.addAddress(serverLoc);
-			hazelClinetObj = HazelcastClient.newHazelcastClient(clientConfig);
-
+			QueueHazelcastUtil objQueueHazelcastUtil = new QueueHazelcastUtil();
+			hazelClinetObj = objQueueHazelcastUtil.getClient();
+			
 			// Cassandra Client
 			String cassServerlist = properties.getProperty("cassServerlist");
 			cassandraClient = new SimpleClient();
@@ -151,12 +150,12 @@ public class Client implements Runnable {
 			// Get the already running workers
 			long numOfWorkers = WorkerMonitor
 					.getNumOfWorkerThreads(hazelClinetObj);
-			System.out.println("numOfWorkers "+numOfWorkers);
+			PrintManager.PrintMessage("numOfWorkers "+numOfWorkers);
 			if(numOfWorkers==0){numOfWorkers=1;}
 			long loopCount = objects.size() / (numOfWorkers * numberofWorkerThreads);
-			System.out.println("loopCount "+loopCount);
+			PrintManager.PrintMessage("loopCount "+loopCount);
 			loopCount = loopCount == 0 ? 1 : loopCount;
-			System.out.println("loopCount "+loopCount);
+			PrintManager.PrintMessage("loopCount "+loopCount);
 			DistributedQueue queue = QueueFactory.getQueue();
 			for (int loopIndex = 0; loopIndex < loopCount; loopIndex++) {
 				queue.pushToQueue(qu);
@@ -209,19 +208,19 @@ public class Client implements Runnable {
 		
 		long startTime = System.currentTimeMillis();
 		while (!submittedTasks.isEmpty()) {
-			 //System.out.println("Pending Task length[" + submittedTasks.size()
+			 //PrintManager.PrintMessage("Pending Task length[" + submittedTasks.size()
 			 //+ "]");
 			Task task = TaskQueueFactory.getQueue()
 					.retrieveTask(RESPONSEQ, url,clientName);
 			if (task != null) {
 				if (task.isMultiTask()) {
 					for (Task tasks : task.getTasks()) {
-						System.out.println("Task[" + tasks.getTaskId()
+						PrintManager.PrintMessage("Task[" + tasks.getTaskId()
 								+ "]completed");
 						submittedTasks.remove(tasks.getTaskId());
 					}
 				} else {
-					System.out.println("Task[" + task.getTaskId()
+					PrintManager.PrintMessage("Task[" + task.getTaskId()
 							+ "]completed");
 					submittedTasks.remove(task.getTaskId());
 				}
