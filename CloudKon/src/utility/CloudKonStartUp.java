@@ -18,10 +18,14 @@ public class CloudKonStartUp {
 	public static void main(String[] args) throws FileNotFoundException,
 			IOException, InterruptedException {
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
-			Hazel_Node.main(args);
+			
 			
 			Properties properties = new Properties();
 			properties.load(reader);
+			if(properties.getProperty("numWorkers").equals("true"));{
+				Hazel_Node.main(args);	
+			}
+			
 			int numClients = Integer.parseInt(properties
 					.getProperty("numClients"));
 			int numWorkers = Integer.parseInt(properties
