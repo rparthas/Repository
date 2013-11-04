@@ -19,7 +19,7 @@ public class PrintManager {
 				e.printStackTrace();
 			}
 		}else if (mode.equals("development")) {
-			PrintManager.PrintMessage(Message);
+			System.out.println(Message);
 		}
 	}
 }

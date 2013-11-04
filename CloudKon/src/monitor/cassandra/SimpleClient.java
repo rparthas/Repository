@@ -150,7 +150,7 @@ public class SimpleClient {
 	}
 
 	public void createSchema() {
-		session.execute("DROP KEYSPACE cs554_cloudkon ; ");
+		session.execute("DROP KEYSPACE IF EXISTS cs554_cloudkon ; ");
 		session.execute("CREATE KEYSPACE cs554_cloudkon WITH replication "
 				+ "= {'class':'SimpleStrategy', 'replication_factor':2};");
 		session.execute("CREATE TABLE cs554_cloudkon.nodestatus ("
