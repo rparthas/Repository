@@ -74,7 +74,7 @@ public class ClientMonior implements Runnable {
 					isStartTimerecorded=true;
 					//INSERT CODE TO RECROD START TIME
 					String[] values = { clientID,
-							WorkerMonitor.getTimestamp(new Date()),
+							String.valueOf(System.nanoTime()),
 							STARTED };
 					cassandraClient.insertClientStatus(values);
 					PrintManager.PrintMessage("RECROD START TIME");
@@ -87,7 +87,7 @@ public class ClientMonior implements Runnable {
 				if(isStartTimerecorded&&Qlength==0){
 					isEndTimeRecorded=true;
 					String[] valFin = { clientID,
-							WorkerMonitor.getTimestamp(new Date()),
+							String.valueOf(System.nanoTime()),
 							FINISHED };
 					cassandraClient.insertClientStatus(valFin);
 					PrintManager.PrintMessage("RECROD END TIME");
@@ -102,7 +102,7 @@ public class ClientMonior implements Runnable {
 		}
 		if(!isEndTimeRecorded){
 			String[] valFin = { clientID,
-					WorkerMonitor.getTimestamp(new Date()),
+					String.valueOf(System.nanoTime()),
 					FINISHED };
 			cassandraClient.insertClientStatus(valFin);
 			//INSERT CODE TO RECROD END TIME

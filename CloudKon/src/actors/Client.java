@@ -138,7 +138,7 @@ public class Client implements Runnable {
 		
 		TaskQueueFactory.getQueue().postTask(objects, REQUESTQ, url,clientName);
 		String[] valFin = { clientName,
-				WorkerMonitor.getTimestamp(new Date()),
+				String.valueOf(System.nanoTime()),
 				STARTED };
 		cassandraClient.insertClientStatus(valFin);
 		//Stop the client from exiting due to submittedTasks not filled.
@@ -241,7 +241,7 @@ public class Client implements Runnable {
 		hazelClinetObj.shutdown();
 		//HazelcastClient.shutdownAll();
 		String[] valFin = { clientName,
-				WorkerMonitor.getTimestamp(new Date()),
+				String.valueOf(System.nanoTime()),
 				FINISHED };
 		cassandraClient.insertClientStatus(valFin);
 		try {
