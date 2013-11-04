@@ -91,7 +91,6 @@ public class ClientMonior implements Runnable {
 							FINISHED };
 					cassandraClient.insertClientStatus(valFin);
 					PrintManager.PrintMessage("RECROD END TIME");
-					//INSERT CODE TO RECROD END TIME
 				}
 				Thread.sleep(1);
 			}
@@ -105,9 +104,14 @@ public class ClientMonior implements Runnable {
 					String.valueOf(System.nanoTime()),
 					FINISHED };
 			cassandraClient.insertClientStatus(valFin);
-			//INSERT CODE TO RECROD END TIME
 		}
-		PrintManager.PrintMessage("Shutting Client Moniter");
+		PrintManager.PrintMessage(" Shutting Client Moniter");
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 }
