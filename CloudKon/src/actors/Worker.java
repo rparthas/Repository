@@ -61,6 +61,7 @@ public class Worker extends TimerTask implements Runnable {
 			this.resultMap = new ConcurrentHashMap<>();
 			this.taskMap = new ConcurrentHashMap<>();
 			this.startTime = System.nanoTime();
+			new Thread(new WorkerMonitor()).start();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
