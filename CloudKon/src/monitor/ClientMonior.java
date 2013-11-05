@@ -5,6 +5,7 @@ import static utility.Constants.STARTED;
 
 import java.util.Date;
 import java.util.Map;
+import java.util.concurrent.ConcurrentMap;
 
 import monitor.cassandra.SimpleClient;
 import utility.PrintManager;
@@ -16,6 +17,7 @@ public class ClientMonior implements Runnable {
 	private Map<String, Task> submittedTasks;
 	private String clientID;
 	private boolean clientShutoff = false;
+	private ConcurrentMap<String, String> mapClientStatus;
 
 	public SimpleClient getCassandraClient() {
 		return cassandraClient;
@@ -50,11 +52,13 @@ public class ClientMonior implements Runnable {
 	}
 
 	public ClientMonior(String clientID, SimpleClient cassandraClient,
-			Map<String, Task> submittedTasks) {
+			Map<String, Task> submittedTasks,
+			ConcurrentMap<String, String> mapClientStatus) {
 		super();
 		this.clientID = clientID;
 		this.cassandraClient = cassandraClient;
 		this.submittedTasks = submittedTasks;
+		this.setMapClientStatus(mapClientStatus);
 
 	}
 
@@ -64,54 +68,55 @@ public class ClientMonior implements Runnable {
 
 	@Override
 	public void run() {
-		boolean isStartTimerecorded =false;
-		boolean isEndTimeRecorded =false;
-		int Qlength=0;
+		boolean isStartTimerecorded = false;
+		boolean isEndTimeRecorded = false;
+		int Qlength = 0;
 		try {
 			while (!clientShutoff) {
-				Qlength=submittedTasks.size();
-				if(!isStartTimerecorded&&Qlength>=1){
-					isStartTimerecorded=true;
-					//INSERT CODE TO RECROD START TIME
-					String[] values = { clientID,
-							String.valueOf(System.nanoTime()),
-							STARTED };
+				Qlength = submittedTasks.size();
+				if (!isStartTimerecorded && Qlength >= 1) {
+					isStartTimerecorded = true;
+					String time = String.valueOf(System.nanoTime());
+					String[] values = { clientID, time, STARTED };
 					cassandraClient.insertClientStatus(values);
+					mapClientStatus.putIfAbsent(clientID + "," + STARTED, time);
 					PrintManager.PrintMessage("RECROD START TIME");
 				}
 				String[] values = { clientID,
 						WorkerMonitor.getTimestamp(new Date()),
 						String.valueOf(Qlength) };
 				cassandraClient.insertQlength(values);
-				
-				if(isStartTimerecorded&&Qlength==0){
-					isEndTimeRecorded=true;
-					String[] valFin = { clientID,
-							String.valueOf(System.nanoTime()),
-							FINISHED };
+
+				if (isStartTimerecorded && Qlength == 0) {
+					isEndTimeRecorded = true;
+					String time = String.valueOf(System.nanoTime());
+					String[] valFin = { clientID, time, FINISHED };
+					mapClientStatus
+							.putIfAbsent(clientID + "," + FINISHED, time);
 					cassandraClient.insertClientStatus(valFin);
 					PrintManager.PrintMessage("RECROD END TIME");
 				}
 				Thread.sleep(1);
 			}
-			
+
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(!isEndTimeRecorded){
-			String[] valFin = { clientID,
-					String.valueOf(System.nanoTime()),
-					FINISHED };
+		if (!isEndTimeRecorded) {
+			String time = String.valueOf(System.nanoTime());
+			String[] valFin = { clientID, time, FINISHED };
+			mapClientStatus.putIfAbsent(clientID + "," + FINISHED, time);
 			cassandraClient.insertClientStatus(valFin);
 		}
 		PrintManager.PrintMessage(" Shutting Client Moniter");
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	}
 
+	public Map<String, String> getMapClientStatus() {
+		return mapClientStatus;
+	}
+
+	public void setMapClientStatus(ConcurrentMap<String, String> mapClientStatus) {
+		this.mapClientStatus = mapClientStatus;
 	}
 }

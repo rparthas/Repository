@@ -20,20 +20,12 @@ public class CloudKonStartUp {
 	public static void main(String[] args) throws FileNotFoundException,
 			IOException, InterruptedException {
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
-			
-			
 			Properties properties = new Properties();
 			properties.load(reader);
 			if(properties.getProperty("nodePartHazel").equals("true")){
 				Hazel_Node.main(args);	
 			}
-			try {
-				Thread.sleep(6000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			new Thread(new WorkerMonitor()).start();
+			//new Thread(new WorkerMonitor()).start();
 			int numClients = Integer.parseInt(properties
 					.getProperty("numClients"));
 			int numWorkers = Integer.parseInt(properties

@@ -10,5 +10,6 @@ public final class Constants {
 	public static final String IO_TASK ="IO";
 	public static final String STARTED ="STARTED";
 	public static final String FINISHED ="FINISHED";
+	public static final String CLIENT_STATUS ="CLIENT_STATUS";
 	
 }

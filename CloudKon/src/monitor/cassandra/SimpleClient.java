@@ -3,8 +3,10 @@ package monitor.cassandra;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentMap;
 
 import utility.PrintManager;
 import au.com.bytecode.opencsv.CSVWriter;
@@ -113,7 +115,7 @@ public class SimpleClient {
 		writeCsvfile(data);
 	}
 
-	public void getClientStatus() throws IOException {
+	public void getClientStatus(ConcurrentMap<String, String> mapClientStatus) throws IOException {
 		List<String[]> data = new ArrayList<String[]>();
 		String client_id, collected_at, status;
 		Query query = QueryBuilder.select().all()
@@ -123,9 +125,16 @@ public class SimpleClient {
 			client_id = row.getString("client_id");
 			collected_at = row.getString("collected_at");
 			status = row.getString("status");
-			System.out.printf("%s: %s / %s\n", row.getString("client_id"),
-					row.getString("collected_at"), row.getString("status"));
+			System.out.printf("%s: %s / %s\n", client_id,
+					collected_at, status);
 			data.add(new String[] { client_id, collected_at, status });
+		}
+		Collection<String> keySet=mapClientStatus.keySet();
+		for (String key:keySet){
+			String split[]=key.split(",");
+			data.add(new String[] { split[0], mapClientStatus.get(key), split[1],"hazel" });
+			System.out.printf("%s: %s / %s\n", split[0],
+					mapClientStatus.get(key), split[1]);
 		}
 		writeCsvfile(data);
 	}
