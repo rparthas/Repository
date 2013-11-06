@@ -1,6 +1,6 @@
 package utility;
 
-import actors.Worker;
+import actors.WorkerNew;
 
 
 
@@ -14,7 +14,7 @@ public class WorkerStarter extends Thread {
 	public void run(){
 		String[] args ={""+Workercount};
 		try {
-			Worker.main(args);
+			WorkerNew.main(args);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -82,14 +82,15 @@ public class ClientMonior implements Runnable {
 					mapClientStatus.putIfAbsent(clientID + "," + STARTED, time);
 					PrintManager.PrintMessage("RECROD START TIME");
 				}
+				String time = String.valueOf(System.nanoTime());
 				String[] values = { clientID,
-						WorkerMonitor.getTimestamp(new Date()),
+						time,
 						String.valueOf(Qlength) };
 				cassandraClient.insertQlength(values);
 
 				if (isStartTimerecorded && Qlength == 0) {
 					isEndTimeRecorded = true;
-					String time = String.valueOf(System.nanoTime());
+					time = String.valueOf(System.nanoTime());
 					String[] valFin = { clientID, time, FINISHED };
 					mapClientStatus
 							.putIfAbsent(clientID + "," + FINISHED, time);

@@ -253,6 +253,7 @@ public class Client implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		PrintManager.PrintMessage("Shutting down Client"+this.clientName+"at "+time);
 		hazelClinetObj.shutdown();
 		cassandraClient.close();
 	}
