@@ -18,7 +18,7 @@ public class PrintManager {
 				properties.load(reader);
 				mode = properties.getProperty("printMode");
 			} catch (IOException e) {
-				e.printStackTrace();
+				PrintManager.PrintException(e);
 			}
 		}else if (mode.equals("development")) {
 			System.out.println(Message);

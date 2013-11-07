@@ -49,7 +49,7 @@ public class WorkerMonitor implements Runnable {
 			PrintManager.PrintMessage(cassServerlist);
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 	}
 	public static void main(String[] args) {
@@ -110,7 +110,7 @@ public class WorkerMonitor implements Runnable {
 			return avgCPUUtilization;
 
 		} catch (AmazonServiceException ase) {
-			ase.printStackTrace();
+			PrintManager.PrintException(ase);
 		}
 		return 0;
 	}

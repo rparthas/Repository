@@ -80,7 +80,7 @@ public class TestCass {
 			objTestCass.cassandraClient.close();
 			hazelClinetObj.shutdown();
 		} catch (IOException e) {
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 	}
 }

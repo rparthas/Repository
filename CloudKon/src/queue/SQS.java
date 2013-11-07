@@ -38,7 +38,7 @@ public class SQS implements DistributedQueue {
 			req.setMessageBody(msg);
 			sqs.sendMessage(req);
 		} catch (Exception e) {
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 
 	}
