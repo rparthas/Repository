@@ -194,8 +194,8 @@ public class Client implements Runnable {
 		} catch (InterruptedException e) {
 			PrintManager.PrintException(e);
 		}
-		PrintManager.PrintMessage("Shutting down Client" + this.clientName
-				+ "at " + time);
+		PrintManager.PrintMessage("Shutting down Client " + this.clientName
+				+ " at " + time);
 		// Shutdown hazel
 		hazelClinetObj.shutdown();
 		cassandraClient.close();
