@@ -24,7 +24,6 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 
 	@Override
 	public void pushToQueue(QueueDetails queueDetails) {
-		// TODO Auto-generated method stub
 		Connection connection = null;
 		Session session = null;
 		try (FileInputStream fis = new FileInputStream("activemq.properties")) {
@@ -42,23 +41,20 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 			producer.send(msg);
 			PrintManager.PrintMessage("Messages sent to Distributed ActiveMq");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		} finally {
 			try {
 				session.close();
 				connection.stop();
 				connection.close();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				PrintManager.PrintException(e);
 			}
 		}
 	}
 
 	@Override
 	public QueueDetails pullFromQueue() {
-		// TODO Auto-generated method stub
 		QueueDetails details = null;
 		Connection connection = null;
 		Session session = null;
@@ -81,16 +77,14 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 			}
 			PrintManager.PrintMessage("Messages received from Distributed ActiveMq");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		} finally {
 			try {
 				session.close();
 				connection.stop();
 				connection.close();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				PrintManager.PrintException(e);
 			}
 		}
 		return details;
@@ -98,7 +92,6 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 
 	@Override
 	public Task retrieveTask(String qName, String url,String clientId) {
-		// TODO Auto-generated method stub
 		Task task = null;
 		Connection connection = null;
 		Session session = null;
@@ -119,16 +112,14 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 			}
 			PrintManager.PrintMessage("Messages received");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		} finally {
 			try {
 				session.close();
 				connection.stop();
 				connection.close();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				PrintManager.PrintException(e);
 			}
 		}
 		return task;
@@ -136,8 +127,6 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 
 	@Override
 	public void postTask(List<Task> objects, String qName, String url,String clientId) {
-		// TODO Auto-generated method stub
-
 		Connection connection = null;
 		Session session = null;
 		try (FileInputStream fis = new FileInputStream("activemq.properties")) {
@@ -156,16 +145,14 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 			}
 			PrintManager.PrintMessage("Messages sent to Task Queue");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		} finally {
 			try {
 				session.close();
 				connection.stop();
 				connection.close();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				PrintManager.PrintException(e);
 			}
 		}
 	}

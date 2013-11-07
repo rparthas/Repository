@@ -35,7 +35,6 @@ public class WorkerNew {
 	private Map<Task, Future<Boolean>> taskMap;
 	private List<Task> resultTask;
 	private Properties properties;
-	// TODO
 	boolean clientNomoreTask = false;
 	private String name;
 
@@ -57,11 +56,9 @@ public class WorkerNew {
 			this.taskMap = new ConcurrentHashMap<>();
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 
 	}
@@ -137,8 +134,7 @@ public class WorkerNew {
 					objWorker.resultTask.add(task);
 				}
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				PrintManager.PrintException(e);
 			}
 		}
 		sendBatchResults(objWorker.resultTask);

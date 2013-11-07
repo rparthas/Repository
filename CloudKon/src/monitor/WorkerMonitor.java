@@ -62,7 +62,6 @@ public class WorkerMonitor implements Runnable {
 		//AWSCredentials credentials = new BasicAWSCredentials("AKIAISAKBFD5OKP3GJTA", "VfhFqZTqMqNLatuRY+r86SZlwRmJOUCq2WYxVPPR");
 		String whoAmI;
 		whoAmI = retrieveInstanceId();
-		// TODO remove Hard coding
 		// whoAmI = "i-6e9c5f5b";
 		while (true) {
 			try {
@@ -70,9 +69,8 @@ public class WorkerMonitor implements Runnable {
 				monitorInstance(credentials, whoAmI);
 				Thread.sleep(1000 * 60);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				cassandraClient.close();
-				e.printStackTrace();
+				PrintManager.PrintException(e);
 			}
 
 		}
@@ -130,11 +128,9 @@ public class WorkerMonitor implements Runnable {
 			}
 			in.close();
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 		PrintManager.PrintMessage(" Instance ID " + EC2Id);
 		return EC2Id;

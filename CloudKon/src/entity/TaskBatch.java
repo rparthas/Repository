@@ -13,7 +13,6 @@ public class TaskBatch extends Task {
  
 	@Override
 	public Boolean call() throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

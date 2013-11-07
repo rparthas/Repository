@@ -22,8 +22,7 @@ public class Test {
 				PrintManager.PrintMessage("address " +asset);
 			}
 		} catch (IOException ex) {
-			// TODO remove ex.print
-			ex.printStackTrace();
+			PrintManager.PrintException(ex);
 		}
 
 		/*try (BufferedWriter writer = new BufferedWriter(new FileWriter(
@@ -33,8 +32,7 @@ public class Test {
 				writer.newLine();
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+				PrintManager.PrintException(e);
 		} finally {
 
 		}*/

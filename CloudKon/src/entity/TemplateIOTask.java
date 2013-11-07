@@ -20,7 +20,6 @@ public class TemplateIOTask extends Task {
 
 	@Override
 	public Boolean call() throws Exception {
-		// TODO Auto-generated method stub
 		try {
 			PrintManager.PrintMessage(this.getTaskId()+" Creating File of  [" + fileSize + "] Bytes");
 			RandomAccessFile f = new RandomAccessFile(filePath+getTaskId()+getClientName(), "rw");
@@ -28,8 +27,7 @@ public class TemplateIOTask extends Task {
             f.close();
             return true;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 		return false;
 	}

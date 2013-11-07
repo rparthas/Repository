@@ -16,14 +16,12 @@ public class TemplateTask extends Task {
 
 	@Override
 	public Boolean call() throws Exception {
-		// TODO Auto-generated method stub
 		try {
 			PrintManager.PrintMessage(this.getClientName()+this.getTaskId()+" sleeping for[" + sleepTime + "] milli secs on "+this.getWorker());
 			Thread.sleep(sleepTime);
 			return true;
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 		return false;
 	}

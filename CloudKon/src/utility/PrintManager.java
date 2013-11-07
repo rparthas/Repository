@@ -18,12 +18,30 @@ public class PrintManager {
 				properties.load(reader);
 				mode = properties.getProperty("printMode");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}else if (mode.equals("development")) {
 			System.out.println(Message);
 			log.debug(Message);
+		}else if (mode.equals("logOnly")) {
+			log.debug(Message);
+		}
+	}
+	public static void PrintException(Exception exep) {
+		if (mode == null) {
+			try {
+				FileReader reader = new FileReader("CloudKon.properties");
+				Properties properties = new Properties();
+				properties.load(reader);
+				mode = properties.getProperty("printMode");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else if (mode.equals("development")) {
+			exep.printStackTrace();
+			log.error("EXCEPTION", exep);
+		}else if (mode.equals("logOnly")) {
+			log.error("EXCEPTION", exep);
 		}
 	}
 }

@@ -11,8 +11,7 @@ public class ClientStarter extends Thread {
 		try {
 			Client.main(args);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 	}
 

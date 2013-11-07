@@ -44,9 +44,10 @@ public class TestCass {
 				PrintManager.PrintMessage("Enter your choice");
 				PrintManager.PrintMessage("1 ----------> Reset everything");
 				PrintManager.PrintMessage("2 ----------> Report Q status");
-				PrintManager.PrintMessage("3 ----------> Report CPU status");
+				PrintManager.PrintMessage("3 ----------> Report CPU status for all clients ");
 				PrintManager.PrintMessage("4 ----------> Report Client status");
-				PrintManager.PrintMessage("5 ----------> Exit");
+				PrintManager.PrintMessage("5 ----------> Report Q Status for a Cleint");
+				PrintManager.PrintMessage("6 ----------> Exit");
 				PrintManager
 						.PrintMessage("----------------------------------------------------");
 				String inp = readinp.nextLine();
@@ -65,6 +66,11 @@ public class TestCass {
 					objTestCass.cassandraClient.getClientStatus(mapClientStatus);
 					break;
 				case "5":
+					PrintManager.PrintMessage("Enter Client Name for details");
+					String clientName =readinp.nextLine();
+					objTestCass.cassandraClient.getQStatus(clientName);
+					break;
+				case "6":
 					breakout = false;
 					break;
 				}
@@ -72,6 +78,7 @@ public class TestCass {
 			}
 			readinp.close();
 			objTestCass.cassandraClient.close();
+			hazelClinetObj.shutdown();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

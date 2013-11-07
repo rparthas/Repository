@@ -4,27 +4,26 @@ import java.util.List;
 
 import queue.hazelcast.QueueHazelcastUtil;
 import utility.Constants;
+import utility.PrintManager;
 import entity.QueueDetails;
 import entity.Task;
 
 public class HazleCast implements DistributedQueue,TaskQueue {
 
 	static QueueHazelcastUtil queueHazelcastUtil = new QueueHazelcastUtil();
+	private int currentQCount=0;
 
 	@Override
 	public void pushToQueue(QueueDetails queueDetails) {
-		// TODO Auto-generated method stub
 		try {
 			queueHazelcastUtil.putObject(Constants.MASTER, queueDetails);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 	}
 
 	@Override
 	public QueueDetails pullFromQueue() {
-		// TODO Auto-generated method stub
 		QueueDetails queueDetails = null;
 		try {
 			Object obj = queueHazelcastUtil.getObjValue(Constants.MASTER);
@@ -32,15 +31,13 @@ public class HazleCast implements DistributedQueue,TaskQueue {
 				queueDetails = (QueueDetails) obj;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 		return queueDetails;
 	}
 
 	@Override
 	public Task retrieveTask(String qName, String url,String clientId) {
-		// TODO Auto-generated method stub
 		Task task = null;
 		try {
 			Object obj = queueHazelcastUtil.getObjValue(qName,clientId);
@@ -48,24 +45,29 @@ public class HazleCast implements DistributedQueue,TaskQueue {
 				task = (Task) obj;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 		return task;
 	}
 
 	@Override
 	public void postTask(List<Task> objects, String qName, String url,String clientId) {
-		// TODO Auto-generated method stub
 		try {
 			for(Object object:objects){
 				queueHazelcastUtil.putObject(qName,clientId,object);
 			}
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
+	}
+
+	public int getCurrentQCount() {
+		return currentQCount;
+	}
+
+	public void setCurrentQCount(int currentQCount) {
+		this.currentQCount = currentQCount;
 	}
 
 }

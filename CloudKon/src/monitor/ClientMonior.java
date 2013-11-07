@@ -3,7 +3,6 @@ package monitor;
 import static utility.Constants.FINISHED;
 import static utility.Constants.STARTED;
 
-import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentMap;
 
@@ -101,8 +100,7 @@ public class ClientMonior implements Runnable {
 			}
 
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 		if (!isEndTimeRecorded) {
 			String time = String.valueOf(System.nanoTime());

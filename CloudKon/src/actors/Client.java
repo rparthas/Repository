@@ -77,10 +77,9 @@ public class Client implements Runnable {
 			String cassServerlist = properties.getProperty("cassServerlist");
 			cassandraClient = new SimpleClient();
 			cassandraClient.connect(cassServerlist);
-			// Start monitor
+			// Create monitor
 			objClientMonior = new ClientMonior(clientName, cassandraClient,
 					submittedTasks, mapClientStatus);
-			new Thread(objClientMonior).start();
 
 			numberofWorkerThreads = Long.parseLong(properties
 					.getProperty("numberofWorkerThreads"));
@@ -96,8 +95,7 @@ public class Client implements Runnable {
 			filePath = properties.getProperty("filePath");
 
 		} catch (IOException e) {
-			// TODO remove Exceptin
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 	}
 
@@ -105,19 +103,6 @@ public class Client implements Runnable {
 		Client client = new Client();
 		client.postTasks();
 
-	}
-
-	private String getUrl() {
-		InetAddress addr;
-		String ipAddress = null;
-		try {
-			addr = InetAddress.getLocalHost();
-			ipAddress = addr.getHostAddress();
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return "tcp://" + ipAddress + ":" + mqPortnumber;
 	}
 
 	private void postTasks() throws NumberFormatException,
@@ -139,13 +124,7 @@ public class Client implements Runnable {
 		String time = String.valueOf(System.nanoTime());
 		String[] valFin = { clientName, time, STARTED };
 		cassandraClient.insertClientStatus(valFin);
-		mapClientStatus.putIfAbsent(this.clientName + "," + STARTED, time);
-		// Stop the client from exiting due to submittedTasks not filled.
-		new Thread(this).start();
-
 		// check the mode of operation
-		// Dont think this if else is needed as anyways will client post
-		// messages at the beginning
 		if (resouceAllocationMode.equals("static")) {
 			// Get the already running workers
 			long numOfWorkers = WorkerMonitor
@@ -156,18 +135,86 @@ public class Client implements Runnable {
 			}
 			long loopCount = objects.size()
 					/ (numOfWorkers * numberofWorkerThreads);
-			PrintManager.PrintMessage("loopCount " + loopCount);
 			loopCount = loopCount == 0 ? 1 : loopCount;
-			PrintManager.PrintMessage("loopCount " + loopCount);
+			PrintManager.PrintMessage("Number of Cleint Q Advertizements "
+					+ loopCount);
 			DistributedQueue queue = QueueFactory.getQueue();
 			for (int loopIndex = 0; loopIndex < loopCount; loopIndex++) {
 				queue.pushToQueue(qu);
 			}
+			mapClientStatus.putIfAbsent(this.clientName + "," + STARTED, time);
 		} else {
 			// TODO : logic for dynamic allocator where workers wont be stared
 			// up front
 		}
+		// Start monitoring the Submitted Queue length for completion
+		new Thread(this).start();
+		// Start monitoring the Submitted Queue length for reporting
+		new Thread(objClientMonior).start();
 
+	}
+
+	@Override
+	public void run() {
+		long startTime = System.currentTimeMillis();
+		while (!submittedTasks.isEmpty()) {
+			Task task = TaskQueueFactory.getQueue().retrieveTask(RESPONSEQ,
+					url, clientName);
+			if (task != null) {
+				if (task.isMultiTask()) {
+					for (Task tasks : task.getTasks()) {
+						PrintManager.PrintMessage("Task[" + tasks.getTaskId()
+								+ "]completed");
+						submittedTasks.remove(tasks.getTaskId());
+					}
+				} else {
+					PrintManager.PrintMessage("Task[" + task.getTaskId()
+							+ "]completed");
+					submittedTasks.remove(task.getTaskId());
+				}
+
+			}
+			// Advertise tasks again after some time
+			if (System.currentTimeMillis() - startTime > pollTime) {
+				startTime = System.currentTimeMillis();
+				DistributedQueue queue = QueueFactory.getQueue();
+				queue.pushToQueue(qu);
+			}
+
+		}
+		// Shutdown monitor
+		objClientMonior.setClientShutoff(true);
+		String time = String.valueOf(System.nanoTime());
+		String[] valFin = { clientName, String.valueOf(System.nanoTime()),
+				FINISHED };
+		mapClientStatus.putIfAbsent(this.clientName + "," + FINISHED, time);
+		cassandraClient.insertClientStatus(valFin);
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			PrintManager.PrintException(e);
+		}
+		PrintManager.PrintMessage("Shutting down Client" + this.clientName
+				+ "at " + time);
+		// Shutdown hazel
+		hazelClinetObj.shutdown();
+		cassandraClient.close();
+	}
+
+	private ArrayList<Task> readFileAndMakeTasks(String fileName,
+			String clientName) throws NumberFormatException,
+			FileNotFoundException {
+		Scanner s = new Scanner(new File(fileName));
+		ArrayList<Task> list = new ArrayList<Task>();
+		Task task = null;
+		while (s.hasNext()) {
+			task = new TemplateTask(genUniQID() + clientName, clientName,
+					RESPONSEQ, url, Long.parseLong(s.next()));
+			list.add(task);
+			submittedTasks.put(task.getTaskId(), task);
+		}
+		s.close();
+		return list;
 	}
 
 	private List<Task> makeIOTasks(String clientName) {
@@ -200,82 +247,20 @@ public class Client implements Runnable {
 		return list;
 	}
 
-	@Override
-	public void run() {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		long startTime = System.currentTimeMillis();
-		while (!submittedTasks.isEmpty()) {
-			// PrintManager.PrintMessage("Pending Task length[" +
-			// submittedTasks.size()
-			// + "]");
-			Task task = TaskQueueFactory.getQueue().retrieveTask(RESPONSEQ,
-					url, clientName);
-			if (task != null) {
-				if (task.isMultiTask()) {
-					for (Task tasks : task.getTasks()) {
-						PrintManager.PrintMessage("Task[" + tasks.getTaskId()
-								+ "]completed");
-						submittedTasks.remove(tasks.getTaskId());
-					}
-				} else {
-					PrintManager.PrintMessage("Task[" + task.getTaskId()
-							+ "]completed");
-					submittedTasks.remove(task.getTaskId());
-				}
-
-			}
-			/**
-			 * Advertise tasks again after some time
-			 */
-			if (System.currentTimeMillis() - startTime > pollTime) {
-				startTime = System.currentTimeMillis();
-				DistributedQueue queue = QueueFactory.getQueue();
-				queue.pushToQueue(qu);
-			}
-
-		}
-		// Shutdown Hazel
-		objClientMonior.setClientShutoff(true);
-		String time = String.valueOf(System.nanoTime());
-		String[] valFin = { clientName, String.valueOf(System.nanoTime()),
-				FINISHED };
-		mapClientStatus.putIfAbsent(this.clientName + "," + FINISHED, time);
-		cassandraClient.insertClientStatus(valFin);
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		PrintManager.PrintMessage("Shutting down Client"+this.clientName+"at "+time);
-		hazelClinetObj.shutdown();
-		cassandraClient.close();
-	}
-
-	private ArrayList<Task> readFileAndMakeTasks(String fileName,
-			String clientName) throws NumberFormatException,
-			FileNotFoundException {
-		Scanner s = new Scanner(new File(fileName));
-		ArrayList<Task> list = new ArrayList<Task>();
-		Task task = null;
-		while (s.hasNext()) {
-			task = new TemplateTask(genUniQID() + clientName, clientName,
-					RESPONSEQ, url, Long.parseLong(s.next()));
-			list.add(task);
-			submittedTasks.put(task.getTaskId(), task);
-		}
-		s.close();
-		return list;
-	}
-
 	private String genUniQID() {
 		UUID uniqueID = UUIDs.timeBased();
 		return uniqueID.toString();
+	}
+
+	private String getUrl() {
+		InetAddress addr;
+		String ipAddress = null;
+		try {
+			addr = InetAddress.getLocalHost();
+			ipAddress = addr.getHostAddress();
+		} catch (UnknownHostException e) {
+			PrintManager.PrintException(e);
+		}
+		return "tcp://" + ipAddress + ":" + mqPortnumber;
 	}
 }

@@ -51,16 +51,14 @@ public class ActiveMqUtility implements Serializable {
 			}
 			PrintManager.PrintMessage("Messages received");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		} finally {
 			try {
 				session.close();
 				connection.stop();
 				connection.close();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				PrintManager.PrintException(e);
 			}
 		}
 		return task;
@@ -82,16 +80,14 @@ public class ActiveMqUtility implements Serializable {
 			}
 			PrintManager.PrintMessage("Messages sent");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		} finally {
 			try {
 				session.close();
 				connection.stop();
 				connection.close();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				PrintManager.PrintException(e);
 			}
 		}
 	}
@@ -100,8 +96,7 @@ public class ActiveMqUtility implements Serializable {
 		try {
 			ctx = new InitialContext(formProperties());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 
 	}

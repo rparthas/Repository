@@ -16,8 +16,7 @@ public class WorkerStarter extends Thread {
 		try {
 			WorkerNew.main(args);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 	}
 

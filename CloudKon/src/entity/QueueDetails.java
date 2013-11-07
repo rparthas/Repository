@@ -70,7 +70,6 @@ public class QueueDetails implements Serializable {
 
 	public QueueDetails() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public QueueDetails(String str) {
@@ -81,7 +80,6 @@ public class QueueDetails implements Serializable {
 		this.requestQueue= strArray[2];
 		this.responseQueue= strArray[3];
 		
-		// TODO Auto-generated constructor stub
 	}
 
 }

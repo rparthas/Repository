@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import utility.PrintManager;
+
 import com.hazelcast.client.ClientConfig;
 import com.hazelcast.client.HazelcastClient;
 
@@ -21,8 +23,7 @@ public class QueueHazelcastUtil {
 			addHazelServerAddress(serverLoc);
 			client = HazelcastClient.newHazelcastClient(clientConfig);
 		} catch (IOException ex) {
-			// TODO remove ex.print
-			ex.printStackTrace();
+			PrintManager.PrintException(ex);
 		}
 
 	}

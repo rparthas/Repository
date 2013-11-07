@@ -1,6 +1,8 @@
 package queue;
 
 
+import utility.PrintManager;
+
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.regions.Region;
@@ -22,7 +24,6 @@ public class SQS implements DistributedQueue {
 	
 
 	public void pushToQueue(QueueDetails details) {
-		// TODO Auto-generated method stub
 		try {
 			AmazonSQSClient sqs = new AmazonSQSClient(credentials);
 			Region region = Region.getRegion(Regions.US_EAST_1);
@@ -44,7 +45,6 @@ public class SQS implements DistributedQueue {
 
 	@Override
 	public QueueDetails pullFromQueue() {
-		// TODO Auto-generated method stub
 		QueueDetails details = null;
 		try {
 			AmazonSQSClient sqs = new AmazonSQSClient(credentials);
@@ -65,8 +65,7 @@ public class SQS implements DistributedQueue {
 				}
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 		return details;
 	}

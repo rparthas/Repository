@@ -19,6 +19,7 @@ import com.datastax.driver.core.Query;
 import com.datastax.driver.core.ResultSetFuture;
 import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
+import com.datastax.driver.core.querybuilder.Clause;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
 
 public class SimpleClient {
@@ -101,6 +102,26 @@ public class SimpleClient {
 		String client_id, collected_at, queueLength;
 		Query query = QueryBuilder.select().all()
 				.from("cs554_cloudkon", "queuestatus");
+		ResultSetFuture results = session.executeAsync(query);
+		for (Row row : results.getUninterruptibly()) {
+			client_id = row.getString("client_id");
+			collected_at = row.getString("collected_at");
+			queueLength = row.getString("queueLength");
+			System.out
+					.printf("%s: %s / %s\n", row.getString("client_id"),
+							row.getString("collected_at"),
+							row.getString("queueLength"));
+			data.add(new String[] { client_id, collected_at, queueLength });
+		}
+		writeCsvfile(data);
+	}
+	
+	public void getQStatus(String clientName) throws IOException {
+		List<String[]> data = new ArrayList<String[]>();
+		String client_id, collected_at, queueLength;
+		 Clause mywhere = QueryBuilder.eq("client_id", clientName);
+		Query query = QueryBuilder.select().all()
+				.from("cs554_cloudkon", "queuestatus").where(mywhere);
 		ResultSetFuture results = session.executeAsync(query);
 		for (Row row : results.getUninterruptibly()) {
 			client_id = row.getString("client_id");

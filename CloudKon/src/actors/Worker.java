@@ -38,7 +38,6 @@ public class Worker extends TimerTask implements Runnable {
 	private Map<Task, Future<Boolean>> taskMap;
 	private double workerExecutionLimit;
 	private Properties properties;
-	// TODO
 	private final int batchInterval = 10;
 	boolean clientNomoreTask=false;
 	private long startTime = 0;
@@ -65,11 +64,9 @@ public class Worker extends TimerTask implements Runnable {
 			this.startTime = System.nanoTime();
 			
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			PrintManager.PrintException(e);
 		}
 
 	}
@@ -145,8 +142,7 @@ public class Worker extends TimerTask implements Runnable {
 					addResult(task);
 				}
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				PrintManager.PrintException(e);
 			}
 		}
 
@@ -158,15 +154,13 @@ public class Worker extends TimerTask implements Runnable {
 				// Runtime.getRuntime().exec("shutdown -h 0");
 				System.exit(0);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				PrintManager.PrintException(e);
 			}
 		}
 
 	}
 
 	private boolean isTimeLimitReached() {
-		// TODO Auto-generated method stub
 		double runTime = (System.nanoTime()) / (1e9 * 60) - startTime;
 		boolean limitBreached = Math.abs(runTime - workerExecutionLimit) <= 1000;
 		if (limitBreached) {
@@ -189,7 +183,6 @@ public class Worker extends TimerTask implements Runnable {
 	 * Sends result back to the client once the task is completed
 	 */
 	private void sendBatchResults() {
-		// TODO Auto-generated method stub
 		for (String client : resultMap.keySet()) {
 			List<Task> tasks = resultMap.get(client);
 			// or expire time
