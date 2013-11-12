@@ -1,16 +1,16 @@
 package queue;
 
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import com.hazelcast.core.IQueue;
 
 import queue.hazelcast.QueueHazelcastUtil;
 import utility.Constants;
 import utility.PrintManager;
 import utility.TaskSubmitter;
+
+import com.hazelcast.core.IQueue;
+
 import entity.QueueDetails;
 import entity.Task;
 

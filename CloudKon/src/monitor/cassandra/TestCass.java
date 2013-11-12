@@ -33,8 +33,7 @@ public class TestCass {
 			PrintManager.PrintMessage(cassServerlist);
 
 			// hazelClient
-			QueueHazelcastUtil objQueueHazelcastUtil = new QueueHazelcastUtil();
-			HazelcastClient hazelClinetObj = objQueueHazelcastUtil.getClient();
+			HazelcastClient hazelClinetObj = QueueHazelcastUtil.getClient();
 			mapClientStatus = hazelClinetObj.getMap(CLIENT_STATUS);
 
 			Scanner readinp = new Scanner(System.in);
@@ -81,7 +80,6 @@ public class TestCass {
 			readinp.close();
 			objTestCass.cassandraClient.close();
 			hazelClinetObj.shutdown();
-			objQueueHazelcastUtil.shutdown();
 		} catch (IOException e) {
 			PrintManager.PrintException(e);
 		}

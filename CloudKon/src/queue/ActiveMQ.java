@@ -1,7 +1,6 @@
 package queue;
 
 import java.io.FileInputStream;
-import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 

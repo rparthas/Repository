@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -30,7 +29,6 @@ import entity.Task;
 import entity.TaskBatch;
 
 public class WorkerNew {
-	private QueueHazelcastUtil objQueueHazelcastUtil;
 	private HazelcastClient hazelClinetObj;
 	private int numberofWorkerThreads = 10;
 	private ThreadPoolExecutor threadPoolExecutor;
@@ -51,8 +49,7 @@ public class WorkerNew {
 					numberofWorkerThreads, 0L, TimeUnit.MILLISECONDS,
 					new LinkedBlockingQueue<Runnable>());
 			// hazelClient
-			this.objQueueHazelcastUtil = new QueueHazelcastUtil();
-			this.hazelClinetObj = objQueueHazelcastUtil.getClient();
+			this.hazelClinetObj = QueueHazelcastUtil.getClient();
 			this.numberofWorkerThreads = Integer.parseInt(properties
 					.getProperty("numberofWorkerThreads"));
 			this.resultMap = new ConcurrentHashMap<>();
