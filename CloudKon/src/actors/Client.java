@@ -21,6 +21,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.Semaphore;
 
 import monitor.ClientMonior;
 import monitor.WorkerMonitor;
@@ -71,7 +72,7 @@ public class Client implements Runnable {
 			Properties properties = new Properties();
 			properties.load(reader);
 			// hazelClient
-			hazelClinetObj = QueueHazelcastUtil.getClient();
+			hazelClinetObj = new QueueHazelcastUtil().getClient();
 			mapClientStatus = hazelClinetObj.getMap(CLIENT_STATUS);
 
 			numberofWorkerThreads = Long.parseLong(properties
@@ -111,8 +112,10 @@ public class Client implements Runnable {
 	}
 
 	private void postTasks() throws NumberFormatException,
-			FileNotFoundException {
+			FileNotFoundException, InterruptedException {
 		Thread.currentThread().setPriority(8);
+		Semaphore objSemaphore = new Semaphore(0);
+
 		Set<Task> objects = null;
 		url = getUrl();
 		qu = new QueueDetails(REQUESTQ, RESPONSEQ, clientName, url);
@@ -126,8 +129,8 @@ public class Client implements Runnable {
 		}
 		PrintManager.PrintProdMessage("Posting tasks started "
 				+ System.nanoTime());
-		TaskQueueFactory.getQueue()
-				.postTask(objects, REQUESTQ, url, clientName);
+		TaskQueueFactory.getQueue().postTask(objSemaphore, objects, REQUESTQ,
+				url, clientName);
 		PrintManager.PrintProdMessage("Posting tasks finished "
 				+ System.nanoTime());
 		String time = String.valueOf(System.nanoTime());
@@ -144,15 +147,17 @@ public class Client implements Runnable {
 			if (numOfWorkers == 0) {
 				numOfWorkers = 1;
 			}
-			long loopCount = objects.size()
-					/ (numOfWorkers * numberofWorkerThreads);
+			long loopCount = objects.size() 
+					/ (numOfWorkers* numberofWorkerThreads);
 			loopCount = loopCount == 0 ? 1 : loopCount;
 			PrintManager.PrintProdMessage("Number of Cleint Q Advertizements "
 					+ loopCount);
 			DistributedQueue queue = QueueFactory.getQueue();
+			objSemaphore.acquire();
 			for (int loopIndex = 0; loopIndex < loopCount; loopIndex++) {
 				queue.pushToQueue(qu);
 			}
+			PrintManager.PrintProdMessage("Cleint Q Advertizements done");
 			mapClientStatus.putIfAbsent(this.clientName + "," + STARTED, time);
 		} else {
 			// TODO : logic for dynamic allocator where workers wont be stared
@@ -221,9 +226,8 @@ public class Client implements Runnable {
 
 	}
 
-	private Set<Task> readFileAndMakeTasks(String fileName,
-			String clientName) throws NumberFormatException,
-			FileNotFoundException {
+	private Set<Task> readFileAndMakeTasks(String fileName, String clientName)
+			throws NumberFormatException, FileNotFoundException {
 		Scanner s = new Scanner(new File(fileName));
 		Set<Task> list = new ConcurrentHashSet<Task>();
 		Task task = null;

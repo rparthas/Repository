@@ -3,6 +3,7 @@ package queue;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
 
 import queue.hazelcast.QueueHazelcastUtil;
 import utility.Constants;
@@ -57,16 +58,16 @@ public class HazleCast implements DistributedQueue, TaskQueue {
 	}
 
 	@Override
-	public void postTask(Set<Task> objects, String qName, String url,
+	public void postTask(Semaphore objSemaphore,Set<Task> objects, String qName, String url,
 			String clientId) {
 
 		try {
 			IQueue<Object> clientQ = queueHazelcastUtil.getQueue(qName,
 					clientId);
 			if (objects.size() > 1) {
-				ExecutorService executor = Executors.newFixedThreadPool(5);
-				for (int i = 0; i < 5; i++) {
-					Runnable worker = new TaskSubmitter(objects, clientQ);
+				ExecutorService executor = Executors.newFixedThreadPool(1);
+				for (int i = 0; i < 1; i++) {
+					Runnable worker = new TaskSubmitter(objSemaphore,objects, clientQ);
 					executor.execute(worker);
 				}
 				executor.shutdown();

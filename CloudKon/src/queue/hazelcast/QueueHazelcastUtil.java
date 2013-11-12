@@ -12,7 +12,7 @@ import com.hazelcast.core.IQueue;
 
 public class QueueHazelcastUtil {
 
-	private static ClientConfig clientConfig;
+	private ClientConfig clientConfig;
 	private HazelcastClient client;
 
 	public QueueHazelcastUtil() {
@@ -54,7 +54,7 @@ public class QueueHazelcastUtil {
 		return client.getQueue(master).take();
 	}
 	
-	public static HazelcastClient getClient() {
+	public  HazelcastClient getClient() {
 		return HazelcastClient.newHazelcastClient(clientConfig);
 	}
 	public void shutdown(){

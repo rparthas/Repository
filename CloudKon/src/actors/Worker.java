@@ -14,6 +14,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -43,7 +44,7 @@ public class Worker extends TimerTask implements Runnable {
 	boolean clientNomoreTask=false;
 	private long startTime = 0;
 	private String name;
-
+	Semaphore objSemaphore = new Semaphore(1);
 	public Worker() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
@@ -53,7 +54,7 @@ public class Worker extends TimerTask implements Runnable {
 					numberofWorkerThreads, 0L, TimeUnit.MILLISECONDS,
 					new LinkedBlockingQueue<Runnable>());
 			// hazelClient
-			this.hazelClinetObj = QueueHazelcastUtil.getClient();
+			this.hazelClinetObj = new QueueHazelcastUtil().getClient();
 			this.numberofWorkerThreads = Integer.parseInt(properties
 					.getProperty("numberofWorkerThreads"));
 			this.workerExecutionLimit = Double.parseDouble(properties
@@ -200,7 +201,7 @@ public class Worker extends TimerTask implements Runnable {
 				Task taskBatch = new TaskBatch();
 				taskBatch.setTasks(tasks);
 				batches.add(taskBatch);
-				TaskQueueFactory.getQueue().postTask(batches,
+				TaskQueueFactory.getQueue().postTask(objSemaphore,batches,
 						task.getResponseQueueName(), task.getQueueUrl(),task.getClientName());
 			}
 			resultMap.remove(client);
