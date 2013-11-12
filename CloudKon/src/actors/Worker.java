@@ -4,9 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
@@ -29,7 +31,6 @@ import entity.Task;
 import entity.TaskBatch;
 
 public class Worker extends TimerTask implements Runnable {
-	private QueueHazelcastUtil objQueueHazelcastUtil;
 	private HazelcastClient hazelClinetObj;
 	private int numberofWorkerThreads = 10;
 	private ThreadPoolExecutor threadPoolExecutor;
@@ -52,8 +53,7 @@ public class Worker extends TimerTask implements Runnable {
 					numberofWorkerThreads, 0L, TimeUnit.MILLISECONDS,
 					new LinkedBlockingQueue<Runnable>());
 			// hazelClient
-			this.objQueueHazelcastUtil = new QueueHazelcastUtil();
-			this.hazelClinetObj = objQueueHazelcastUtil.getClient();
+			this.hazelClinetObj = QueueHazelcastUtil.getClient();
 			this.numberofWorkerThreads = Integer.parseInt(properties
 					.getProperty("numberofWorkerThreads"));
 			this.workerExecutionLimit = Double.parseDouble(properties
@@ -77,6 +77,7 @@ public class Worker extends TimerTask implements Runnable {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		Thread.currentThread().setPriority(4);
 		Timer timer = new Timer();
 		Worker objWorker = new Worker();
 		objWorker.setName(args[0]);
@@ -195,7 +196,7 @@ public class Worker extends TimerTask implements Runnable {
 			if (tasks != null
 					&& ((tasks.size() >= numberofWorkerThreads || counter == batchInterval)||clientNomoreTask )) {
 				Task task = tasks.get(0);
-				List<Task> batches = new ArrayList<>();
+				Set<Task> batches = new HashSet<Task> ();
 				Task taskBatch = new TaskBatch();
 				taskBatch.setTasks(tasks);
 				batches.add(taskBatch);

@@ -138,7 +138,7 @@ public class SimpleClient {
 
 	public void getClientStatus(ConcurrentMap<String, String> mapClientStatus) throws IOException {
 		List<String[]> data = new ArrayList<String[]>();
-		String client_id, collected_at, status;
+		/*String client_id, collected_at, status;
 		Query query = QueryBuilder.select().all()
 				.from("cs554_cloudkon", "clientstatus");
 		ResultSetFuture results = session.executeAsync(query);
@@ -149,7 +149,7 @@ public class SimpleClient {
 			System.out.printf("%s: %s / %s\n", client_id,
 					collected_at, status);
 			data.add(new String[] { client_id, collected_at, status });
-		}
+		}*/
 		Collection<String> keySet=mapClientStatus.keySet();
 		for (String key:keySet){
 			String split[]=key.split(",");

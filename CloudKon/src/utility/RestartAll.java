@@ -36,7 +36,7 @@ public class RestartAll {
 		DescribeInstancesRequest request = new DescribeInstancesRequest();
 		
         List<String> valuesT1 = new ArrayList<String>();
-        valuesT1.add("hz-nodes");
+        valuesT1.add("worker");
         Filter filter = new Filter("tag-value", valuesT1);
 
         DescribeInstancesResult result = ec2.describeInstances(request.withFilters(filter));
@@ -56,9 +56,9 @@ public class RestartAll {
 
             }
         } 
-       instanceIds.remove("i-cb45adfc");
+      /* instanceIds.remove("i-cb45adfc");
         StopInstancesRequest stopReq = new StopInstancesRequest(instanceIds);
-        ec2.stopInstances(stopReq);
+        ec2.stopInstances(stopReq);*/
 		RebootInstancesRequest requestRe = new RebootInstancesRequest(instanceIds);
 		ec2.rebootInstances(requestRe);
 		

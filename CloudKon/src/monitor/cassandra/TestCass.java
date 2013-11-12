@@ -1,6 +1,7 @@
 package monitor.cassandra;
 
 import static utility.Constants.CLIENT_STATUS;
+import static utility.Constants.HAZEL_NUMWORKERS;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -55,6 +56,7 @@ public class TestCass {
 				case "1":
 					objTestCass.cassandraClient.createSchema();
 					mapClientStatus.clear();
+					hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).set(0);
 					break;
 				case "2":
 					objTestCass.cassandraClient.getQStatus();
@@ -79,6 +81,7 @@ public class TestCass {
 			readinp.close();
 			objTestCass.cassandraClient.close();
 			hazelClinetObj.shutdown();
+			objQueueHazelcastUtil.shutdown();
 		} catch (IOException e) {
 			PrintManager.PrintException(e);
 		}

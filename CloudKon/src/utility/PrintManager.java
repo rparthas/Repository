@@ -27,6 +27,25 @@ public class PrintManager {
 			log.debug(Message);
 		}
 	}
+	public static void PrintProdMessage(String Message) {
+		if (mode == null) {
+			try {
+				FileReader reader = new FileReader("CloudKon.properties");
+				Properties properties = new Properties();
+				properties.load(reader);
+				mode = properties.getProperty("printMode");
+			} catch (IOException e) {
+				PrintManager.PrintException(e);
+			}
+		}else if (mode.equals("development")) {
+			System.out.println(Message);
+			log.debug(Message);
+		}else if (mode.equals("logOnly")) {
+			log.debug(Message);
+		}else if (mode.equals("production")) {
+			log.debug(Message);
+		}
+	}
 	public static void PrintException(Exception exep) {
 		if (mode == null) {
 			try {

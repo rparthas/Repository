@@ -4,9 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -21,6 +23,7 @@ import queue.hazelcast.QueueHazelcastUtil;
 import utility.PrintManager;
 
 import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.util.ConcurrentHashSet;
 
 import entity.QueueDetails;
 import entity.Task;
@@ -146,7 +149,7 @@ public class WorkerNew {
 		if (tasks != null
 				&& ((tasks.size() >= numberofWorkerThreads) || clientNomoreTask)) {
 			Task task = tasks.get(0);
-			List<Task> batches = new ArrayList<>();
+			Set<Task> batches = new ConcurrentHashSet<Task> ();
 			Task taskBatch = new TaskBatch();
 			taskBatch.setTasks(tasks);
 			batches.add(taskBatch);

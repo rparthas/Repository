@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -34,6 +35,7 @@ import utility.PrintManager;
 
 import com.datastax.driver.core.utils.UUIDs;
 import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.util.ConcurrentHashSet;
 
 import entity.QueueDetails;
 import entity.Task;
@@ -59,7 +61,9 @@ public class Client implements Runnable {
 	String tastLength;
 	String fileSize;
 	String filePath;
+	boolean monitoringEnabled;
 	ConcurrentMap<String, String> mapClientStatus;
+	QueueHazelcastUtil objQueueHazelcastUtil;
 
 	public Client() {
 		super();
@@ -69,17 +73,8 @@ public class Client implements Runnable {
 			Properties properties = new Properties();
 			properties.load(reader);
 			// hazelClient
-			QueueHazelcastUtil objQueueHazelcastUtil = new QueueHazelcastUtil();
-			hazelClinetObj = objQueueHazelcastUtil.getClient();
+			hazelClinetObj = QueueHazelcastUtil.getClient();
 			mapClientStatus = hazelClinetObj.getMap(CLIENT_STATUS);
-
-			// Cassandra Client
-			String cassServerlist = properties.getProperty("cassServerlist");
-			cassandraClient = new SimpleClient();
-			cassandraClient.connect(cassServerlist);
-			// Create monitor
-			objClientMonior = new ClientMonior(clientName, cassandraClient,
-					submittedTasks, mapClientStatus);
 
 			numberofWorkerThreads = Long.parseLong(properties
 					.getProperty("numberofWorkerThreads"));
@@ -93,6 +88,18 @@ public class Client implements Runnable {
 			tastLength = properties.getProperty("tastLength");
 			fileSize = properties.getProperty("fileSize");
 			filePath = properties.getProperty("filePath");
+			monitoringEnabled = Boolean.getBoolean(properties
+					.getProperty("monitoringEnabled"));
+			if (monitoringEnabled) {
+				// Cassandra Client
+				String cassServerlist = properties
+						.getProperty("cassServerlist");
+				cassandraClient = new SimpleClient();
+				cassandraClient.connect(cassServerlist);
+				// Create monitor
+				objClientMonior = new ClientMonior(clientName, cassandraClient,
+						submittedTasks, mapClientStatus);
+			}
 
 		} catch (IOException e) {
 			PrintManager.PrintException(e);
@@ -107,10 +114,11 @@ public class Client implements Runnable {
 
 	private void postTasks() throws NumberFormatException,
 			FileNotFoundException {
-		List<Task> objects = null;
+		Thread.currentThread().setPriority(8);
+		Set<Task> objects = null;
 		url = getUrl();
 		qu = new QueueDetails(REQUESTQ, RESPONSEQ, clientName, url);
-
+		PrintManager.PrintMessage("creating tasks");
 		if (taskType.equalsIgnoreCase(SLEEP_TASK)) {
 			objects = makeSleepTasks(clientName);
 		} else if (taskType.equalsIgnoreCase(IO_TASK)) {
@@ -118,25 +126,30 @@ public class Client implements Runnable {
 		} else {
 			objects = readFileAndMakeTasks(fileName, clientName);
 		}
-
+		PrintManager.PrintProdMessage("Posting tasks started "
+				+ System.nanoTime());
 		TaskQueueFactory.getQueue()
 				.postTask(objects, REQUESTQ, url, clientName);
+		PrintManager.PrintProdMessage("Posting tasks finished "
+				+ System.nanoTime());
 		String time = String.valueOf(System.nanoTime());
 		String[] valFin = { clientName, time, STARTED };
-		cassandraClient.insertClientStatus(valFin);
+		if (monitoringEnabled) {
+			cassandraClient.insertClientStatus(valFin);
+		}
 		// check the mode of operation
 		if (resouceAllocationMode.equals("static")) {
 			// Get the already running workers
 			long numOfWorkers = WorkerMonitor
 					.getNumOfWorkerThreads(hazelClinetObj);
-			PrintManager.PrintMessage("numOfWorkers " + numOfWorkers);
+			PrintManager.PrintProdMessage("numOfWorkers " + numOfWorkers);
 			if (numOfWorkers == 0) {
 				numOfWorkers = 1;
 			}
 			long loopCount = objects.size()
 					/ (numOfWorkers * numberofWorkerThreads);
 			loopCount = loopCount == 0 ? 1 : loopCount;
-			PrintManager.PrintMessage("Number of Cleint Q Advertizements "
+			PrintManager.PrintProdMessage("Number of Cleint Q Advertizements "
 					+ loopCount);
 			DistributedQueue queue = QueueFactory.getQueue();
 			for (int loopIndex = 0; loopIndex < loopCount; loopIndex++) {
@@ -150,8 +163,9 @@ public class Client implements Runnable {
 		// Start monitoring the Submitted Queue length for completion
 		new Thread(this).start();
 		// Start monitoring the Submitted Queue length for reporting
-		new Thread(objClientMonior).start();
-
+		if (monitoringEnabled) {
+			new Thread(objClientMonior).start();
+		}
 	}
 
 	@Override
@@ -182,30 +196,38 @@ public class Client implements Runnable {
 			}
 
 		}
-		// Shutdown monitor
-		objClientMonior.setClientShutoff(true);
+		if (monitoringEnabled) {
+			// Shutdown monitor
+			objClientMonior.setClientShutoff(true);
+		}
 		String time = String.valueOf(System.nanoTime());
 		String[] valFin = { clientName, String.valueOf(System.nanoTime()),
 				FINISHED };
 		mapClientStatus.putIfAbsent(this.clientName + "," + FINISHED, time);
-		cassandraClient.insertClientStatus(valFin);
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException e) {
-			PrintManager.PrintException(e);
+		if (monitoringEnabled) {
+			cassandraClient.insertClientStatus(valFin);
+			try {
+				Thread.sleep(6000);
+			} catch (InterruptedException e) {
+				PrintManager.PrintException(e);
+			}
 		}
-		PrintManager.PrintMessage("Shutting down Client " + this.clientName
+
+		PrintManager.PrintProdMessage("Shutting down Client " + this.clientName
 				+ " at " + time);
 		// Shutdown hazel
 		hazelClinetObj.shutdown();
-		cassandraClient.close();
+		if (monitoringEnabled) {
+			cassandraClient.close();
+		}
+
 	}
 
-	private ArrayList<Task> readFileAndMakeTasks(String fileName,
+	private Set<Task> readFileAndMakeTasks(String fileName,
 			String clientName) throws NumberFormatException,
 			FileNotFoundException {
 		Scanner s = new Scanner(new File(fileName));
-		ArrayList<Task> list = new ArrayList<Task>();
+		Set<Task> list = new ConcurrentHashSet<Task>();
 		Task task = null;
 		while (s.hasNext()) {
 			task = new TemplateTask(genUniQID() + clientName, clientName,
@@ -217,10 +239,10 @@ public class Client implements Runnable {
 		return list;
 	}
 
-	private List<Task> makeIOTasks(String clientName) {
+	private Set<Task> makeIOTasks(String clientName) {
 		int itaskCount = Integer.parseInt(taskCount);
 		int counter = 0;
-		ArrayList<Task> list = new ArrayList<Task>();
+		Set<Task> list = new ConcurrentHashSet<Task>();
 		Task task = null;
 		while (counter < itaskCount) {
 			task = new TemplateIOTask(genUniQID() + clientName, clientName,
@@ -232,10 +254,10 @@ public class Client implements Runnable {
 		return list;
 	}
 
-	private List<Task> makeSleepTasks(String clientName) {
+	private Set<Task> makeSleepTasks(String clientName) {
 		int itaskCount = Integer.parseInt(taskCount);
 		int counter = 0;
-		ArrayList<Task> list = new ArrayList<Task>();
+		Set<Task> list = new ConcurrentHashSet<Task>();
 		Task task = null;
 		while (counter < itaskCount) {
 			task = new TemplateTask(genUniQID() + clientName, clientName,

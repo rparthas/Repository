@@ -1,17 +1,23 @@
 package queue;
 
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import com.hazelcast.core.IQueue;
 
 import queue.hazelcast.QueueHazelcastUtil;
 import utility.Constants;
 import utility.PrintManager;
+import utility.TaskSubmitter;
 import entity.QueueDetails;
 import entity.Task;
 
-public class HazleCast implements DistributedQueue,TaskQueue {
+public class HazleCast implements DistributedQueue, TaskQueue {
 
 	static QueueHazelcastUtil queueHazelcastUtil = new QueueHazelcastUtil();
-	private int currentQCount=0;
+	private int currentQCount = 0;
 
 	@Override
 	public void pushToQueue(QueueDetails queueDetails) {
@@ -37,10 +43,10 @@ public class HazleCast implements DistributedQueue,TaskQueue {
 	}
 
 	@Override
-	public Task retrieveTask(String qName, String url,String clientId) {
+	public Task retrieveTask(String qName, String url, String clientId) {
 		Task task = null;
 		try {
-			Object obj = queueHazelcastUtil.getObjValue(qName,clientId);
+			Object obj = queueHazelcastUtil.getObjValue(qName, clientId);
 			if (obj != null && obj instanceof Task) {
 				task = (Task) obj;
 			}
@@ -51,12 +57,25 @@ public class HazleCast implements DistributedQueue,TaskQueue {
 	}
 
 	@Override
-	public void postTask(List<Task> objects, String qName, String url,String clientId) {
+	public void postTask(Set<Task> objects, String qName, String url,
+			String clientId) {
+
 		try {
-			for(Object object:objects){
-				queueHazelcastUtil.putObject(qName,clientId,object);
+			IQueue<Object> clientQ = queueHazelcastUtil.getQueue(qName,
+					clientId);
+			if (objects.size() > 1) {
+				ExecutorService executor = Executors.newFixedThreadPool(5);
+				for (int i = 0; i < 5; i++) {
+					Runnable worker = new TaskSubmitter(objects, clientQ);
+					executor.execute(worker);
+				}
+				executor.shutdown();
+			} else {
+				for (Task task : objects) {
+					clientQ.put(task);
+				}
 			}
-			
+
 		} catch (Exception e) {
 			PrintManager.PrintException(e);
 		}

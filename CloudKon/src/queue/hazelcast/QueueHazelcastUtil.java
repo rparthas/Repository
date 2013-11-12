@@ -8,15 +8,16 @@ import utility.PrintManager;
 
 import com.hazelcast.client.ClientConfig;
 import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.core.IQueue;
 
 public class QueueHazelcastUtil {
 
-	private ClientConfig clientConfig;
+	private static ClientConfig clientConfig;
 	private HazelcastClient client;
 
 	public QueueHazelcastUtil() {
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
-			this.clientConfig = new ClientConfig();
+			clientConfig = new ClientConfig();
 			Properties properties = new Properties();
 			properties.load(reader);
 			String serverLoc = properties.getProperty("hazelCastServerList");
@@ -53,8 +54,14 @@ public class QueueHazelcastUtil {
 		return client.getQueue(master).take();
 	}
 	
-	public HazelcastClient getClient() {
+	public static HazelcastClient getClient() {
 		return HazelcastClient.newHazelcastClient(clientConfig);
 	}
-
+	public void shutdown(){
+		client.shutdown();
+	}
+	public IQueue<Object> getQueue(String Qname, String clientId)
+			throws InterruptedException, IOException {
+		return client.getQueue(clientId + Qname);
+	}
 }

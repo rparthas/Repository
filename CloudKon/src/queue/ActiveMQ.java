@@ -3,6 +3,7 @@ package queue;
 import java.io.FileInputStream;
 import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 import javax.jms.Connection;
 import javax.jms.Message;
@@ -126,7 +127,7 @@ public class ActiveMQ implements DistributedQueue, TaskQueue {
 	}
 
 	@Override
-	public void postTask(List<Task> objects, String qName, String url,String clientId) {
+	public void postTask(Set<Task> objects, String qName, String url,String clientId) {
 		Connection connection = null;
 		Session session = null;
 		try (FileInputStream fis = new FileInputStream("activemq.properties")) {
