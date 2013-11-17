@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -112,9 +113,13 @@ public class Worker extends TimerTask implements Runnable {
 							queueDetails.getUrl(),queueDetails.getClientName());
 					if (task != null) {
 						// Starting the Task
-						task.setWorker(objWorker.name);
-						Future<Boolean> future = objWorker.threadPoolExecutor.submit(task);
-						objWorker.taskMap.put(task, future);
+						if(task.isMultiTask()){
+							for(Task eachTask:task.getTasks()){
+								poolTask(objWorker, eachTask);
+							}
+						}else{
+							poolTask(objWorker, task);
+						}
 					} else {
 						objWorker.clientNomoreTask=true;
 						break clientLoop;// breaks if no tasks in client queue
@@ -124,6 +129,12 @@ public class Worker extends TimerTask implements Runnable {
 				}
 			}
 		}
+	}
+
+	private static void poolTask(Worker objWorker, Task task) {
+		task.setWorker(objWorker.name);
+		Future<Boolean> future = objWorker.threadPoolExecutor.submit(task);
+		objWorker.taskMap.put(task, future);
 	}
 
 	private void setName(String strName) {
@@ -199,7 +210,7 @@ public class Worker extends TimerTask implements Runnable {
 				Task task = tasks.get(0);
 				Set<Task> batches = new HashSet<Task> ();
 				Task taskBatch = new TaskBatch();
-				taskBatch.setTasks(tasks);
+				taskBatch.setTasks(new LinkedHashSet<Task>(tasks));
 				batches.add(taskBatch);
 				TaskQueueFactory.getQueue().postTask(objSemaphore,batches,
 						task.getResponseQueueName(), task.getQueueUrl(),task.getClientName());

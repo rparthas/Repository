@@ -30,7 +30,7 @@ import entity.QueueDetails;
 import entity.Task;
 import entity.TaskBatch;
 
-public class WorkerNew {
+public class BatchedWorker {
 	private HazelcastClient hazelClinetObj;
 	private int numberofWorkerThreads = 10;
 	private ThreadPoolExecutor threadPoolExecutor;
@@ -41,7 +41,7 @@ public class WorkerNew {
 	boolean clientNomoreTask = false;
 	private String name;
 	Semaphore objSemaphore = new Semaphore(1);
-	public WorkerNew() {
+	public BatchedWorker() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
 			properties = new Properties();
@@ -75,7 +75,7 @@ public class WorkerNew {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		WorkerNew objWorker = new WorkerNew();
+		BatchedWorker objWorker = new BatchedWorker();
 		objWorker.setName(args[0]);
 		// timer.schedule(objWorker, 2000, 2000);
 		// timer.schedule(poller, 0, 2000);
@@ -105,11 +105,16 @@ public class WorkerNew {
 						queueDetails.getClientName());
 				if (task != null) {
 					// Starting the Task
-					task.setWorker(objWorker.name);
-					Future<Boolean> future = objWorker.threadPoolExecutor
-							.submit(task);
-					cuncCurrentTask++;
-					objWorker.taskMap.put(task, future);
+					if(task.isMultiTask()){
+						Set<Task> tasks = task.getTasks();
+						for(Task eachTask:tasks){
+							cuncCurrentTask = poolTask(objWorker,
+									cuncCurrentTask, eachTask);
+						}
+					}else{
+						cuncCurrentTask = poolTask(objWorker,
+								cuncCurrentTask, task);
+					}
 				} else {
 					objWorker.clientNomoreTask = true;
 					PrintManager.PrintMessage("No more tasks with "
@@ -126,7 +131,17 @@ public class WorkerNew {
 		}
 	}
 
-	public void sendResults(WorkerNew objWorker) {
+	private static int poolTask(BatchedWorker objWorker, int cuncCurrentTask,
+			Task task) {
+		task.setWorker(objWorker.name);
+		Future<Boolean> future = objWorker.threadPoolExecutor
+				.submit(task);
+		cuncCurrentTask++;
+		objWorker.taskMap.put(task, future);
+		return cuncCurrentTask;
+	}
+
+	public void sendResults(BatchedWorker objWorker) {
 		for (Task task : objWorker.taskMap.keySet()) {
 			Future<Boolean> future = taskMap.get(task);
 			try {
@@ -144,10 +159,10 @@ public class WorkerNew {
 	}
 
 	private void sendBatchResults(List<Task> resultTask) {
-		Set<Task> tasks = new LinkedHashSet<Task>(resultTask);
-		if (tasks != null
-				&& ((tasks.size() >= numberofWorkerThreads) || clientNomoreTask)) {
-			Task task = tasks.iterator().next();
+		if (resultTask != null
+				&& ((resultTask.size() >= numberofWorkerThreads) || clientNomoreTask)) {
+			Set<Task> tasks = new LinkedHashSet<Task>(resultTask);
+			Task task = resultTask.get(0);
 			Set<Task> batches = new ConcurrentHashSet<Task> ();
 			Task taskBatch = new TaskBatch();
 			taskBatch.setTasks(tasks);
