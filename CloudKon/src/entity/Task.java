@@ -1,14 +1,14 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 import java.util.concurrent.Callable;
 
 public abstract class Task implements Serializable,Callable<Boolean> {
 
 	private String taskId;
 	
-	private List<Task> tasks;
+	private Set<Task> tasks;
 	
 	private boolean isMultiTask=false;
 	
@@ -42,11 +42,11 @@ public abstract class Task implements Serializable,Callable<Boolean> {
 		this.taskId = taskId;
 	}
 
-	public List<Task> getTasks() {
+	public Set<Task> getTasks() {
 		return tasks;
 	}
 
-	public void setTasks(List<Task> tasks) {
+	public void setTasks(Set<Task> tasks) {
 		this.tasks = tasks;
 	}
 
