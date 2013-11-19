@@ -38,6 +38,7 @@ import com.hazelcast.util.ConcurrentHashSet;
 
 import entity.QueueDetails;
 import entity.Task;
+import entity.TemplateCassandraTask;
 import entity.TemplateIOTask;
 import entity.TemplateTask;
 
@@ -124,7 +125,10 @@ public class Client implements Runnable {
 			objects = makeSleepTasks(clientName);
 		} else if (taskType.equalsIgnoreCase(IO_TASK)) {
 			objects = makeIOTasks(clientName);
-		} else {
+		}else if(taskType.equalsIgnoreCase(IO_TASK)) {
+			objects = makeCassTasks(clientName,cassandraClient);
+		}
+		else {
 			objects = readFileAndMakeTasks(fileName, clientName);
 		}
 		PrintManager.PrintProdMessage("Posting tasks started "
@@ -162,6 +166,9 @@ public class Client implements Runnable {
 		} else {
 			// TODO : logic for dynamic allocator where workers wont be stared
 			// up front
+			
+			// read from file and record stage information in hazel
+			//dynamic scheduler will allocate nodes and also record the time when allocation was done.
 		}
 		// Start monitoring the Submitted Queue length for completion
 		new Thread(this).start();
@@ -169,6 +176,22 @@ public class Client implements Runnable {
 		if (monitoringEnabled) {
 			new Thread(objClientMonior).start();
 		}
+	}
+
+	private Set<Task> makeCassTasks(String clientName,
+			SimpleClient cassandraClient) {
+		int counter = 0;
+		Set<Task> list = new ConcurrentHashSet<Task>();
+		Task task = null;
+		int itaskCount = Integer.parseInt(taskCount);
+		while (counter < itaskCount) {
+			task = new TemplateCassandraTask(genUniQID() + clientName, clientName,
+					RESPONSEQ, url, Long.parseLong(fileSize), cassandraClient);
+			list.add(task);
+			submittedTasks.put(task.getTaskId(), task);
+			counter++;
+		}
+		return list;
 	}
 
 	@Override

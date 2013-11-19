@@ -21,6 +21,7 @@ import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
 import com.datastax.driver.core.querybuilder.Clause;
 import com.datastax.driver.core.querybuilder.QueryBuilder;
+import com.sun.mail.iap.ByteArray;
 
 public class SimpleClient {
 
@@ -151,12 +152,15 @@ public class SimpleClient {
 			data.add(new String[] { client_id, collected_at, status });
 		}*/
 		Collection<String> keySet=mapClientStatus.keySet();
+		int counter=0;
 		for (String key:keySet){
 			String split[]=key.split(",");
 			data.add(new String[] { split[0], mapClientStatus.get(key), split[1],"hazel" });
 			System.out.printf("%s: %s / %s\n", split[0],
 					mapClientStatus.get(key), split[1]);
+			counter++;
 		}
+		System.out.println("Total count "+counter);
 		writeCsvfile(data);
 	}
 
@@ -201,6 +205,10 @@ public class SimpleClient {
 		session.execute("CREATE TABLE cs554_cloudkon.clientstatus ("
 				+ "client_id text," + "collected_at text," + "status text,"
 				+ "PRIMARY KEY (client_id, collected_at)" + ")");
+		
+		session.execute("CREATE TABLE cs554_cloudkon.dataDump ("
+				+ "client_id uuid," + "data text,"
+				+ ")");
 		session.execute("CREATE INDEX ind_status on cs554_cloudkon.clientstatus(status) ;");
 	}
 
@@ -216,6 +224,11 @@ public class SimpleClient {
 		writer.writeAll(data);
 		PrintManager.PrintMessage("CSV written successfully.");
 		writer.close();
+	}
+
+	public void insertData(ByteArray byteArr) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

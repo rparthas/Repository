@@ -1,5 +1,7 @@
 package actors;
 import static utility.Constants.FINISHED;
+import static utility.Constants.WORKER_STATUS;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,6 +11,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.Semaphore;
@@ -49,6 +52,7 @@ public class WorkerNew implements Runnable {
 	int numWorkersPernode=0;
 	boolean workerSelftermEnabled=false; 
 	Semaphore objSemaphore = new Semaphore(1);
+	private ConcurrentMap<String, Long>  mapWorkerStatus;
 	public WorkerNew() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
@@ -70,7 +74,7 @@ public class WorkerNew implements Runnable {
 					.getProperty("numWorkers"));
 			workerSelftermEnabled = Boolean.parseBoolean(properties
 					.getProperty("workerSelftermEnabled"));
-
+			mapWorkerStatus = hazelClinetObj.getMap(WORKER_STATUS);
 		} catch (FileNotFoundException e) {
 			PrintManager.PrintException(e);
 		} catch (IOException e) {
@@ -92,21 +96,21 @@ public class WorkerNew implements Runnable {
 		WorkerNew objWorker = new WorkerNew();
 		objWorker.setName(args[0]);
 		Thread objTh = new Thread(objWorker);
-		// timer.schedule(objWorker, 2000, 2000);
-		// timer.schedule(poller, 0, 2000);
-		// Loop never ends once the worker begins execution
-		WorkerMonitor.incrNumOfWorkerThreads(objWorker.hazelClinetObj);
 		DistributedQueue queue = QueueFactory.getQueue();
-		objTh.start();
+		//If self termination is enabled then start the idle monitoring thread
+		if(objWorker.workerSelftermEnabled){
+			objTh.start();	
+		}
+		long workerCount = WorkerMonitor.incrNumOfWorkerThreads(objWorker.hazelClinetObj);
+		objWorker.recordWorkerCount(workerCount);
+		// Loop never ends once the worker begins execution
 		while (true) {
 			// Get one Q information
 			PrintManager.PrintMessage(objWorker.name+" Getting Queue Information for Client");
 			QueueDetails queueDetails = queue.pullFromQueue();
 			int cuncCurrentTask = 0;
-			// loop for getting the tasks for the client mentioned in Q
+			// loop for getting the tasks for the client mentioned in Q 
 			// information we got.
-			// iteration per worker
-			// objWorker.interation > 0
 			while (true) {
 				objWorker.clientNomoreTask = false;
 				// Pulling only tasks for the worker threads
@@ -197,11 +201,11 @@ public class WorkerNew implements Runnable {
 					if (wastedseconds >= workerWasteLimit) {
 						// Terminate worker
 						breakflag = true;
-						WorkerMonitor
+						long workCount = WorkerMonitor
 								.decrNumOfWorkerThreads(this.hazelClinetObj);
 						String whoami ="test";
 						//whoami = WorkerMonitor.retrieveInstanceId();
-						
+					    recordWorkerCount(workCount);
 						Map<String,String> amiMap= hazelClinetObj.getMap(whoami);
 						amiMap.put(name, FINISHED);
 						while(hazelClinetObj.getMap(whoami).size()<numWorkersPernode){
@@ -219,6 +223,11 @@ public class WorkerNew implements Runnable {
 			PrintManager.PrintException(e);
 		}
 
+	}
+
+	private void recordWorkerCount(long workCount) {
+		String time = String.valueOf(System.nanoTime());
+		mapWorkerStatus.putIfAbsent(time,workCount);
 	}
 
 	private void terminateMe(String whoami) {
