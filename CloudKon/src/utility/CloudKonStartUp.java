@@ -25,7 +25,7 @@ public class CloudKonStartUp {
 			if(properties.getProperty("nodePartHazel").equals("true")){
 				Hazel_Node.main(args);	
 			}
-			//new Thread(new WorkerMonitor()).start();
+			
 			int numClients = Integer.parseInt(properties
 					.getProperty("numClients"));
 			int numWorkers = Integer.parseInt(properties
@@ -34,7 +34,11 @@ public class CloudKonStartUp {
 			for (int i = 0; i < numWorkers; i++) {
 				new WorkerStarter(i).start();
 			}
-
+			//starting CPU monitor for workers
+			if(properties.getProperty("monitoringEnabled").equals("true")&&numWorkers>0){
+				new Thread(new WorkerMonitor()).start();
+			}
+			
 			// Starting clients
 			for (int i = 0; i < numClients; i++) {
 				new ClientStarter().start();

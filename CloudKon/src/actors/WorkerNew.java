@@ -1,5 +1,5 @@
 package actors;
-
+import static utility.Constants.FINISHED;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,6 +22,12 @@ import queue.TaskQueueFactory;
 import queue.hazelcast.QueueHazelcastUtil;
 import utility.PrintManager;
 
+import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.ec2.AmazonEC2;
+import com.amazonaws.services.ec2.AmazonEC2Client;
+import com.amazonaws.services.ec2.model.TerminateInstancesRequest;
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.util.ConcurrentHashSet;
 
@@ -29,7 +35,7 @@ import entity.QueueDetails;
 import entity.Task;
 import entity.TaskBatch;
 
-public class WorkerNew {
+public class WorkerNew implements Runnable {
 	private HazelcastClient hazelClinetObj;
 	private int numberofWorkerThreads = 10;
 	private ThreadPoolExecutor threadPoolExecutor;
@@ -39,6 +45,9 @@ public class WorkerNew {
 	private Properties properties;
 	boolean clientNomoreTask = false;
 	private String name;
+	int workerWasteLimit = 0;
+	int numWorkersPernode=0;
+	boolean workerSelftermEnabled=false; 
 	Semaphore objSemaphore = new Semaphore(1);
 	public WorkerNew() {
 		super();
@@ -55,6 +64,12 @@ public class WorkerNew {
 					.getProperty("numberofWorkerThreads"));
 			this.resultMap = new ConcurrentHashMap<>();
 			this.taskMap = new ConcurrentHashMap<>();
+			workerWasteLimit = Integer.parseInt(properties
+					.getProperty("workerWasteLimit"));
+			numWorkersPernode = Integer.parseInt(properties
+					.getProperty("numWorkers"));
+			workerSelftermEnabled = Boolean.parseBoolean(properties
+					.getProperty("workerSelftermEnabled"));
 
 		} catch (FileNotFoundException e) {
 			PrintManager.PrintException(e);
@@ -76,12 +91,13 @@ public class WorkerNew {
 	public static void main(String[] args) {
 		WorkerNew objWorker = new WorkerNew();
 		objWorker.setName(args[0]);
+		Thread objTh = new Thread(objWorker);
 		// timer.schedule(objWorker, 2000, 2000);
 		// timer.schedule(poller, 0, 2000);
 		// Loop never ends once the worker begins execution
 		WorkerMonitor.incrNumOfWorkerThreads(objWorker.hazelClinetObj);
 		DistributedQueue queue = QueueFactory.getQueue();
-
+		objTh.start();
 		while (true) {
 			// Get one Q information
 			PrintManager.PrintMessage(objWorker.name+" Getting Queue Information for Client");
@@ -160,8 +176,64 @@ public class WorkerNew {
 	public boolean isBusy() {
 		boolean isBusy = taskMap.isEmpty() && resultMap.isEmpty()
 				&& threadPoolExecutor.getActiveCount() <= 0;
-		return isBusy;
+		return !isBusy;
+	}
+
+	@Override
+	public void run() {
+		int wastedseconds = 0;
+		
+		boolean breakflag = false;
+		try {
+			Thread.sleep(3000);
+			while (!breakflag) {
+				boolean busyFalg = isBusy();
+				PrintManager.PrintMessage("Worker status is :" + busyFalg);
+				if (busyFalg) {
+					wastedseconds = 0;
+					PrintManager.PrintProdMessage("Checking busy state");
+				} else {
+					wastedseconds++;
+					if (wastedseconds >= workerWasteLimit) {
+						// Terminate worker
+						breakflag = true;
+						WorkerMonitor
+								.decrNumOfWorkerThreads(this.hazelClinetObj);
+						String whoami ="test";
+						//whoami = WorkerMonitor.retrieveInstanceId();
+						
+						Map<String,String> amiMap= hazelClinetObj.getMap(whoami);
+						amiMap.put(name, FINISHED);
+						while(hazelClinetObj.getMap(whoami).size()<numWorkersPernode){
+							PrintManager.PrintProdMessage(""+hazelClinetObj.getMap(whoami).size());
+						}
+						hazelClinetObj.shutdown();
+						PrintManager.PrintProdMessage("Terminating worker");
+						//terminateMe(whoami);
+						System.exit(0);
+					}
+				}
+				Thread.sleep(1000);
+			}
+		} catch (InterruptedException e) {
+			PrintManager.PrintException(e);
+		}
+
+	}
+
+	private void terminateMe(String whoami) {
+		List<String> instanceIdTerms = new ArrayList<>();
+		AmazonEC2 ec2 = new AmazonEC2Client(
+				new ClasspathPropertiesFileCredentialsProvider());
+		Region usWest2 = Region.getRegion(Regions.US_WEST_2);
+		ec2.setRegion(usWest2);
+		// adding the current instance id
+		instanceIdTerms.add(whoami);
+		TerminateInstancesRequest term = new TerminateInstancesRequest(
+				instanceIdTerms);
+		// close all cleints and other things before this.
+		// termination request sent.
+		ec2.terminateInstances(term);
 	}
 
 }
-
