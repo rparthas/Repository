@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import monitor.WorkerMonitor;
+
 import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
@@ -17,6 +19,7 @@ import com.amazonaws.services.ec2.model.RebootInstancesRequest;
 import com.amazonaws.services.ec2.model.Reservation;
 import com.amazonaws.services.ec2.model.StopInstancesRequest;
 import com.amazonaws.services.ec2.model.Tag;
+import com.amazonaws.services.ec2.model.TerminateInstancesRequest;
 
 public class RestartAll {
 
@@ -58,7 +61,13 @@ public class RestartAll {
         } 
       /* instanceIds.remove("i-cb45adfc");
         StopInstancesRequest stopReq = new StopInstancesRequest(instanceIds);
-        ec2.stopInstances(stopReq);*/
+        ec2.stopInstances(stopReq);
+        
+        List<String> instanceIdTerms = new ArrayList<>();
+        instanceIdTerms.add(WorkerMonitor.retrieveInstanceId());
+        TerminateInstancesRequest term = new TerminateInstancesRequest(instanceIdTerms);
+        ec2.terminateInstances(term);*/
+        
 		RebootInstancesRequest requestRe = new RebootInstancesRequest(instanceIds);
 		ec2.rebootInstances(requestRe);
 		
