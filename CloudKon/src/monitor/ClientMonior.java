@@ -96,7 +96,7 @@ public class ClientMonior implements Runnable {
 					cassandraClient.insertClientStatus(valFin);
 					PrintManager.PrintMessage("RECROD END TIME");
 				}
-				Thread.sleep(1);
+				Thread.sleep(1000);
 			}
 
 		} catch (InterruptedException e) {

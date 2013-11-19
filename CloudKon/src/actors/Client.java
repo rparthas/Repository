@@ -1,6 +1,7 @@
 package actors;
 
 import static utility.Constants.CLIENT_STATUS;
+import static utility.Constants.THROUGHPUT_STATUS;
 import static utility.Constants.FINISHED;
 import static utility.Constants.IO_TASK;
 import static utility.Constants.REQUESTQ;
@@ -63,6 +64,7 @@ public class Client implements Runnable {
 	String filePath;
 	boolean monitoringEnabled;
 	ConcurrentMap<String, String> mapClientStatus;
+	ConcurrentMap<String, String> mapThroughPutStatus;
 	QueueHazelcastUtil objQueueHazelcastUtil;
 
 	public Client() {
@@ -75,6 +77,7 @@ public class Client implements Runnable {
 			// hazelClient
 			hazelClinetObj = new QueueHazelcastUtil().getClient();
 			mapClientStatus = hazelClinetObj.getMap(CLIENT_STATUS);
+			mapThroughPutStatus = hazelClinetObj.getMap(THROUGHPUT_STATUS);
 
 			numberofWorkerThreads = Long.parseLong(properties
 					.getProperty("numberofWorkerThreads"));
@@ -125,10 +128,9 @@ public class Client implements Runnable {
 			objects = makeSleepTasks(clientName);
 		} else if (taskType.equalsIgnoreCase(IO_TASK)) {
 			objects = makeIOTasks(clientName);
-		}else if(taskType.equalsIgnoreCase(IO_TASK)) {
-			objects = makeCassTasks(clientName,cassandraClient);
-		}
-		else {
+		} else if (taskType.equalsIgnoreCase(IO_TASK)) {
+			objects = makeCassTasks(clientName, cassandraClient);
+		} else {
 			objects = readFileAndMakeTasks(fileName, clientName);
 		}
 		PrintManager.PrintProdMessage("Posting tasks started "
@@ -151,8 +153,8 @@ public class Client implements Runnable {
 			if (numOfWorkers == 0) {
 				numOfWorkers = 1;
 			}
-			long loopCount = objects.size() 
-					/ (numOfWorkers* numberofWorkerThreads);
+			long loopCount = objects.size()
+					/ (numOfWorkers * numberofWorkerThreads);
 			loopCount = loopCount == 0 ? 1 : loopCount;
 			PrintManager.PrintProdMessage("Number of Cleint Q Advertizements "
 					+ loopCount);
@@ -166,9 +168,10 @@ public class Client implements Runnable {
 		} else {
 			// TODO : logic for dynamic allocator where workers wont be stared
 			// up front
-			
+
 			// read from file and record stage information in hazel
-			//dynamic scheduler will allocate nodes and also record the time when allocation was done.
+			// dynamic scheduler will allocate nodes and also record the time
+			// when allocation was done.
 		}
 		// Start monitoring the Submitted Queue length for completion
 		new Thread(this).start();
@@ -185,8 +188,9 @@ public class Client implements Runnable {
 		Task task = null;
 		int itaskCount = Integer.parseInt(taskCount);
 		while (counter < itaskCount) {
-			task = new TemplateCassandraTask(genUniQID() + clientName, clientName,
-					RESPONSEQ, url, Long.parseLong(fileSize), cassandraClient);
+			task = new TemplateCassandraTask(genUniQID() + clientName,
+					clientName, RESPONSEQ, url, Long.parseLong(fileSize),
+					cassandraClient);
 			list.add(task);
 			submittedTasks.put(task.getTaskId(), task);
 			counter++;
@@ -197,7 +201,18 @@ public class Client implements Runnable {
 	@Override
 	public void run() {
 		long startTime = System.currentTimeMillis();
+		long startMeasureTime = System.currentTimeMillis();
+		long currtime = startMeasureTime;
+		int counter = 0;
 		while (!submittedTasks.isEmpty()) {
+			currtime= System.currentTimeMillis();
+			if (currtime - startMeasureTime >= 1000) {
+				startMeasureTime = currtime;
+				PrintManager.PrintMessage("Recording throughput " +currtime + " "+counter);
+				mapThroughPutStatus.putIfAbsent(String.valueOf(currtime),
+						String.valueOf(counter));
+				counter = 0;
+			}
 			Task task = TaskQueueFactory.getQueue().retrieveTask(RESPONSEQ,
 					url, clientName);
 			if (task != null) {
@@ -206,11 +221,13 @@ public class Client implements Runnable {
 						PrintManager.PrintMessage("Task[" + tasks.getTaskId()
 								+ "]completed");
 						submittedTasks.remove(tasks.getTaskId());
+						counter++;
 					}
 				} else {
 					PrintManager.PrintMessage("Task[" + task.getTaskId()
 							+ "]completed");
 					submittedTasks.remove(task.getTaskId());
+					counter++;
 				}
 
 			}

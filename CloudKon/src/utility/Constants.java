@@ -11,6 +11,7 @@ public final class Constants {
 	public static final String STARTED ="STARTED";
 	public static final String FINISHED ="FINISHED";
 	public static final String CLIENT_STATUS ="CLIENT_STATUS";
+	public static final String THROUGHPUT_STATUS ="THROUGHPUT_STATUS";
 	public static final String WORKER_STATUS ="WORKER_STATUS";
 	
 }

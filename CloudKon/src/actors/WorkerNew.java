@@ -211,6 +211,7 @@ public class WorkerNew implements Runnable {
 						amiMap.put(name, FINISHED);
 						while(hazelClinetObj.getMap(whoami).size()<numWorkersPernode){
 							PrintManager.PrintProdMessage(""+hazelClinetObj.getMap(whoami).size());
+							Thread.yield();
 						}
 						hazelClinetObj.shutdown();
 						PrintManager.PrintProdMessage("Terminating worker");

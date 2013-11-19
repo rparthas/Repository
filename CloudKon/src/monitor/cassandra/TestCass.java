@@ -2,6 +2,7 @@ package monitor.cassandra;
 
 import static utility.Constants.CLIENT_STATUS;
 import static utility.Constants.HAZEL_NUMWORKERS;
+import static utility.Constants.THROUGHPUT_STATUS;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.util.Scanner;
 import java.util.concurrent.ConcurrentMap;
 
 import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.core.IMap;
 
 import queue.hazelcast.QueueHazelcastUtil;
 
@@ -35,7 +37,6 @@ public class TestCass {
 			// hazelClient
 			QueueHazelcastUtil objQueueHazelcastUtil = new QueueHazelcastUtil();
 			HazelcastClient hazelClinetObj = objQueueHazelcastUtil.getClient();
-			mapClientStatus = hazelClinetObj.getMap(CLIENT_STATUS);
 
 			Scanner readinp = new Scanner(System.in);
 			boolean breakout = true;
@@ -45,10 +46,14 @@ public class TestCass {
 				PrintManager.PrintMessage("Enter your choice");
 				PrintManager.PrintMessage("1 ----------> Reset everything");
 				PrintManager.PrintMessage("2 ----------> Report Q status");
-				PrintManager.PrintMessage("3 ----------> Report CPU status for all clients ");
+				PrintManager
+						.PrintMessage("3 ----------> Report CPU status for all clients ");
 				PrintManager.PrintMessage("4 ----------> Report Client status");
-				PrintManager.PrintMessage("5 ----------> Report Q Status for a Cleint");
-				PrintManager.PrintMessage("6 ----------> Exit");
+				PrintManager
+						.PrintMessage("5 ----------> Report Q Status for a Cleint");
+				PrintManager
+						.PrintMessage("6 ----------> Report Through Put Status for a Cleint");
+				PrintManager.PrintMessage("7 ----------> Exit");
 				PrintManager
 						.PrintMessage("----------------------------------------------------");
 				String inp = readinp.nextLine();
@@ -56,6 +61,9 @@ public class TestCass {
 				case "1":
 					objTestCass.cassandraClient.createSchema();
 					mapClientStatus.clear();
+					ConcurrentMap<String, String> mapThroughPutStatus = hazelClinetObj
+							.getMap(THROUGHPUT_STATUS);
+					mapThroughPutStatus.clear();
 					hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).set(0);
 					break;
 				case "2":
@@ -65,14 +73,23 @@ public class TestCass {
 					objTestCass.cassandraClient.getRowsCpu();
 					break;
 				case "4":
-					objTestCass.cassandraClient.getClientStatus(mapClientStatus);
+					mapClientStatus = hazelClinetObj.getMap(CLIENT_STATUS);
+					objTestCass.cassandraClient
+							.getClientStatus(mapClientStatus);
 					break;
 				case "5":
 					PrintManager.PrintMessage("Enter Client Name for details");
-					String clientName =readinp.nextLine();
+					String clientName = readinp.nextLine();
 					objTestCass.cassandraClient.getQStatus(clientName);
 					break;
 				case "6":
+					mapThroughPutStatus = hazelClinetObj
+							.getMap(THROUGHPUT_STATUS);
+					objTestCass.cassandraClient
+							.getThroughPutStatus(mapThroughPutStatus);
+					
+					break;
+				case "7":
 					breakout = false;
 					break;
 				}

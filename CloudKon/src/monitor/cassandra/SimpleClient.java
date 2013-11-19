@@ -164,6 +164,22 @@ public class SimpleClient {
 		writeCsvfile(data);
 	}
 
+	public void getThroughPutStatus(
+			ConcurrentMap<String, String> mapStatus) throws IOException {
+		List<String[]> data = new ArrayList<String[]>();
+		Collection<String> keySet=mapStatus.keySet();
+		int counter=0;
+		for (String key:keySet){
+			data.add(new String[] { key, mapStatus.get(key)});
+			System.out.printf("%s: / %s\n", 
+					key, mapStatus.get(key));
+			counter++;
+		}
+		System.out.println("Total count "+counter);
+		writeCsvfile(data);
+		
+	}
+	
 	public void getRowsCpu() throws IOException {
 		String instanceid, collected_at, util_percent;
 		Query query = QueryBuilder.select().all()
@@ -230,5 +246,7 @@ public class SimpleClient {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }
