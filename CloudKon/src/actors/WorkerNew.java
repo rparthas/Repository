@@ -59,6 +59,7 @@ public class WorkerNew implements Runnable {
 	private ConcurrentMap<String, Long>  mapWorkerCountStatus;
 	private ConcurrentMap<String, String>  mapWorkerStatus;
 	boolean isblockedforClient=true;
+	private long throughputpolltime;
 	public WorkerNew() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
@@ -82,6 +83,7 @@ public class WorkerNew implements Runnable {
 					.getProperty("workerSelftermEnabled"));
 			mapWorkerCountStatus = hazelClinetObj.getMap(WORKER_COUNT_STATUS);
 			mapWorkerStatus = hazelClinetObj.getMap(WORKER_STATUS);
+			throughputpolltime = Long.parseLong(properties.getProperty("monPolltime"));
 		} catch (FileNotFoundException e) {
 			PrintManager.PrintException(e);
 		} catch (IOException e) {
@@ -231,7 +233,7 @@ public class WorkerNew implements Runnable {
 						System.exit(0);
 					}
 				}
-				Thread.sleep(1000);
+				Thread.sleep(throughputpolltime);
 			}
 		} catch (InterruptedException e) {
 			PrintManager.PrintException(e);
