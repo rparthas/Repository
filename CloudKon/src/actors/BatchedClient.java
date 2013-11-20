@@ -99,7 +99,7 @@ public class BatchedClient implements Runnable {
 				cassandraClient.connect(cassServerlist);
 				// Create monitor
 				objClientMonior = new ClientMonior(clientName, cassandraClient,
-						submittedTasks, mapClientStatus,throughputpolltime);
+						submittedTasks, mapClientStatus,hazelClinetObj,throughputpolltime);
 			}
 
 		} catch (IOException e) {

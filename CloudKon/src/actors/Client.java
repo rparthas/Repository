@@ -1,6 +1,7 @@
 package actors;
 
 import static utility.Constants.CLIENT_STATUS;
+import static utility.Constants.QUEUELENGTH;
 import static utility.Constants.THROUGHPUT_STATUS;
 import static utility.Constants.FINISHED;
 import static utility.Constants.IO_TASK;
@@ -66,6 +67,7 @@ public class Client implements Runnable {
 	boolean monitoringEnabled =true;
 	ConcurrentMap<String, String> mapClientStatus;
 	ConcurrentMap<String, String> mapThroughPutStatus;
+	ConcurrentMap<String, String> mapQLengthStatus;
 	QueueHazelcastUtil objQueueHazelcastUtil;
 
 	public Client() {
@@ -78,6 +80,7 @@ public class Client implements Runnable {
 			// hazelClient
 			hazelClinetObj = new QueueHazelcastUtil().getClient();
 			mapClientStatus = hazelClinetObj.getMap(CLIENT_STATUS);
+			mapQLengthStatus =hazelClinetObj.getMap(QUEUELENGTH);
 			mapThroughPutStatus = hazelClinetObj.getMap(THROUGHPUT_STATUS);
 
 			numberofWorkerThreads = Long.parseLong(properties
@@ -101,7 +104,7 @@ public class Client implements Runnable {
 				cassandraClient.connect(cassServerlist);
 				// Create monitor
 				objClientMonior = new ClientMonior(clientName, cassandraClient,
-						submittedTasks, mapClientStatus,throughputpolltime);
+						submittedTasks, mapQLengthStatus,hazelClinetObj,throughputpolltime);
 			}
 
 		} catch (IOException e) {

@@ -64,4 +64,9 @@ public class QueueHazelcastUtil {
 			throws InterruptedException, IOException {
 		return client.getQueue(clientId + Qname);
 	}
+
+	public long decrementAndGetAtomicNumber(String atomicnumber) {
+		return client.getAtomicNumber(atomicnumber).decrementAndGet();
+		
+	}
 }

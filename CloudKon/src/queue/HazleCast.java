@@ -1,5 +1,7 @@
 package queue;
 
+import static utility.Constants.QUEUE_LENGTH;
+
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -54,6 +56,7 @@ public class HazleCast implements DistributedQueue, TaskQueue {
 		} catch (Exception e) {
 			PrintManager.PrintException(e);
 		}
+		queueHazelcastUtil.decrementAndGetAtomicNumber(QUEUE_LENGTH);
 		return task;
 	}
 
@@ -67,7 +70,7 @@ public class HazleCast implements DistributedQueue, TaskQueue {
 			if (objects.size() > 1) {
 				ExecutorService executor = Executors.newFixedThreadPool(1);
 				for (int i = 0; i < 1; i++) {
-					Runnable worker = new TaskSubmitter(objSemaphore,objects, clientQ);
+					Runnable worker = new TaskSubmitter(objSemaphore,objects, clientQ,queueHazelcastUtil);
 					executor.execute(worker);
 				}
 				executor.shutdown();

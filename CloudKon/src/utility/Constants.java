@@ -18,6 +18,8 @@ public final class Constants {
 	public static final String FREEWORKERCOUNT ="FREEWORKERCOUNT";
 	public static final String BUSY ="BUSY";
 	public static final String FREE ="FREE";
+	public static final String QUEUELENGTH ="QUEUELENGTH";
+	public static final String QUEUE_LENGTH ="QUEUE_LENGTH";
 	
 	
 	

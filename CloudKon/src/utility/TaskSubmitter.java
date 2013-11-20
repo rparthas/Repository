@@ -1,8 +1,11 @@
 package utility;
-
+import static utility.Constants.QUEUE_LENGTH;
 import java.util.Set;
 import java.util.concurrent.Semaphore;
 
+import queue.hazelcast.QueueHazelcastUtil;
+
+import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.core.IQueue;
 import com.hazelcast.util.ConcurrentHashSet;
 
@@ -13,17 +16,20 @@ public class TaskSubmitter implements  Runnable {
 	ConcurrentHashSet<Task> taskList = null;
 	private IQueue<Object> clientQ;
 	Semaphore objSemaphore;
+	private QueueHazelcastUtil queueHazelcastUtil;
 	public TaskSubmitter(Semaphore objSemaphore, Set<Task> taskList,
-			IQueue<Object> clientQ) {
+			IQueue<Object> clientQ, QueueHazelcastUtil queueHazelcastUtil) {
 		super();
 		this.taskList = (ConcurrentHashSet<Task>) taskList;
 		this.clientQ = clientQ;
 		this.objSemaphore=objSemaphore;
+		this.queueHazelcastUtil=queueHazelcastUtil;
 	}
 
 	public void run() {
 		int size=taskList.size();
 		int counter =0;
+		HazelcastClient hazelClient = queueHazelcastUtil.getClient();
 		boolean loclreleased=false;
 		for (Object object : taskList) {
 			counter++;
@@ -35,6 +41,7 @@ public class TaskSubmitter implements  Runnable {
 			try {
 				clientQ.put(object);
 				taskList.remove(object);
+				hazelClient.getAtomicNumber(QUEUE_LENGTH).incrementAndGet();
 			} catch (Exception e) {
 				PrintManager.PrintException(e);
 			}
