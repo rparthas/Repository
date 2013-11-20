@@ -4,6 +4,7 @@ import static utility.Constants.BUSYWORKERCOUNT;
 import static utility.Constants.CLIENT_STATUS;
 import static utility.Constants.FREEWORKERCOUNT;
 import static utility.Constants.HAZEL_NUMWORKERS;
+import static utility.Constants.QUEUELENGTH;
 import static utility.Constants.THROUGHPUT_STATUS;
 import static utility.Constants.WORKER_COUNT_STATUS;
 import static utility.Constants.WORKER_STATUS;
@@ -76,15 +77,19 @@ public class TestCass {
 							.getMap(WORKER_STATUS);
 					ConcurrentMap<String, Long> mapWorkerCountStatus = hazelClinetObj
 							.getMap(WORKER_COUNT_STATUS);
+					ConcurrentMap<String, String> mapQLengthStatus = hazelClinetObj
+							.getMap(QUEUELENGTH);
 					mapThroughPutStatus.clear();
 					mapWorkerStatus.clear();
 					mapWorkerCountStatus.clear();
+					mapQLengthStatus.clear();
 					hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).set(0);
 					hazelClinetObj.getAtomicNumber(FREEWORKERCOUNT).set(0);
 					hazelClinetObj.getAtomicNumber(BUSYWORKERCOUNT).set(0);
 					break;
 				case "2":
-					objTestCass.cassandraClient.getQStatus();
+					mapQLengthStatus = hazelClinetObj.getMap(QUEUELENGTH);
+					objTestCass.cassandraClient.getQStatus(mapQLengthStatus);
 					break;
 				case "3":
 					objTestCass.cassandraClient.getRowsCpu();
@@ -113,8 +118,7 @@ public class TestCass {
 							.getWorkerCountStatus(mapWorkerCountStatus);
 					break;
 				case "8":
-					mapWorkerStatus = hazelClinetObj
-							.getMap(WORKER_STATUS);
+					mapWorkerStatus = hazelClinetObj.getMap(WORKER_STATUS);
 					objTestCass.cassandraClient
 							.getWorkerStatus(mapWorkerStatus);
 					break;

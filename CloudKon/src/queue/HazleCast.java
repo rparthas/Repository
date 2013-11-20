@@ -52,11 +52,11 @@ public class HazleCast implements DistributedQueue, TaskQueue {
 			Object obj = queueHazelcastUtil.getObjValue(qName, clientId);
 			if (obj != null && obj instanceof Task) {
 				task = (Task) obj;
+				queueHazelcastUtil.decrementAndGetAtomicNumber(QUEUE_LENGTH);
 			}
 		} catch (Exception e) {
 			PrintManager.PrintException(e);
 		}
-		queueHazelcastUtil.decrementAndGetAtomicNumber(QUEUE_LENGTH);
 		return task;
 	}
 

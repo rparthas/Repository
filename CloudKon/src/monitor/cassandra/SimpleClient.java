@@ -83,25 +83,6 @@ public class SimpleClient {
 		System.out.println("counter " + counter);
 	}
 
-	public void getQStatus() throws IOException {
-		List<String[]> data = new ArrayList<String[]>();
-		String client_id, collected_at, queueLength;
-		Query query = QueryBuilder.select().all()
-				.from("cs554_cloudkon", "queuestatus");
-		ResultSetFuture results = session.executeAsync(query);
-		for (Row row : results.getUninterruptibly()) {
-			client_id = row.getString("client_id");
-			collected_at = row.getString("collected_at");
-			queueLength = row.getString("queueLength");
-			System.out
-					.printf("%s: %s / %s\n", row.getString("client_id"),
-							row.getString("collected_at"),
-							row.getString("queueLength"));
-			data.add(new String[] { client_id, collected_at, queueLength });
-		}
-		writeCsvfile(data);
-	}
-
 	public void getQStatus(String clientName) throws IOException {
 		List<String[]> data = new ArrayList<String[]>();
 		String client_id, collected_at, queueLength;
@@ -248,6 +229,18 @@ public class SimpleClient {
 			String split[] = val.split(",");
 			data.add(new String[] { key, split[0],split[1] });
 			System.out.printf("%s , %s , %s \n", key, split[0],split[1]);
+		} 
+		writeCsvfile(data);
+		
+	}
+
+	public void getQStatus(ConcurrentMap<String, String> mapQLengthStatus) throws IOException {
+		List<String[]> data = new ArrayList<String[]>();
+		Collection<String> keySet = mapQLengthStatus.keySet();
+		for (String key : keySet) {
+			String val =mapQLengthStatus.get(key);
+			data.add(new String[] { key, val });
+			System.out.printf("%s , %s  \n", key, val);
 		} 
 		writeCsvfile(data);
 		
