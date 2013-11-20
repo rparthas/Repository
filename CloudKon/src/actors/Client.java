@@ -49,6 +49,7 @@ public class Client implements Runnable {
 	String url;
 	QueueDetails qu;
 	long pollTime = 3000;
+	long throughputpolltime = 1000;
 	HazelcastClient hazelClinetObj;
 	long numberofWorkerThreads = 1;
 	String fileName;
@@ -62,7 +63,7 @@ public class Client implements Runnable {
 	String tastLength;
 	String fileSize;
 	String filePath;
-	boolean monitoringEnabled;
+	boolean monitoringEnabled =true;
 	ConcurrentMap<String, String> mapClientStatus;
 	ConcurrentMap<String, String> mapThroughPutStatus;
 	QueueHazelcastUtil objQueueHazelcastUtil;
@@ -91,17 +92,16 @@ public class Client implements Runnable {
 			tastLength = properties.getProperty("tastLength");
 			fileSize = properties.getProperty("fileSize");
 			filePath = properties.getProperty("filePath");
-			monitoringEnabled = Boolean.getBoolean(properties
-					.getProperty("monitoringEnabled"));
+			monitoringEnabled = properties.getProperty("monitoringEnabled").equals("true");
+			throughputpolltime = Long.parseLong(properties.getProperty("monPolltime"));
 			if (monitoringEnabled) {
-				// Cassandra Client
 				String cassServerlist = properties
 						.getProperty("cassServerlist");
 				cassandraClient = new SimpleClient();
 				cassandraClient.connect(cassServerlist);
 				// Create monitor
 				objClientMonior = new ClientMonior(clientName, cassandraClient,
-						submittedTasks, mapClientStatus);
+						submittedTasks, mapClientStatus,throughputpolltime);
 			}
 
 		} catch (IOException e) {
@@ -137,11 +137,11 @@ public class Client implements Runnable {
 				+ System.nanoTime());
 		TaskQueueFactory.getQueue().postTask(objSemaphore, objects, REQUESTQ,
 				url, clientName);
-		PrintManager.PrintProdMessage("Posting tasks finished "
-				+ System.nanoTime());
+		
 		String time = String.valueOf(System.nanoTime());
 		String[] valFin = { clientName, time, STARTED };
 		if (monitoringEnabled) {
+			
 			cassandraClient.insertClientStatus(valFin);
 		}
 		// check the mode of operation
@@ -177,6 +177,7 @@ public class Client implements Runnable {
 		new Thread(this).start();
 		// Start monitoring the Submitted Queue length for reporting
 		if (monitoringEnabled) {
+			PrintManager.PrintProdMessage("monitoringEnabled starting Clinet monitor");
 			new Thread(objClientMonior).start();
 		}
 	}
@@ -206,9 +207,9 @@ public class Client implements Runnable {
 		int counter = 0;
 		while (!submittedTasks.isEmpty()) {
 			currtime= System.currentTimeMillis();
-			if (currtime - startMeasureTime >= 1000) {
+			if (currtime - startMeasureTime >= throughputpolltime) {
 				startMeasureTime = currtime;
-				PrintManager.PrintMessage("Recording throughput " +currtime + " "+counter);
+				PrintManager.PrintProdMessage("Recording throughput " +currtime + " "+counter);
 				mapThroughPutStatus.putIfAbsent(String.valueOf(currtime),
 						String.valueOf(counter));
 				counter = 0;

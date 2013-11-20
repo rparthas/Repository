@@ -1,8 +1,12 @@
 package monitor.cassandra;
 
+import static utility.Constants.BUSYWORKERCOUNT;
 import static utility.Constants.CLIENT_STATUS;
+import static utility.Constants.FREEWORKERCOUNT;
 import static utility.Constants.HAZEL_NUMWORKERS;
 import static utility.Constants.THROUGHPUT_STATUS;
+import static utility.Constants.WORKER_COUNT_STATUS;
+import static utility.Constants.WORKER_STATUS;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,12 +15,10 @@ import java.util.Properties;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentMap;
 
-import com.hazelcast.client.HazelcastClient;
-import com.hazelcast.core.IMap;
-
 import queue.hazelcast.QueueHazelcastUtil;
-
 import utility.PrintManager;
+
+import com.hazelcast.client.HazelcastClient;
 
 public class TestCass {
 	SimpleClient cassandraClient;
@@ -53,13 +55,20 @@ public class TestCass {
 						.PrintMessage("5 ----------> Report Q Status for a Cleint");
 				PrintManager
 						.PrintMessage("6 ----------> Report Through Put Status for a Cleint");
-				PrintManager.PrintMessage("7 ----------> Exit");
+				PrintManager
+						.PrintMessage("7 ----------> Report worker Count status");
+				PrintManager.PrintMessage("8 ----------> Report worker status");
+				PrintManager
+						.PrintMessage("9 ----------> Report CPU sec wasted");
+				PrintManager.PrintMessage("10 ----------> Report CPU sec used");
+				PrintManager.PrintMessage("11 ----------> Exit");
 				PrintManager
 						.PrintMessage("----------------------------------------------------");
 				String inp = readinp.nextLine();
 				switch (inp) {
 				case "1":
 					objTestCass.cassandraClient.createSchema();
+					mapClientStatus = hazelClinetObj.getMap(CLIENT_STATUS);
 					mapClientStatus.clear();
 					ConcurrentMap<String, String> mapThroughPutStatus = hazelClinetObj
 							.getMap(THROUGHPUT_STATUS);
@@ -87,9 +96,31 @@ public class TestCass {
 							.getMap(THROUGHPUT_STATUS);
 					objTestCass.cassandraClient
 							.getThroughPutStatus(mapThroughPutStatus);
-					
+
 					break;
 				case "7":
+					ConcurrentMap<String, Long> mapWorkerCountStatus = hazelClinetObj
+							.getMap(WORKER_COUNT_STATUS);
+					objTestCass.cassandraClient
+							.getWorkerCountStatus(mapWorkerCountStatus);
+					break;
+				case "8":
+					ConcurrentMap<String, String> mapWorkerStatus = hazelClinetObj
+							.getMap(WORKER_STATUS);
+					objTestCass.cassandraClient
+							.getWorkerStatus(mapWorkerStatus);
+					break;
+				case "9":
+					PrintManager.PrintMessage(" WASTED CPU secs :"
+							+ hazelClinetObj.getAtomicNumber(FREEWORKERCOUNT)
+									.get());
+					break;
+				case "10":
+					PrintManager.PrintMessage(" USED CPU secs :"
+							+ hazelClinetObj.getAtomicNumber(BUSYWORKERCOUNT)
+									.get());
+					break;
+				case "11":
 					breakout = false;
 					break;
 				}

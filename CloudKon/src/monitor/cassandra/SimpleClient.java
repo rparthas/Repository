@@ -8,13 +8,10 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentMap;
 
-import utility.PrintManager;
 import au.com.bytecode.opencsv.CSVWriter;
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Cluster.Builder;
-import com.datastax.driver.core.Host;
-import com.datastax.driver.core.Metadata;
 import com.datastax.driver.core.Query;
 import com.datastax.driver.core.ResultSetFuture;
 import com.datastax.driver.core.Row;
@@ -36,24 +33,12 @@ public class SimpleClient {
 			"status" };
 
 	public void connect(String node) {
-
 		Builder cBuilder = Cluster.builder().withPort(9042);
 		String[] splits = node.split(":");
-
-		PrintManager.PrintMessage("splits.size: " + splits.length);
-
 		for (String asset : splits) {
 			cBuilder.addContactPoint(asset);
 		}
-
 		cluster = cBuilder.build();
-		Metadata metadata = cluster.getMetadata();
-		System.out.printf("Connected to cluster: %s\n",
-				metadata.getClusterName());
-		for (Host host : metadata.getAllHosts()) {
-			System.out.printf("Datatacenter: %s; Host: %s; Rack: %s\n",
-					host.getDatacenter(), host.getAddress(), host.getRack());
-		}
 		session = cluster.connect();
 	}
 
@@ -95,7 +80,7 @@ public class SimpleClient {
 					row.getString("collected_at"), row.getString("nStatus"));
 			counter++;
 		}
-		PrintManager.PrintMessage("counter " + counter);
+		System.out.println("counter " + counter);
 	}
 
 	public void getQStatus() throws IOException {
@@ -116,11 +101,11 @@ public class SimpleClient {
 		}
 		writeCsvfile(data);
 	}
-	
+
 	public void getQStatus(String clientName) throws IOException {
 		List<String[]> data = new ArrayList<String[]>();
 		String client_id, collected_at, queueLength;
-		 Clause mywhere = QueryBuilder.eq("client_id", clientName);
+		Clause mywhere = QueryBuilder.eq("client_id", clientName);
 		Query query = QueryBuilder.select().all()
 				.from("cs554_cloudkon", "queuestatus").where(mywhere);
 		ResultSetFuture results = session.executeAsync(query);
@@ -137,48 +122,33 @@ public class SimpleClient {
 		writeCsvfile(data);
 	}
 
-	public void getClientStatus(ConcurrentMap<String, String> mapClientStatus) throws IOException {
+	public void getClientStatus(ConcurrentMap<String, String> mapClientStatus)
+			throws IOException {
 		List<String[]> data = new ArrayList<String[]>();
-		/*String client_id, collected_at, status;
-		Query query = QueryBuilder.select().all()
-				.from("cs554_cloudkon", "clientstatus");
-		ResultSetFuture results = session.executeAsync(query);
-		for (Row row : results.getUninterruptibly()) {
-			client_id = row.getString("client_id");
-			collected_at = row.getString("collected_at");
-			status = row.getString("status");
-			System.out.printf("%s: %s / %s\n", client_id,
-					collected_at, status);
-			data.add(new String[] { client_id, collected_at, status });
-		}*/
-		Collection<String> keySet=mapClientStatus.keySet();
-		int counter=0;
-		for (String key:keySet){
-			String split[]=key.split(",");
-			data.add(new String[] { split[0], mapClientStatus.get(key), split[1],"hazel" });
+		/*
+		 * String client_id, collected_at, status; Query query =
+		 * QueryBuilder.select().all() .from("cs554_cloudkon", "clientstatus");
+		 * ResultSetFuture results = session.executeAsync(query); for (Row row :
+		 * results.getUninterruptibly()) { client_id =
+		 * row.getString("client_id"); collected_at =
+		 * row.getString("collected_at"); status = row.getString("status");
+		 * System.out.printf("%s: %s / %s\n", client_id, collected_at, status);
+		 * data.add(new String[] { client_id, collected_at, status }); }
+		 */
+		Collection<String> keySet = mapClientStatus.keySet();
+		int counter = 0;
+		for (String key : keySet) {
+			String split[] = key.split(",");
+			data.add(new String[] { split[0], mapClientStatus.get(key),
+					split[1], "hazel" });
 			System.out.printf("%s: %s / %s\n", split[0],
 					mapClientStatus.get(key), split[1]);
 			counter++;
 		}
-		System.out.println("Total count "+counter);
+		System.out.println("Total count " + counter);
 		writeCsvfile(data);
 	}
 
-	public void getThroughPutStatus(
-			ConcurrentMap<String, String> mapStatus) throws IOException {
-		List<String[]> data = new ArrayList<String[]>();
-		Collection<String> keySet=mapStatus.keySet();
-		int counter=0;
-		for (String key:keySet){
-			data.add(new String[] { key, mapStatus.get(key)});
-			System.out.printf("%s: / %s\n", 
-					key, mapStatus.get(key));
-			counter++;
-		}
-		System.out.println("Total count "+counter);
-		writeCsvfile(data);
-		
-	}
 	
 	public void getRowsCpu() throws IOException {
 		String instanceid, collected_at, util_percent;
@@ -221,32 +191,67 @@ public class SimpleClient {
 		session.execute("CREATE TABLE cs554_cloudkon.clientstatus ("
 				+ "client_id text," + "collected_at text," + "status text,"
 				+ "PRIMARY KEY (client_id, collected_at)" + ")");
-		
-		session.execute("CREATE TABLE cs554_cloudkon.dataDump ("
-				+ "client_id uuid," + "data text,"
-				+ ")");
+
 		session.execute("CREATE INDEX ind_status on cs554_cloudkon.clientstatus(status) ;");
 	}
 
 	void writeCsvfile(List<String[]> data) throws IOException {
 		String csv = "./output.csv";
 		Scanner readinp = new Scanner(System.in);
-		PrintManager.PrintMessage("Enter file name");
+		System.out.println("Enter file name");
 		String inpFilename = readinp.nextLine();
 		if (inpFilename.length() >= 0) {
-			csv = inpFilename+".csv";
+			csv = inpFilename + ".csv";
 		}
 		CSVWriter writer = new CSVWriter(new FileWriter(csv));
 		writer.writeAll(data);
-		PrintManager.PrintMessage("CSV written successfully.");
+		System.out.println("CSV written successfully.");
 		writer.close();
 	}
 
 	public void insertData(ByteArray byteArr) {
 		// TODO Auto-generated method stub
+
+	}
+
+	public void getWorkerCountStatus(
+			ConcurrentMap<String, Long> mapWorkerCountStatus) throws IOException {
+		List<String[]> data = new ArrayList<String[]>();
+		Collection<String> keySet = mapWorkerCountStatus.keySet();
+		for (String key : keySet) {
+			String val =String.valueOf(mapWorkerCountStatus.get(key));
+			data.add(new String[] { key, val });
+			System.out.printf("%s , %s\n", key, val);
+		}
+		writeCsvfile(data);
+		
+	}
+	
+	public void getThroughPutStatus(ConcurrentMap<String, String> mapStatus)
+			throws IOException {
+		List<String[]> data = new ArrayList<String[]>();
+		Collection<String> keySet = mapStatus.keySet();
+		for (String key : keySet) {
+			String val =mapStatus.get(key);
+			data.add(new String[] { key, val });
+			System.out.printf("%s , %s\n", key, val);
+		} 
+		writeCsvfile(data);
+
+	}
+
+	public void getWorkerStatus(ConcurrentMap<String, String> mapWorkerCountStatus) throws IOException {
+		List<String[]> data = new ArrayList<String[]>();
+		Collection<String> keySet = mapWorkerCountStatus.keySet();
+		for (String key : keySet) {
+			String val =mapWorkerCountStatus.get(key);
+			String split[] = val.split(",");
+			data.add(new String[] { key, split[0],split[1] });
+			System.out.printf("%s , %s , %s \n", key, split[0],split[1]);
+		} 
+		writeCsvfile(data);
 		
 	}
 
-	
 
 }

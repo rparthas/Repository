@@ -58,9 +58,11 @@ public class PrintManager {
 			}
 		}else if (mode.equals("development")) {
 			exep.printStackTrace();
-			log.error("EXCEPTION", exep);
+			log.fatal("EXCEPTION", exep);
 		}else if (mode.equals("logOnly")) {
-			log.error("EXCEPTION", exep);
+			log.fatal("EXCEPTION", exep);
+		}else if (mode.equals("production")) {
+			log.fatal("EXCEPTION",exep);
 		}
 	}
 }

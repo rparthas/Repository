@@ -1,6 +1,8 @@
 package monitor;
 
 import static utility.Constants.HAZEL_NUMWORKERS;
+import static utility.Constants.BUSYWORKERCOUNT;
+import static utility.Constants.FREEWORKERCOUNT;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,7 +17,6 @@ import java.util.List;
 import java.util.Properties;
 
 import monitor.cassandra.SimpleClient;
-import utility.PrintManager;
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.AWSCredentials;
@@ -37,6 +38,9 @@ public class WorkerMonitor implements Runnable {
 	
 
 	final static long offsetInMilliseconds = 1000 * 60 * 2;
+
+
+	
 	SimpleClient cassandraClient;
 	public WorkerMonitor() {
 		super();
@@ -46,10 +50,8 @@ public class WorkerMonitor implements Runnable {
 			String cassServerlist = properties.getProperty("cassServerlist");
 			cassandraClient = new SimpleClient();
 			cassandraClient.connect(cassServerlist);
-			PrintManager.PrintMessage(cassServerlist);
-			
 		} catch (IOException e) {
-			PrintManager.PrintException(e);
+			e.printStackTrace();
 		}
 	}
 	public static void main(String[] args) {
@@ -65,12 +67,11 @@ public class WorkerMonitor implements Runnable {
 		// whoAmI = "i-6e9c5f5b";
 		while (true) {
 			try {
-				PrintManager.PrintMessage("-----------------------------------------------");
 				monitorInstance(credentials, whoAmI);
 				Thread.sleep(1000 * 60);
 			} catch (Exception e) {
 				cassandraClient.close();
-				PrintManager.PrintException(e);
+				e.printStackTrace();
 			}
 
 		}
@@ -101,16 +102,15 @@ public class WorkerMonitor implements Runnable {
 			List<Datapoint> dataPoint = getMetricStatisticsResult.getDatapoints();
 			for (Object aDataPoint : dataPoint) {
 				Datapoint dp = (Datapoint) aDataPoint;
-
 				avgCPUUtilization = dp.getAverage();
-				PrintManager.PrintMessage(instanceId + " : " + dp.getTimestamp() + " : " + dp.getAverage());
-				recordCassandra(instanceId, avgCPUUtilization, getTimestamp(dp.getTimestamp()));
+				Date time = dp.getTimestamp();
+				recordCassandra(instanceId, avgCPUUtilization, getTimestamp(time));
 			}
 
 			return avgCPUUtilization;
 
 		} catch (AmazonServiceException ase) {
-			PrintManager.PrintException(ase);
+			ase.printStackTrace();
 		}
 		return 0;
 	}
@@ -128,11 +128,10 @@ public class WorkerMonitor implements Runnable {
 			}
 			in.close();
 		} catch (MalformedURLException e) {
-			PrintManager.PrintException(e);
+			e.printStackTrace();
 		} catch (IOException e) {
-			PrintManager.PrintException(e);
+			e.printStackTrace();
 		}
-		PrintManager.PrintMessage(" Instance ID " + EC2Id);
 		return EC2Id;
 	}
 	
@@ -143,6 +142,15 @@ public class WorkerMonitor implements Runnable {
 	public static long incrNumOfWorkerThreads(HazelcastClient hazelClinetObj) {
 		return hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).incrementAndGet();
 	}
+	
+	public static long incrFreeWorkerCount(HazelcastClient hazelClinetObj) {
+		return hazelClinetObj.getAtomicNumber(FREEWORKERCOUNT).incrementAndGet();
+	}
+	
+	public static long incrBusyetAtomicNumber(HazelcastClient hazelClinetObj) {
+		return hazelClinetObj.getAtomicNumber(BUSYWORKERCOUNT).incrementAndGet();
+	}
+	
 	public static long decrNumOfWorkerThreads(HazelcastClient hazelClinetObj) {
 		return hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).decrementAndGet();
 	}

@@ -65,7 +65,7 @@ public class BatchedClient implements Runnable {
 	boolean monitoringEnabled;
 	ConcurrentMap<String, String> mapClientStatus;
 	QueueHazelcastUtil objQueueHazelcastUtil;
-
+	long throughputpolltime = 1000;
 	public  BatchedClient() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
@@ -89,8 +89,8 @@ public class BatchedClient implements Runnable {
 			tastLength = properties.getProperty("tastLength");
 			fileSize = properties.getProperty("fileSize");
 			filePath = properties.getProperty("filePath");
-			monitoringEnabled = Boolean.getBoolean(properties
-					.getProperty("monitoringEnabled"));
+			monitoringEnabled = properties.getProperty("monitoringEnabled").equals("true");
+			throughputpolltime = Long.parseLong(properties.getProperty("monPolltime"));
 			if (monitoringEnabled) {
 				// Cassandra Client
 				String cassServerlist = properties
@@ -99,7 +99,7 @@ public class BatchedClient implements Runnable {
 				cassandraClient.connect(cassServerlist);
 				// Create monitor
 				objClientMonior = new ClientMonior(clientName, cassandraClient,
-						submittedTasks, mapClientStatus);
+						submittedTasks, mapClientStatus,throughputpolltime);
 			}
 
 		} catch (IOException e) {

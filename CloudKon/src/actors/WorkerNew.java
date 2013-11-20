@@ -1,6 +1,9 @@
 package actors;
 import static utility.Constants.FINISHED;
 import static utility.Constants.WORKER_STATUS;
+import static utility.Constants.WORKER_COUNT_STATUS;
+import static utility.Constants.BUSY;
+import static utility.Constants.FREE;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -53,7 +56,8 @@ public class WorkerNew implements Runnable {
 	int numWorkersPernode=0;
 	boolean workerSelftermEnabled=false; 
 	Semaphore objSemaphore = new Semaphore(1);
-	private ConcurrentMap<String, Long>  mapWorkerStatus;
+	private ConcurrentMap<String, Long>  mapWorkerCountStatus;
+	private ConcurrentMap<String, String>  mapWorkerStatus;
 	public WorkerNew() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
@@ -75,6 +79,7 @@ public class WorkerNew implements Runnable {
 					.getProperty("numWorkers"));
 			workerSelftermEnabled = Boolean.parseBoolean(properties
 					.getProperty("workerSelftermEnabled"));
+			mapWorkerCountStatus = hazelClinetObj.getMap(WORKER_COUNT_STATUS);
 			mapWorkerStatus = hazelClinetObj.getMap(WORKER_STATUS);
 		} catch (FileNotFoundException e) {
 			PrintManager.PrintException(e);
@@ -179,33 +184,36 @@ public class WorkerNew implements Runnable {
 	}
 
 	public boolean isBusy() {
-		boolean isBusy = taskMap.isEmpty() && resultMap.isEmpty()
+		boolean isfree = taskMap.isEmpty() && resultMap.isEmpty()
 				&& threadPoolExecutor.getActiveCount() <= 0;
-		return !isBusy;
+		return !isfree;
 	}
 
 	@Override
 	public void run() {
 		int wastedseconds = 0;
-		
 		boolean breakflag = false;
 		try {
+			String whoami ="test";
+			whoami = WorkerMonitor.retrieveInstanceId();
 			Thread.sleep(3000);
 			while (!breakflag) {
 				boolean busyFalg = isBusy();
 				PrintManager.PrintMessage("Worker status is :" + busyFalg);
 				if (busyFalg) {
 					wastedseconds = 0;
-					PrintManager.PrintProdMessage("Checking busy state");
+					WorkerMonitor.incrBusyetAtomicNumber(hazelClinetObj);
+					recordWorkerStatus(whoami+","+BUSY);
 				} else {
 					wastedseconds++;
+					recordWorkerStatus(whoami+","+FREE);
+					WorkerMonitor.incrFreeWorkerCount(hazelClinetObj);
 					if (wastedseconds >= workerWasteLimit) {
 						// Terminate worker
 						breakflag = true;
 						long workCount = WorkerMonitor
 								.decrNumOfWorkerThreads(this.hazelClinetObj);
-						String whoami ="test";
-						//whoami = WorkerMonitor.retrieveInstanceId();
+
 					    recordWorkerCount(workCount);
 						Map<String,String> amiMap= hazelClinetObj.getMap(whoami);
 						amiMap.put(name, FINISHED);
@@ -229,7 +237,11 @@ public class WorkerNew implements Runnable {
 
 	private void recordWorkerCount(long workCount) {
 		String time = String.valueOf(System.nanoTime());
-		mapWorkerStatus.putIfAbsent(time,workCount);
+		mapWorkerCountStatus.putIfAbsent(time,workCount);
+	}
+	private void recordWorkerStatus(String ami_busy_free) {
+		String time = String.valueOf(System.nanoTime());
+		mapWorkerStatus.putIfAbsent(time,ami_busy_free);
 	}
 
 	private void terminateMe(String whoami) {
