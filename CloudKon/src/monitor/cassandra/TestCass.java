@@ -72,8 +72,16 @@ public class TestCass {
 					mapClientStatus.clear();
 					ConcurrentMap<String, String> mapThroughPutStatus = hazelClinetObj
 							.getMap(THROUGHPUT_STATUS);
+					ConcurrentMap<String, String> mapWorkerStatus = hazelClinetObj
+							.getMap(WORKER_STATUS);
+					ConcurrentMap<String, Long> mapWorkerCountStatus = hazelClinetObj
+							.getMap(WORKER_COUNT_STATUS);
 					mapThroughPutStatus.clear();
+					mapWorkerStatus.clear();
+					mapWorkerCountStatus.clear();
 					hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).set(0);
+					hazelClinetObj.getAtomicNumber(FREEWORKERCOUNT).set(0);
+					hazelClinetObj.getAtomicNumber(BUSYWORKERCOUNT).set(0);
 					break;
 				case "2":
 					objTestCass.cassandraClient.getQStatus();
@@ -99,13 +107,13 @@ public class TestCass {
 
 					break;
 				case "7":
-					ConcurrentMap<String, Long> mapWorkerCountStatus = hazelClinetObj
+					mapWorkerCountStatus = hazelClinetObj
 							.getMap(WORKER_COUNT_STATUS);
 					objTestCass.cassandraClient
 							.getWorkerCountStatus(mapWorkerCountStatus);
 					break;
 				case "8":
-					ConcurrentMap<String, String> mapWorkerStatus = hazelClinetObj
+					mapWorkerStatus = hazelClinetObj
 							.getMap(WORKER_STATUS);
 					objTestCass.cassandraClient
 							.getWorkerStatus(mapWorkerStatus);

@@ -240,11 +240,11 @@ public class SimpleClient {
 
 	}
 
-	public void getWorkerStatus(ConcurrentMap<String, String> mapWorkerCountStatus) throws IOException {
+	public void getWorkerStatus(ConcurrentMap<String, String> mapStatus) throws IOException {
 		List<String[]> data = new ArrayList<String[]>();
-		Collection<String> keySet = mapWorkerCountStatus.keySet();
+		Collection<String> keySet = mapStatus.keySet();
 		for (String key : keySet) {
-			String val =mapWorkerCountStatus.get(key);
+			String val =mapStatus.get(key);
 			String split[] = val.split(",");
 			data.add(new String[] { key, split[0],split[1] });
 			System.out.printf("%s , %s , %s \n", key, split[0],split[1]);
