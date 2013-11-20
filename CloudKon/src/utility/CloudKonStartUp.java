@@ -36,7 +36,7 @@ public class CloudKonStartUp {
 			}
 			//starting CPU monitor for workers
 			if(properties.getProperty("monitoringEnabled").equals("true")&&numWorkers>0){
-				new Thread(new WorkerMonitor()).start();
+				//new Thread(new WorkerMonitor()).start();
 			}
 			
 			// Starting clients
