@@ -142,11 +142,6 @@ public class Client implements Runnable {
 				url, clientName);
 		
 		String time = String.valueOf(System.nanoTime());
-		String[] valFin = { clientName, time, STARTED };
-		if (monitoringEnabled) {
-			
-			cassandraClient.insertClientStatus(valFin);
-		}
 		// check the mode of operation
 		if (resouceAllocationMode.equals("static")) {
 			// Get the already running workers

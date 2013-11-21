@@ -5,6 +5,7 @@ import static utility.Constants.CLIENT_STATUS;
 import static utility.Constants.FREEWORKERCOUNT;
 import static utility.Constants.HAZEL_NUMWORKERS;
 import static utility.Constants.QUEUELENGTH;
+import static utility.Constants.QUEUE_LENGTH;
 import static utility.Constants.THROUGHPUT_STATUS;
 import static utility.Constants.WORKER_COUNT_STATUS;
 import static utility.Constants.WORKER_STATUS;
@@ -86,6 +87,7 @@ public class TestCass {
 					hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).set(0);
 					hazelClinetObj.getAtomicNumber(FREEWORKERCOUNT).set(0);
 					hazelClinetObj.getAtomicNumber(BUSYWORKERCOUNT).set(0);
+					hazelClinetObj.getAtomicNumber(QUEUE_LENGTH).set(0);
 					break;
 				case "2":
 					mapQLengthStatus = hazelClinetObj.getMap(QUEUELENGTH);

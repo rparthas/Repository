@@ -1,8 +1,11 @@
 package queue.hazelcast;
 
+import static utility.Constants.QUEUE_LENGTH;
+import static utility.Constants.RESPONSEQ;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.locks.ReentrantLock;
 
 import utility.PrintManager;
 
@@ -14,7 +17,6 @@ public class QueueHazelcastUtil {
 
 	private ClientConfig clientConfig;
 	private HazelcastClient client;
-
 	public QueueHazelcastUtil() {
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
 			clientConfig = new ClientConfig();
@@ -42,7 +44,11 @@ public class QueueHazelcastUtil {
 
 	public Object getObjValue(String Qname, String clientId)
 			throws InterruptedException, IOException {
-		return client.getQueue(clientId + Qname).poll();
+		Object obj = client.getQueue(clientId + Qname).poll();
+		if(obj!=null&&!Qname.equals(RESPONSEQ)){
+			client.getAtomicNumber(QUEUE_LENGTH).decrementAndGet();
+		}
+		return obj;
 	}
 
 	public void putObject(String master, Object queueDetails)
@@ -65,8 +71,4 @@ public class QueueHazelcastUtil {
 		return client.getQueue(clientId + Qname);
 	}
 
-	public long decrementAndGetAtomicNumber(String atomicnumber) {
-		return client.getAtomicNumber(atomicnumber).decrementAndGet();
-		
-	}
 }

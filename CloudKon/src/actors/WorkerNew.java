@@ -59,7 +59,7 @@ public class WorkerNew implements Runnable {
 	private ConcurrentMap<String, Long>  mapWorkerCountStatus;
 	private ConcurrentMap<String, String>  mapWorkerStatus;
 	boolean isblockedforClient=true;
-	private long throughputpolltime;
+	private long workerPolltime;
 	public WorkerNew() {
 		super();
 		try (FileReader reader = new FileReader("CloudKon.properties")) {
@@ -79,11 +79,11 @@ public class WorkerNew implements Runnable {
 					.getProperty("workerWasteLimit"));
 			numWorkersPernode = Integer.parseInt(properties
 					.getProperty("numWorkers"));
-			workerSelftermEnabled = Boolean.parseBoolean(properties
-					.getProperty("workerSelftermEnabled"));
+			workerSelftermEnabled = properties
+					.getProperty("workerSelftermEnabled").equals("true");
 			mapWorkerCountStatus = hazelClinetObj.getMap(WORKER_COUNT_STATUS);
 			mapWorkerStatus = hazelClinetObj.getMap(WORKER_STATUS);
-			throughputpolltime = Long.parseLong(properties.getProperty("monPolltime"));
+			workerPolltime = Long.parseLong(properties.getProperty("workerPolltime"));
 		} catch (FileNotFoundException e) {
 			PrintManager.PrintException(e);
 		} catch (IOException e) {
@@ -106,10 +106,7 @@ public class WorkerNew implements Runnable {
 		objWorker.setName(args[0]);
 		Thread objTh = new Thread(objWorker);
 		DistributedQueue queue = QueueFactory.getQueue();
-		//If self termination is enabled then start the idle monitoring thread
-		if(objWorker.workerSelftermEnabled){
-			objTh.start();	
-		}
+		objTh.start();	
 		WorkerMonitor.incrNumOfWorkerThreads(objWorker.hazelClinetObj);
 		objWorker.recordWorkerCount();
 		// Loop never ends once the worker begins execution
@@ -219,21 +216,24 @@ public class WorkerNew implements Runnable {
 						breakflag = true;
 						WorkerMonitor
 								.decrNumOfWorkerThreads(this.hazelClinetObj);
-
 					    recordWorkerCount();
+					    //make sure all workers on the ami are idle before terminating
 						Map<String,String> amiMap= hazelClinetObj.getMap(whoami);
 						amiMap.put(name, FINISHED);
 						while(hazelClinetObj.getMap(whoami).size()<numWorkersPernode){
 							PrintManager.PrintProdMessage(""+hazelClinetObj.getMap(whoami).size());
 							Thread.yield();
 						}
+						if(workerSelftermEnabled){
 						hazelClinetObj.shutdown();
 						PrintManager.PrintProdMessage("Terminating worker");
-						//terminateMe(whoami);
-						System.exit(0);
+							//terminateMe(whoami);
+							System.exit(0);
+						}
+						
 					}
 				}
-				Thread.sleep(throughputpolltime);
+				Thread.sleep(workerPolltime);
 			}
 		} catch (InterruptedException e) {
 			PrintManager.PrintException(e);

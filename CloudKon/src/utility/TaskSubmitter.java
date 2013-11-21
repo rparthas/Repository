@@ -32,6 +32,7 @@ public class TaskSubmitter implements  Runnable {
 		HazelcastClient hazelClient = queueHazelcastUtil.getClient();
 		boolean loclreleased=false;
 		for (Object object : taskList) {
+			hazelClient.getAtomicNumber(QUEUE_LENGTH).incrementAndGet();
 			counter++;
 			if(size/10<=counter&&!loclreleased){
 				objSemaphore.release(1);
@@ -40,8 +41,6 @@ public class TaskSubmitter implements  Runnable {
 			}
 			try {
 				clientQ.put(object);
-				taskList.remove(object);
-				hazelClient.getAtomicNumber(QUEUE_LENGTH).incrementAndGet();
 			} catch (Exception e) {
 				PrintManager.PrintException(e);
 			}
