@@ -5,8 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-import monitor.WorkerMonitor;
-
 import queue.hazelcast.Hazel_Node;
 
 public class CloudKonStartUp {
@@ -25,23 +23,30 @@ public class CloudKonStartUp {
 			if(properties.getProperty("nodePartHazel").equals("true")){
 				Hazel_Node.main(args);	
 			}
-			
 			int numClients = Integer.parseInt(properties
 					.getProperty("numClients"));
 			int numWorkers = Integer.parseInt(properties
 					.getProperty("numWorkers"));
-			// Starting workers
-			for (int i = 0; i < numWorkers; i++) {
-				new WorkerStarter(i).start();
+			String resourceAllocationMode= properties.getProperty("resourceAllocationMode");
+			PrintManager.PrintMessage(" >> resouceAllocationMode <<  "+resourceAllocationMode);
+			if (resourceAllocationMode.equalsIgnoreCase("static")){
+				// Starting workers
+				for (int i = 0; i < numWorkers; i++) {
+					new WorkerStarter(i).start();
+				}
+				// Starting clients
+				for (int i = 0; i < numClients; i++) {
+					new ClientStarter().start();
+				}
+
+			}else{
+				for (int i = 0; i < numClients; i++) {
+					new StagedClientStarter().start();
+				}
 			}
 			//starting CPU monitor for workers
 			if(properties.getProperty("monitoringEnabled").equals("true")&&numWorkers>0){
 				//new Thread(new WorkerMonitor()).start();
-			}
-			
-			// Starting clients
-			for (int i = 0; i < numClients; i++) {
-				new ClientStarter().start();
 			}
 		}
 

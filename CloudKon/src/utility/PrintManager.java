@@ -43,6 +43,7 @@ public class PrintManager {
 		}else if (mode.equals("logOnly")) {
 			log.debug(Message);
 		}else if (mode.equals("production")) {
+			System.out.println(Message);
 			log.debug(Message);
 		}
 	}

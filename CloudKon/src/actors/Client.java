@@ -54,7 +54,6 @@ public class Client implements Runnable {
 	HazelcastClient hazelClinetObj;
 	long numberofWorkerThreads = 1;
 	String fileName;
-	String resouceAllocationMode;
 	SimpleClient cassandraClient;
 	ClientMonior objClientMonior;
 	String clientName;
@@ -64,7 +63,7 @@ public class Client implements Runnable {
 	String tastLength;
 	String fileSize;
 	String filePath;
-	boolean monitoringEnabled =true;
+	boolean monitoringEnabled = true;
 	ConcurrentMap<String, String> mapClientStatus;
 	ConcurrentMap<String, String> mapThroughPutStatus;
 	ConcurrentMap<String, String> mapQLengthStatus;
@@ -80,23 +79,23 @@ public class Client implements Runnable {
 			// hazelClient
 			hazelClinetObj = new QueueHazelcastUtil().getClient();
 			mapClientStatus = hazelClinetObj.getMap(CLIENT_STATUS);
-			mapQLengthStatus =hazelClinetObj.getMap(QUEUELENGTH);
+			mapQLengthStatus = hazelClinetObj.getMap(QUEUELENGTH);
 			mapThroughPutStatus = hazelClinetObj.getMap(THROUGHPUT_STATUS);
 
 			numberofWorkerThreads = Long.parseLong(properties
 					.getProperty("numberofWorkerThreads"));
 			pollTime = Long.parseLong(properties.getProperty("clientPollTime"));
 			fileName = properties.getProperty("taskFilePath");
-			resouceAllocationMode = properties
-					.getProperty("resouceAllocationMode");
 			mqPortnumber = properties.getProperty("mqPortnumber");
 			taskType = properties.getProperty("taskType");
 			taskCount = properties.getProperty("taskCount");
 			tastLength = properties.getProperty("tastLength");
 			fileSize = properties.getProperty("fileSize");
 			filePath = properties.getProperty("filePath");
-			monitoringEnabled = properties.getProperty("monitoringEnabled").equals("true");
-			throughputpolltime = Long.parseLong(properties.getProperty("monPolltime"));
+			monitoringEnabled = properties.getProperty("monitoringEnabled")
+					.equals("true");
+			throughputpolltime = Long.parseLong(properties
+					.getProperty("monPolltime"));
 			if (monitoringEnabled) {
 				String cassServerlist = properties
 						.getProperty("cassServerlist");
@@ -104,7 +103,8 @@ public class Client implements Runnable {
 				cassandraClient.connect(cassServerlist);
 				// Create monitor
 				objClientMonior = new ClientMonior(clientName, cassandraClient,
-						submittedTasks, mapQLengthStatus,hazelClinetObj,throughputpolltime);
+						submittedTasks, mapQLengthStatus, hazelClinetObj,
+						throughputpolltime);
 			}
 
 		} catch (IOException e) {
@@ -140,42 +140,32 @@ public class Client implements Runnable {
 				+ System.nanoTime());
 		TaskQueueFactory.getQueue().postTask(objSemaphore, objects, REQUESTQ,
 				url, clientName);
-		
 		String time = String.valueOf(System.nanoTime());
 		// check the mode of operation
-		if (resouceAllocationMode.equals("static")) {
-			// Get the already running workers
-			long numOfWorkers = WorkerMonitor
-					.getNumOfWorkerThreads(hazelClinetObj);
-			PrintManager.PrintProdMessage("numOfWorkers " + numOfWorkers);
-			if (numOfWorkers == 0) {
-				numOfWorkers = 1;
-			}
-			long loopCount = objects.size()
-					/ (numOfWorkers * numberofWorkerThreads);
-			loopCount = loopCount == 0 ? 1 : loopCount;
-			PrintManager.PrintProdMessage("Number of Cleint Q Advertizements "
-					+ loopCount);
-			DistributedQueue queue = QueueFactory.getQueue();
-			objSemaphore.acquire();
-			for (int loopIndex = 0; loopIndex < loopCount; loopIndex++) {
-				queue.pushToQueue(qu);
-			}
-			PrintManager.PrintProdMessage("Cleint Q Advertizements done");
-			mapClientStatus.putIfAbsent(this.clientName + "," + STARTED, time);
-		} else {
-			// TODO : logic for dynamic allocator where workers wont be stared
-			// up front
-
-			// read from file and record stage information in hazel
-			// dynamic scheduler will allocate nodes and also record the time
-			// when allocation was done.
+		// Get the already running workers
+		long numOfWorkers = WorkerMonitor.getNumOfWorkerThreads(hazelClinetObj);
+		PrintManager.PrintProdMessage("numOfWorkers " + numOfWorkers);
+		if (numOfWorkers == 0) {
+			numOfWorkers = 1;
 		}
+		long loopCount = objects.size()
+				/ (numOfWorkers * numberofWorkerThreads);
+		loopCount = loopCount == 0 ? 1 : loopCount;
+		PrintManager.PrintProdMessage("Number of Cleint Q Advertizements "
+				+ loopCount);
+		DistributedQueue queue = QueueFactory.getQueue();
+		objSemaphore.acquire();
+		for (int loopIndex = 0; loopIndex < loopCount; loopIndex++) {
+			queue.pushToQueue(qu);
+		}
+		PrintManager.PrintProdMessage("Cleint Q Advertizements done");
+		mapClientStatus.putIfAbsent(this.clientName + "," + STARTED, time);
 		// Start monitoring the Submitted Queue length for completion
 		new Thread(this).start();
 		// Start monitoring the Submitted Queue length for reporting
 		if (monitoringEnabled) {
-			PrintManager.PrintProdMessage("monitoringEnabled starting Clinet monitor");
+			PrintManager
+					.PrintProdMessage("monitoringEnabled starting Clinet monitor");
 			new Thread(objClientMonior).start();
 		}
 	}
@@ -204,10 +194,11 @@ public class Client implements Runnable {
 		long currtime = startMeasureTime;
 		int counter = 0;
 		while (!submittedTasks.isEmpty()) {
-			currtime= System.currentTimeMillis();
+			currtime = System.currentTimeMillis();
 			if (currtime - startMeasureTime >= throughputpolltime) {
 				startMeasureTime = currtime;
-				PrintManager.PrintProdMessage("Recording throughput " +currtime + " "+counter);
+				PrintManager.PrintProdMessage("Recording throughput "
+						+ currtime + " " + counter);
 				mapThroughPutStatus.putIfAbsent(String.valueOf(currtime),
 						String.valueOf(counter));
 				counter = 0;

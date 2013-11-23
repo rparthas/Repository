@@ -198,7 +198,7 @@ public class WorkerNew implements Runnable {
 		boolean breakflag = false;
 		try {
 			String whoami ="test";
-			whoami = WorkerMonitor.retrieveInstanceId();
+			//whoami = WorkerMonitor.retrieveInstanceId();
 			Thread.sleep(3000);
 			while (!breakflag) {
 				boolean busyFalg = isBusy();

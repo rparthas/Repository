@@ -1,11 +1,12 @@
 package queue.hazelcast;
 
+import static utility.Constants.MASTER_QUEUE_LENGTH;
 import static utility.Constants.QUEUE_LENGTH;
 import static utility.Constants.RESPONSEQ;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.locks.ReentrantLock;
 
 import utility.PrintManager;
 
@@ -54,10 +55,13 @@ public class QueueHazelcastUtil {
 	public void putObject(String master, Object queueDetails)
 			throws InterruptedException {
 		client.getQueue(master).put(queueDetails);
+		client.getAtomicNumber(MASTER_QUEUE_LENGTH).incrementAndGet();
 	}
 
 	public Object getObjValue(String master) throws InterruptedException {
-		return client.getQueue(master).take();
+		Object queueInfo =client.getQueue(master).take();
+		client.getAtomicNumber(MASTER_QUEUE_LENGTH).decrementAndGet();
+		return queueInfo;
 	}
 	
 	public  HazelcastClient getClient() {

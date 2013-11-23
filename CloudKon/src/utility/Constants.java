@@ -20,6 +20,7 @@ public final class Constants {
 	public static final String FREE ="FREE";
 	public static final String QUEUELENGTH ="QUEUELENGTH";
 	public static final String QUEUE_LENGTH ="QUEUE_LENGTH";
+	public static final String MASTER_QUEUE_LENGTH ="MASTER_QUEUE_LENGTH";
 	
 	
 	
