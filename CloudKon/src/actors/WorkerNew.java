@@ -4,6 +4,8 @@ import static utility.Constants.WORKER_STATUS;
 import static utility.Constants.WORKER_COUNT_STATUS;
 import static utility.Constants.BUSY;
 import static utility.Constants.FREE;
+import static utility.Constants.STARTED;
+
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -198,6 +200,7 @@ public class WorkerNew implements Runnable {
 		boolean breakflag = false;
 		try {
 			String whoami ="test";
+			recordWorkerStatus(whoami+name+","+STARTED);
 			//whoami = WorkerMonitor.retrieveInstanceId();
 			Thread.sleep(3000);
 			while (!breakflag) {
@@ -227,6 +230,7 @@ public class WorkerNew implements Runnable {
 						if(workerSelftermEnabled){
 						hazelClinetObj.shutdown();
 						PrintManager.PrintProdMessage("Terminating worker");
+						recordWorkerStatus(whoami+name+","+FINISHED);
 							//terminateMe(whoami);
 							System.exit(0);
 						}
