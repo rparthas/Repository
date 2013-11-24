@@ -199,7 +199,7 @@ public class Client implements Runnable {
 				startMeasureTime = currtime;
 				PrintManager.PrintProdMessage("Recording throughput "
 						+ System.nanoTime() + " " + counter);
-				mapThroughPutStatus.putIfAbsent(String.valueOf(currtime),
+				mapThroughPutStatus.putIfAbsent(clientName+","+System.nanoTime(),
 						String.valueOf(counter));
 				counter = 0;
 			}

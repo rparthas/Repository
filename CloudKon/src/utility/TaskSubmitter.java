@@ -1,6 +1,9 @@
 package utility;
+import static utility.Constants.CLIENT_STATUS;
 import static utility.Constants.QUEUE_LENGTH;
+import static utility.Constants.FINISHED_SUBMISTION;
 import java.util.Set;
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.Semaphore;
 
 import queue.hazelcast.QueueHazelcastUtil;
@@ -17,19 +20,23 @@ public class TaskSubmitter implements  Runnable {
 	private IQueue<Object> clientQ;
 	Semaphore objSemaphore;
 	private QueueHazelcastUtil queueHazelcastUtil;
+	private String clientId;
 	public TaskSubmitter(Semaphore objSemaphore, Set<Task> taskList,
-			IQueue<Object> clientQ, QueueHazelcastUtil queueHazelcastUtil) {
+			IQueue<Object> clientQ, QueueHazelcastUtil queueHazelcastUtil,String clientId) {
 		super();
 		this.taskList = (ConcurrentHashSet<Task>) taskList;
 		this.clientQ = clientQ;
 		this.objSemaphore=objSemaphore;
 		this.queueHazelcastUtil=queueHazelcastUtil;
+		this.clientId=clientId;
 	}
 
 	public void run() {
 		int size=taskList.size();
 		int counter =0;
+		ConcurrentMap<String, String> mapClientStatus;
 		HazelcastClient hazelClient = queueHazelcastUtil.getClient();
+		mapClientStatus = hazelClient.getMap(CLIENT_STATUS);
 		boolean loclreleased=false;
 		for (Object object : taskList) {
 			hazelClient.getAtomicNumber(QUEUE_LENGTH).incrementAndGet();
@@ -46,6 +53,7 @@ public class TaskSubmitter implements  Runnable {
 			}
 
 		}
+		mapClientStatus.putIfAbsent(clientId + "," + FINISHED_SUBMISTION, String.valueOf(System.nanoTime()));
 	}
 
 }

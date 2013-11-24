@@ -10,6 +10,7 @@ public final class Constants {
 	public static final String IO_TASK ="IO";
 	public static final String STARTED ="STARTED";
 	public static final String FINISHED ="FINISHED";
+	public static final String FINISHED_SUBMISTION ="FINISHED_SUBMISTION";
 	public static final String CLIENT_STATUS ="CLIENT_STATUS";
 	public static final String THROUGHPUT_STATUS ="THROUGHPUT_STATUS";
 	public static final String WORKER_COUNT_STATUS ="WORKER_COUNT_STATUS";
