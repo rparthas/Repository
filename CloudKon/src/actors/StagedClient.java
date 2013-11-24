@@ -168,8 +168,8 @@ public class StagedClient implements Runnable {
 			if (currtime - startMeasureTime >= throughputpolltime) {
 				startMeasureTime = currtime;
 				PrintManager.PrintProdMessage("Recording throughput "
-						+ currtime + " " + counter);
-				mapThroughPutStatus.putIfAbsent(String.valueOf(currtime),
+						+ System.nanoTime() + " " + counter);
+				mapThroughPutStatus.putIfAbsent(clientName+","+System.nanoTime(),
 						String.valueOf(counter));
 				counter = 0;
 			}

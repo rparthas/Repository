@@ -215,19 +215,19 @@ public class WorkerNew implements Runnable {
 					recordWorkerStatus(whoami+name+","+FREE);
 					WorkerMonitor.incrFreeWorkerCount(hazelClinetObj);
 					if (wastedseconds >= workerWasteLimit) {
-						// Terminate worker
 						breakflag = true;
-						WorkerMonitor
-								.decrNumOfWorkerThreads(this.hazelClinetObj);
-					    recordWorkerCount();
-					    //make sure all workers on the ami are idle before terminating
-						Map<String,String> amiMap= hazelClinetObj.getMap(whoami);
-						amiMap.put(name, FINISHED);
-						while(hazelClinetObj.getMap(whoami).size()<numWorkersPernode){
-							PrintManager.PrintProdMessage(""+hazelClinetObj.getMap(whoami).size());
-							Thread.yield();
-						}
 						if(workerSelftermEnabled){
+							// Terminate worker
+							WorkerMonitor
+									.decrNumOfWorkerThreads(this.hazelClinetObj);
+						    recordWorkerCount();
+						    //make sure all workers on the ami are idle before terminating
+							Map<String,String> amiMap= hazelClinetObj.getMap(whoami);
+							amiMap.put(name, FINISHED);
+							while(hazelClinetObj.getMap(whoami).size()<numWorkersPernode){
+								PrintManager.PrintProdMessage(""+hazelClinetObj.getMap(whoami).size());
+								Thread.yield();
+							}
 						hazelClinetObj.shutdown();
 						PrintManager.PrintProdMessage("Terminating worker");
 						recordWorkerStatus(whoami+name+","+FINISHED);

@@ -70,7 +70,7 @@ public class HazleCast implements DistributedQueue, TaskQueue {
 			if (objects.size() > 1) {
 				ExecutorService executor = Executors.newFixedThreadPool(1);
 				for (int i = 0; i < 1; i++) {
-					Runnable worker = new TaskSubmitter(objSemaphore,objects, clientQ,queueHazelcastUtil);
+					Runnable worker = new TaskSubmitter(objSemaphore,objects, clientQ,queueHazelcastUtil,clientId);
 					executor.execute(worker);
 				}
 				executor.shutdown();
