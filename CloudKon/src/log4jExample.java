@@ -10,6 +10,9 @@ public class log4jExample{
 
   public static void main(String[] args)
                 throws IOException,SQLException{
+   long naono = System.nanoTime();
+   long milli = System.currentTimeMillis();
+	System.out.println("naono " + System.nanoTime()+" milli "+System.currentTimeMillis());  
    
      log.debug("Hello this is an debug message");
      log.info("Hello this is an info message");
