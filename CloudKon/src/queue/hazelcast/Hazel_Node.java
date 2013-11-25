@@ -24,9 +24,9 @@ public class Hazel_Node {
 			IOException {
 		Config cfg = new XmlConfigBuilder("hazelcast.xml").build();
 		Hazelcast.newHazelcastInstance(cfg);
-		QueueHazelcastUtil utilObj = new QueueHazelcastUtil();
+		/*QueueHazelcastUtil utilObj = new QueueHazelcastUtil();
 		HazelcastInstance hazelClinetObj = utilObj.getClient();
-		hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).set(0);
+		hazelClinetObj.getAtomicNumber(HAZEL_NUMWORKERS).set(0);*/
 	}
 
 }

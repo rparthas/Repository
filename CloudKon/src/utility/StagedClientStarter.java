@@ -18,16 +18,16 @@ public class StagedClientStarter extends Thread {
 			final Semaphore stageLock = new Semaphore(1);
 			String strFileName;
 			for (int i = 1; i <= numberofStages; i++) {
-				PrintManager.PrintMessage(" >> Starting a Client <<  ");
+				PrintManager.PrintMessage("Stage-"+i+ " STARTED "+System.nanoTime());
 				strFileName = StageFileName + i + ".txt";
 				StagedClient.main(stageLock, strFileName);
 				PrintManager
 						.PrintMessage(" Back in starter >> trying for lock <<");
 				stageLock.acquire();
-				PrintManager.PrintMessage(" >>> Got the lock  <<<");
+				PrintManager.PrintMessage(" Stage-"+ i+" FINISHED"+System.nanoTime());
 				stageLock.release();
 			}
-			PrintManager.PrintMessage(" Got the lock >> Closing <<");
+			PrintManager.PrintMessage("All Stages FINISHED");
 			stageLock.release();
 		} catch (Exception e) {
 			PrintManager.PrintException(e);

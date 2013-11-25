@@ -1,11 +1,11 @@
 package actors;
+
 import static utility.Constants.FINISHED;
 import static utility.Constants.WORKER_STATUS;
 import static utility.Constants.WORKER_COUNT_STATUS;
 import static utility.Constants.BUSY;
 import static utility.Constants.FREE;
 import static utility.Constants.STARTED;
-
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -55,12 +55,10 @@ public class WorkerNew implements Runnable {
 	boolean clientNomoreTask = false;
 	private String name;
 	int workerWasteLimit = 0;
-	int numWorkersPernode=0;
-	boolean workerSelftermEnabled=false; 
+	int numWorkersPernode = 0;
+	boolean workerSelftermEnabled = false;
 	Semaphore objSemaphore = new Semaphore(1);
-	private ConcurrentMap<String, Long>  mapWorkerCountStatus;
-	private ConcurrentMap<String, String>  mapWorkerStatus;
-	boolean isblockedforClient=true;
+	boolean isblockedforClient = true;
 	private long workerPolltime;
 	public WorkerNew() {
 		super();
@@ -81,11 +79,11 @@ public class WorkerNew implements Runnable {
 					.getProperty("workerWasteLimit"));
 			numWorkersPernode = Integer.parseInt(properties
 					.getProperty("numWorkers"));
-			workerSelftermEnabled = properties
-					.getProperty("workerSelftermEnabled").equals("true");
-			mapWorkerCountStatus = hazelClinetObj.getMap(WORKER_COUNT_STATUS);
-			mapWorkerStatus = hazelClinetObj.getMap(WORKER_STATUS);
-			workerPolltime = Long.parseLong(properties.getProperty("workerPolltime"));
+			workerSelftermEnabled = properties.getProperty(
+					"workerSelftermEnabled").equals("true");
+
+			workerPolltime = Long.parseLong(properties
+					.getProperty("workerPolltime"));
 		} catch (FileNotFoundException e) {
 			PrintManager.PrintException(e);
 		} catch (IOException e) {
@@ -108,26 +106,27 @@ public class WorkerNew implements Runnable {
 		objWorker.setName(args[0]);
 		Thread objTh = new Thread(objWorker);
 		DistributedQueue queue = QueueFactory.getQueue();
-		objTh.start();	
 		WorkerMonitor.incrNumOfWorkerThreads(objWorker.hazelClinetObj);
 		objWorker.recordWorkerCount();
+		objTh.start();
 		// Loop never ends once the worker begins execution
-	
+
 		while (true) {
 			// Get one Q information
-			PrintManager.PrintMessage(objWorker.name+" Getting Queue Information for Client");
-			objWorker.isblockedforClient=true;
+			PrintManager.PrintMessage(objWorker.name
+					+ " Getting Queue Information for Client");
+			objWorker.isblockedforClient = true;
 			QueueDetails queueDetails = queue.pullFromQueue();
-			objWorker.isblockedforClient=false;
+			objWorker.isblockedforClient = false;
 			int cuncCurrentTask = 0;
-			// loop for getting the tasks for the client mentioned in Q 
+			// loop for getting the tasks for the client mentioned in Q
 			// information we got.
 			while (true) {
 				// Pulling only tasks for the worker threads
 				if (queueDetails == null) {
 					break;
 				}
-				
+
 				PrintManager.PrintMessage("Getting Task Information for Client"
 						+ queueDetails.getClientName());
 				Task task = TaskQueueFactory.getQueue().retrieveTask(
@@ -144,8 +143,8 @@ public class WorkerNew implements Runnable {
 					objWorker.clientNomoreTask = true;
 					PrintManager.PrintMessage("No more tasks with "
 							+ queueDetails.getClientName());
-					if(objWorker.taskMap.size()>0)
-					objWorker.sendResults(objWorker);
+					if (objWorker.taskMap.size() > 0)
+						objWorker.sendResults(objWorker);
 					break;// breaks if no tasks in client queue
 				}
 				if (cuncCurrentTask >= objWorker.numberofWorkerThreads) {
@@ -178,11 +177,11 @@ public class WorkerNew implements Runnable {
 		if (tasks != null
 				&& ((tasks.size() >= numberofWorkerThreads) || clientNomoreTask)) {
 			Task task = tasks.iterator().next();
-			Set<Task> batches = new ConcurrentHashSet<Task> ();
+			Set<Task> batches = new ConcurrentHashSet<Task>();
 			Task taskBatch = new TaskBatch();
 			taskBatch.setTasks(tasks);
 			batches.add(taskBatch);
-			TaskQueueFactory.getQueue().postTask(objSemaphore,batches,
+			TaskQueueFactory.getQueue().postTask(objSemaphore, batches,
 					task.getResponseQueueName(), task.getQueueUrl(),
 					task.getClientName());
 		}
@@ -190,7 +189,8 @@ public class WorkerNew implements Runnable {
 
 	public boolean isBusy() {
 		boolean isfree = taskMap.isEmpty() && resultMap.isEmpty()
-				&& threadPoolExecutor.getActiveCount() <= 0&&this.isblockedforClient;
+				&& threadPoolExecutor.getActiveCount() <= 0
+				&& this.isblockedforClient;
 		return !isfree;
 	}
 
@@ -199,9 +199,9 @@ public class WorkerNew implements Runnable {
 		int wastedseconds = 0;
 		boolean breakflag = false;
 		try {
-			String whoami ="test";
-			recordWorkerStatus(whoami+name+","+STARTED);
-			//whoami = WorkerMonitor.retrieveInstanceId();
+			String whoami = "test";
+			recordWorkerStatus(whoami + name + "," + STARTED);
+			// whoami = WorkerMonitor.retrieveInstanceId();
 			Thread.sleep(3000);
 			while (!breakflag) {
 				boolean busyFalg = isBusy();
@@ -209,32 +209,35 @@ public class WorkerNew implements Runnable {
 				if (busyFalg) {
 					wastedseconds = 0;
 					WorkerMonitor.incrBusyetAtomicNumber(hazelClinetObj);
-					recordWorkerStatus(whoami+name+","+BUSY);
+					recordWorkerStatus(whoami + name + "," + BUSY);
 				} else {
 					wastedseconds++;
-					recordWorkerStatus(whoami+name+","+FREE);
+					recordWorkerStatus(whoami + name + "," + FREE);
+					recordWorkerCount();
 					WorkerMonitor.incrFreeWorkerCount(hazelClinetObj);
 					if (wastedseconds >= workerWasteLimit) {
 						breakflag = true;
-						if(workerSelftermEnabled){
+						if (workerSelftermEnabled) {
 							// Terminate worker
 							WorkerMonitor
 									.decrNumOfWorkerThreads(this.hazelClinetObj);
-						    recordWorkerCount();
-						    //make sure all workers on the ami are idle before terminating
-							Map<String,String> amiMap= hazelClinetObj.getMap(whoami);
+							// make sure all workers on the ami are idle before
+							// terminating
+							Map<String, String> amiMap = hazelClinetObj
+									.getMap(whoami);
 							amiMap.put(name, FINISHED);
-							while(hazelClinetObj.getMap(whoami).size()<numWorkersPernode){
-								PrintManager.PrintProdMessage(""+hazelClinetObj.getMap(whoami).size());
+							while (hazelClinetObj.getMap(whoami).size() < numWorkersPernode) {
+								PrintManager.PrintProdMessage(""
+										+ hazelClinetObj.getMap(whoami).size());
 								Thread.yield();
 							}
-						hazelClinetObj.shutdown();
-						PrintManager.PrintProdMessage("Terminating worker");
-						recordWorkerStatus(whoami+name+","+FINISHED);
-							//terminateMe(whoami);
+							hazelClinetObj.shutdown();
+							PrintManager.PrintProdMessage("Terminating worker");
+							recordWorkerStatus(whoami + name + "," + FINISHED);
+							// terminateMe(whoami);
 							System.exit(0);
 						}
-						
+
 					}
 				}
 				Thread.sleep(workerPolltime);
@@ -246,14 +249,19 @@ public class WorkerNew implements Runnable {
 	}
 
 	private void recordWorkerCount() {
+		ConcurrentMap<String, Long> mapWorkerCountStatus = hazelClinetObj
+				.getMap(WORKER_COUNT_STATUS);
 		long workCount = WorkerMonitor
 				.getNumOfWorkerThreads(this.hazelClinetObj);
 		String time = String.valueOf(System.nanoTime());
-		mapWorkerCountStatus.putIfAbsent(time,workCount);
+		mapWorkerCountStatus.putIfAbsent(time, workCount);
 	}
+
 	private void recordWorkerStatus(String ami_busy_free) {
+		ConcurrentMap<String, String> mapWorkerStatus = hazelClinetObj
+				.getMap(WORKER_STATUS);
 		String time = String.valueOf(System.nanoTime());
-		mapWorkerStatus.putIfAbsent(time,ami_busy_free);
+		mapWorkerStatus.putIfAbsent(time, ami_busy_free);
 	}
 
 	private void terminateMe(String whoami) {
