@@ -201,7 +201,7 @@ public class WorkerNew implements Runnable {
 		try {
 			String whoami = "test";
 			recordWorkerStatus(whoami + name + "," + STARTED);
-			// whoami = WorkerMonitor.retrieveInstanceId();
+			whoami = WorkerMonitor.retrieveInstanceId();
 			Thread.sleep(3000);
 			while (!breakflag) {
 				boolean busyFalg = isBusy();
@@ -234,7 +234,7 @@ public class WorkerNew implements Runnable {
 							hazelClinetObj.shutdown();
 							PrintManager.PrintProdMessage("Terminating worker");
 							recordWorkerStatus(whoami + name + "," + FINISHED);
-							// terminateMe(whoami);
+							 terminateMe(whoami);
 							System.exit(0);
 						}
 

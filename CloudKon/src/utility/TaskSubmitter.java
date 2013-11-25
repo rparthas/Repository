@@ -1,7 +1,12 @@
 package utility;
 import static utility.Constants.CLIENT_STATUS;
-import static utility.Constants.QUEUE_LENGTH;
 import static utility.Constants.FINISHED_SUBMISTION;
+import static utility.Constants.QUEUE_LENGTH;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.Semaphore;
@@ -21,6 +26,7 @@ public class TaskSubmitter implements  Runnable {
 	Semaphore objSemaphore;
 	private QueueHazelcastUtil queueHazelcastUtil;
 	private String clientId;
+	private int percentage;
 	public TaskSubmitter(Semaphore objSemaphore, Set<Task> taskList,
 			IQueue<Object> clientQ, QueueHazelcastUtil queueHazelcastUtil,String clientId) {
 		super();
@@ -29,6 +35,17 @@ public class TaskSubmitter implements  Runnable {
 		this.objSemaphore=objSemaphore;
 		this.queueHazelcastUtil=queueHazelcastUtil;
 		this.clientId=clientId;
+		FileReader reader;
+		try {
+			reader = new FileReader("CloudKon.properties");
+		
+		Properties properties = new Properties();
+		properties.load(reader);
+		this.percentage = (Integer.parseInt(properties
+				.getProperty("PercentageBefAdvertize"))/100);
+		} catch (Exception e) {
+			
+		}
 	}
 
 	public void run() {
@@ -41,7 +58,7 @@ public class TaskSubmitter implements  Runnable {
 		for (Object object : taskList) {
 			hazelClient.getAtomicNumber(QUEUE_LENGTH).incrementAndGet();
 			counter++;
-			if(size/10<=counter&&!loclreleased){
+			if(size/percentage<=counter&&!loclreleased){
 				objSemaphore.release(1);
 				PrintManager.PrintProdMessage("Releasing LOCK");
 				loclreleased=true;

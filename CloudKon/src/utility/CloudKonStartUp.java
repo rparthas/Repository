@@ -43,6 +43,10 @@ public class CloudKonStartUp {
 				for (int i = 0; i < numClients; i++) {
 					new StagedClientStarter().start();
 				}
+				// Starting workers
+				for (int i = 0; i < numWorkers; i++) {
+					new WorkerStarter(i).start();
+				}
 			}
 			//starting CPU monitor for workers
 			if(properties.getProperty("monitoringEnabled").equals("true")&&numWorkers>0){

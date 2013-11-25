@@ -47,13 +47,14 @@ public class DynamicWorkerAllocater {
 		String AmiID = properties.getProperty("AmiID");
 		String instanceType = properties.getProperty("instanceType");
 		String secGroup = properties.getProperty("secGroup");
+		int polltime = Integer.parseInt(properties.getProperty("dynaShedularPoll"));
 		while (true) {
 			long currWorkerCount = WorkerMonitor
 					.getNumOfWorkerThreads(hazelClinetObj);
 			long currMasterQLen = hazelClinetObj.getAtomicNumber(
 					MASTER_QUEUE_LENGTH).get();
 			PrintManager.PrintProdMessage("currWorkerCount " + currWorkerCount
-					+ "  currMasterQLen " + currMasterQLen);
+					+ "  currMasterQLen " + currMasterQLen+" at time "+System.nanoTime() );
 			long requiredWorkers = currMasterQLen;
 			// Requested Workers are allocated than last run
 			if (currWorkerCount > prevWorkerCount) {
@@ -62,38 +63,32 @@ public class DynamicWorkerAllocater {
 								+ System.nanoTime());
 				PrintManager.PrintProdMessage("adjusting Requested worker"
 						+ requestedWorkers + " diff "
-						+ (currWorkerCount - prevWorkerCount));
+						+ (currWorkerCount - prevWorkerCount)+" at time "+System.nanoTime());
 				requestedWorkers = requestedWorkers
 						- (currWorkerCount - prevWorkerCount);
 				PrintManager.PrintProdMessage("adjusted Requested worker "
-						+ requestedWorkers);
+						+ requestedWorkers+" at time "+System.nanoTime());
 			}
 			// To avoid re-requesting for same advertisements
 			requiredWorkers = requiredWorkers - requestedWorkers;
-			PrintManager.PrintProdMessage("requiredWorkers " + requiredWorkers);
+			PrintManager.PrintProdMessage("requiredWorkers " + requiredWorkers+" at time "+System.nanoTime());
 			if (currWorkerCount < workercountlimit) {
 				if (requiredWorkers + currWorkerCount > workercountlimit) {
 					loopcount = workercountlimit - currWorkerCount;
-					PrintManager.PrintProdMessage("Limit check " + loopcount);
+					PrintManager.PrintProdMessage("Limit check " + loopcount +" at time "+System.nanoTime());
 				} else {
 					loopcount = requiredWorkers;
 				}
-				PrintManager.PrintProdMessage("Requesting " + loopcount
-						+ "Worker AMI at" + System.nanoTime());
-				requestWorker(spotPrice, AmiID, instanceType, secGroup, ec2,
-						(int) loopcount);
-				requestedWorkers += loopcount;
-				for (int i = 0; i < loopcount; i++) {
-					PrintManager.PrintProdMessage("Requesting Worker AMI Start"
-							+ System.nanoTime());
-					requestedWorkers++;
-					// new WorkerStarter(worker++).start();
+				if (loopcount>0){
+					PrintManager.PrintProdMessage("Requesting " + loopcount
+							+ "Worker AMI at" + System.nanoTime());
+					requestWorker(spotPrice, AmiID, instanceType, secGroup, ec2,
+							(int) loopcount);
+					requestedWorkers += loopcount;
 				}
 			}
 			prevWorkerCount = currWorkerCount;
-			PrintManager.PrintProdMessage("Requested worker "
-					+ requestedWorkers);
-			Thread.sleep(2000);
+			Thread.sleep(polltime);
 		}
 
 	}

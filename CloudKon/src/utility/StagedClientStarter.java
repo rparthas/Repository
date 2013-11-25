@@ -24,10 +24,10 @@ public class StagedClientStarter extends Thread {
 				PrintManager
 						.PrintMessage(" Back in starter >> trying for lock <<");
 				stageLock.acquire();
-				PrintManager.PrintMessage(" Stage-"+ i+" FINISHED"+System.nanoTime());
+				PrintManager.PrintMessage(" Stage-"+ i+" FINISHED "+System.nanoTime());
 				stageLock.release();
 			}
-			PrintManager.PrintMessage("All Stages FINISHED");
+			PrintManager.PrintMessage("All Stages FINISHED at time "+System.nanoTime());
 			stageLock.release();
 		} catch (Exception e) {
 			PrintManager.PrintException(e);
