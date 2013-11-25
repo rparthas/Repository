@@ -36,6 +36,7 @@ import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.ec2.AmazonEC2;
 import com.amazonaws.services.ec2.AmazonEC2Client;
+import com.amazonaws.services.ec2.model.StopInstancesRequest;
 import com.amazonaws.services.ec2.model.TerminateInstancesRequest;
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.util.ConcurrentHashSet;
@@ -231,11 +232,9 @@ public class WorkerNew implements Runnable {
 										+ hazelClinetObj.getMap(whoami).size());
 								Thread.yield();
 							}
-							hazelClinetObj.shutdown();
-							PrintManager.PrintProdMessage("Terminating worker");
+							PrintManager.PrintProdMessage("Terminating worker" +whoami);
 							recordWorkerStatus(whoami + name + "," + FINISHED);
-							 terminateMe(whoami);
-							System.exit(0);
+							terminateMe(whoami);
 						}
 
 					}
@@ -276,7 +275,12 @@ public class WorkerNew implements Runnable {
 				instanceIdTerms);
 		// close all cleints and other things before this.
 		// termination request sent.
+		term.setInstanceIds(instanceIdTerms);
+		//StopInstancesRequest stop = new StopInstancesRequest(instanceIdTerms);
+		//ec2.stopInstances(stop);
+		hazelClinetObj.shutdown();
 		ec2.terminateInstances(term);
+		
 	}
 
 }

@@ -70,7 +70,9 @@ public class DynamicWorkerAllocater {
 						+ requestedWorkers+" at time "+System.nanoTime());
 			}
 			// To avoid re-requesting for same advertisements
+			if(requiredWorkers!=0 && requestedWorkers>0)
 			requiredWorkers = requiredWorkers - requestedWorkers;
+			if(requiredWorkers>=0)
 			PrintManager.PrintProdMessage("requiredWorkers " + requiredWorkers+" at time "+System.nanoTime());
 			if (currWorkerCount < workercountlimit) {
 				if (requiredWorkers + currWorkerCount > workercountlimit) {
