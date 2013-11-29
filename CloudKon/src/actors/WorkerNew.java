@@ -107,6 +107,7 @@ public class WorkerNew implements Runnable {
 		objWorker.setName(args[0]);
 		Thread objTh = new Thread(objWorker);
 		DistributedQueue queue = QueueFactory.getQueue();
+		QueueDetails queueDetails = queue.pullFromQueue();
 		WorkerMonitor.incrNumOfWorkerThreads(objWorker.hazelClinetObj);
 		objWorker.recordWorkerCount();
 		objTh.start();
@@ -117,7 +118,9 @@ public class WorkerNew implements Runnable {
 			PrintManager.PrintMessage(objWorker.name
 					+ " Getting Queue Information for Client");
 			objWorker.isblockedforClient = true;
-			QueueDetails queueDetails = queue.pullFromQueue();
+			if(queueDetails==null){
+				queueDetails = queue.pullFromQueue();
+			}
 			objWorker.isblockedforClient = false;
 			int cuncCurrentTask = 0;
 			// loop for getting the tasks for the client mentioned in Q
@@ -153,6 +156,7 @@ public class WorkerNew implements Runnable {
 					objWorker.sendResults(objWorker);
 				}
 			}
+			queueDetails=null;
 		}
 	}
 

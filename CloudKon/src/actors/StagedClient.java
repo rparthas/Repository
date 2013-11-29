@@ -193,6 +193,7 @@ public class StagedClient implements Runnable {
 			}
 			// Advertise tasks again after some time
 			if (System.currentTimeMillis() - startTime > pollTime) {
+				PrintManager.PrintProdMessage("PANIC !!! Queue Resubmistions by Client at " +System.nanoTime());
 				startTime = System.currentTimeMillis();
 				DistributedQueue queue = QueueFactory.getQueue();
 				queue.pushToQueue(qu);

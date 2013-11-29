@@ -61,7 +61,7 @@ public class DynamicWorkerAllocater {
 				PrintManager
 						.PrintProdMessage("Worker AMI's Started After request was made "
 								+ System.nanoTime());
-				PrintManager.PrintProdMessage("adjusting Requested worker"
+				PrintManager.PrintProdMessage("adjusting Requested worker "
 						+ requestedWorkers + " diff "
 						+ (currWorkerCount - prevWorkerCount)+" at time "+System.nanoTime());
 				requestedWorkers = requestedWorkers
