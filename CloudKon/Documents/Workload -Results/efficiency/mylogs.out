@@ -1,0 +1,436 @@
+Starting new cluster with contact points [/10.245.145.51]
+Starting new cluster with contact points [/10.245.145.51]
+Error processing "com.datastax.driver.core":type="Metrics",name="connected-to"
+javax.management.InstanceAlreadyExistsException: "com.datastax.driver.core":type="Metrics",name="connected-to"
+	at com.sun.jmx.mbeanserver.Repository.addMBean(Repository.java:437)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerWithRepository(DefaultMBeanServerInterceptor.java:1898)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerDynamicMBean(DefaultMBeanServerInterceptor.java:966)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerObject(DefaultMBeanServerInterceptor.java:900)
+	at com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.registerMBean(DefaultMBeanServerInterceptor.java:324)
+	at com.sun.jmx.mbeanserver.JmxMBeanServer.registerMBean(JmxMBeanServer.java:513)
+	at com.yammer.metrics.reporting.JmxReporter.registerBean(JmxReporter.java:464)
+	at com.yammer.metrics.reporting.JmxReporter.processGauge(JmxReporter.java:438)
+	at com.yammer.metrics.reporting.JmxReporter.processGauge(JmxReporter.java:16)
+	at com.yammer.metrics.core.Gauge.processWith(Gauge.java:28)
+	at com.yammer.metrics.reporting.JmxReporter.onMetricAdded(JmxReporter.java:395)
+	at com.yammer.metrics.core.MetricsRegistry.addListener(MetricsRegistry.java:442)
+	at com.yammer.metrics.reporting.JmxReporter.start(JmxReporter.java:455)
+	at com.datastax.driver.core.Metrics.<init>(Metrics.java:78)
+	at com.datastax.driver.core.Cluster$Manager.<init>(Cluster.java:628)
+	at com.datastax.driver.core.Cluster$Manager.<init>(Cluster.java:586)
+	at com.datastax.driver.core.Cluster.<init>(Cluster.java:68)
+	at com.datastax.driver.core.Cluster.buildFrom(Cluster.java:96)
+	at com.datastax.driver.core.Cluster$Builder.build(Cluster.java:567)
+	at monitor.cassandra.SimpleClient.connect(SimpleClient.java:41)
+	at actors.Client.<init>(Client.java:104)
+	at actors.Client.main(Client.java:116)
+	at utility.ClientStarter.run(ClientStarter.java:12)
+[Control connection] Refreshing node list and token map
+[Control connection] Refreshing node list and token map
+[Control connection] Refreshing schema
+[Control connection] Refreshing schema
+[Control connection] Successfully connected to /10.245.145.51
+[Control connection] Successfully connected to /10.245.145.51
+Adding /10.245.145.51 to list of queried hosts
+Adding /10.245.145.51 to list of queried hosts
+Posting tasks started 16553801368
+Posting tasks started 16556133145
+numOfWorkers 16
+Number of Cleint Q Advertizements 31
+numOfWorkers 16
+Number of Cleint Q Advertizements 31
+Releasing LOCK
+Releasing LOCK
+Cleint Q Advertizements done
+monitoringEnabled starting Clinet monitor
+Cleint Q Advertizements done
+monitoringEnabled starting Clinet monitor
+Responce Qlength 5000 20155408980
+Total Submit Qlength 11220,20155408980
+Responce Qlength 5000 20125637507
+Total Submit Qlength 11201,20125637507
+Recording throughput 1385055072459 0
+Recording throughput 1385055072486 0
+Responce Qlength 5000 21163729945
+Total Submit Qlength 12584,21163729945
+Responce Qlength 5000 21163884535
+Total Submit Qlength 12584,21163884535
+Recording throughput 1385055073460 0
+Recording throughput 1385055073486 0
+Responce Qlength 5000 22176630095
+Total Submit Qlength 13836,22176630095
+Responce Qlength 5000 22176722202
+Total Submit Qlength 13836,22176722202
+Recording throughput 1385055074461 0
+Recording throughput 1385055074497 0
+Responce Qlength 5000 23182849893
+Total Submit Qlength 15105,23182849893
+Responce Qlength 5000 23182460858
+Total Submit Qlength 15106,23182460858
+Recording throughput 1385055075461 0
+Recording throughput 1385055075497 0
+Responce Qlength 5000 24188425550
+Total Submit Qlength 16414,24188425550
+Responce Qlength 5000 24188657092
+Total Submit Qlength 16414,24188657092
+Recording throughput 1385055076464 0
+Recording throughput 1385055076498 0
+Responce Qlength 5000 25206201873
+Total Submit Qlength 17750,25206201873
+Responce Qlength 5000 25206247185
+Total Submit Qlength 17750,25206247185
+Recording throughput 1385055077465 0
+Recording throughput 1385055077511 0
+Responce Qlength 5000 26210740425
+Total Submit Qlength 18965,26210740425
+Responce Qlength 5000 26210422984
+Total Submit Qlength 18964,26210422984
+Recording throughput 1385055078465 0
+Recording throughput 1385055078523 0
+Responce Qlength 5000 27225624760
+Total Submit Qlength 20312,27225624760
+Responce Qlength 5000 27225545404
+Total Submit Qlength 20312,27225545404
+Recording throughput 1385055079466 0
+Recording throughput 1385055079523 0
+Responce Qlength 5000 28231254812
+Total Submit Qlength 21708,28231254812
+Responce Qlength 5000 28230920001
+Total Submit Qlength 21707,28230920001
+Recording throughput 1385055080466 0
+Recording throughput 1385055080524 0
+Responce Qlength 5000 29236153901
+Total Submit Qlength 23062,29236153901
+Responce Qlength 5000 29235959533
+Total Submit Qlength 23062,29235959533
+Recording throughput 1385055081466 0
+Recording throughput 1385055081525 0
+Responce Qlength 5000 30240824679
+Total Submit Qlength 24390,30240824679
+Responce Qlength 5000 30240645791
+Total Submit Qlength 24390,30240645791
+Recording throughput 1385055082466 0
+Recording throughput 1385055082526 0
+Responce Qlength 5000 31245607710
+Total Submit Qlength 24845,31245607710
+Responce Qlength 5000 31245709410
+Total Submit Qlength 24845,31245709410
+Recording throughput 1385055083467 0
+Recording throughput 1385055083526 0
+Responce Qlength 5000 32262511013
+Total Submit Qlength 24977,32262511013
+Responce Qlength 5000 32263198940
+Total Submit Qlength 24978,32263198940
+Recording throughput 1385055084467 0
+Recording throughput 1385055084526 0
+Responce Qlength 5000 33266847567
+Total Submit Qlength 24962,33266847567
+Responce Qlength 5000 33267462920
+Total Submit Qlength 24962,33267462920
+Recording throughput 1385055085467 0
+Recording throughput 1385055085527 0
+Responce Qlength 5000 34271805269
+Total Submit Qlength 24972,34271805269
+Responce Qlength 5000 34271295422
+Total Submit Qlength 24972,34271295422
+Recording throughput 1385055086468 0
+Recording throughput 1385055086528 0
+Responce Qlength 5000 35276367350
+Total Submit Qlength 24927,35276367350
+Responce Qlength 5000 35276210643
+Total Submit Qlength 24927,35276210643
+Recording throughput 1385055087468 0
+Recording throughput 1385055087528 0
+Responce Qlength 5000 36281920690
+Total Submit Qlength 24915,36281920690
+Responce Qlength 5000 36281716237
+Total Submit Qlength 24915,36281716237
+Recording throughput 1385055088469 0
+Recording throughput 1385055088530 0
+Responce Qlength 5000 37286217956
+Total Submit Qlength 24914,37286217956
+Responce Qlength 5000 37285975778
+Total Submit Qlength 24914,37285975778
+Recording throughput 1385055089471 0
+Recording throughput 1385055089531 0
+Responce Qlength 5000 38290359663
+Total Submit Qlength 24912,38290359663
+Responce Qlength 5000 38290164405
+Total Submit Qlength 24912,38290164405
+Recording throughput 1385055090471 0
+Recording throughput 1385055090531 0
+Responce Qlength 5000 39294433808
+Total Submit Qlength 24893,39294433808
+Responce Qlength 5000 39294533409
+Total Submit Qlength 24893,39294533409
+Recording throughput 1385055091472 0
+Recording throughput 1385055091531 0
+Responce Qlength 5000 40300034668
+Total Submit Qlength 24790,40300034668
+Responce Qlength 5000 40300185142
+Total Submit Qlength 24790,40300185142
+Recording throughput 1385055092473 0
+Recording throughput 1385055092531 0
+Responce Qlength 5000 41306770411
+Total Submit Qlength 24265,41306770411
+Responce Qlength 5000 41306882166
+Total Submit Qlength 24265,41306882166
+Recording throughput 1385055093473 0
+Recording throughput 1385055093531 0
+Responce Qlength 5000 42310799720
+Total Submit Qlength 23737,42310799720
+Responce Qlength 5000 42310908682
+Total Submit Qlength 23737,42310908682
+Recording throughput 1385055094473 0
+Recording throughput 1385055094531 0
+Responce Qlength 5000 43315087279
+Total Submit Qlength 23177,43315087279
+Responce Qlength 5000 43315199294
+Total Submit Qlength 23177,43315199294
+Recording throughput 1385055095474 0
+Recording throughput 1385055095532 0
+Responce Qlength 5000 44319787261
+Total Submit Qlength 22646,44319787261
+Responce Qlength 5000 44319832747
+Total Submit Qlength 22646,44319832747
+Recording throughput 1385055096474 0
+Recording throughput 1385055096532 0
+Responce Qlength 5000 45324277090
+Total Submit Qlength 22103,45324277090
+Responce Qlength 5000 45324095112
+Total Submit Qlength 22103,45324095112
+Recording throughput 1385055097474 0
+Recording throughput 1385055097532 0
+Responce Qlength 5000 46328264376
+Total Submit Qlength 21550,46328264376
+Responce Qlength 5000 46328320422
+Total Submit Qlength 21550,46328320422
+Recording throughput 1385055098475 0
+Recording throughput 1385055098533 0
+Responce Qlength 5000 47333304802
+Total Submit Qlength 21021,47333304802
+Responce Qlength 5000 47333198552
+Total Submit Qlength 21021,47333198552
+Recording throughput 1385055099478 0
+Recording throughput 1385055099533 0
+Responce Qlength 5000 48337253691
+Total Submit Qlength 20492,48337253691
+Responce Qlength 5000 48337356271
+Total Submit Qlength 20492,48337356271
+Recording throughput 1385055100478 0
+Recording throughput 1385055100534 0
+Responce Qlength 5000 49341474815
+Total Submit Qlength 20000,49341474815
+Responce Qlength 5000 49341376581
+Total Submit Qlength 20000,49341376581
+Recording throughput 1385055101479 0
+Recording throughput 1385055101534 0
+Responce Qlength 5000 50345560507
+Total Submit Qlength 19460,50345560507
+Responce Qlength 5000 50345709764
+Total Submit Qlength 19460,50345709764
+Recording throughput 1385055102479 0
+Recording throughput 1385055102534 0
+Responce Qlength 5000 51349980291
+Total Submit Qlength 18910,51349980291
+Responce Qlength 5000 51350241497
+Total Submit Qlength 18910,51350241497
+Recording throughput 1385055103479 0
+Recording throughput 1385055103535 0
+Responce Qlength 5000 52354863993
+Total Submit Qlength 18398,52354863993
+Responce Qlength 5000 52354730138
+Total Submit Qlength 18398,52354730138
+Recording throughput 1385055104480 0
+Recording throughput 1385055104535 0
+Responce Qlength 5000 53360169742
+Total Submit Qlength 17865,53360169742
+Responce Qlength 5000 53360046531
+Total Submit Qlength 17866,53360046531
+Recording throughput 1385055105480 0
+Recording throughput 1385055105535 0
+Responce Qlength 5000 54364391280
+Total Submit Qlength 17280,54364391280
+Responce Qlength 5000 54364451953
+Total Submit Qlength 17280,54364451953
+Recording throughput 1385055106480 0
+Recording throughput 1385055106536 0
+Responce Qlength 5000 55369651802
+Total Submit Qlength 16780,55369651802
+Responce Qlength 5000 55369759048
+Total Submit Qlength 16780,55369759048
+Recording throughput 1385055107481 0
+Recording throughput 1385055107536 0
+Responce Qlength 5000 56374100535
+Total Submit Qlength 16229,56374100535
+Responce Qlength 5000 56373995783
+Total Submit Qlength 16229,56373995783
+Recording throughput 1385055108481 0
+Recording throughput 1385055108537 0
+Responce Qlength 5000 57378151557
+Total Submit Qlength 15670,57378151557
+Responce Qlength 5000 57377986499
+Total Submit Qlength 15670,57377986499
+Recording throughput 1385055109481 0
+Recording throughput 1385055109537 0
+Responce Qlength 5000 58382159787
+Total Submit Qlength 15156,58382159787
+Responce Qlength 5000 58382260339
+Total Submit Qlength 15156,58382260339
+Recording throughput 1385055110482 0
+Recording throughput 1385055110537 0
+Responce Qlength 5000 59386995791
+Total Submit Qlength 14600,59386995791
+Responce Qlength 5000 59394427104
+Total Submit Qlength 14600,59394427104
+Recording throughput 1385055111483 0
+Recording throughput 1385055111537 0
+Responce Qlength 5000 60391567679
+Total Submit Qlength 14068,60391567679
+Responce Qlength 5000 60397322531
+Total Submit Qlength 14062,60397322531
+Recording throughput 1385055112484 0
+Recording throughput 1385055112538 0
+Responce Qlength 5000 61396319981
+Total Submit Qlength 13489,61396319981
+Responce Qlength 5000 61400329846
+Total Submit Qlength 13487,61400329846
+Recording throughput 1385055113484 0
+Recording throughput 1385055113538 0
+Responce Qlength 5000 62399822688
+Total Submit Qlength 12990,62399822688
+Responce Qlength 5000 62403334615
+Total Submit Qlength 12988,62403334615
+Recording throughput 1385055114485 0
+Recording throughput 1385055114538 0
+Responce Qlength 5000 63403372683
+Total Submit Qlength 12440,63403372683
+Responce Qlength 5000 63406270820
+Total Submit Qlength 12437,63406270820
+Recording throughput 1385055115486 0
+Recording throughput 1385055115538 0
+Responce Qlength 5000 64407903348
+Total Submit Qlength 11874,64407903348
+Responce Qlength 5000 64410103541
+Total Submit Qlength 11873,64410103541
+Recording throughput 1385055116486 0
+Recording throughput 1385055116539 0
+Responce Qlength 5000 65413279351
+Total Submit Qlength 11361,65413279351
+Responce Qlength 5000 65411532042
+Total Submit Qlength 11362,65411532042
+Recording throughput 1385055117487 0
+Recording throughput 1385055117540 0
+Responce Qlength 5000 66416791045
+Total Submit Qlength 10824,66416791045
+Responce Qlength 5000 66416600224
+Total Submit Qlength 10824,66416600224
+Recording throughput 1385055118490 0
+Recording throughput 1385055118541 0
+Responce Qlength 5000 67420927478
+Total Submit Qlength 10274,67420927478
+Responce Qlength 5000 67420822275
+Total Submit Qlength 10274,67420822275
+Recording throughput 1385055119490 0
+Recording throughput 1385055119541 0
+Responce Qlength 4970 68426528378
+Total Submit Qlength 9819,68426528378
+Responce Qlength 5000 68426621691
+Total Submit Qlength 9819,68426621691
+Recording throughput 1385055120490 360
+Recording throughput 1385055120542 120
+Responce Qlength 4520 69430936443
+Total Submit Qlength 9237,69430936443
+Responce Qlength 4840 69431052285
+Total Submit Qlength 9237,69431052285
+Recording throughput 1385055121490 370
+Recording throughput 1385055121542 120
+Responce Qlength 4150 70436169104
+Total Submit Qlength 8710,70436169104
+Responce Qlength 4720 70438764832
+Total Submit Qlength 8710,70438764832
+Recording throughput 1385055122490 400
+Recording throughput 1385055122542 130
+Responce Qlength 3750 71440938719
+Total Submit Qlength 8198,71440938719
+Responce Qlength 4600 71441700819
+Total Submit Qlength 8197,71441700819
+Recording throughput 1385055123490 410
+Recording throughput 1385055123542 150
+Responce Qlength 4460 72446005626
+Total Submit Qlength 7658,72446005626
+Responce Qlength 3340 72445403624
+Total Submit Qlength 7658,72445403624
+Recording throughput 1385055124491 400
+Recording throughput 1385055124542 120
+Responce Qlength 4320 73449650377
+Total Submit Qlength 7097,73449650377
+Responce Qlength 2930 73449712412
+Total Submit Qlength 7097,73449712412
+Recording throughput 1385055125491 410
+Recording throughput 1385055125543 130
+Responce Qlength 4190 74454143010
+Total Submit Qlength 6562,74454143010
+Responce Qlength 2520 74454336831
+Total Submit Qlength 6562,74454336831
+Recording throughput 1385055126492 390
+Recording throughput 1385055126543 150
+Responce Qlength 2130 75460071847
+Total Submit Qlength 6054,75460071847
+Responce Qlength 4070 75459995347
+Total Submit Qlength 6054,75459995347
+Recording throughput 1385055127492 430
+Recording throughput 1385055127543 130
+Responce Qlength 1710 76464863962
+Total Submit Qlength 5470,76464863962
+Responce Qlength 3910 76465046044
+Total Submit Qlength 5470,76465046044
+Recording throughput 1385055128493 400
+Recording throughput 1385055128543 120
+Responce Qlength 1310 77468914232
+Total Submit Qlength 4948,77468914232
+Responce Qlength 3790 77469016236
+Total Submit Qlength 4948,77469016236
+Recording throughput 1385055129494 390
+Recording throughput 1385055129543 140
+Responce Qlength 3660 78473352481
+Total Submit Qlength 4420,78473352481
+Responce Qlength 920 78473261564
+Total Submit Qlength 4420,78473261564
+Recording throughput 1385055130496 420
+Recording throughput 1385055130543 140
+Responce Qlength 500 79477987318
+Total Submit Qlength 3865,79477987318
+Responce Qlength 3510 79477827564
+Total Submit Qlength 3865,79477827564
+Recording throughput 1385055131510 380
+Recording throughput 1385055131544 130
+Responce Qlength 3380 80481983903
+Total Submit Qlength 3338,80481983903
+Responce Qlength 110 80481886130
+Total Submit Qlength 3338,80481886130
+Recording throughput 1385055132544 310
+Responce Qlength 2950 81486397314
+Total Submit Qlength 2794,81486397314
+Recording throughput 1385055133544 570
+Responce Qlength 2400 82490289522
+Total Submit Qlength 2261,82490289522
+Recording throughput 1385055134544 510
+Responce Qlength 1870 83495329495
+Total Submit Qlength 1710,83495329495
+Recording throughput 1385055135544 540
+Responce Qlength 1340 84499485403
+Total Submit Qlength 1180,84499485403
+Recording throughput 1385055136547 540
+Responce Qlength 810 85504490294
+Total Submit Qlength 657,85504490294
+Recording throughput 1385055137547 540
+Responce Qlength 250 86508807138
+Total Submit Qlength 90,86508807138
+Shutting down Client b00404b0-52d2-11e3-a117-bb04ca3f8922 at 80698790080
+Shutting down
+Shutting down pool
+Shutting down Client b0042bc0-52d2-11e3-a117-bb04ca3f8922 at 86991254970
+Shutting down
+Shutting down pool
+Terminating worker

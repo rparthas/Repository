@@ -1,0 +1,5551 @@
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+Posting tasks started 23225003887491
+numOfWorkers 0
+Number of Cleint Q Advertizements 2
+currWorkerCount 0
+currMasterQLen 0
+Releasing LOCK
+Cleint Q Advertizements done
+currWorkerCount 0
+currMasterQLen 2
+Starting worker ami!!!!!
+Starting worker ami!!!!!
+Recording throughput 23229137281219 0
+Recording throughput 23230143947030 0
+currWorkerCount 0
+currMasterQLen 2
+Starting worker ami!!!!!
+Starting worker ami!!!!!
+Recording throughput 23231150424985 0
+ count now >> 0
+ count now >> 1
+ worker count 2
+ worker count 2
+Recording throughput 23232159015038 0
+currWorkerCount 2
+currMasterQLen 1
+Starting worker ami!!!!!
+ count now >> 2
+ worker count 3
+ count now >> 3
+ worker count 4
+Recording throughput 23233160377765 0
+Recording throughput 23234164018374 0
+currWorkerCount 4
+currMasterQLen 0
+ count now >> 4
+ worker count 5
+Recording throughput 23235169192629 0
+ worker count 5
+ worker count 5
+Recording throughput 23236175062362 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+Recording throughput 23237177673869 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23238179209054 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23239181114818 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23240185196325 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23241187202689 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23242189075604 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23243190925422 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23244194145665 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23245196299851 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23246198222039 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23247200275624 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23248202035107 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23249201926807 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23250213635477 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+Recording throughput 23251212448288 0
+ worker count 5
+ worker count 5
+ worker count 5
+Shutting down Client 0c7f3940-55b6-11e3-b413-17d8b966d6ec at 23251696569316
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+Lock statustrue
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+Posting tasks started 23254896684802
+numOfWorkers 5
+Number of Cleint Q Advertizements 4
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+Releasing LOCK
+currWorkerCount 5
+currMasterQLen 1
+Cleint Q Advertizements done
+ worker count 5
+Recording throughput 23257452536570 0
+ worker count 5
+Recording throughput 23258454038905 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+Recording throughput 23259458095262 0
+Recording throughput 23260459066878 0
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23261460034902 0
+Recording throughput 23262465675717 0
+currWorkerCount 5
+currMasterQLen 1
+Recording throughput 23263466120207 0
+Recording throughput 23264469047887 0
+currWorkerCount 5
+currMasterQLen 1
+Recording throughput 23265474455166 0
+Recording throughput 23266475075193 0
+currWorkerCount 5
+currMasterQLen 2
+Recording throughput 23267478195349 0
+Recording throughput 23268482890725 0
+currWorkerCount 5
+currMasterQLen 3
+Recording throughput 23269483994764 0
+Recording throughput 23270487424421 0
+currWorkerCount 5
+currMasterQLen 3
+Recording throughput 23271489812657 0
+Recording throughput 23272489255248 0
+currWorkerCount 5
+currMasterQLen 4
+Recording throughput 23273492065903 0
+Recording throughput 23274494818046 0
+currWorkerCount 5
+currMasterQLen 5
+Recording throughput 23275496107888 0
+Recording throughput 23276497274547 0
+currWorkerCount 5
+currMasterQLen 5
+Recording throughput 23277504323256 0
+Recording throughput 23278503386028 0
+currWorkerCount 5
+currMasterQLen 6
+Recording throughput 23279504301185 0
+Recording throughput 23280506534414 0
+currWorkerCount 5
+currMasterQLen 7
+Recording throughput 23281510673920 0
+Recording throughput 23282511517220 0
+currWorkerCount 5
+currMasterQLen 7
+Recording throughput 23283514699994 0
+Recording throughput 23284517272493 0
+currWorkerCount 5
+currMasterQLen 8
+Recording throughput 23285518692706 0
+currWorkerCount 5
+currMasterQLen 8
+Recording throughput 23286522443668 0
+Recording throughput 23287522136221 0
+Recording throughput 23288525274855 0
+currWorkerCount 5
+currMasterQLen 9
+Recording throughput 23289528647025 0
+Recording throughput 23290529232664 0
+currWorkerCount 5
+currMasterQLen 10
+Recording throughput 23291530537904 0
+Recording throughput 23292534673818 0
+currWorkerCount 5
+currMasterQLen 11
+Recording throughput 23293534531129 0
+Recording throughput 23294535339013 0
+currWorkerCount 5
+currMasterQLen 11
+Recording throughput 23295538234358 0
+Recording throughput 23296536828003 18
+currWorkerCount 5
+currMasterQLen 9
+ worker count 5
+Recording throughput 23297537313042 0
+ worker count 5
+Recording throughput 23298542452394 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+Recording throughput 23299542659241 10
+ worker count 5
+ worker count 5
+Recording throughput 23300546318842 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+Recording throughput 23301550587178 0
+ worker count 5
+ worker count 5
+Recording throughput 23302550693425 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+Recording throughput 23303552551455 0
+ worker count 5
+ worker count 5
+Recording throughput 23304558633167 0
+currWorkerCount 5
+currMasterQLen 1
+ worker count 5
+ worker count 5
+Recording throughput 23305558441718 0
+ worker count 5
+ worker count 5
+Recording throughput 23306560302828 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+Recording throughput 23307567334086 0
+ worker count 5
+ worker count 5
+Recording throughput 23308568068572 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+Recording throughput 23309568098855 0
+ worker count 5
+ worker count 5
+Recording throughput 23310577336652 0
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+Recording throughput 23311583518451 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23312589421033 0
+ worker count 5
+ worker count 5
+Recording throughput 23313595186059 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23314597443925 0
+ worker count 5
+ worker count 5
+Recording throughput 23315601533131 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23316604203151 0
+ worker count 5
+ worker count 5
+Recording throughput 23317606364009 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23318610380331 0
+ worker count 5
+ worker count 5
+Recording throughput 23319612336909 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23320616229533 0
+ worker count 5
+ worker count 5
+Recording throughput 23321618437612 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23322620177077 0
+ worker count 5
+ worker count 5
+Recording throughput 23323622345121 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23324626460504 0
+ worker count 5
+ worker count 5
+Recording throughput 23325628436072 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23326630473233 0
+ worker count 5
+ worker count 5
+Recording throughput 23327632537596 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23328636326541 0
+ worker count 5
+ worker count 5
+Recording throughput 23329641492583 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23330643133501 0
+ worker count 5
+ worker count 5
+Recording throughput 23331645221988 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23332647473181 0
+ worker count 5
+ worker count 5
+Recording throughput 23333649556536 0
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+Recording throughput 23334651553662 0
+ worker count 5
+ worker count 5
+Recording throughput 23335653566185 0
+ worker count 5
+ worker count 5
+Shutting down Client 1e67e120-55b6-11e3-b413-17d8b966d6ec at 23336539921470
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+Lock statustrue
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+currWorkerCount 5
+currMasterQLen 0
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+ worker count 5
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+currWorkerCount 4
+currMasterQLen 0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+currWorkerCount 4
+currMasterQLen 0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+ worker count 4
+1
+1
+ worker count 3
+ worker count 3
+ worker count 3
+Terminating worker
+Terminating worker
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+currWorkerCount 3
+currMasterQLen 0
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 3
+ worker count 2
+ worker count 1
+currWorkerCount 0
+currMasterQLen 0
+Terminating worker
+Terminating worker
+Terminating worker
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+currWorkerCount 0
+currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+Posting tasks started 24470004843709
+numOfWorkers 0
+Number of Cleint Q Advertizements 2
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+Releasing LOCK
+Cleint Q Advertizements done
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24474140075963 0
+Recording throughput 24475146081712 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24476148386798 0
+Recording throughput 24477148990915 0
+currWorkerCount 0currMasterQLen 3
+requiredWorkers 0
+Recording throughput 24478153334702 0
+Recording throughput 24479153900836 0
+currWorkerCount 0currMasterQLen 4
+requiredWorkers 0
+Recording throughput 24480156025252 0
+Recording throughput 24481157054868 0
+currWorkerCount 0currMasterQLen 4
+requiredWorkers 0
+Recording throughput 24482161274444 0
+Recording throughput 24483161961196 0
+currWorkerCount 0currMasterQLen 5
+requiredWorkers 0
+Recording throughput 24484162257352 0
+Recording throughput 24485165912333 0
+currWorkerCount 0currMasterQLen 6
+requiredWorkers 0
+Recording throughput 24486170430631 0
+Recording throughput 24487171208746 0
+currWorkerCount 0currMasterQLen 6
+requiredWorkers 0
+Recording throughput 24488173348047 0
+Recording throughput 24489174145665 0
+currWorkerCount 0currMasterQLen 7
+requiredWorkers 0
+Recording throughput 24490178212287 0
+Recording throughput 24491179239850 0
+currWorkerCount 0currMasterQLen 8
+requiredWorkers 0
+Recording throughput 24492181443309 0
+Recording throughput 24493182186521 0
+currWorkerCount 0currMasterQLen 8
+requiredWorkers 0
+Recording throughput 24494184203151 0
+Recording throughput 24495185101370 0
+currWorkerCount 0currMasterQLen 9
+requiredWorkers 0
+Recording throughput 24496187028178 0
+Recording throughput 24497188277472 0
+currWorkerCount 0currMasterQLen 10
+requiredWorkers 0
+Recording throughput 24498192319971 0
+Recording throughput 24499194066622 0
+Recording throughput 24500197948467 0
+Recording throughput 24501203360878 0
+Recording throughput 24502204102037 0
+Recording throughput 24503205159882 0
+Recording throughput 24504206052969 0
+Recording throughput 24505206968126 0
+Recording throughput 24506208277472 0
+Recording throughput 24507208981163 0
+Recording throughput 24508210398295 0
+Recording throughput 24509211078889 0
+Recording throughput 24510214267823 0
+Recording throughput 24511213255145 0
+Recording throughput 24512214089205 0
+Recording throughput 24513217045116 0
+Recording throughput 24514219974336 0
+Recording throughput 24515221138428 0
+Recording throughput 24516224168762 0
+Recording throughput 24517227441359 0
+Recording throughput 24518228184571 0
+Recording throughput 24519228984242 0
+Recording throughput 24520230333624 0
+Recording throughput 24521233089359 0
+Recording throughput 24522234313504 0
+Recording throughput 24523242021762 0
+Recording throughput 24524243353692 0
+Recording throughput 24525244055330 0
+Recording throughput 24526247332546 0
+Recording throughput 24527252226556 0
+Recording throughput 24528256160755 0
+Recording throughput 24529259470820 0
+Recording throughput 24530260314120 0
+Recording throughput 24531261167171 0
+Recording throughput 24532264200071 0
+Recording throughput 24533265230713 0
+Recording throughput 24534268145049 0
+Recording throughput 24535271140994 0
+Recording throughput 24536272269670 0
+Recording throughput 24537273399373 0
+Recording throughput 24538277198070 0
+Recording throughput 24539277277113 0
+Recording throughput 24540277148283 0
+Recording throughput 24541280320279 0
+Recording throughput 24542280631832 0
+Recording throughput 24543287253503 0
+Recording throughput 24544290171944 0
+Recording throughput 24545293347020 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+Posting tasks started 24590240245855
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+numOfWorkers 0
+Number of Cleint Q Advertizements 2
+Releasing LOCK
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+Cleint Q Advertizements done
+Recording throughput 24594384402812 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24595387580454 0
+Recording throughput 24596390359800 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24597392395934 0
+Recording throughput 24598393450187 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24599395803521 0
+Recording throughput 24600396562131 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24601398465842 0
+Recording throughput 24602401712261 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24603403489708 0
+Recording throughput 24604404578350 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24605406456397 0
+Recording throughput 24606407298670 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24607409483139 0
+Recording throughput 24608410581532 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24609412360006 0
+Recording throughput 24610413370630 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24611415683416 0
+Recording throughput 24612418650105 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24613420606169 0
+Recording throughput 24614421532618 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24615423704254 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+Posting tasks started 24666052392855
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+numOfWorkers 0
+Number of Cleint Q Advertizements 2
+currWorkerCount 0currMasterQLen 0
+requiredWorkers 0
+Releasing LOCK
+Cleint Q Advertizements done
+Recording throughput 24670192996971 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 2
+Starting worker ami!!!!!
+Starting worker ami!!!!!
+Recording throughput 24671201697377 0
+Recording throughput 24672203769440 0
+currWorkerCount 0currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24673206526715 0
+ count now >> 0
+ count now >> 1
+ worker count 2
+ worker count 2
+Recording throughput 24674209517014 0
+currWorkerCount 2currMasterQLen 0
+adjusting Requested worker2
+adjusted Requested worker 0
+requiredWorkers -2
+Recording throughput 24675214351485 0
+Recording throughput 24676212144946 0
+currWorkerCount 2currMasterQLen 0
+requiredWorkers -2
+Recording throughput 24677214732330 0
+Recording throughput 24678215586408 0
+currWorkerCount 2currMasterQLen 0
+requiredWorkers -2
+Recording throughput 24679217626135 0
+Recording throughput 24680218543345 0
+currWorkerCount 2currMasterQLen 0
+requiredWorkers -2
+Recording throughput 24681220701637 0
+Recording throughput 24682221893445 0
+currWorkerCount 2currMasterQLen 0
+requiredWorkers -2
+Recording throughput 24683223578504 0
+Recording throughput 24684224598367 0
+currWorkerCount 2currMasterQLen 0
+requiredWorkers -2
+Recording throughput 24685228768156 0
+Recording throughput 24686229708977 0
+currWorkerCount 2currMasterQLen 0
+requiredWorkers -2
+Recording throughput 24687231794384 0
+Recording throughput 24688232640763 0
+currWorkerCount 2currMasterQLen 0
+requiredWorkers -2
+Recording throughput 24689234786737 0
+Recording throughput 24690235540214 0
+currWorkerCount 2currMasterQLen 0
+requiredWorkers -2
+Recording throughput 24691237919724 0
+Recording throughput 24692238637786 0
+currWorkerCount 2currMasterQLen 0
+requiredWorkers -2
+Recording throughput 24693242594569 0
+Shutting down Client 676cc860-55b9-11e3-8abe-17d8b966d6ec at 24693692266591
+currWorkerCount 2currMasterQLen 0
+requiredWorkers -2
+ worker count 2
+ worker count 2
+Lock statustrue
+ worker count 2
+ worker count 2
+currWorkerCount 2currMasterQLen 0
+requiredWorkers -2
+ worker count 2
+ worker count 2
+Posting tasks started 24696882279423
+numOfWorkers 2
+Number of Cleint Q Advertizements 4
+ worker count 2
+ worker count 2
+Releasing LOCK
+Cleint Q Advertizements done
+currWorkerCount 2currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24699464010162 0
+Recording throughput 24700464969973 0
+currWorkerCount 2currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24701468029564 0
+Recording throughput 24702470738592 0
+currWorkerCount 2currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24703472950264 0
+Recording throughput 24704473962942 0
+currWorkerCount 2currMasterQLen 2
+requiredWorkers 0
+Recording throughput 24705476093004 0
+Recording throughput 24706477082584 0
+currWorkerCount 2currMasterQLen 2
+requiredWorkers 0
+EXCEPTION
+com.hazelcast.client.NoMemberAvailableException: No cluster member available to connect
+	at com.hazelcast.client.IORunnable.interruptWaitingCalls(IORunnable.java:67)
+	at com.hazelcast.client.OutRunnable.interruptWaitingCalls(OutRunnable.java:147)
+	at com.hazelcast.client.OutRunnable$1.run(OutRunnable.java:180)
+	at com.hazelcast.client.HazelcastClient$1.call(HazelcastClient.java:344)
+	at com.hazelcast.client.HazelcastClient$1.call(HazelcastClient.java:342)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+Recording throughput 24714159573474 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Posting tasks started 25037275985217
+numOfWorkers 0
+Number of Cleint Q Advertizements 2
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Releasing LOCK
+Cleint Q Advertizements done
+currWorkerCount 0  currMasterQLen 2
+requiredWorkers 2
+Starting worker ami!!!!!
+Starting worker ami!!!!!
+Requested worker 2
+Recording throughput 25041451652722 0
+Recording throughput 25042456475388 0
+currWorkerCount 0  currMasterQLen 2
+requiredWorkers 0
+Requested worker 2
+Recording throughput 25043461741004 0
+Recording throughput 25044465984191 0
+currWorkerCount 2  currMasterQLen 0
+adjusting Requested worker2 diff 2
+adjusted Requested worker 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25045471703536 0
+Recording throughput 25046474779551 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25047477940255 0
+Recording throughput 25048478864137 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25049480972642 0
+Recording throughput 25050482110044 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25051484038905 0
+Recording throughput 25052485004362 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25053486696607 0
+Recording throughput 25054487774983 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25055490599496 0
+Recording throughput 25056490938253 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25057492954370 0
+Recording throughput 25058493762254 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25059495716778 0
+Recording throughput 25060496970179 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25061501059898 0
+Recording throughput 25062503958835 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25063505808653 0
+Shutting down Client 44afb250-55ba-11e3-91d6-17d8b966d6ec at 25064274508032
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Lock statustrue
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Posting tasks started 25067418522301
+numOfWorkers 2
+Number of Cleint Q Advertizements 4
+Releasing LOCK
+Cleint Q Advertizements done
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25069983700662 0
+Recording throughput 25070986803880 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25071988783041 0
+Recording throughput 25072991809269 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25073993782784 0
+Recording throughput 25074996768464 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25076000471180 0
+Recording throughput 25077001844685 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25078005747574 0
+Recording throughput 25079008842067 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25080011146127 0
+Recording throughput 25081013809988 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25082015502232 0
+Recording throughput 25083018576707 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25084020501462 0
+Recording throughput 25085021491043 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25086023779192 0
+Recording throughput 25087028621362 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25088030794025 0
+Recording throughput 25089031832879 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25090033681157 0
+Recording throughput 25091034823179 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25092036817738 0
+Recording throughput 25093037834009 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25094040615408 0
+Recording throughput 25095043901863 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25096045631576 0
+Recording throughput 25097046585741 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25098048587999 0
+Recording throughput 25099051643484 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25100055637735 0
+Recording throughput 25101056765898 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25102058967818 0
+Recording throughput 25103059746958 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25104063645742 0
+Recording throughput 25105064850382 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25106066809012 0
+Recording throughput 25107067580968 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25108071787199 0
+Recording throughput 25109072566853 9
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25110078205615 0
+Recording throughput 25111080706770 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25112082720320 0
+Recording throughput 25113083865421 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25114087910999 0
+Recording throughput 25115093848483 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25116096160755 0
+Recording throughput 25117096687881 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25118099418467 0
+Recording throughput 25119101633731 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25120103698609 0
+Recording throughput 25121104770825 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25122106842888 0
+Recording throughput 25123110295642 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25124112170097 0
+Recording throughput 25125112949237 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25126118202022 0
+Recording throughput 25127120826874 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25128122940512 0
+Recording throughput 25129123942924 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25130125796335 0
+Recording throughput 25131126980957 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25132130666221 0
+Recording throughput 25133131985833 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25134133652928 0
+Recording throughput 25135134915567 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25136136760765 0
+Recording throughput 25137139675614 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25138142008417 0
+Recording throughput 25139142600728 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25140144672278 0
+Recording throughput 25141147916132 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25142150980341 0
+Recording throughput 25143152071036 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25144153784324 0
+Recording throughput 25145156044756 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25146158020325 0
+Recording throughput 25147158706051 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+Recording throughput 25148161056305 0
+Recording throughput 25149163688856 20
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers -2
+Requested worker 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Posting tasks started 25600804976133
+numOfWorkers 0
+Number of Cleint Q Advertizements 2
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Releasing LOCK
+Cleint Q Advertizements done
+currWorkerCount 0  currMasterQLen 2
+requiredWorkers 2
+Starting worker ami!!!!!
+Starting worker ami!!!!!
+Requested worker 2
+Recording throughput 25604962403633 0
+Recording throughput 25605966516450 0
+currWorkerCount 0  currMasterQLen 2
+requiredWorkers 0
+Requested worker 2
+Recording throughput 25606970597957 0
+Recording throughput 25607972686957 0
+currWorkerCount 2  currMasterQLen 0
+adjusting Requested worker2 diff 2
+adjusted Requested worker 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25608974772878 0
+Recording throughput 25609975762459 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25610977853000 0
+Recording throughput 25611982809115 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25612984431042 0
+Recording throughput 25613985362623 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25614989871683 0
+Recording throughput 25615990556895 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25616992775753 0
+Recording throughput 25617996003182 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25618999850639 0
+Recording throughput 25620000720628 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25621002550941 0
+Recording throughput 25622003537956 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25623006554432 0
+Recording throughput 25624007670276 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25625009914284 0
+Recording throughput 25626010716008 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25627012789611 0
+Shutting down Client 94933ed0-55bb-11e3-8790-17d8b966d6ec at 25627721407380
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Lock statustrue
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Posting tasks started 25630839964584
+numOfWorkers 2
+Number of Cleint Q Advertizements 4
+Releasing LOCK
+Cleint Q Advertizements done
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 2
+Starting worker ami!!!!!
+Starting worker ami!!!!!
+Requested worker 2
+Recording throughput 25633411883693 0
+Recording throughput 25634415549966 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 2
+Recording throughput 25635420625673 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Posting tasks started 25760727568649
+numOfWorkers 0
+Number of Cleint Q Advertizements 2
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Releasing LOCK
+Cleint Q Advertizements done
+currWorkerCount 0  currMasterQLen 2
+requiredWorkers 2
+Starting worker ami!!!!!
+Starting worker ami!!!!!
+Requested worker 2
+Recording throughput 25764877010727 0
+Recording throughput 25765875906687 0
+currWorkerCount 0  currMasterQLen 2
+requiredWorkers 0
+Requested worker 2
+Recording throughput 25766885151157 0
+Recording throughput 25767888778935 0
+currWorkerCount 2  currMasterQLen 0
+adjusting Requested worker2 diff 2
+adjusted Requested worker 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25768891338089 0
+Recording throughput 25769892031514 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25770896100703 0
+Recording throughput 25771897024585 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25772899064312 0
+Recording throughput 25773899790073 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25774902271210 0
+Recording throughput 25775902965149 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25776905131139 0
+Recording throughput 25777905835343 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25778907779602 0
+Recording throughput 25779910819175 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25780913010829 0
+Recording throughput 25781914137453 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Posting tasks started 25881216490786
+numOfWorkers 0
+Number of Cleint Q Advertizements 2
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Releasing LOCK
+Cleint Q Advertizements done
+currWorkerCount 0  currMasterQLen 2
+requiredWorkers 2
+Starting worker ami!!!!!
+Starting worker ami!!!!!
+Requested worker 2
+Recording throughput 25885346457424 0
+Recording throughput 25886350695478 0
+currWorkerCount 0  currMasterQLen 2
+requiredWorkers 0
+Requested worker 2
+Recording throughput 25887353336241 0
+Recording throughput 25888357356156 0
+currWorkerCount 2  currMasterQLen 0
+adjusting Requested worker2 diff 2
+adjusted Requested worker 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25889362165477 0
+Recording throughput 25890362326643 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25891368314427 0
+Recording throughput 25892368244623 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25893372554534 0
+Recording throughput 25894375116768 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25895383525124 0
+Recording throughput 25896384352512 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25897387213981 0
+Recording throughput 25898388402196 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25899390524559 0
+Recording throughput 25900391317045 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25901393215623 0
+Recording throughput 25902394199558 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25903396268541 0
+Recording throughput 25904397815018 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25905399241389 0
+Recording throughput 25906400194015 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25907402491916 0
+Shutting down Client 3bb4bcc0-55bc-11e3-b945-17d8b966d6ec at 25908342764461
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Lock statustrue
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Posting tasks started 25911468566955
+numOfWorkers 2
+Number of Cleint Q Advertizements 4
+Releasing LOCK
+Cleint Q Advertizements done
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 2
+Starting worker ami!!!!!
+Starting worker ami!!!!!
+Requested worker 2
+Recording throughput 25914021326284 0
+Recording throughput 25915027407483 0
+currWorkerCount 2  currMasterQLen 2
+requiredWorkers 0
+Requested worker 2
+Recording throughput 25916032501668 0
+Recording throughput 25917033240260 0
+currWorkerCount 4  currMasterQLen 0
+adjusting Requested worker2 diff 2
+adjusted Requested worker 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25918035194785 0
+Recording throughput 25919040510188 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25920042503721 0
+Recording throughput 25921043479443 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25922045523276 0
+Recording throughput 25923046492326 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25924048570035 0
+Recording throughput 25925049569881 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25926051664014 0
+Recording throughput 25927059583226 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25928067632808 0
+Recording throughput 25929068772263 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25930070596930 0
+Recording throughput 25931073732484 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25932076698147 0
+Recording throughput 25933077509110 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25934080838166 0
+Recording throughput 25935081279577 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25936083501000 0
+Recording throughput 25937086587794 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25938088620335 0
+Recording throughput 25939089603757 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25940091751783 0
+Recording throughput 25941092333829 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25942096502078 0
+Recording throughput 25943096462043 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25944100383411 0
+Recording throughput 25945101356567 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25946105257917 0
+Recording throughput 25947106534414 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25948108751219 0
+Recording throughput 25949110423446 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25950112582764 0
+Recording throughput 25951113316224 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25952114775958 0
+Recording throughput 25953116136118 10
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25954117971051 0
+Recording throughput 25955119034029 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25956120923882 20
+Recording throughput 25957120505055 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25958125481702 0
+Recording throughput 25959128555150 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25960130427038 0
+Recording throughput 25961131726633 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25962133465585 0
+Recording throughput 25963137337679 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25964139909664 0
+Recording throughput 25965141756916 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25966143809474 0
+Recording throughput 25967146356310 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25968149827541 0
+Recording throughput 25969150769901 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25970152737771 0
+Recording throughput 25971155595647 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25972159664322 0
+Recording throughput 25973161637838 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25974165476569 0
+Recording throughput 25975168818970 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25976170581532 0
+Recording throughput 25977173566185 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25978177727762 0
+Recording throughput 25979178609043 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25980180561515 0
+Recording throughput 25981183719653 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25982185385207 0
+Recording throughput 25983187626135 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25984189805471 0
+Recording throughput 25985190822768 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25986192415439 0
+Recording throughput 25987193525124 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25988196536980 0
+Recording throughput 25989199415901 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25990201488477 0
+Recording throughput 25991204482369 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25992206416876 0
+Recording throughput 25993208424267 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Recording throughput 25994211738438 0
+Recording throughput 25995217377713 0
+Shutting down Client 4ddb30f0-55bc-11e3-b945-17d8b966d6ec at 25995360617974
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Lock statustrue
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 4  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+1
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Terminating worker
+Terminating worker
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 2  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Terminating worker
+Terminating worker
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+currWorkerCount 0  currMasterQLen 0
+requiredWorkers 0
+Requested worker 0
+Posting tasks started 17417250400224
+numOfWorkers 1
+Number of Cleint Q Advertizements 1
+Posting tasks started 17521075164208
+numOfWorkers 2
+Number of Cleint Q Advertizements 1
+Retreiving regions file from the cloudfront distribution: https://d3s62xsdspbbg2.cloudfront.net/endpoints.xml
+Get connection for route {s}->https://d3s62xsdspbbg2.cloudfront.net
+Connecting to d3s62xsdspbbg2.cloudfront.net:443
+CookieSpec selected: best-match
+Auth cache not set in the context
+Target auth state: UNCHALLENGED
+Proxy auth state: UNCHALLENGED
+Attempt 1 to execute request
+Sending request: GET /endpoints.xml HTTP/1.1
+>> "GET /endpoints.xml HTTP/1.1[\r][\n]"
+>> "Host: d3s62xsdspbbg2.cloudfront.net[\r][\n]"
+>> "Connection: Keep-Alive[\r][\n]"
+>> "User-Agent: aws-sdk-java/1.6.1 Windows_7/6.1 Java_HotSpot(TM)_Client_VM/21.0-b17[\r][\n]"
+>> "[\r][\n]"
+>> GET /endpoints.xml HTTP/1.1
+>> Host: d3s62xsdspbbg2.cloudfront.net
+>> Connection: Keep-Alive
+>> User-Agent: aws-sdk-java/1.6.1 Windows_7/6.1 Java_HotSpot(TM)_Client_VM/21.0-b17
+<< "HTTP/1.1 200 OK[\r][\n]"
+<< "Content-Type: text/xml[\r][\n]"
+<< "Content-Length: 56098[\r][\n]"
+<< "Connection: keep-alive[\r][\n]"
+<< "Date: Thu, 14 Nov 2013 21:13:50 GMT[\r][\n]"
+<< "Last-Modified: Thu, 14 Nov 2013 20:42:18 GMT[\r][\n]"
+<< "ETag: "21c29844da6af4fcd0a0f1b984dde2f6"[\r][\n]"
+<< "Accept-Ranges: bytes[\r][\n]"
+<< "Server: AmazonS3[\r][\n]"
+<< "Age: 71857[\r][\n]"
+<< "X-Cache: Hit from cloudfront[\r][\n]"
+<< "Via: 1.1 c432eecaa123a67d422e3307018b43f1.cloudfront.net (CloudFront)[\r][\n]"
+<< "X-Amz-Cf-Id: LLzD8V8xfSMVJgymGJ8bwruDjiZkWmhP9av7w8nBELWK-SVbHqYMwQ==[\r][\n]"
+<< "[\r][\n]"
+Receiving response: HTTP/1.1 200 OK
+<< HTTP/1.1 200 OK
+<< Content-Type: text/xml
+<< Content-Length: 56098
+<< Connection: keep-alive
+<< Date: Thu, 14 Nov 2013 21:13:50 GMT
+<< Last-Modified: Thu, 14 Nov 2013 20:42:18 GMT
+<< ETag: "21c29844da6af4fcd0a0f1b984dde2f6"
+<< Accept-Ranges: bytes
+<< Server: AmazonS3
+<< Age: 71857
+<< X-Cache: Hit from cloudfront
+<< Via: 1.1 c432eecaa123a67d422e3307018b43f1.cloudfront.net (CloudFront)
+<< X-Amz-Cf-Id: LLzD8V8xfSMVJgymGJ8bwruDjiZkWmhP9av7w8nBELWK-SVbHqYMwQ==
+Connection can be kept alive indefinitely
+<< "<"
+<< "X"
+<< "M"
+<< "L"
+<< ">[\n]"
+<< "  <Regions>[\n]"
+<< "    <Region>[\n]"
+<< " "
+<< "     <Name>us-east-1</Name>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudformation</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudformation.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudfront</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudfront.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudsearch</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudsearch.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudtrail</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudtrail.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>monitoring</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>monitoring.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>dynamodb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>dynamodb.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>ec2</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>ec2.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticmapreduce</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticmapreduce.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticache</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticache.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>rds</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>rds.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>route53</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>route53.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>email</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>email.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sdb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sdb.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sns</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sns.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sqs</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sqs.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>s3</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>s3.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>autoscaling</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>autoscaling.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticbeanstalk</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticbeanstalk.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>iam</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>iam.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>importexport</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>importexport.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sts</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sts.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>storagegateway</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>storagegateway.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>support</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>support.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticloadbalancing</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticloadbalancing.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>swf</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>swf.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>glacier</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>glacier.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>directconnect</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>directconnect.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>datapipeline</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>datapipeline.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>redshift</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>redshift.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>opsworks</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>opsworks.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elastictranscoder</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elastictranscoder.us-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "    </Region>[\n]"
+<< "    <Region>[\n]"
+<< "      <Name>us-west-1</Name>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudformation</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudformation.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudfront</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudfront.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudsearch</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudsearch.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>monitoring</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>monitoring.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>dynamodb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>dynamodb.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>ec2</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>ec2.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticmapreduce</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticmapreduce.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticache</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticache.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "  "
+<< "    <Endpoint>[\n]"
+<< "        <ServiceName>rds</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>rds.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>route53</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>route53.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sdb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sdb.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sns</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sns.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sqs</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sqs.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>s3</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>s3-us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>autoscaling</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>autoscaling.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticbeanstalk</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticbeanstalk.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>iam</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>iam.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>importexport</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>importexport.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sts</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sts.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>storagegateway</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>storagegateway.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticloadbalancing</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticloadbalancing.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>swf</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>swf.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>glacier</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>glacier.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>directconnect</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>directconnect.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elastictranscoder</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elastictranscoder.us-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "    </Region>[\n]"
+<< "    <Region>[\n]"
+<< "      <Name>us-west-2</Name>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudformation</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudformation.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudfront</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudfront.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudsearch</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudsearch.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudtrail</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudtrail.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>monitoring</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>monitoring.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>dynamodb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>dynamodb.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>ec2</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>ec2.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticmapreduce</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticmapreduce.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticache</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticache.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>rds</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>rds.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>route53</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>route53.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sdb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sdb.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sns</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sns.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sqs</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sqs.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>s3</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>s3-us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>autoscaling</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>autoscaling.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticbeanstalk</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticbeanstalk.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>iam</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>iam.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>importexport</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>importexport.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sts</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sts.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>storagegateway</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>storagegateway.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticloadbalancing</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticloadbalancing.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>swf</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>swf.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>glacier</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>glacier.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>directconnect</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>directconnect.us-west-2.amazonaws.com</Hos"
+<< "tname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>redshift</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>redshift.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elastictranscoder</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elastictranscoder.us-west-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "    </Region>[\n]"
+<< "    <Region>[\n]"
+<< "      <Name>eu-west-1</Name>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudformation</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudformation.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudfront</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudfront.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudsearch</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudsearch.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>monitoring</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>monitoring.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>dynamodb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>dynamodb.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>ec2</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>ec2.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticmapreduce</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticmapreduce.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticache</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticache.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>rds</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>rds.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>route53</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>route53.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sdb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sdb.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sns</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sns.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sqs</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sqs.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>s3</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>s3-eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>autoscaling</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>autoscaling.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticbeanstalk</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticbeanstalk.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>iam</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>iam.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>importexport</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>importexport.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sts</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sts.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>storagegateway</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>storagegateway.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticloadbalancing</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticloadbalancing.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>swf</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>swf.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>glacier</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>glacier.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>directconnect</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>directconnect.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>redshift</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>redshift.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elastictranscoder</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elastictranscoder.eu-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "    </Region>[\n]"
+<< "    <Region>[\n]"
+<< "      <Name>ap-northeast-1</Name>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudformation</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudformation.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudfront</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudfront.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>monitoring</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>monitoring.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>dynamodb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>dynamodb.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>ec2</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>ec2.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticmapreduce</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticmapreduce.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticache</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticache.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>rds</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>rds.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>route53</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>route53.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sdb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sdb.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sns</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sns.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sqs</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sqs.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>s3</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>s3-ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "     "
+<< " <Endpoint>[\n]"
+<< "        <ServiceName>autoscaling</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>autoscaling.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticbeanstalk</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticbeanstalk.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>iam</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>iam.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>importexport</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>importexport.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sts</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sts.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>storagegateway</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>storagegateway.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticloadbalancing</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticloadbalancing.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>swf</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>swf.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>glacier</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>glacier.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>directconnect</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>directconnect.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>redshift</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>redshift.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elastictranscoder</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elastictranscoder.ap-northeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "    </Region>[\n]"
+<< "    <Region>[\n]"
+<< "      <Name>ap-southeast-1</Name>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudformation</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudformation.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudfront</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudfront.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudsearch</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudsearch.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>monitoring</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>monitoring.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>dynamodb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>dynamodb.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>ec2</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>ec2.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticmapreduce</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticmapreduce.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticache</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticache.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>rds</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>rds.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>route53</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>route53.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sdb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sdb.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sns</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sns.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sqs</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sqs.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>s3</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>s3-ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>autoscaling</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>autoscaling.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticbeanstalk</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticbeanstalk.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>iam</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>iam.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>importexport</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>importexport.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sts</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sts.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>storagegateway</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>storagegateway.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticloadbalancing</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticloadbalancing.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>swf</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>swf.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>directconnect</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>directconnect.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>redshift</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>redshift.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elastictranscoder</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elastictranscoder.ap-southeast-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "    </Region>[\n]"
+<< "    <Region>[\n]"
+<< "      <Name>ap-southeast-2</Name>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudformation</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudformation.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudfront</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudfront.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>monitoring</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>monitoring.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>dynamodb</ServiceN"
+<< "ame"
+<< ">[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>dynamodb.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>ec2</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>ec2.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticmapreduce</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticmapreduce.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticache</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticache.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>rds</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>rds.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>route53</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>route53.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sdb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sdb.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sns</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sns.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sqs</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sqs.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>s3</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>s3-ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>autoscaling</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>autoscaling.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticbeanstalk</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticbeanstalk.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>iam</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>iam.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>importexport</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>importexport.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sts</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sts.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>storagegateway</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>storagegateway.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticloadbalancing</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticloadbalancing.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>swf</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>swf.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>glacier</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>glacier.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>directconnect</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>directconnect.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>redshift</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>redshift.ap-southeast-2.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "    </Region>[\n]"
+<< "    <Region>[\n]"
+<< "      <Name>sa-east-1</Name>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudformation</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudformation.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>cloudfront</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>cloudfront.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>monitoring</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>monitoring.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>dynamodb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>dynamodb.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>ec2</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>ec2.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticmapreduce</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticmapreduce.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticache</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticache.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>rds</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>rds.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>route53</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>route53.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sdb</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sdb.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sns</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sns.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sqs</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sqs.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>s3</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>s3-sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>autoscaling</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>autoscaling.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticbeanstalk</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticbeanstalk.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>iam</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>iam.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>importexport</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>importexport.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sts</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sts.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>storagegateway</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>storagegateway.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticloadbalancing</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticloadbalancing.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>swf</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>swf.sa-east-1.amazonaws.com</H"
+<< "ostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>directconnect</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>directconnect.sa-east-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "    </Region>[\n]"
+<< "    <Region>[\n]"
+<< "      <Name>us-gov-west-1</Name>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>monitoring</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>monitoring.us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>dynamodb</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>dynamodb.us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>ec2</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>ec2.us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticmapreduce</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticmapreduce.us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>rds</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>rds.us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sns</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sns.us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sqs</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sqs.us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>s3</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>s3-us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>autoscaling</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>autoscaling.us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>iam</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>iam.us-gov.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>sts</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>sts.us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>elasticloadbalancing</ServiceName>[\n]"
+<< "        <Http>true</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>elasticloadbalancing.us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "      <Endpoint>[\n]"
+<< "        <ServiceName>swf</ServiceName>[\n]"
+<< "        <Http>false</Http>[\n]"
+<< "        <Https>true</Https>[\n]"
+<< "        <Hostname>swf.us-gov-west-1.amazonaws.com</Hostname>[\n]"
+<< "      </Endpoint>[\n]"
+<< "    </Region>[\n]"
+<< "  </Regions>[\n]"
+<< "  <Services>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>cloudformation</Name>[\n]"
+<< "      <FullName>Amazon CloudFormation</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>cloudfront</Name>[\n]"
+<< "      <FullName>Amazon CloudFront</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>cloudsearch</Name>[\n]"
+<< "      <FullName>Amazon CloudSearch</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>cloudtrail</Name>[\n]"
+<< "      <FullName>AWS CloudTrail</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>monitoring</Name>[\n]"
+<< "      <FullName>Amazon CloudWatch</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>dynamodb</Name>[\n]"
+<< "      <FullName>Amazon DynamoDB</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>ec2</Name>[\n]"
+<< "      <FullName>Amazon Elastic Compute Cloud</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>elasticmapreduce</Name>[\n]"
+<< "      <FullName>Amazon Elastic MapReduce</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>elasticache</Name>[\n]"
+<< "      <FullName>Amazon ElastiCache</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>rds</Name>[\n]"
+<< "      <FullName>Amazon Relational Database Service</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>route53</Name>[\n]"
+<< "      <FullName>Amazon Route 53</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>email</Name>[\n]"
+<< "      <FullName>Amazon Simple Email Service</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>sdb</Name>[\n]"
+<< "      <FullName>Amazon SimpleDB</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <Re"
+<< "gionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>sns</Name>[\n]"
+<< "      <FullName>Amazon Simple Notification Service</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>sqs</Name>[\n]"
+<< "      <FullName>Amazon Simple Queue Service</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>s3</Name>[\n]"
+<< "      <FullName>Amazon Simple Storage Service</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>autoscaling</Name>[\n]"
+<< "      <FullName>Auto Scaling</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>elasticbeanstalk</Name>[\n]"
+<< "      <FullName>AWS Elastic Beanstalk</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>iam</Name>[\n]"
+<< "      <FullName>AWS Identity &amp; Access Management</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>importexport</Name>[\n]"
+<< "      <FullName>AWS Import/Export</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>sts</Name>[\n]"
+<< "      <FullName>AWS Security Token Service</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>storagegateway</Name>[\n]"
+<< "      <FullName>AWS Storage Gateway</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>support</Name>[\n]"
+<< "      <FullName>AWS Support</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>elasticloadbalancing</Name>[\n]"
+<< "      <FullName>Elastic Load Balancing</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>swf</Name>[\n]"
+<< "      <FullName>Amazon Simple Workflow Service</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "      <RegionName>us-gov-west-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>glacier</Name>[\n]"
+<< "      <FullName>Amazon Glacier</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>directconnect</Name>[\n]"
+<< "      <FullName>AWS Direct Connect</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "      <RegionName>sa-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>datapipeline</Name>[\n]"
+<< "      <FullName>AWS Data Pipeline</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>redshift</Name>[\n]"
+<< "      <FullName>Amazon Redshift</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-2</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>opsworks</Name>[\n]"
+<< "      <FullName>AWS OpsWorks</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "    <Service>[\n]"
+<< "      <Name>elastictranscoder</Name>[\n]"
+<< "      <FullName>Amazon Elastic Transcoder</FullName>[\n]"
+<< "      <RegionName>us-east-1</RegionName>[\n]"
+<< "      <RegionName>us-west-1</RegionName>[\n]"
+<< "      <RegionName>us-west-2</RegionName>[\n]"
+<< "      <RegionName>eu-west-1</RegionName>[\n]"
+<< "      <RegionName>ap-northeast-1</RegionName>[\n]"
+<< "      <RegionName>ap-southeast-1</RegionName>[\n]"
+<< "    </Service>[\n]"
+<< "  </Services>[\n]"
+<< "</XML>[\n]"
+Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@ace533
+Connection can be kept alive indefinitely
+Sending Request: POST https://ec2.us-west-2.amazonaws.com / Parameters: (Action: TerminateInstances, SignatureMethod: HmacSHA256, InstanceId.1: i-16515e22, AWSAccessKeyId: AKIAJEO64ZELZRUATPIQ, SignatureVersion: 2, Version: 2013-10-01, Signature: wDvzaviV2MM0PaksWBPIRSOUYTdwsmUK73xcWe1gyLc=, Timestamp: 2013-11-25T19:02:20.996Z, ) Headers: (User-Agent: aws-sdk-java/1.6.1 Windows_7/6.1 Java_HotSpot(TM)_Client_VM/21.0-b17, ) 
+Connection request: [route: {s}->https://ec2.us-west-2.amazonaws.com][total kept alive: 0; route allocated: 0 of 50; total allocated: 0 of 50]
+Connection leased: [id: 0][route: {s}->https://ec2.us-west-2.amazonaws.com][total kept alive: 0; route allocated: 1 of 50; total allocated: 1 of 50]
+Connecting to ec2.us-west-2.amazonaws.com:443
+CookieSpec selected: best-match
+Auth cache not set in the context
+Target auth state: UNCHALLENGED
+Proxy auth state: UNCHALLENGED
+Attempt 1 to execute request
+Sending request: POST / HTTP/1.1
+>> "POST / HTTP/1.1[\r][\n]"
+>> "Host: ec2.us-west-2.amazonaws.com[\r][\n]"
+>> "User-Agent: aws-sdk-java/1.6.1 Windows_7/6.1 Java_HotSpot(TM)_Client_VM/21.0-b17[\r][\n]"
+>> "Content-Type: application/x-www-form-urlencoded; charset=utf-8[\r][\n]"
+>> "Content-Length: 246[\r][\n]"
+>> "Connection: Keep-Alive[\r][\n]"
+>> "[\r][\n]"
+>> POST / HTTP/1.1
+>> Host: ec2.us-west-2.amazonaws.com
+>> User-Agent: aws-sdk-java/1.6.1 Windows_7/6.1 Java_HotSpot(TM)_Client_VM/21.0-b17
+>> Content-Type: application/x-www-form-urlencoded; charset=utf-8
+>> Content-Length: 246
+>> Connection: Keep-Alive
+>> "Action=TerminateInstances&SignatureMethod=HmacSHA256&InstanceId.1=i-16515e22&AWSAccessKeyId=AKIAJEO64ZELZRUATPIQ&SignatureVersion=2&Version=2013-10-01&Signature=wDvzaviV2MM0PaksWBPIRSOUYTdwsmUK73xcWe1gyLc%3D&Timestamp=2013-11-25T19%3A02%3A20.996Z"
+<< "HTTP/1.1 200 OK[\r][\n]"
+<< "Content-Type: text/xml;charset=UTF-8[\r][\n]"
+<< "Transfer-Encoding: chunked[\r][\n]"
+<< "Date: Mon, 25 Nov 2013 19:02:59 GMT[\r][\n]"
+<< "Server: AmazonEC2[\r][\n]"
+<< "[\r][\n]"
+Receiving response: HTTP/1.1 200 OK
+<< HTTP/1.1 200 OK
+<< Content-Type: text/xml;charset=UTF-8
+<< Transfer-Encoding: chunked
+<< Date: Mon, 25 Nov 2013 19:02:59 GMT
+<< Server: AmazonEC2
+Connection can be kept alive indefinitely
+<< "248[\r][\n]"
+<< "<"
+<< "?"
+<< "x"
+<< "m"
+<< "l version="1.0" encoding="UT"
+<< "F"
+<< "-"
+<< "8"
+<< """
+<< "?"
+<< ">"
+<< "[\n]"
+<< "<TerminateInstancesResponse xmlns="http://ec2.amazonaws.com/doc/2013-10-01/">[\n]"
+<< "    <requestId>04a1cc90-e1de-413b-8119-96aafd0abdaf</requestId>[\n]"
+<< "    <instancesSet>[\n]"
+<< "        <item>[\n]"
+<< "            <instanceId>i-16515e22</instanceId>[\n]"
+<< "            <currentState>[\n]"
+<< "                <code>32</code>[\n]"
+<< "                <name>shutting-down</name>[\n]"
+<< "            </currentState>[\n]"
+<< "            <previousState>[\n]"
+<< "                <code>16</code>[\n]"
+<< "                <name>running</name>[\n]"
+<< "            </previousState>[\n]"
+<< "        </item>[\n]"
+<< "    </instancesSet>[\n]"
+<< "</TerminateInstancesResponse>"
+<< "[\r][\n]"
+<< "0[\r][\n]"
+<< "[\r][\n]"
+Connection [id: 0][route: {s}->https://ec2.us-west-2.amazonaws.com] can be kept alive indefinitely
+Connection released: [id: 0][route: {s}->https://ec2.us-west-2.amazonaws.com][total kept alive: 1; route allocated: 1 of 50; total allocated: 1 of 50]
+Received successful response: 200, AWS Request ID: 04a1cc90-e1de-413b-8119-96aafd0abdaf

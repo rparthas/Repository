@@ -1,0 +1,428 @@
+Stage-1 STARTED 263035439955
+Starting new cluster with contact points [/10.217.11.60]
+[Control connection] Refreshing node list and token map
+[Control connection] Refreshing schema
+[Control connection] Successfully connected to /10.217.11.60
+Adding /10.217.11.60 to list of queried hosts
+creating tasks
+Posting tasks started 271496840771
+numOfWorkers 0
+Number of Cleint Q Advertizements 1
+Releasing LOCK
+Cleint Q Advertizements done
+monitoringEnabled starting Clinet monitor
+ Back in starter >> trying for lock <<
+Responce Qlength 10 272709012461
+Total Submit Qlength 10,272709012461
+Recording throughput 302702070180 0
+Responce Qlength 10 302736856794
+Total Submit Qlength 10,302736856794
+Recording throughput 332702661646 0
+Responce Qlength 10 332744265583
+Total Submit Qlength 10,332744265583
+Recording throughput 362703075588 0
+Responce Qlength 10 362751264607
+Total Submit Qlength 10,362751264607
+Recording throughput 392703004814 0
+Responce Qlength 10 392757948630
+Total Submit Qlength 10,392757948630
+Recording throughput 422703315662 0
+Responce Qlength 10 422764514517
+Total Submit Qlength 10,422764514517
+Recording throughput 452703242205 0
+Responce Qlength 10 452772031972
+Total Submit Qlength 10,452772031972
+Recording throughput 482703483376 0
+Responce Qlength 10 482778335530
+Total Submit Qlength 10,482778335530
+Recording throughput 512703366653 0
+Responce Qlength 10 512784951803
+Total Submit Qlength 0,512784951803
+Recording throughput 542703699846 0
+Responce Qlength 10 542791678688
+Total Submit Qlength 0,542791678688
+Recording throughput 572703360122 0
+Responce Qlength 10 572797985301
+Total Submit Qlength 0,572797985301
+Recording throughput 602703860562 0
+Responce Qlength 10 602804535570
+Total Submit Qlength 0,602804535570
+Task[c5beb2c0-566d-11e3-a0e3-f77efcb153dbc0d25280-566d-11e3-a0e3-f77efcb153db]completed
+Task[c5bed9d3-566d-11e3-a0e3-f77efcb153dbc0d25280-566d-11e3-a0e3-f77efcb153db]completed
+Task[c5bed9d4-566d-11e3-a0e3-f77efcb153dbc0d25280-566d-11e3-a0e3-f77efcb153db]completed
+Task[c5bed9d5-566d-11e3-a0e3-f77efcb153dbc0d25280-566d-11e3-a0e3-f77efcb153db]completed
+Task[c5beb2c1-566d-11e3-a0e3-f77efcb153dbc0d25280-566d-11e3-a0e3-f77efcb153db]completed
+Task[c5beb2c2-566d-11e3-a0e3-f77efcb153dbc0d25280-566d-11e3-a0e3-f77efcb153db]completed
+Task[c5bed9d2-566d-11e3-a0e3-f77efcb153dbc0d25280-566d-11e3-a0e3-f77efcb153db]completed
+Task[c5bed9d0-566d-11e3-a0e3-f77efcb153dbc0d25280-566d-11e3-a0e3-f77efcb153db]completed
+Task[c5bed9d1-566d-11e3-a0e3-f77efcb153dbc0d25280-566d-11e3-a0e3-f77efcb153db]completed
+Task[c5beb2c3-566d-11e3-a0e3-f77efcb153dbc0d25280-566d-11e3-a0e3-f77efcb153db]completed
+Shutting down Client c0d25280-566d-11e3-a0e3-f77efcb153db at 621731412049
+Shutting down
+Shutting down pool
+Lock statustrue
+ Stage-1 FINISHED 628841030588
+Stage-2 STARTED 628841299344
+Starting new cluster with contact points [/10.217.11.60]
+[Control connection] Refreshing node list and token map
+[Control connection] Refreshing schema
+[Control connection] Successfully connected to /10.217.11.60
+Adding /10.217.11.60 to list of queried hosts
+creating tasks
+Posting tasks started 629178449855
+numOfWorkers 1
+Number of Cleint Q Advertizements 10
+Releasing LOCK
+Cleint Q Advertizements done
+monitoringEnabled starting Clinet monitor
+ Back in starter >> trying for lock <<
+Responce Qlength 100 630206121850
+Total Submit Qlength 92,630206121850
+ Shutting Client Moniter
+Recording throughput 660200779092 0
+Responce Qlength 100 660216315757
+Total Submit Qlength 90,660216315757
+Recording throughput 690200645785 0
+Responce Qlength 100 690246762254
+Total Submit Qlength 90,690246762254
+Recording throughput 720200207539 0
+Responce Qlength 100 720253299031
+Total Submit Qlength 90,720253299031
+Recording throughput 750200357090 0
+Responce Qlength 100 750260019561
+Total Submit Qlength 90,750260019561
+Recording throughput 780200692910 0
+Responce Qlength 100 780266406145
+Total Submit Qlength 90,780266406145
+Recording throughput 810200397080 0
+Responce Qlength 100 810273086136
+Total Submit Qlength 90,810273086136
+Task[9af007a0-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af055c5-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af07cd7-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee0bd7-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af007a6-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af007a2-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee32e2-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af007a3-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0caf2-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeecf26-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Recording throughput 840200091121 10
+Responce Qlength 90 840279760944
+Total Submit Qlength 40,840279760944
+Recording throughput 870200186164 0
+Responce Qlength 90 870286377045
+Total Submit Qlength 0,870286377045
+Recording throughput 900200916436 0
+Responce Qlength 90 900293108570
+Total Submit Qlength 0,900293108570
+Recording throughput 930201831853 0
+Responce Qlength 90 930300013584
+Total Submit Qlength 0,930300013584
+Recording throughput 960201395884 0
+Responce Qlength 90 960306722860
+Total Submit Qlength 0,960306722860
+Recording throughput 990212591958 0
+Responce Qlength 90 990314335026
+Total Submit Qlength 0,990314335026
+Task[9af055c4-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af007a5-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af07cd2-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeecf21-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af007a8-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0a3e4-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeecf20-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeef636-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af055c3-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee0bd4-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aede4c0-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0a3e3-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af007a1-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af02eb5-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeecf23-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee0bd9-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aede4c3-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af007a7-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aefe095-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aefe093-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aefe094-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af02eb0-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeef630-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee32e4-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0a3e5-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af055c1-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af02eb4-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0a3e2-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeef635-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee0bd5-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0a3e6-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af07cd4-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeecf25-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af07cd0-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af055c8-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee0bd0-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0a3e1-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0caf3-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeef632-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0a3e0-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0caf0-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee0bd1-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0caf4-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af02eb8-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aefe090-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af055c2-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af055ca-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aefe098-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aede4c1-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af02eb9-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Recording throughput 1020212666585 50
+Responce Qlength 40 1020323091832
+Total Submit Qlength 0,1020323091832
+Task[9af02eb2-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeef634-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aefe096-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0a3e7-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af055c6-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af007a9-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af07cd3-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee32e5-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee0bd3-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aefe097-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee0bd6-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af07cd8-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee32e1-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeef631-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aede4c2-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee32e0-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af007a4-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aefe091-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af02eb1-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af07cd5-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0caf1-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af07cd6-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee32e3-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af055c9-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af02eb6-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0a3e8-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af055c7-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aefe092-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af07cd9-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af0a3e9-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeef633-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af02eb3-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af02eb7-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af02eba-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af055c0-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9af07cd1-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee0bd2-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeecf22-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aeecf24-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Task[9aee0bd8-566e-11e3-a0e3-f77efcb153db9abd5ee0-566e-11e3-a0e3-f77efcb153db]completed
+Shutting down Client 9abd5ee0-566e-11e3-a0e3-f77efcb153db at 1029886764882
+Shutting down
+Shutting down pool
+Lock statustrue
+ Stage-2 FINISHED 1036984735438
+Stage-3 STARTED 1036984997654
+Starting new cluster with contact points [/10.217.11.60]
+[Control connection] Refreshing node list and token map
+[Control connection] Refreshing schema
+[Control connection] Successfully connected to /10.217.11.60
+Adding /10.217.11.60 to list of queried hosts
+creating tasks
+Posting tasks started 1037209683705
+numOfWorkers 9
+Number of Cleint Q Advertizements 1
+Releasing LOCK
+Cleint Q Advertizements done
+monitoringEnabled starting Clinet monitor
+ Back in starter >> trying for lock <<
+Responce Qlength 19 1037838750374
+Total Submit Qlength 18,1037838750374
+ Shutting Client Moniter
+Recording throughput 1067863228695 0
+Responce Qlength 19 1067848422576
+Total Submit Qlength 9,1067848422576
+Recording throughput 1097863439437 0
+Responce Qlength 19 1097870779951
+Total Submit Qlength 9,1097870779951
+Recording throughput 1127863539509 0
+Responce Qlength 19 1127877205793
+Total Submit Qlength 9,1127877205793
+Recording throughput 1157862929848 0
+Responce Qlength 19 1157883332314
+Total Submit Qlength 9,1157883332314
+Task[8e253ad1-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e2561e3-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e253ad4-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e253ad6-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e2561e5-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e24c5a0-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e253ad5-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e2561e2-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e249e90-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e2561e6-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Recording throughput 1187863053133 10
+Responce Qlength 9 1187889790046
+Total Submit Qlength 0,1187889790046
+Recording throughput 1217863009786 0
+Responce Qlength 9 1217896072564
+Total Submit Qlength 0,1217896072564
+Recording throughput 1247863202049 0
+Responce Qlength 9 1247902280958
+Total Submit Qlength 0,1247902280958
+Recording throughput 1277863022322 0
+Responce Qlength 9 1277908429258
+Total Submit Qlength 0,1277908429258
+Task[8e253ad7-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e253ad0-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e2561e1-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e24c5a2-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e253ad3-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e24c5a1-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e2561e4-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e2561e0-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Task[8e253ad2-566f-11e3-a0e3-f77efcb153db8e0333e0-566f-11e3-a0e3-f77efcb153db]completed
+Shutting down Client 8e0333e0-566f-11e3-a0e3-f77efcb153db at 1277977301529
+Shutting down
+Shutting down pool
+Lock statustrue
+ Stage-3 FINISHED 1285093255153
+Stage-4 STARTED 1285093522373
+Starting new cluster with contact points [/10.217.11.60]
+[Control connection] Refreshing node list and token map
+[Control connection] Refreshing schema
+[Control connection] Successfully connected to /10.217.11.60
+Adding /10.217.11.60 to list of queried hosts
+creating tasks
+Posting tasks started 1285326694799
+numOfWorkers 1
+Number of Cleint Q Advertizements 4
+Releasing LOCK
+Cleint Q Advertizements done
+monitoringEnabled starting Clinet monitor
+ Back in starter >> trying for lock <<
+Responce Qlength 40 1286048494009
+Total Submit Qlength 30,1286048494009
+ Shutting Client Moniter
+Recording throughput 1316045215570 0
+Responce Qlength 40 1316057001504
+Total Submit Qlength 30,1316057001504
+Recording throughput 1346045422248 0
+Responce Qlength 40 1346064038288
+Total Submit Qlength 30,1346064038288
+Recording throughput 1376045608137 0
+Responce Qlength 40 1376070185441
+Total Submit Qlength 30,1376070185441
+Recording throughput 1406045132569 0
+Task[2207f6ca-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22090833-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22081dd3-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207f6c9-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[220844e1-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207f6c1-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22081dd1-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[220844e4-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[220844e3-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22090831-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Responce Qlength 30 1406076529946
+Total Submit Qlength 23,1406076529946
+Recording throughput 1436044980794 10
+Responce Qlength 30 1436082618686
+Total Submit Qlength 20,1436082618686
+Recording throughput 1466062623624 0
+Responce Qlength 30 1466089554140
+Total Submit Qlength 20,1466089554140
+Recording throughput 1496062533894 0
+Responce Qlength 30 1496101274587
+Total Submit Qlength 0,1496101274587
+Recording throughput 1526062370116 0
+Task[22081dd6-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207f6c2-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207cfb3-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22090830-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[220844e5-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207f6c3-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[220844e2-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22081dd5-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207f6c6-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22090836-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Responce Qlength 30 1526107773483
+Total Submit Qlength 0,1526107773483
+Recording throughput 1556062421900 10
+Responce Qlength 20 1556113830515
+Total Submit Qlength 0,1556113830515
+Recording throughput 1586061958613 0
+Responce Qlength 20 1586120986166
+Total Submit Qlength 0,1586120986166
+Task[22090835-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207cfb1-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207cfb0-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22090832-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207cfb2-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22081dd2-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[220844e6-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22081dda-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22081dd4-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22081dd8-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22081dd7-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207f6c5-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[220844e0-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207f6c4-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207f6c8-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207f6c0-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22081dd9-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[2207f6c7-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22090834-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Task[22081dd0-5670-11e3-a0e3-f77efcb153db21e57aa0-5670-11e3-a0e3-f77efcb153db]completed
+Shutting down Client 21e57aa0-5670-11e3-a0e3-f77efcb153db at 1607418058658
+Shutting down
+Shutting down pool
+Lock statustrue
+ Stage-4 FINISHED 1614467842137
+Stage-5 STARTED 1614468231351
+Starting new cluster with contact points [/10.217.11.60]
+[Control connection] Refreshing node list and token map
+[Control connection] Refreshing schema
+[Control connection] Successfully connected to /10.217.11.60
+Adding /10.217.11.60 to list of queried hosts
+creating tasks
+Posting tasks started 1614615797891
+numOfWorkers 2
+Number of Cleint Q Advertizements 1
+Releasing LOCK
+Cleint Q Advertizements done
+monitoringEnabled starting Clinet monitor
+ Back in starter >> trying for lock <<
+Responce Qlength 10 1615162996710
+Total Submit Qlength 9,1615162996710
+ Shutting Client Moniter
+Recording throughput 1645161938362 0
+Responce Qlength 10 1645172713601
+Total Submit Qlength 0,1645172713601
+Recording throughput 1675162790869 0
+Responce Qlength 10 1675179263949
+Total Submit Qlength 0,1675179263949
+Recording throughput 1705161995625 0
+Responce Qlength 10 1705185670869
+Total Submit Qlength 0,1705185670869
+Recording throughput 1735161964339 0
+Responce Qlength 10 1735192048995
+Total Submit Qlength 0,1735192048995
+Task[e64e8bc7-5670-11e3-a0e3-f77efcb153dbe6381d90-5670-11e3-a0e3-f77efcb153db]completed
+Task[e64e8bc0-5670-11e3-a0e3-f77efcb153dbe6381d90-5670-11e3-a0e3-f77efcb153db]completed
+Task[e64e8bc8-5670-11e3-a0e3-f77efcb153dbe6381d90-5670-11e3-a0e3-f77efcb153db]completed
+Task[e64e8bc1-5670-11e3-a0e3-f77efcb153dbe6381d90-5670-11e3-a0e3-f77efcb153db]completed
+Task[e64e8bc4-5670-11e3-a0e3-f77efcb153dbe6381d90-5670-11e3-a0e3-f77efcb153db]completed
+Task[e64e8bc6-5670-11e3-a0e3-f77efcb153dbe6381d90-5670-11e3-a0e3-f77efcb153db]completed
+Task[e64e8bc9-5670-11e3-a0e3-f77efcb153dbe6381d90-5670-11e3-a0e3-f77efcb153db]completed
+Task[e64e8bc5-5670-11e3-a0e3-f77efcb153dbe6381d90-5670-11e3-a0e3-f77efcb153db]completed
+Task[e64e8bc3-5670-11e3-a0e3-f77efcb153dbe6381d90-5670-11e3-a0e3-f77efcb153db]completed
+Task[e64e8bc2-5670-11e3-a0e3-f77efcb153dbe6381d90-5670-11e3-a0e3-f77efcb153db]completed
+Shutting down Client e6381d90-5670-11e3-a0e3-f77efcb153db at 1735282034622
+Shutting down
+Shutting down pool
+Lock statustrue
+ Stage-5 FINISHED 1742354299673
+All Stages FINISHED at time 1742354561473
+ Shutting Client Moniter

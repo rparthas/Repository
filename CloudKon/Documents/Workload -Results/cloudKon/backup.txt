@@ -1,0 +1,29 @@
+#!/bin/bash
+echo $(date) - Runnin Node >> /home/ubuntu/log-rc-local.log;
+cd /home/ubuntu ;
+sudo rm -rf hazelcast.xml
+sudo rm -rf CloudKon.properties
+sudo /usr/bin/wget https://raw.github.com/kamalnath/AWS_EC2_AUTO/master/hazelcast.xml >> /home/ubuntu/log-rc-local.log;
+sudo /usr/bin/wget https://raw.github.com/kamalnath/AWS_EC2_AUTO/master/CloudKon.properties >> /home/ubuntu/log-rc-local.log;
+sudo /usr/bin/java -jar ColudKonMod.jar
+
+
+
+java -cp -server -Djava.net.preferIPv4Stack=true -cp ColudKonMod.jar queue.hazelcast.Hazel_Node ;
+
+java -cp ColudKonMod.jar monitor.cassandra.TestCass
+10.226.148.9
+i-d67870e2
+
+
+
+./apache-cassandra-2.0.0/bin/cassandra
+./apache-cassandra-2.0.0/bin/nodetool status
+
+
+
+10.217.46.118:5701,10.217.16.14:5701,10.216.52.14:5701,10.247.11.95:5701,10.216.47.209:5701,10.217.157.41:5701,10.245.75.199:5701,10.217.37.13:5701,10.216.55.217:5701,10.216.56.15:5701,10.247.11.95:5702
+10.217.9.15:10.226.162.244:10.248.78.22:10.226.154.207
+
+
+

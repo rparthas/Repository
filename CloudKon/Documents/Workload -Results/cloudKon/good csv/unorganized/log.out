@@ -1,0 +1,56 @@
+0   [Thread-0] DEBUG utility.PrintManager  :Posting tasks started 11315785743
+4   [Thread-7] DEBUG utility.PrintManager  :Posting tasks started 11337214317
+5   [Thread-6] DEBUG utility.PrintManager  :Posting tasks started 11324277663
+5   [Thread-3] DEBUG utility.PrintManager  :Posting tasks started 11323641975
+5   [Thread-4] DEBUG utility.PrintManager  :Posting tasks started 11381570470
+84  [Thread-1] DEBUG utility.PrintManager  :Posting tasks started 11471558103
+85  [Thread-5] DEBUG utility.PrintManager  :Posting tasks started 11472772898
+96  [Thread-2] DEBUG utility.PrintManager  :Posting tasks started 11483578841
+101 [Thread-7] DEBUG utility.PrintManager  :Posting tasks finished 11488769293
+108 [Thread-6] DEBUG utility.PrintManager  :Posting tasks finished 11496385868
+109 [Thread-3] DEBUG utility.PrintManager  :Posting tasks finished 11497453595
+112 [Thread-4] DEBUG utility.PrintManager  :Posting tasks finished 11499601927
+121 [Thread-2] DEBUG utility.PrintManager  :Posting tasks finished 11509437489
+128 [Thread-5] DEBUG utility.PrintManager  :Posting tasks finished 11515955215
+128 [Thread-0] DEBUG utility.PrintManager  :Posting tasks finished 11516086724
+130 [Thread-1] DEBUG utility.PrintManager  :Posting tasks finished 11517717497
+152 [Thread-0] DEBUG utility.PrintManager  :numOfWorkers 3
+152 [Thread-0] DEBUG utility.PrintManager  :Number of Cleint Q Advertizements 266
+153 [Thread-1] DEBUG utility.PrintManager  :numOfWorkers 3
+153 [Thread-1] DEBUG utility.PrintManager  :Number of Cleint Q Advertizements 266
+156 [Thread-2] DEBUG utility.PrintManager  :numOfWorkers 3
+156 [Thread-2] DEBUG utility.PrintManager  :Number of Cleint Q Advertizements 266
+156 [Thread-3] DEBUG utility.PrintManager  :numOfWorkers 3
+156 [Thread-3] DEBUG utility.PrintManager  :Number of Cleint Q Advertizements 266
+157 [Thread-5] DEBUG utility.PrintManager  :numOfWorkers 3
+157 [Thread-5] DEBUG utility.PrintManager  :Number of Cleint Q Advertizements 266
+157 [Thread-4] DEBUG utility.PrintManager  :numOfWorkers 3
+157 [Thread-4] DEBUG utility.PrintManager  :Number of Cleint Q Advertizements 266
+157 [Thread-6] DEBUG utility.PrintManager  :numOfWorkers 3
+157 [Thread-6] DEBUG utility.PrintManager  :Number of Cleint Q Advertizements 266
+159 [Thread-7] DEBUG utility.PrintManager  :numOfWorkers 3
+159 [Thread-7] DEBUG utility.PrintManager  :Number of Cleint Q Advertizements 266
+7245[pool-21-thread-1] DEBUG utility.PrintManager  :Releasing LOCK
+7246[pool-18-thread-1] DEBUG utility.PrintManager  :Releasing LOCK
+7300[pool-20-thread-1] DEBUG utility.PrintManager  :Releasing LOCK
+7310[pool-22-thread-1] DEBUG utility.PrintManager  :Releasing LOCK
+7362[pool-23-thread-1] DEBUG utility.PrintManager  :Releasing LOCK
+7389[pool-19-thread-1] DEBUG utility.PrintManager  :Releasing LOCK
+7400[pool-24-thread-1] DEBUG utility.PrintManager  :Releasing LOCK
+7477[pool-25-thread-1] DEBUG utility.PrintManager  :Releasing LOCK
+11290[Thread-6] DEBUG utility.PrintManager  :Cleint Q Advertizements done
+11326[Thread-0] DEBUG utility.PrintManager  :Cleint Q Advertizements done
+11337[Thread-3] DEBUG utility.PrintManager  :Cleint Q Advertizements done
+11369[Thread-7] DEBUG utility.PrintManager  :Cleint Q Advertizements done
+11449[Thread-5] DEBUG utility.PrintManager  :Cleint Q Advertizements done
+11465[Thread-1] DEBUG utility.PrintManager  :Cleint Q Advertizements done
+11485[Thread-4] DEBUG utility.PrintManager  :Cleint Q Advertizements done
+11596[Thread-2] DEBUG utility.PrintManager  :Cleint Q Advertizements done
+207400[Thread-45] DEBUG utility.PrintManager  :Shutting down Client 3d3efd70-4c80-11e3-8f56-fd631fb7cb29 at 218782960783
+207459[Thread-47] DEBUG utility.PrintManager  :Shutting down Client 3d3d4fc0-4c80-11e3-8f56-fd631fb7cb29 at 218839864199
+207667[Thread-44] DEBUG utility.PrintManager  :Shutting down Client 3d3c8c71-4c80-11e3-8f56-fd631fb7cb29 at 219044062134
+207928[Thread-48] DEBUG utility.PrintManager  :Shutting down Client 3d3c8c70-4c80-11e3-8f56-fd631fb7cb29 at 219305418287
+207950[Thread-49] DEBUG utility.PrintManager  :Shutting down Client 3d3d28b1-4c80-11e3-8f56-fd631fb7cb29 at 219326935811
+207987[Thread-43] DEBUG utility.PrintManager  :Shutting down Client 3d3bf030-4c80-11e3-8f56-fd631fb7cb29 at 219351269762
+208346[Thread-46] DEBUG utility.PrintManager  :Shutting down Client 3d3c6560-4c80-11e3-8f56-fd631fb7cb29 at 219718735110
+208719[Thread-42] DEBUG utility.PrintManager  :Shutting down Client 3d3d28b0-4c80-11e3-8f56-fd631fb7cb29 at 220099375462
