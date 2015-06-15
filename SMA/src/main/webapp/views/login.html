@@ -1,0 +1,16 @@
+<div ng-controller="login">
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Accesso a usuarios</h2>
+        <label for="username" class="sr-only">Usuario</label>
+        <input type="text" id="username" ng-model="username" class="form-control" placeholder="Usuario" required autofocus>
+        <label for="password" class="sr-only">Contrase&ntilde;a</label>
+        <input type="password" id="password" ng-model="password" class="form-control" placeholder="Contrase&ntilde;a" required>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Recu&eacute;rdame
+            </label>
+        </div>
+        <a class="btn btn-lg btn-primary btn-block" type="button" href="#main"  ng-click="login()">Iniciar Session</a>
+    </form>
+</div>
