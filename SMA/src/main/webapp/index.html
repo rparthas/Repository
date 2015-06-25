@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <title>SMA</title>
+    <link rel="stylesheet" href="styles/app.css"/>
     <link rel="stylesheet" href="styles/bootstrap.min.css"/>
     <link rel="stylesheet" href="styles/bootstrap-theme.min.css"/>
     <script type="text/javascript" src="scripts/angular.min.js"></script>
@@ -11,8 +12,8 @@
     <script type="text/javascript" src="scripts/app.js"></script>
     <script type="text/javascript" src="scripts/angular-route.min.js"></script>
 </head>
-<body ng-app="SMA">
-<nav class="navbar navbar-inverse" ng-show="showMenu">
+<body ng-app="SMA" ng-cloak class="ng-cloak">
+<nav class="navbar navbar-inverse" ng-show="authenticated">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -40,10 +41,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown pull-right" ng-show="username != null">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{username}}
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">   Hol&aacute; {{username}}
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#login">cerrar sesi&oacute;n</a></li>
+                        <li><a href="#login" ng-click="logout()">cerrar sesi&oacute;n</a></li>
                     </ul>
                 </li>
             </ul>
@@ -53,6 +54,9 @@
 <div style="margin-top:10%" class="container">
     <div ng-view="">
     </div>
+</div>
+<div class="SMA_footer">
+    <img src="images/SMA.png" alt="Company Logo"/>
 </div>
 </body>
 </html>
