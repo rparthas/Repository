@@ -39,7 +39,7 @@ public class ApplicationConfig extends WebSecurityConfigurerAdapter {
 		http.httpBasic()
 				.and()
 				.authorizeRequests()
-				.antMatchers("/index.html", "/views/login.html", "/",
+				.antMatchers("/index.html", "/views/login.html", 
 						"/scripts/*", "/styles/*","/images/*").permitAll().anyRequest()
 				.authenticated().and()
 				.addFilterAfter(new CSRFFilter(), CsrfFilter.class);
@@ -52,6 +52,8 @@ public class ApplicationConfig extends WebSecurityConfigurerAdapter {
 	      sessionFactory.setDataSource(dataSource);
 	      return sessionFactory.getObject();
 	   }
+	
+	
 
 	/*
 	 * private CsrfTokenRepository csrfTokenRepository() {

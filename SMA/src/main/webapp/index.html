@@ -10,6 +10,7 @@
     <script type="text/javascript" src="scripts/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/admin.js"></script>
     <script type="text/javascript" src="scripts/angular-route.min.js"></script>
 </head>
 <body ng-app="SMA" ng-cloak class="ng-cloak">
@@ -33,7 +34,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administraci&oacute;n
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a>A&ntilde;adir usuario</a></li>
+                        <li><a href="#addUser">A&ntilde;adir usuario</a></li>
                         <li><a href="#">Retire usuario</a></li>
                         <li><a href="#">vista del usuario</a></li>
                     </ul>
@@ -52,7 +53,7 @@
     </div>
 </nav>
 <div style="margin-top:10%" class="container">
-    <div ng-view="">
+    <div class="container" ng-view="">
     </div>
 </div>
 <div class="SMA_footer">

@@ -4,6 +4,12 @@ package com.SMA.entity;
 public class User {
 
 	
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", password=" + password
+				+ ", roleId=" + roleId + ", empId=" + empId + "]";
+	}
+
 	private String username;
 	
 	private String password;

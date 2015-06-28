@@ -1,6 +1,6 @@
 var app = angular.module('SMA', ['ngRoute']);
-app.config(['$routeProvider','$httpProvider',
-    function ($routeProvider,$httpProvider) {
+app.config(['$routeProvider', '$httpProvider',
+    function ($routeProvider, $httpProvider) {
         $routeProvider.
             when('/main', {
                 templateUrl: 'views/main.html',
@@ -9,6 +9,10 @@ app.config(['$routeProvider','$httpProvider',
             when('/login', {
                 templateUrl: 'views/login.html',
                 controller: 'login'
+            }).
+            when('/addUser', {
+                templateUrl: 'views/addUser.html',
+                controller: 'user'
             })
             .otherwise('/login');
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
@@ -40,6 +44,22 @@ app.controller('login', ['$scope', '$rootScope', '$http', '$location', function 
             $scope.error = true;
         });
     }
+
+    $rootScope.validate = function(element,field,minlength,maxlength,errors){
+        if(element == null){
+            errors.push(field+" no puede estar vacio ");
+            return;
+        }
+        if(element.length > maxlength){
+            errors.push(field+" longitud no puede ser mayor que "+maxlength);
+            return;
+        }
+        if(element.length < minlength){
+            errors.push(field+" longitud no puede ser menor que "+minlength);
+            return;
+        }
+    };
+
 }]);
 
 app.controller('main', ['$scope', '$rootScope', function ($scope, $rootScope) {

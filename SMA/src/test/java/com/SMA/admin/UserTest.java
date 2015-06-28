@@ -2,6 +2,8 @@ package com.SMA.admin;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -15,6 +17,8 @@ import com.SMA.entity.User;
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 public class UserTest {
+	
+	final static Logger logger = LoggerFactory.getLogger(UserTest.class);
 
 	@Autowired
 	private UserController userController;
@@ -23,9 +27,10 @@ public class UserTest {
 	public void addUser() {
 		User user = new User();
 		user.setEmpId(null);
-		user.setPassword("hi");
+		user.setPassword("admin");
 		user.setUsername("hi");
 		user.setRoleId(1);
-		userController.addUser(user);
+		String msg=userController.addUser(user);
+		logger.info(msg);
 	}
 }
