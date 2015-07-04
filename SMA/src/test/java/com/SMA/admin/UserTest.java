@@ -11,6 +11,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.SMA.Application;
 import com.SMA.controller.UserController;
+import com.SMA.entity.Response;
 import com.SMA.entity.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,14 +24,19 @@ public class UserTest {
 	@Autowired
 	private UserController userController;
 
-	@Test
+	//@Test
 	public void addUser() {
 		User user = new User();
 		user.setEmpId(null);
 		user.setPassword("admin");
 		user.setUsername("hi");
 		user.setRoleId(1);
-		String msg=userController.addUser(user);
-		logger.info(msg);
+		Response msg=userController.addUser(user);
+		logger.info(msg+"");
+	}
+	
+	@Test
+	public void getRoles() {
+		logger.info(userController.getAllRoles()+"");
 	}
 }

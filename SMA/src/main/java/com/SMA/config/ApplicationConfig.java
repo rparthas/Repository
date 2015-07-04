@@ -14,6 +14,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 import com.SMA.Queries;
 
@@ -39,26 +41,24 @@ public class ApplicationConfig extends WebSecurityConfigurerAdapter {
 		http.httpBasic()
 				.and()
 				.authorizeRequests()
-				.antMatchers("/index.html", "/views/login.html", 
-						"/scripts/*", "/styles/*","/images/*").permitAll().anyRequest()
+				.antMatchers("/index.html", "/views/login.html", "/scripts/*",
+						"/styles/*", "/images/*","/").permitAll().anyRequest()
 				.authenticated().and()
-				.addFilterAfter(new CSRFFilter(), CsrfFilter.class);
-		// .csrf().csrfTokenRepository(csrfTokenRepository());
+				.addFilterAfter(new CSRFFilter(), CsrfFilter.class).csrf()
+				.csrfTokenRepository(csrfTokenRepository());
 	}
 
 	@Bean
-	   public SqlSessionFactory sqlSessionFactory() throws Exception {
-	      SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-	      sessionFactory.setDataSource(dataSource);
-	      return sessionFactory.getObject();
-	   }
-	
-	
+	public SqlSessionFactory sqlSessionFactory() throws Exception {
+		SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+		sessionFactory.setDataSource(dataSource);
+		return sessionFactory.getObject();
+	}
 
-	/*
-	 * private CsrfTokenRepository csrfTokenRepository() {
-	 * HttpSessionCsrfTokenRepository repository = new
-	 * HttpSessionCsrfTokenRepository();
-	 * repository.setHeaderName("X-XSRF-TOKEN"); return repository; }
-	 */
+	private CsrfTokenRepository csrfTokenRepository() {
+		HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+		repository.setHeaderName("X-XSRF-TOKEN");
+		return repository;
+	}
+
 }

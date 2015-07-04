@@ -10,6 +10,11 @@ public class Role {
 		return roleId;
 	}
 
+	@Override
+	public String toString() {
+		return "Role [roleId=" + roleId + ", roleName=" + roleName + "]";
+	}
+
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
