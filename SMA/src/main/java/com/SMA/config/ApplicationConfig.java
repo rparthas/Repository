@@ -41,8 +41,7 @@ public class ApplicationConfig extends WebSecurityConfigurerAdapter {
 		http.httpBasic()
 				.and()
 				.authorizeRequests()
-				.antMatchers("/index.html", "/views/login.html", "/scripts/*",
-						"/styles/*", "/images/*","/").permitAll().anyRequest()
+				.antMatchers("/index.html","/").permitAll().anyRequest()
 				.authenticated().and()
 				.addFilterAfter(new CSRFFilter(), CsrfFilter.class).csrf()
 				.csrfTokenRepository(csrfTokenRepository());

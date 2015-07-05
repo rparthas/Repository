@@ -1,5 +1,8 @@
 package com.SMA.admin;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -18,25 +21,48 @@ import com.SMA.entity.User;
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 public class UserTest {
-	
+
 	final static Logger logger = LoggerFactory.getLogger(UserTest.class);
 
 	@Autowired
 	private UserController userController;
 
-	//@Test
+	// @Test
 	public void addUser() {
 		User user = new User();
 		user.setEmpId(null);
 		user.setPassword("admin");
-		user.setUsername("hi");
-		user.setRoleId(1);
-		Response msg=userController.addUser(user);
-		logger.info(msg+"");
+		user.setUsername("admin");
+		user.setRoleIds(Arrays.asList(new Integer[] { 1, 2 }));
+		Response msg = userController.addUser(user);
+		logger.info(msg + "");
 	}
-	
-	@Test
+
+	// @Test
 	public void getRoles() {
-		logger.info(userController.getAllRoles()+"");
+		logger.info(userController.getAllRoles() + "");
 	}
+
+	// @Test
+	public void getAllUsers() {
+		List<User> users = userController.getAllUsers();
+		logger.info(users + "");
+	}
+
+	// @Test
+	public void deleteUser() {
+		userController.deleteUser("golgappa");
+	}
+
+	@Test
+	public void updateUser() {
+		User user = new User();
+		user.setEmpId(null);
+		user.setPassword("admin");
+		user.setUsername("admin");
+		user.setRoleIds(Arrays.asList(new Integer[] { 1 }));
+		Response msg = userController.updateUser(user);
+		logger.info(msg + "");
+	}
+
 }

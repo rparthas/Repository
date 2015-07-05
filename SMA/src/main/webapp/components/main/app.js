@@ -1,17 +1,25 @@
-var app = angular.module('SMA', ['ngRoute']);
+var app = angular.module('SMA', ['ngRoute', 'angucomplete-alt']);
 app.config(['$routeProvider', '$httpProvider',
     function ($routeProvider, $httpProvider) {
         $routeProvider.
             when('/main', {
-                templateUrl: 'views/main.html',
+                templateUrl: 'components/main/main.html',
                 controller: 'login'
-            }).
-            when('/login', {
-                templateUrl: 'views/login.html',
+            })
+            .when('/login', {
+                templateUrl: 'components/main/login.html',
                 controller: 'login'
-            }).
-            when('/addUser', {
-                templateUrl: 'views/addUser.html',
+            })
+            .when('/addUser', {
+                templateUrl: 'components/user/addUser.html',
+                controller: 'user'
+            })
+            .when('/deleteUser', {
+                templateUrl: 'components/user/deleteUser.html',
+                controller: 'user'
+            })
+            .when('/updateUser', {
+                templateUrl: 'components/user/updateUser.html',
                 controller: 'user'
             })
             .otherwise('/login');
@@ -45,17 +53,17 @@ app.controller('login', ['$scope', '$rootScope', '$http', '$location', function 
         });
     }
 
-    $rootScope.validate = function(element,field,minlength,maxlength,errors){
-        if(element == null){
-            errors.push(field+" no puede estar vacio ");
+    $rootScope.validate = function (element, field, minlength, maxlength, errors) {
+        if (element == null) {
+            errors.push(field + " no puede estar vacio ");
             return;
         }
-        if(element.length > maxlength){
-            errors.push(field+" longitud no puede ser mayor que "+maxlength);
+        if (element.length > maxlength) {
+            errors.push(field + " longitud no puede ser mayor que " + maxlength);
             return;
         }
-        if(element.length < minlength){
-            errors.push(field+" longitud no puede ser menor que "+minlength);
+        if (element.length < minlength) {
+            errors.push(field + " longitud no puede ser menor que " + minlength);
             return;
         }
     };

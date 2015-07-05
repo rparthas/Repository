@@ -8,13 +8,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.SMA.Constants;
 import com.SMA.entity.Response;
 
 @Aspect
 @Component
-public class LoggerAdvice {
+public class AroundAdvice {
 
-	final static Logger logger = LoggerFactory.getLogger(LoggerAdvice.class);
+	final static Logger logger = LoggerFactory.getLogger(AroundAdvice.class);
 
 	@ResponseBody
 	@Around("execution(* com.SMA..*.*(..))")
@@ -23,8 +24,8 @@ public class LoggerAdvice {
 		try {
 			retval = pjp.proceed();
 		} catch (Exception e) {
-			retval = new Response(
-					"Ha ocurrido un error. Por favor, intentelo de nuevo mas tarde");
+			logger.error("Exception occured",e);
+			retval = new Response(Constants.EXCEPTION_OCCURED);
 		}
 		return retval;
 	}

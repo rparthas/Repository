@@ -1,32 +1,25 @@
 package com.SMA.entity;
 
+import java.util.List;
+
 
 public class User {
 
+
+
 	
-	public User(String username, String password, int roleId, String empId) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.roleId = roleId;
-		this.empId = empId;
-	}
-	
-	public User(){
-		super();
-	}
 
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", password=" + password
-				+ ", roleId=" + roleId + ", empId=" + empId + "]";
+				+ ", roleIds=" + roleIds + ", empId=" + empId + "]";
 	}
 
 	private String username;
 	
 	private String password;
 	
-	private int roleId;
+	private List<Integer> roleIds;
 	
 	private String empId;
 
@@ -46,12 +39,14 @@ public class User {
 		this.password = password;
 	}
 
-	public int getRoleId() {
-		return roleId;
+	
+
+	public List<Integer> getRoleIds() {
+		return roleIds;
 	}
 
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+	public void setRoleIds(List<Integer> roleIds) {
+		this.roleIds = roleIds;
 	}
 
 	public String getEmpId() {
