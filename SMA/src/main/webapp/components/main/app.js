@@ -14,13 +14,13 @@ app.config(['$routeProvider', '$httpProvider',
                 templateUrl: 'components/user/addUser.html',
                 controller: 'user'
             })
-            .when('/deleteUser', {
-                templateUrl: 'components/user/deleteUser.html',
-                controller: 'user'
-            })
             .when('/updateUser', {
                 templateUrl: 'components/user/updateUser.html',
                 controller: 'user'
+            })
+            .when('/addEmployee', {
+                templateUrl: 'components/RH/addEmployee.html',
+                controller: 'employee'
             })
             .otherwise('/login');
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';

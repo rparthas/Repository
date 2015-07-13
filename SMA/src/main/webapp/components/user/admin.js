@@ -21,19 +21,24 @@ app.controller('user', ['$scope', '$rootScope', '$http',
             $scope.errors.push(error.message);
         });
 
-        $http.get('getUsers', {}).success(function (data) {
-            $scope.users = data;
-        }).error(function (errors) {
-            $scope.errors.push(error.message);
-        });
+        $scope.getUsers = function () {
+            $http.get('getUsers', {}).success(function (data) {
+                $scope.users = data;
+            }).error(function (errors) {
+                $scope.errors.push(error.message);
+            });
+        };
 
-        $scope.deleteUser = function (username) {
+       $scope.getUsers();
+
+        $scope.deleteUser = function () {
             $scope.msg = '';
-            if (!username) {
+            if (!$scope.uname) {
                 $scope.errors.push('Por favor, seleccione Nombre de usuario');
             } else {
-                $http.get('deleteUser?username=' + username, {}).success(function (data) {
+                $http.get('deleteUser?username=' + $scope.uname, {}).success(function (data) {
                     $scope.msg = data.message;
+                    $scope.getUsers();
                 }).error(function (errors) {
                     $scope.errors.push(error.message);
                 });

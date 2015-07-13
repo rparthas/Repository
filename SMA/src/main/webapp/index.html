@@ -10,10 +10,11 @@
     <script type="text/javascript" src="components/angular/angular.min.js"></script>
     <script type="text/javascript" src="components/angular/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="components/bootstrap/bootstrap.min.js"></script>
-    <script type="text/javascript" src="components/main/app.js"></script>
-    <script type="text/javascript" src="components/user/admin.js"></script>
     <script type="text/javascript" src="components/angular/angular-route.min.js"></script>
     <script type="text/javascript" src="components/angucomplete/angucomplete.js"></script>
+    <script type="text/javascript" src="components/main/app.js"></script>
+    <script type="text/javascript" src="components/user/admin.js"></script>
+    <script type="text/javascript" src="components/RH/employee.js"></script>
 </head>
 <body ng-app="SMA" ng-cloak class="ng-cloak">
 <nav class="navbar navbar-inverse" ng-show="authenticated">
@@ -33,18 +34,26 @@
                 <li class="active"><a href="#">Recaudacion</a></li>
                 <li><a href="#">Fianza</a></li>
                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Recursos
+                        Humanos
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#addEmployee">A&ntilde;adir Empleado</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administraci&oacute;n
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#addUser">A&ntilde;adir usuario</a></li>
-                        <li><a href="#deleteUser">Retire usuario</a></li>
-                        <li><a href="#updateUser">vista del usuario</a></li>
+                        <li><a href="#addUser">A&ntilde;adir Usuario</a></li>
+                        <li><a href="#updateUser">Modificar Perfil</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown pull-right" ng-show="username != null">
-                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">   Hol&aacute; {{username}}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Hol&aacute;
+                        {{username}}
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#login" ng-click="logout()">cerrar sesi&oacute;n</a></li>
@@ -54,9 +63,7 @@
         </div>
     </div>
 </nav>
-<div style="margin-top:10%" class="container">
-    <div class="container" ng-view="">
-    </div>
+<div class="container" ng-view="">
 </div>
 <div class="SMA_footer">
     <img src="components/main/SMA.png" alt="Company Logo"/>
