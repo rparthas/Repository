@@ -1,4 +1,4 @@
-package com.SMA.admin;
+package com.SMA.controller.test;
 
 import java.util.Arrays;
 import java.util.List;
