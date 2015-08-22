@@ -25,7 +25,6 @@ app.controller('employee', ['$scope', '$rootScope', '$http',
         $scope.getDepartments();
 
         $scope.addEmployee = function () {
-            $scope.employee.id ='A234';
             $http.post('addEmployee', $scope.employee).success(function (data) {
                 $scope.msg = data.message;
             }).error(function (error) {

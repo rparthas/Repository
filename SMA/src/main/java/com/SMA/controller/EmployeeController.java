@@ -15,6 +15,7 @@ import com.SMA.Constants;
 import com.SMA.entity.Department;
 import com.SMA.entity.Employee;
 import com.SMA.entity.Permissionarios;
+import com.SMA.entity.Response;
 import com.SMA.mapper.EmployeeMapper;
 
 @RestController
@@ -40,21 +41,30 @@ public class EmployeeController {
 
 	@RequestMapping("/addEmployee")
 	@ResponseBody
-	public String addEmployee(@RequestBody Employee employee) throws Exception {
+	public Response addEmployee(@RequestBody Employee employee)
+			throws Exception {
 		SimpleDateFormat format = new SimpleDateFormat("DD/MM/YYYY");
-		employee.setBirthDateAsDate(format.parse(employee
-				.getBirthDate()));
-		employee.setTarjetonExpedicionAsDate(format.parse(employee
-				.getTarjetonExpedicion()));
-		employee.setTarjetonVenicimientoAsDate(format.parse(employee
-				.getTarjetonVenicimiento()));
-		employee.setLicenciaVenicimientoAsDate(
-				format.parse(employee.getLicenciaVenicimiento()));
-		employee.setLicenciaExpedicionAsDate(
-				format.parse(employee.getLicenciaExpedicion()));
-		
+		if (employee.getBirthDate() != null) {
+			employee.setBirthDateAsDate(format.parse(employee.getBirthDate()));
+		}
+		if (employee.getTarjetonExpedicion() != null) {
+			employee.setTarjetonExpedicionAsDate(format.parse(employee
+					.getTarjetonExpedicion()));
+		}
+		if (employee.getTarjetonVenicimiento() != null) {
+			employee.setTarjetonVenicimientoAsDate(format.parse(employee
+					.getTarjetonVenicimiento()));
+		}
+		if (employee.getLicenciaVenicimiento() != null) {
+			employee.setLicenciaVenicimientoAsDate(format.parse(employee
+					.getLicenciaVenicimiento()));
+		}
+		if (employee.getLicenciaExpedicion() != null) {
+			employee.setLicenciaExpedicionAsDate(format.parse(employee
+					.getLicenciaExpedicion()));
+		}
 		employeeMapper.addEmployee(employee);
-		return Constants.EMP_ADDED;
+		return new Response(Constants.EMP_ADDED);
 	}
 
 }
