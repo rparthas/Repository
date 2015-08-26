@@ -4,6 +4,37 @@ import java.util.Date;
 
 public class Employee {
 
+	private String id;
+	private String name;
+	private String surname1;
+	private String surname2;
+	private String alias;
+	private String clave;
+	private String curp;
+	private Date birthDateAsDate;
+	private String birthDate;
+	private String birthPlace;
+	private String street;
+	private String colony;
+	private String municipal;
+	private String state;
+	private String telephone;
+	private String tarjetonNumero;
+	private String tarjetonTipo;
+	private String tarjetonVenicimiento;
+	private String tarjetonExpedicion;
+	private Date tarjetonVenicimientoAsDate;
+	private Date tarjetonExpedicionAsDate;
+	private String department;
+	private String rfc;
+	private String imss;
+	private String licenciaNumero;
+	private String licenciaTipo;
+	private String licenciaVenicimiento;
+	private String licenciaExpedicion;
+	private Date licenciaVenicimientoAsDate;
+	private Date licenciaExpedicionAsDate;
+
 	public Date getTarjetonVenicimientoAsDate() {
 		return tarjetonVenicimientoAsDate;
 	}
@@ -67,37 +98,6 @@ public class Employee {
 	public void setLicenciaExpedicionAsDate(Date licenciaExpedicionAsDate) {
 		this.licenciaExpedicionAsDate = licenciaExpedicionAsDate;
 	}
-
-	private String id;
-	private String name;
-	private String surname1;
-	private String surname2;
-	private String alias;
-	private String clave;
-	private String curp;
-	private Date birthDateAsDate;
-	private String birthDate;
-	private String birthPlace;
-	private String street;
-	private String colony;
-	private String municipal;
-	private String state;
-	private String telephone;
-	private String tarjetonNumero;
-	private String tarjetonTipo;
-	private String tarjetonVenicimiento;
-	private String tarjetonExpedicion;
-	private Date tarjetonVenicimientoAsDate;
-	private Date tarjetonExpedicionAsDate;
-	private String department;
-	private String rfc;
-	private String imss;
-	private String licenciaNumero;
-	private String licenciaTipo;
-	private String licenciaVenicimiento;
-	private String licenciaExpedicion;
-	private Date licenciaVenicimientoAsDate;
-	private Date licenciaExpedicionAsDate;
 
 	public String getId() {
 		return id;
