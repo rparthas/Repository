@@ -11,3 +11,26 @@
     justify-content: center;
     flex-direction: column;
 }
+.table th:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.table .action-column{
+    width: 230px;
+}
+.table .action-column:hover{
+    text-decoration: none;
+    cursor: default;
+}
+.table tfoot .pagination{
+    float: right;
+    margin: 0;
+}
+.table tfoot .pagination li{
+    cursor: pointer;
+}
+.table tfoot select{
+    width: 90px;
+    float: right;
+    margin-right: 8px;
+}

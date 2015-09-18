@@ -1,4 +1,4 @@
-var app = angular.module('SMA', ['ngRoute', 'angucomplete-alt']);
+var app = angular.module('SMA', ['ngRoute', 'angucomplete-alt','bsTable','ngRoute']);
 app.config(['$routeProvider', '$httpProvider',
     function ($routeProvider, $httpProvider) {
         $routeProvider.
@@ -20,6 +20,14 @@ app.config(['$routeProvider', '$httpProvider',
             })
             .when('/addEmployee', {
                 templateUrl: 'components/RH/addEmployee.html',
+                controller: 'employee'
+            })
+            .when('/addEmployee/:action', {
+                templateUrl: 'components/RH/addEmployee.html',
+                controller: 'employee'
+            })
+            .when('/searchEmployee', {
+                templateUrl: 'components/RH/searchEmployee.html',
                 controller: 'employee'
             })
             .otherwise('/login');
@@ -58,11 +66,11 @@ app.controller('login', ['$scope', '$rootScope', '$http', '$location', function 
             errors.push(field + " no puede estar vacio ");
             return;
         }
-        if (element.length > maxlength) {
+        if (maxlength !='*' && element.length > maxlength) {
             errors.push(field + " longitud no puede ser mayor que " + maxlength);
             return;
         }
-        if (element.length < minlength) {
+        if (minlength !='*' && element.length < minlength) {
             errors.push(field + " longitud no puede ser menor que " + minlength);
             return;
         }

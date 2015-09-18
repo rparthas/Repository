@@ -26,6 +26,7 @@ public class Employee {
 	private Date tarjetonVenicimientoAsDate;
 	private Date tarjetonExpedicionAsDate;
 	private String department;
+	private String permissionario;
 	private String rfc;
 	private String imss;
 	private String licenciaNumero;
@@ -34,6 +35,16 @@ public class Employee {
 	private String licenciaExpedicion;
 	private Date licenciaVenicimientoAsDate;
 	private Date licenciaExpedicionAsDate;
+	
+	
+	public String getPermissionario() {
+		return permissionario;
+	}
+
+	public void setPermissionario(String permissionario) {
+		this.permissionario = permissionario;
+	}
+
 
 	public Date getTarjetonVenicimientoAsDate() {
 		return tarjetonVenicimientoAsDate;

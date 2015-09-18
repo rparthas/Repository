@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -63,8 +64,25 @@ public class EmployeeController {
 			employee.setLicenciaExpedicionAsDate(format.parse(employee
 					.getLicenciaExpedicion()));
 		}
-		employeeMapper.addEmployee(employee);
+		if (employee.getId() != null) {
+			employeeMapper.updateEmployee(employee);
+		} else {
+			employeeMapper.addEmployee(employee);
+		}
 		return new Response(Constants.EMP_ADDED);
+	}
+
+	@RequestMapping("/getAllEmployees")
+	@ResponseBody
+	public List<Employee> getAllEmployees() {
+		return employeeMapper.getAllEmployees();
+	}
+
+	@RequestMapping("/deleteEmployee")
+	@ResponseBody
+	public Response deleteEmployee(@RequestParam String id) {
+		employeeMapper.deleteEmployee(id);
+		return new Response(Constants.EMP_DELETED);
 	}
 
 }

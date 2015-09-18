@@ -1,0 +1,62 @@
+<div class="container col-lg-12" style="height: 80vh;overflow-y: auto;" ng-controller="employee">
+
+    <form role="form" name="userForm" class="form-horizontal">
+        <h2 class="col-lg-offset-4">B&uacute;squeda Empleado</h2>
+
+        <table class="table table-hover table-bordered" bs-table>
+            <thead>
+            <tr>
+                <th ng-click="predicate='name'; reverse=!reverse">Nombre</th>
+                <th ng-click="predicate='department'; reverse=!reverse">Estatus</th>
+                <th>Clave</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="employee in employees | orderBy:predicate:reverse | filter:test"
+                class="ng-scope">
+                <td>{{ employee.name }} {{ employee.surname1 }} {{ employee.surname2 }}</td>
+                <td>{{ employee.department }}</td>
+                <td>{{ employee.clave }}</td>
+                <td class="action-column">
+                    <button type="button" class="btn-sm btn-success" ng-click="updateEmployee(employee)">Modificar
+                        Empleado
+                    </button>
+                </td>
+                <td class="action-column">
+                    <button type="button" class="btn-sm btn-success" ng-click="deleteEmployee(employee)"> Borrar
+                        Empleado
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <div class="col-sm-offset-2 col-md-10">
+
+            <label class="col-sm-4 control-label" for="filter">Nombre</label>
+
+            <div class="col-sm-4">
+                <input id="filter" type="text" class="form-control" ng-model="test"/>
+            </div>
+        </div>
+
+
+        <div class="col-sm-offset-4 form-group-sm" role="alert">
+            <div class="col-lg-12">
+                <div ng-repeat="error in errors">
+                    <h2>
+                        <div class="text-center text-danger">{{error}}</div>
+                    </h2>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div>
+                    <h2>
+                        <div class="text-center text-primary">{{msg}}</div>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+</div>
