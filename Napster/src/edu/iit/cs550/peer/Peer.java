@@ -72,9 +72,11 @@ public class Peer implements Callable<Object> {
 			to.setPort(port);
 			to.setRequestFile(false);
 			to.setFiles(files);
-			for (File file : listOfFiles) {
-				if (file.isFile()) {
-					files.add(file.getName());
+			if (listOfFiles != null) {
+				for (File file : listOfFiles) {
+					if (file.isFile()) {
+						files.add(file.getName());
+					}
 				}
 			}
 			oos.writeObject(to);
