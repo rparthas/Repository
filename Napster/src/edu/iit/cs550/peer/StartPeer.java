@@ -56,7 +56,7 @@ public class StartPeer implements Runnable {
 
 					} else if (choice == 2) {
 						peer.shutDown();
-						break;
+						System.exit(0);
 					} else {
 						continue;
 					}

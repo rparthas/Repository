@@ -1,5 +1,6 @@
 package edu.iit.cs550.utility;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -17,7 +18,7 @@ public class UtilityClass {
 		Properties prop = new Properties();
 		InputStream input = null;
 		try {
-			input = ClassLoader.getSystemResourceAsStream(Constants.FILENAME);
+			input = new FileInputStream(Constants.FILENAME);
 			prop.load(input);
 		} catch (Exception ex) {
 			ex.printStackTrace();
