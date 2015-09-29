@@ -42,12 +42,16 @@ public class StartPeer implements Runnable {
 							if (fileName != null || !"".equals(fileName)) {
 								List<PeerObject> peers = peer
 										.lookUpFile(fileName);
+								if (peers == null || peers.size() == 0) {
+									System.out.println("File not found");
+									continue;
+								}
 								int peerId = 0;
 								for (PeerObject peerObj : peers) {
 									peerId++;
 									System.out.println("Peer " + peerId
 											+ " Details:" + peerObj);
-									
+
 								}
 								choosePeer(peer, scanner, fileName, peers);
 								fileLoop = false;
