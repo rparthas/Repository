@@ -1,5 +1,6 @@
 package com.SMA.controller.test;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -22,11 +23,13 @@ public class EmployeeTest {
 	@Autowired
 	private EmployeeController employeeController;
 
+	@Ignore
 	@Test
 	public void getDepartments() {
 		logger.info(employeeController.getAllDepartments() + "");
 	}
 
+	@Ignore
 	@Test
 	public void getAllUsers() {
 		logger.info(employeeController.getAllPermissionarios() + "");

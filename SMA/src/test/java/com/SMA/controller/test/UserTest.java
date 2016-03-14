@@ -3,6 +3,7 @@ package com.SMA.controller.test;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -27,7 +28,8 @@ public class UserTest {
 	@Autowired
 	private UserController userController;
 
-	// @Test
+	@Ignore
+	@Test
 	public void addUser() {
 		User user = new User();
 		user.setEmpId(null);
@@ -38,22 +40,26 @@ public class UserTest {
 		logger.info(msg + "");
 	}
 
-	// @Test
+	@Ignore
+	@Test
 	public void getRoles() {
 		logger.info(userController.getAllRoles() + "");
 	}
 
-	// @Test
-	public void getAllUsers() {
+	@Ignore
+	@Test
+	public void getUsers() {
 		List<User> users = userController.getAllUsers();
 		logger.info(users + "");
 	}
 
-	// @Test
+	@Ignore
+	@Test
 	public void deleteUser() {
 		userController.deleteUser("golgappa");
 	}
 
+	@Ignore
 	@Test
 	public void updateUser() {
 		User user = new User();
