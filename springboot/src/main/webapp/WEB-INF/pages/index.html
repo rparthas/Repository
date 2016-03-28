@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Spring Boot</title>
+<script type="text/javascript">
+	var notificationurl = "http://localhost:8080/";
+	var source = new EventSource(notificationurl + "question");
+	source.onopen = function(e) {
+		console.log("connection opened");
+	}
+	source.onmessage = function(e) {
+		console.log("Received");
+		document.body.innerHTML += e.data + '<br>';
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
