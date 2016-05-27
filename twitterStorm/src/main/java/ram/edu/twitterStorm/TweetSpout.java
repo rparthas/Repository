@@ -58,10 +58,10 @@ public class TweetSpout implements IRichSpout {
         this.collector =collector;
         ConfigurationBuilder config =
                 new ConfigurationBuilder()
-                        .setOAuthConsumerKey("####")
-                        .setOAuthConsumerSecret("####")
-                        .setOAuthAccessToken("####")
-                        .setOAuthAccessTokenSecret("####");
+                        .setOAuthConsumerKey("###")
+                        .setOAuthConsumerSecret("###")
+                        .setOAuthAccessToken("###")
+                        .setOAuthAccessTokenSecret("###");
 
         TwitterStreamFactory factory =
                 new TwitterStreamFactory(config.build());

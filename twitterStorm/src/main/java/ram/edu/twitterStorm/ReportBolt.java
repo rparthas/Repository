@@ -13,23 +13,23 @@ import java.util.Map;
  */
 public class ReportBolt implements IRichBolt {
 
-    public void prepare(Map stormConf, TopologyContext context, OutputCollector collector) {
+	public void prepare(Map stormConf, TopologyContext context, OutputCollector collector) {
 
-    }
+	}
 
-    public void execute(Tuple input) {
-        System.out.println(input.getStringByField("tweet"));
-    }
+	public void execute(Tuple input) {
+		System.out.println(input.getStringByField("hashTag") +"--->" +input.getStringByField("count"));
+	}
 
-    public void cleanup() {
+	public void cleanup() {
 
-    }
+	}
 
-    public void declareOutputFields(OutputFieldsDeclarer declarer) {
+	public void declareOutputFields(OutputFieldsDeclarer declarer) {
 
-    }
+	}
 
-    public Map<String, Object> getComponentConfiguration() {
-        return null;
-    }
+	public Map<String, Object> getComponentConfiguration() {
+		return null;
+	}
 }
