@@ -18,7 +18,7 @@ public class ReportBolt implements IRichBolt {
 	}
 
 	public void execute(Tuple input) {
-		System.out.println(input.getStringByField("hashTag") +"--->" +input.getStringByField("count"));
+		System.out.println(input.getStringByField("hashTag"));
 	}
 
 	public void cleanup() {

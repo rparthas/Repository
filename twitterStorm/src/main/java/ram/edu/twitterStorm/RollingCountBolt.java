@@ -30,15 +30,14 @@ public class RollingCountBolt implements IRichBolt {
 
 	public void execute(Tuple input) {
 		String hashTag = input.getStringByField("hashTag");
-		if (start == 0) {
-			start = Calendar.getInstance().getTimeInMillis();
-		}
+		if (start == 0)
+			start = Util.reset();
 		if (hashTag != null) {
 			count = count + 1;
 		}
-		if (Calendar.getInstance().getTimeInMillis() - start > frequency) {
-			start = Calendar.getInstance().getTimeInMillis();
-			collector.emit(new Values(hashTag, count+""));
+		if (Util.getDiff(start) > frequency) {
+			start = Util.reset();
+			collector.emit(new Values(hashTag, count));
 			count = 0;
 		}
 

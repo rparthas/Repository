@@ -18,97 +18,89 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class TweetSpout implements IRichSpout {
 
-    LinkedBlockingQueue<String> queue= new LinkedBlockingQueue<String>();
+	LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<String>();
 
-    SpoutOutputCollector collector = null;
+	SpoutOutputCollector collector = null;
 
-    class TweetListener
-            implements StatusListener
+	class TweetListener implements StatusListener
 
-    {
+	{
 
-        public void onStatus(Status status) {
-            queue.offer(status.getText());
-        }
+		public void onStatus(Status status) {
+			queue.offer(status.getText());
+		}
 
-        public void onDeletionNotice(StatusDeletionNotice statusDeletionNotice) {
+		public void onDeletionNotice(StatusDeletionNotice statusDeletionNotice) {
 
-        }
+		}
 
-        public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
+		public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
 
-        }
+		}
 
-        public void onScrubGeo(long userId, long upToStatusId) {
+		public void onScrubGeo(long userId, long upToStatusId) {
 
-        }
+		}
 
-        public void onStallWarning(StallWarning warning) {
+		public void onStallWarning(StallWarning warning) {
 
-        }
+		}
 
-        public void onException(Exception ex) {
+		public void onException(Exception ex) {
 
-        }
+		}
 
-    }
+	}
 
+	public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
+		this.collector = collector;
+		ConfigurationBuilder config = new ConfigurationBuilder().setOAuthConsumerKey("###")
+				.setOAuthConsumerSecret("###").setOAuthAccessToken("###").setOAuthAccessTokenSecret("###");
+		
+		TwitterStreamFactory factory = new TwitterStreamFactory(config.build());
+		TwitterStream stream = factory.getInstance();
+		stream.addListener(new TweetListener());
+		stream.sample();
+	}
 
-    public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
-        this.collector =collector;
-        ConfigurationBuilder config =
-                new ConfigurationBuilder()
-                        .setOAuthConsumerKey("###")
-                        .setOAuthConsumerSecret("###")
-                        .setOAuthAccessToken("###")
-                        .setOAuthAccessTokenSecret("###");
+	public void close() {
 
-        TwitterStreamFactory factory =
-                new TwitterStreamFactory(config.build());
-        TwitterStream stream = factory.getInstance();
-        stream.addListener(new TweetListener());
-        stream.sample();
-    }
+	}
 
-    public void close() {
+	public void activate() {
 
-    }
+	}
 
-    public void activate() {
+	public void deactivate() {
 
-    }
+	}
 
-    public void deactivate() {
+	public void nextTuple() {
+		String ret = queue.poll();
 
-    }
+		// if no tweet is available, wait for 50 ms and return
+		if (ret == null) {
+			Utils.sleep(50);
+			return;
+		}
 
-    public void nextTuple() {
-        String ret = queue.poll();
+		// now emit the tweet to next stage bolt
+		collector.emit(new Values(ret));
+	}
 
-        // if no tweet is available, wait for 50 ms and return
-        if (ret==null)
-        {
-            Utils.sleep(50);
-            return;
-        }
+	public void ack(Object msgId) {
 
-        // now emit the tweet to next stage bolt
-        collector.emit(new Values(ret));
-    }
+	}
 
-    public void ack(Object msgId) {
+	public void fail(Object msgId) {
 
-    }
+	}
 
-    public void fail(Object msgId) {
+	public void declareOutputFields(OutputFieldsDeclarer declarer) {
+		declarer.declare(new Fields("tweet"));
+	}
 
-    }
-
-    public void declareOutputFields(OutputFieldsDeclarer declarer) {
-        declarer.declare(new Fields("tweet"));
-    }
-
-    public Map<String, Object> getComponentConfiguration() {
-        return null;
-    }
+	public Map<String, Object> getComponentConfiguration() {
+		return null;
+	}
 }

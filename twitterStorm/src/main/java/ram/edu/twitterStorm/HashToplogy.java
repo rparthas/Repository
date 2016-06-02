@@ -17,14 +17,15 @@ public class HashToplogy {
 		TopologyBuilder builder = new TopologyBuilder();
 		builder.setSpout("tweetSpout", new TweetSpout(), 1);
 		builder.setBolt("parseTweetBolt", new ParseTweetBolt(), 10).shuffleGrouping("tweetSpout");
-		builder.setBolt("rollingCountBolt", new RollingCountBolt(500), 15).fieldsGrouping("parseTweetBolt",
+		builder.setBolt("rollingCountBolt", new RollingCountBolt(20000), 15).fieldsGrouping("parseTweetBolt",
 				new Fields("hashTag"));
-		builder.setBolt("reportBolt", new ReportBolt(), 10).globalGrouping("rollingCountBolt");
+		builder.setBolt("topNBolt", new TopNBolt(100000,10)).globalGrouping("rollingCountBolt");
+		builder.setBolt("reportBolt", new ReportBolt()).globalGrouping("topNBolt");
 		Config conf = new Config();
 		conf.setDebug(false);
-		conf.setNumWorkers(10);
+		conf.setNumWorkers(20);
 		cluster.submitTopology("hashTopology", conf, builder.createTopology());
-		Utils.sleep(300000);
+		Utils.sleep(1000000);
 		cluster.killTopology("hashTopology");
 		cluster.shutdown();
 	}
