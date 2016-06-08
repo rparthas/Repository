@@ -17,10 +17,11 @@ public class HashToplogy {
 		TopologyBuilder builder = new TopologyBuilder();
 		builder.setSpout("tweetSpout", new TweetSpout(), 1);
 		builder.setBolt("parseTweetBolt", new ParseTweetBolt(), 10).shuffleGrouping("tweetSpout");
-		builder.setBolt("rollingCountBolt", new RollingCountBolt(20000), 15).fieldsGrouping("parseTweetBolt",
-				new Fields("hashTag"));
-		builder.setBolt("topNBolt", new TopNBolt(100000,10)).globalGrouping("rollingCountBolt");
-		builder.setBolt("reportBolt", new ReportBolt()).globalGrouping("topNBolt");
+		//builder.setBolt("rollingCountBolt", new RollingCountBolt(20000), 15).fieldsGrouping("parseTweetBolt",
+		//		new Fields("hashTag"));
+		//builder.setBolt("topNBolt", new TopNBolt(100000,10)).globalGrouping("rollingCountBolt");
+		//builder.setBolt("reportBolt", new ReportBolt()).globalGrouping("topNBolt");
+		builder.setBolt("countBolt", new CountBolt()).fieldsGrouping("parseTweetBolt",new Fields("hashTag"));
 		Config conf = new Config();
 		conf.setDebug(false);
 		conf.setNumWorkers(20);
