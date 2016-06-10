@@ -1,4 +1,4 @@
-package ram.edu.twitterStorm;
+package ram.edu.twitterStorm.bolt;
 
 import java.util.Map;
 import java.util.Set;
@@ -11,6 +11,8 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
 
+import ram.edu.twitterStorm.util.RedisClient;
+import ram.edu.twitterStorm.util.Util;
 import redis.clients.jedis.Jedis;
 
 public class CountBolt implements IRichBolt {

@@ -1,4 +1,4 @@
-package ram.edu.twitterStorm;
+package ram.edu.twitterStorm.spout;
 
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.task.TopologyContext;

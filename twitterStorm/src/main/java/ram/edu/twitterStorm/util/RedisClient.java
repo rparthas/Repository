@@ -1,4 +1,4 @@
-package ram.edu.twitterStorm;
+package ram.edu.twitterStorm.util;
 
 import java.util.Set;
 

@@ -1,4 +1,4 @@
-package ram.edu.twitterStorm;
+package ram.edu.twitterStorm.bolt;
 
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;

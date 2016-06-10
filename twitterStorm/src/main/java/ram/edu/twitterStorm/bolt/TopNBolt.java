@@ -1,4 +1,4 @@
-package ram.edu.twitterStorm;
+package ram.edu.twitterStorm.bolt;
 
 import java.util.Calendar;
 import java.util.LinkedHashMap;
@@ -14,6 +14,8 @@ import org.apache.storm.topology.OutputFieldsDeclarer;
 import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
+
+import ram.edu.twitterStorm.util.Util;
 
 public class TopNBolt implements IRichBolt {
 

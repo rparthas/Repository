@@ -1,6 +1,5 @@
-package ram.edu.twitterStorm;
+package ram.edu.twitterStorm.bolt;
 
-import java.util.Calendar;
 import java.util.Map;
 
 import org.apache.storm.task.OutputCollector;
@@ -11,15 +10,7 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
 
-public class RollingCountBolt implements IRichBolt {
-
-	public RollingCountBolt(long frequency) {
-		this.frequency = frequency;
-	}
-
-	long start = 0;
-	int count = 0;
-	long frequency = 0;
+public class ParseTweetBolt implements IRichBolt {
 
 	OutputCollector collector = null;
 
@@ -29,16 +20,13 @@ public class RollingCountBolt implements IRichBolt {
 	}
 
 	public void execute(Tuple input) {
-		String hashTag = input.getStringByField("hashTag");
-		if (start == 0)
-			start = Util.reset();
-		if (hashTag != null) {
-			count = count + 1;
-		}
-		if (Util.getDiff(start) > frequency) {
-			start = Util.reset();
-			collector.emit(new Values(hashTag, count));
-			count = 0;
+		String tweet = input.getStringByField("tweet");
+		if (tweet != null && tweet.contains("#")) {
+			String subTweet = tweet.substring(tweet.indexOf("#"), tweet.length());
+			String hashTag = subTweet.split(" ")[0];
+			collector.emit(new Values(hashTag));
+		} else {
+			return;
 		}
 
 	}
@@ -49,7 +37,7 @@ public class RollingCountBolt implements IRichBolt {
 	}
 
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declare(new Fields("hashTag", "count"));
+		declarer.declare(new Fields("hashTag"));
 
 	}
 

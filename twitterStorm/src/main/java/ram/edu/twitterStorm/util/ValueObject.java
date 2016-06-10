@@ -1,4 +1,4 @@
-package ram.edu.twitterStorm;
+package ram.edu.twitterStorm.util;
 
 public class ValueObject implements Comparable<ValueObject> {
 
