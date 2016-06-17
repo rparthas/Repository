@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>View Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<!-- Le styles -->
+<!-- GOOGLE FONT-->
+<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<!-- /GOOGLE FONT-->
+
+
+<!-- Le styles -->
+<!-- Latest compiled and minified CSS BS 3.0. -->
+<link href="bootstrap.min.css" rel="stylesheet">
+
+<style type="text/css">
+      body {
+        /*padding-top: 40px;
+        padding-bottom: 40px;*/
+	font-family: 'Varela Round', sans-serif;
+      }
+	header {
+		font-family: 'Varela Round', sans-serif;
+	}
+	  
+	header .jumbotron{
+		background:#358cce;
+		color:#fff;
+		border-radius:0px;
+		font-family: 'Varela Round', sans-serif;
+	}
+	header .jumbotron small{
+		color:#fff;
+	}
+	.main-color {
+		color:#358cce;
+	}
+	.col-lg-8{
+		float:right;
+	}
+	.col-lg-4{
+		float:left;
+	}
+	 
+	/* Optional responsive image override */
+	img { max-width: none; }
+	
+	@media (max-width: 768px) {
+		
+		.nav-tabs.nav-justified > li{
+			float:left;
+		}
+	}
+    </style>
+
+<!--[if lt IE 7]>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css" rel="stylesheet">
+	<![endif]-->
+    <!-- Fav and touch icons -->
+
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+<!-- Le fav and touch icons -->
+<link rel="shortcut icon" href="favicon.ico">
+
+  <body>
+<header>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+	  
+	
+</header>
+<div class="container">
+      <!-- Example row of columns -->
+	<div class="row" style="padding-top: 40px; padding-bottom:160px;">	
+       	
+       <div class="col-12 col-lg-6" style="margin:0 auto;">
+	  
+			<div class="panel">
+					<div class="panel-heading">	
+			<h3 class="">
+				User Lists
+			</h3>
+			</div>
+			<div class="panel-body">
+				<table>
+					<tr>
+					<th>Name</th><th>Email</th><th>Location</th><th>Mobile No</th><th>Notes</th>
+					</tr>
+					<tr>
+					<td>John Doe</td><td>john@email.com</td><td>London</td><td>98101010</td><td>Notes John</td>
+					</tr>
+					<tr>
+					<td>Sham Doe</td><td>sham@email.com</td><td>Paris</td><td>981010112</td><td>Notes Sham</td>
+					</tr>
+					<tr>
+					<td>Harry Doe</td><td>harry@email.com</td><td>New York</td><td>98101012</td><td>Notes Harry</td>
+					</tr>
+					<tr>
+					<td>Milton Doe</td><td>milton@email.com</td><td>Rome</td><td>981010142</td><td>Notes Milton</td>
+					</tr>
+
+				</table>
+			</div>
+			</div>			
+		</div>
+      </div>
+
+      <hr>
+
+      <footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-12">
+					<p><a href="http://www.phloxblog.in" title="bootstrap 3 templates">Phloxblog.in © Company 2013</a></p>
+				</div>
+			</div>
+		</div>
+      </footer>
+
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="jquery.js" type="text/javascript"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="bootstrap.min.js"></script>
+
+</body>
+</html>

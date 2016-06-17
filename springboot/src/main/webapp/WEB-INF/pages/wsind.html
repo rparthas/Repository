@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Websocket</title>
+</head>
+<body>
+	<script src="//cdn.jsdelivr.net/sockjs/1.0.3/sockjs.min.js"></script>
+	<script type="text/javascript">
+		var exampleSocket = new SockJS('http://localhost:8080/greeting');
+		/*var exampleSocket = new WebSocket("ws://localhost:8080/greeting");*/
+		exampleSocket.onopen = function(event) {
+			exampleSocket.send('test');
+		};
+		exampleSocket.onmessage = function(event) {
+			console.log(event.data);
+		}
+
+		function sendMessage() {
+			exampleSocket.send(document.getElementById("text").value);
+		}
+	</script>
+	<input type="text" id="text" placeholder="Enter Text"></input>
+	<input type="button" value="Send Text" onclick="sendMessage()" />
+</body>
+</html>

@@ -1,0 +1,11 @@
+<table>
+	<tr>
+	<th>Name</th><th>Email</th><th>Location</th><th>Mobile No</th><th>Notes</th>
+	</tr>
+    <% for(var i=0; i<users.length; i++) { %>
+	<tr>
+	<td>users[i][0]</td><td>users[i][1]</td><td>users[i][2]</td><td>users[i][3]</td><td>users[i][4]</td>
+	</tr>
+    <% } %>
+</table>
+
