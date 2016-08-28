@@ -1,3 +1,6 @@
+.settings/
+.classpath
+.project
 .idea/
 bin/
 target/
@@ -8,12 +11,7 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
-.settings/
-.classpath
-.project
 .mvn/timing.properties
-*.class
-# Package Files #
 *.jar
 *.war
 *.ear
