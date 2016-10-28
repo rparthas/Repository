@@ -17,8 +17,20 @@ object worksheet1 {
   6.*(7)                                          //> res7: Int(42) = 42
   Int.MaxValue                                    //> res8: Int(2147483647) = 2147483647
   "Mississipi".distinct                           //> res9: String = Misp
-  "ram".permutations.toArray                      //> res10: Array[String] = Array(ram, rma, arm, amr, mra, mar)
-  "ABC".sum.toInt                                 //> res11: Int = 198
-  "A".sum.toInt                                   //> res12: Int = 65
-  val result= if (2+3 > 1) "suc"                  //> result  : Any = suc
+  "ram".permutations.toArray
+  "ABC".sum.toInt
+  "A".sum.toInt
+  val result= if (2+3 > 1) "suc"
+  for(i<-1 to 10)
+  print(i)
+  println()
+  
+  def isVowel(ch : Char)={
+    "aeiou".contains(ch)
+  }
+  isVowel('f')
+  def vowels(str : String)= {
+    for(i <- str if isVowel(i)) yield i
+  }
+   vowels("apple")
 }
