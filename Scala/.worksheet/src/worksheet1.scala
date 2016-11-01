@@ -1,5 +1,8 @@
 import scala.math._
-object worksheet1 {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(83); 
+import scala.collection.mutable.ArrayBuffer
+
+
+object worksheet1 {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(129); 
   println("Welcome to the Scala worksheet");$skip(6); val res$0 = 
   2+3;System.out.println("""res0: Int(5) = """ + $show(res$0));$skip(11); 
   var a= 5;System.out.println("""a  : Int = """ + $show(a ));$skip(9); 
@@ -29,5 +32,35 @@ object worksheet1 {;import org.scalaide.worksheet.runtime.library.WorksheetSuppo
   def vowels(str : String)= {
     for(i <- str if isVowel(i)) yield i
   };System.out.println("""vowels: (str: String)String""");$skip(19); val res$14 = 
-   vowels("apple");System.out.println("""res14: String = """ + $show(res$14))}
+   vowels("apple");System.out.println("""res14: String = """ + $show(res$14));$skip(39); 
+   var buf = ArrayBuffer(-2,3,-3,5,-6);System.out.println("""buf  : scala.collection.mutable.ArrayBuffer[Int] = """ + $show(buf ));$skip(69); 
+   
+   var index=for(i <- 0 until buf.length if buf(i) < 0) yield i;System.out.println("""index  : scala.collection.immutable.IndexedSeq[Int] = """ + $show(index ));$skip(23); 
+   index=index.reverse;$skip(61); 
+   
+   for(i <- 0 until index.length-1) buf.remove(index(i));$skip(11); val res$15 = 
+   
+   buf;System.out.println("""res15: scala.collection.mutable.ArrayBuffer[Int] = """ + $show(res$15));$skip(142); 
+   
+   var in = new java.util.Scanner(new java.net.URL("http://horstmann.com/presentations/livelessons-scala-2016/alice30.txt").openStream());System.out.println("""in  : java.util.Scanner = """ + $show(in ));$skip(57); 
+   var count =scala.collection.mutable.Map[String,Int]();System.out.println("""count  : scala.collection.mutable.Map[String,Int] = """ + $show(count ));$skip(97); 
+   while(in.hasNext()){
+   	val word=in.next()
+   	count(word) = count.getOrElse(word, 0)+1
+   };$skip(22); val res$16 = 
+   
+   count("Alice");System.out.println("""res16: Int = """ + $show(res$16));$skip(19); val res$17 = 
+   count("Rabbit");System.out.println("""res17: Int = """ + $show(res$17));$skip(138); 
+   
+   in = new java.util.Scanner(new java.net.URL("http://horstmann.com/presentations/livelessons-scala-2016/alice30.txt").openStream());$skip(34); 
+   var countIm =Map[String,Int]();System.out.println("""countIm  : scala.collection.immutable.Map[String,Int] = """ + $show(countIm ));$skip(116); 
+   while(in.hasNext()){
+   	val word=in.next()
+   	countIm = countIm+( word -> (countIm.getOrElse(word, 0)+1))
+   };$skip(20); val res$18 = 
+   countIm("Alice");System.out.println("""res18: Int = """ + $show(res$18));$skip(21); val res$19 = 
+   countIm("Rabbit");System.out.println("""res19: Int = """ + $show(res$19));$skip(38); 
+   val words = Array("Mary","little");System.out.println("""words  : Array[String] = """ + $show(words ));$skip(38); val res$20 = 
+   words.groupBy { _.substring(0,1) };System.out.println("""res20: scala.collection.immutable.Map[String,Array[String]] = """ + $show(res$20));$skip(32); val res$21 = 
+   words.groupBy { _.length() };System.out.println("""res21: scala.collection.immutable.Map[Int,Array[String]] = """ + $show(res$21))}
 }
