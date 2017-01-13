@@ -23,12 +23,23 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
-
-
-
-
-
-
+low = 1000;
+for c = [0.01,0.03,0.1,0.3,1,3,10,30]
+  for sigmaloop =  [0.01,0.03,0.1,0.3,1,3,10,30]
+    model= svmTrain(X, y, c, @(x1, x2) gaussianKernel(x1, x2, sigmaloop));
+    predictions = svmPredict(model, Xval);
+    error = mean(double(predictions ~= yval));
+    if (error <= low)
+      low = error;
+      C=c;
+      sigma=sigmaloop;
+    end
+end
+end
+fprintf('Final values \n');
+%C
+%sigma
+%low
 % =========================================================================
 
 end

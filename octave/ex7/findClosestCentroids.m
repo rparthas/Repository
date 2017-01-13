@@ -22,7 +22,21 @@ idx = zeros(size(X,1), 1);
 %
 
 
-
+for i=1:size(X,1)
+  low =10000; 
+  centIndex=1;
+ for j=1:size(centroids,1)
+     diff =0;
+    for k=1:size(centroids,2)
+      diff = diff+ (X(i,k)-centroids(j,k))^2;
+    endfor
+      if(diff < low)
+      centIndex=j;
+      low=diff;
+      endif      
+ endfor
+   idx(i)=centIndex;
+endfor
 
 
 
