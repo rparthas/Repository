@@ -1,6 +1,13 @@
 Repository
 ==========
 
-Repository
+This is the general repository for all my learning attempts. It houses the following topics
 
-This is the general repository for all my learning attempts
+* Algorithms - General Algorithm learnings along with amazon,hackerrank contests and domain problems
+* CloudKon - My Masters distributed system project running on Amazon EC2
+* MEAN - Node stack 
+* MLR - Machine Learning with help of R language
+* hackathon - Houses hackathon contest solutions
+* Octave  - Houses ML solutions to Andrew NG course on ML in coursera
+* Springboot - A Springboot learning attempt
+* twitterStorm - Twitter & storm Integration
