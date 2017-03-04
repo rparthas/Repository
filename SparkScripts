@@ -1,4 +1,9 @@
-val input= sc.textFile("README.md")
+hdfs dfs -put * /input/
+hdfs dfs -get /output/
+
+bin/spark-shell --master yarn --deploy-mode client
+
+val input= sc.textFile("input/")
 val words = input.flatMap(line => line.split(' '))
 val count = words.map(word => (word,1)).reduceByKey{case(x,y) => x+y}
-count.saveAsTextFile("output")
+count.saveAsTextFile("/output/")
