@@ -35,10 +35,10 @@ public class TweetCollector {
 		TweetCollector tc = new TweetCollector();
 		tc.topicName = "tweets";
 		tc.producer = new KafkaProducer<String, String>(configProperties);
-		ConfigurationBuilder config = new ConfigurationBuilder().setOAuthConsumerKey("nbm3CfmjyTExtQ2nE9XBDCMaF")
-				.setOAuthConsumerSecret("SVACMbycE0USELwevUERZCrrnGjdhZo86tZFjH9syT1oOWgZ2q")
-				.setOAuthAccessToken("48344566-q6PuZz5oM8q561hEHZyVWLMbBC5t9Ry4XS2UU3MX2")
-				.setOAuthAccessTokenSecret("JkR6Xvn4badltcZ5gYLQ98ye7vBWE7gp6mnaUUUVp7R8C");
+		ConfigurationBuilder config = new ConfigurationBuilder().setOAuthConsumerKey("##")
+				.setOAuthConsumerSecret("##")
+				.setOAuthAccessToken("48344566-##")
+				.setOAuthAccessTokenSecret("##");
 
 		TwitterStreamFactory factory = new TwitterStreamFactory(config.build());
 		TwitterStream stream = factory.getInstance();
