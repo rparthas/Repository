@@ -5,6 +5,17 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author Rajagopal
+ * Sample Input
+ * 16
+ * 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+ * 2
+ * 1 14
+ * 14 16
+ * 1 2 3 13 12 11 10 9 8 7 6 5 4 14 15 16
+ */
 public class ProfessorHoneyWell {
 
 	public static void main(String args[]) throws Exception {
