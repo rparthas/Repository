@@ -5,6 +5,28 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.PrintWriter;
 
+/**
+ * 
+Input:
+7
+()()
+([])
+([)]
+((]]
+)(
+)
+(
+Output:
+YES
+YES
+NO
+NO
+NO
+NO
+NO
+ * @author ram
+ *
+ */
 public class BracketSequence {
 
 	public static void main(String[] args) throws Exception {
