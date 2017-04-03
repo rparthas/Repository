@@ -1,21 +1,18 @@
-<html ng-app="MyApp">
+<html ng-app="myApp">
 <head>
   <title>Angular App 1</title>
+  <script src="angular.min.js"></script>
 </head>
 <body ng-controller="dateController">
-  <pre>{{now | date: 'EEEE MMM dd yyyy' }}</pre>
-  <script src=""/>
+  <pre>{{clock.now | date : ' EEEE ,MMM dd yyyy HH:mm:ss'}}</pre>
  <script type="text/javascript">
   var app=angular.module('myApp',[]);
-  app.controller("dateController",function(){
-    $scope.now = new Date();
-    $scope.updateClock= function(){
-      $scope.now = new Date();
-    } ;
-    setInterval(function(){
-      $scope.updateClock();
+  app.controller("dateController",['$scope', '$interval',function($scope,$interval){
+    $scope.clock= {"now":new Date()};
+    $interval(function(){
+      $scope.clock.now = new Date();
     },1000);
-  });
+  }]);
 
  </script>
 </body>
