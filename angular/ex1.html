@@ -1,0 +1,21 @@
+<html ng-app="MyApp">
+<head>
+  <title>Angular App 1</title>
+</head>
+<body ng-controller="dateController">
+  <pre>{{now | date: 'EEEE MMM dd yyyy' }}</pre>
+  <script src=""/>
+ <script type="text/javascript">
+  var app=angular.module('myApp',[]);
+  app.controller("dateController",function(){
+    $scope.now = new Date();
+    $scope.updateClock= function(){
+      $scope.now = new Date();
+    } ;
+    setInterval(function(){
+      $scope.updateClock();
+    },1000);
+  });
+
+ </script>
+</body>
