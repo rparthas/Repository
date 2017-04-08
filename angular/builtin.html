@@ -13,22 +13,25 @@
   </style>
 </head>
 <body ng-controller="myController">
-<form name="myForm" novalidate>
+<form name="myForm">
   <input type="text" ng-disabled="2 === 2" placeholder="text"/><br/>
-  <input type="text" ng-hide="{{model.view}}" placeholder="text" required="true" ng-minlength=2 /><br/>
+  <input type="text" ng-hide="{{model.view}}"  name="textInput" ng-model="model.text" placeholder="Enter text for validation" required="true"
+   ng-minlength=2 ng-maxlength=4 /><br/>
   <input type="text" ng-model="model.name"/>
+  <h1>Dirty: {{ myForm.$dirty}}</h1>
+  <h1>Valid: {{myForm.textInput.$valid}}</h1>
   <div ng-switch on="model.name"/>
   <p ng-switch-default>Ram</p>
   <h1 ng-switch-when="Raja">{{model.name}}</h1>
   <ul ng-repeat="person in model.persons | orderBy : 'name' ">
     <li ng-class =" {red : $even} ">{{$index+1}} -- {{person.name|uppercase}} is of age {{person.age}}</li>
   </ul>
-    <input type="submit" value="click"></input>
+    <button ng-disabled="myForm.textInput.$invalid">click</button>
 </form>
  <script type="text/javascript">
   var app=angular.module('myApp',[]);
   app.controller('myController',function($scope){
-    $scope.model={view:false};
+    $scope.model={view:false,text:'texts'};
     var persons =[{"name":"ram","age":30},{"name":"appu","age":27},{"name":"raja","age":31}];
     $scope.model.persons =persons;
   })
