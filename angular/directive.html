@@ -2,12 +2,21 @@
 <head>
   <title>Angular App 1</title>
    <meta charset="UTF-8">
+   <style type="text/css">
+   input.ng-invalid-greater{
+    border:1px solid red;
+   }
+   input.ng-valid-greater{
+      border:1px solid green;
+   }
+   </style>
   <script src="angular.min.js"></script>
 </head>
 <body >
   UserName:<input type="text" ng-model="user.name"/><br/>
   Password:<input type="text" ng-model="user.password"/>
-  <my-directive user-name="user.name" password="{{user.password}}"/>
+  <my-directive user-name="user.name" password="{{user.password}}"></my-directive>
+  Number: <input type="text" ensure-greater ng-model="number"/>
  <script type="text/javascript">
   var app=angular.module('myApp',[]);
   app.directive('myDirective',function(){
@@ -17,9 +26,25 @@
         password : '@'
     },
     restrict:'E',
-    template:'<p><input type="text" ng-model="userName"/><br/><input type="text" ng-model="password"/></p>',
+    template:'<p> Directive Uname: <input type="text" ng-model="userName"/><br/>Directive Pwd:<input type="text" ng-model="password"/></p>',
     link:function(scope,element,attrs){
       console.log('directive called');
+    }
+    }
+  });
+  app.directive('ensureGreater',function(){
+    return {
+    require : '?ngModel',
+    link:function(scope,element,attrs,ngModel){
+      scope.$watch(attrs.ngModel,function(){
+        ngModel.$validators.greater = function (modelValue) {
+          if(parseInt(modelValue) > 7){
+            return true;
+            console.log(parseInt(modelValue));
+          }
+          return false;
+        }
+      })
     }
     }
   });
