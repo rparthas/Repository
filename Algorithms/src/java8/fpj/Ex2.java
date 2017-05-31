@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class ex2 {
+public class Ex2 {
 
 	public static void main(String[] args) {
 		final List<String> names = Arrays.asList("Brian", "Nate", "Neal", "Raju", "Sara", "Scott");
