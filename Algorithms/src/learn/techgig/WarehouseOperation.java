@@ -1,4 +1,4 @@
-package java8.fpj;
+package learn.techgig;
 
 import java.io.*;
 import java.util.*;
