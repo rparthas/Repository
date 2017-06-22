@@ -9,9 +9,16 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.stream.IntStream;
-
+/**
+ * Run using java 8
+ * @author Rajagopal
+ *
+ */
 public class WorkQueue {
 
+	/**
+	 * Concurrent HashMap to support multi threading. 
+	 */
 	static Map<String, Queue<Task>> workQueue = new ConcurrentHashMap<String, Queue<Task>>();
 	
 
@@ -20,7 +27,7 @@ public class WorkQueue {
 		int skillCount = 10;
 		int workerCountPerSkill = 10;
 		int taskCount = 1000000;
-		ExecutorService workerPool = Executors.newFixedThreadPool(skillCount * workerCountPerSkill);
+		ExecutorService workerPool = Executors.newFixedThreadPool(skillCount * workerCountPerSkill);//Thread pool executor to handle many different threads
 		Random randomSkillGenerator = new Random();
 		Random randomPriorityGenerator = new Random();
 
@@ -42,7 +49,7 @@ public class WorkQueue {
 			task.priority = randomPriorityGenerator.nextInt(200);
 			Queue<Task> taskQueue = workQueue.get(task.skill);
 			if (taskQueue == null) {
-				taskQueue = new PriorityBlockingQueue<>();
+				taskQueue = new PriorityBlockingQueue<>();// A priority queue to handle the min and max priority
 				workQueue.put(task.skill, taskQueue);
 			}
 			taskQueue.add(task);
