@@ -51,34 +51,32 @@ public class WarehouseOperation {
 			List<Worker> workerList = workers.get(job.skill);
 			boolean assigned = false;
 			Worker freeWorker = null;
-			long jobTime = 0;
 			for (Worker worker : workerList) {
-				if(!worker.occupied) {
-					worker.jobs.add(job);
+				if (!worker.occupied) {
+					worker.addJob(job);
 					assigned = true;
 					worker.occupied = true;
 					break;
 				}
-				if (worker.getWorkTime() < jobTime || jobTime == 0) {
+				if (freeWorker == null || worker.getWorkTime() < freeWorker.getWorkTime()) {
 					freeWorker = worker;
-					jobTime = worker.getWorkTime();
 				}
 			}
 
 			if (!assigned) {
-				freeWorker.jobs.add(job);
+				freeWorker.addJob(job);
 				freeWorker.occupied = true;
 			}
 		});
 
-		//Sort the workerlist by designation
+		// Sort the workerlist by designation
 		List<Worker> workerList = new ArrayList<Worker>();
 		workers.values().forEach(workersList -> {
 			workerList.addAll(workersList);
 		});
 		Collections.sort(workerList);
-		
-		//form the result
+
+		// form the result
 		int length = workerList.size();
 		String[] result = new String[length];
 		java.util.stream.IntStream.range(0, length).forEach(index -> result[index] = workerList.get(index).toString());
@@ -117,19 +115,21 @@ public class WarehouseOperation {
 			System.out.println(String.valueOf(output[output_i]));
 		}
 	}
-	
+
 	static class Worker implements Comparable<Worker> {
 		String employeeId;
 		String skill;
-		List<Job> jobs = new ArrayList<>();
+		private List<Job> jobs = new ArrayList<>();
 		boolean occupied = false;
+		private long workTime = 0;
 
 		long getWorkTime() {
-			long jobTime = 0;
-			for (Job job : jobs) {
-				jobTime += job.time;
-			}
-			return jobTime;
+			return workTime;
+		}
+
+		void addJob(Job job) {
+			jobs.add(job);
+			workTime += job.time;
 		}
 
 		@Override
@@ -163,5 +163,3 @@ public class WarehouseOperation {
 		}
 	}
 }
-
-

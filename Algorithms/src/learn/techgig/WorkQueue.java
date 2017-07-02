@@ -49,7 +49,7 @@ public class WorkQueue {
 			task.priority = randomPriorityGenerator.nextInt(200);
 			Queue<Task> taskQueue = workQueue.get(task.skill);
 			if (taskQueue == null) {
-				taskQueue = new PriorityBlockingQueue<>();// A priority queue to handle the min and max priority
+				taskQueue = new PriorityBlockingQueue<>();// A priority queue to handle the min and max priority 
 				workQueue.put(task.skill, taskQueue);
 			}
 			taskQueue.add(task);
