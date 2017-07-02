@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>User Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="./app/styles.css">
+</head>
+<body ng-controller="UserDisplayController as vm" class="container-fluid">
+<div class="row row-top-margin row-bottom-margin">
+<div class="col-md-4"></div>
+
+<div class="col-md-4">
+    <form ng-submit="vm.executeSearch()">
+        <button id="searchButton" class="btn btn-default" type="submit">Search Users</button>
+    </form>
+</div>
+
+<div class="col-md-4"></div>
+    </div>
+
+<div class="row">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+        <user-display-directive users="vm.users"></user-display-directive>
+    </div>
+
+    <div class="col-md-4"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+<script src="app/app.js"></script>
+<script src="app/user.service.js"></script>
+<script src="app/user.display.controller.js"></script>
+<script src="app/user.display.directive.js"></script>
+
+</body>
+</html>
