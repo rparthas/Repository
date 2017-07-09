@@ -11,10 +11,7 @@
     "angular-mocks": "^1.5.5",
     "express": "^4.14.0",
     "jasmine": "^2.6.0",
-    "karma": "^1.7.0",
     "karma-chrome-launcher": "^2.2.0",
-    "karma-ie-launcher": "^1.0.0",
-    "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "phantomjs-prebuilt": "^2.1.14"
   }

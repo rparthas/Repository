@@ -18,6 +18,10 @@ describe('UserDisplayController', function() {
     expect(vm).toBeDefined();
   });
 
+  it('should have UserService defined', function() {
+    expect(UserService).toBeDefined();
+  });
+
   it('should have vm.executeSearch defined', function() {
     expect(vm.executeSearch).toBeDefined();
   });
