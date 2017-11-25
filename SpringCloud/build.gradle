@@ -35,11 +35,10 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
-    //compile("org.springframework.boot:spring-boot-devtools")
-    compile 'org.springframework.cloud:spring-cloud-starter-eureka'
-    compile 'com.google.guava:guava:20.0'
-	compile group:'org.seleniumhq.selenium', name:'selenium-java',version:'3.0.1'
-	compile group:'org.seleniumhq.selenium', name:'selenium-firefox-driver',version:'3.0.1'
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile 'org.springframework.cloud:spring-cloud-starter-eureka-server'
+    compile 'org.springframework.cloud:spring-cloud-starter-hystrix'
+    compile 'org.springframework.cloud:spring-cloud-starter-feign'
     testCompile 'junit:junit:4.12'
 }
 
