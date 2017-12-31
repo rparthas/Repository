@@ -11,7 +11,7 @@ public class PlayerEnhanced {
 
 	private int id;
 	
-	private boolean c
+	private boolean c;
 
 	public PlayerEnhanced(int id, int balance) {
 		super();
@@ -55,6 +55,7 @@ public class PlayerEnhanced {
 		if(amount > balance){
 			
 		}
+		return false;
 	}
 
 	public void move(int die) {
