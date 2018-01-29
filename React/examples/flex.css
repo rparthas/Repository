@@ -1,0 +1,17 @@
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.box1{
+    flex: 1;
+    order:2;
+}
+.box2{
+    flex: 1;
+    order:3;
+}
+.box3{
+    flex: 1;
+    order:1;
+}

@@ -1,8 +1,34 @@
 <html>
-    <head>
-        <title>Sample page</title>
-        <meta charset="UTF-8"> 
-    </head>
+
+<head>
+    <title>Sample page</title>
+    <meta charset="UTF-8">
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js">
+</script>
+
+<link rel="stylesheet" href="style.css" />
+
+<body>
+    <div>
+        <ins>hi</ins>
+        <u>hello</u>
+        <del>hello</del>
+    </div>
+    <div>
+        <img src="flower1.jpg" alt="flower1" />
+        <img src="flower2.jpg" alt="flower2" />
+        <img src="flower3.jpg" alt="flower3" />
+    </div>
+
+    <div>
+        <script id="address-template" type="text/x-handlebars-template">
+        <p>You can find me in {{city}}. My address is {{number}} {{street}}.</p>
+      </script>
+    </div>
+
     <script type="text/javascript" src="index.js">
     </script>
+</body>
+
 </html>

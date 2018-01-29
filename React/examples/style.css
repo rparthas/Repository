@@ -1,0 +1,25 @@
+div {
+    width: 30%;
+    border: 25px solid green;
+    padding: 25px;
+    margin: 25px;
+}
+
+img {
+    width: 20%;
+    border: 1px solid white;
+    padding: 10px;
+    margin: 10px;
+}
+
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
