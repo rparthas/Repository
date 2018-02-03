@@ -24,16 +24,8 @@ console.log(companies
 );
 
 
-var source   = document.getElementById("address-template").innerHTML;
-var template = Handlebars.compile(source);
-
-    // Define our data object
-    var context = {
-        "city": "London",
-        "street": "Baker Street",
-        "number": "221B"
-    };
-
-    // Pass our data to the template
-    var html    = template(context);
-    console.log(html);
+require ('bootstrap/dist/css/bootstrap.min.css');
+let $= require('jquery');
+$('body').append('<h1>'+require('./message.js')+'</h1');
+require('../css/style.css');
+require('../css/flex.css');
