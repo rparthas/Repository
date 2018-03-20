@@ -14,7 +14,7 @@ class StaticpagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "title", "About | #{@base_title}"
   end
-  test "should get root route" do
+  test "should get default route" do
   get "/"
   assert_response :success
   assert_select "title", "Hello | #{@base_title}"
