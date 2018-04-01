@@ -1,0 +1,33 @@
+[package]
+name = "TypeSystem"
+version = "0.1.0"
+authors = ["Rajagopal <rajagopal.sarathi@gmail.com [commit]>"]
+
+[profile.dev]
+panic = 'abort'
+
+[dependencies]
+[lib]
+name="tcp"
+path="tcp/src/lib.rs"
+
+
+[[bin]]
+name='main'
+path='src/main.rs'
+
+[[bin]]
+name='network'
+path='src/network.rs'
+
+[[bin]]
+name='vector'
+path='src/vector.rs'
+
+[[bin]]
+name='error'
+path='src/error.rs'
+
+[[bin]]
+name='trait'
+path='src/trait.rs'

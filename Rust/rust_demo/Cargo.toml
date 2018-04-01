@@ -1,15 +1,6 @@
 [package]
-name = "Ownership"
+name = "rust_demo"
 version = "0.1.0"
 authors = ["Rajagopal <rajagopal.sarathi@gmail.com [commit]>"]
 
-[[bin]]
-name = "ownership"
-path = "src/bin.rs"
-
 [dependencies]
-
-[lib]
-name="mylib"
-path="src/lib.rs"
-

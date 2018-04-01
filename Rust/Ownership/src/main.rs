@@ -7,7 +7,7 @@ fn main() {
 }
 
 fn calculate_length(s: & mut String) -> usize {
-    s.push_str(", world");
+    s.push_str(" world");
     s.len()
 }
 
