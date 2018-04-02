@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hello!</title>
+    <script>
+        function myFunction() {
+            var str= document.getElementById('input').value;
+            window.location.href ="http://127.0.0.1:8080?search="+str;
+        }
+    </script>
+</head>
+<body>
+<h1>Hello!</h1>
+<p>Hi from Rust</p>
+Enter term to Search:<input id="input" type="text"/>
+<input type="button" onclick="myFunction()" value="Search"/>
+</body>
+</html>

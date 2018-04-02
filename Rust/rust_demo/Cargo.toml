@@ -4,3 +4,12 @@ version = "0.1.0"
 authors = ["Rajagopal <rajagopal.sarathi@gmail.com [commit]>"]
 
 [dependencies]
+
+
+[[bin]]
+name="add"
+path="src/add.rs"
+
+[[bin]]
+name="server"
+path="src/main.rs"
