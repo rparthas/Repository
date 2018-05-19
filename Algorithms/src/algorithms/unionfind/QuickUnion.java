@@ -6,7 +6,7 @@ import java.util.List;
 public class QuickUnion implements Finder {
 
 
-	List<Tree> elements = new ArrayList<Tree>();
+	List<Tree> elements = new ArrayList<>();
 
 	public QuickUnion(int number) {
 		for (int i = 0; i < number; i++) {
@@ -17,11 +17,11 @@ public class QuickUnion implements Finder {
 			elements.add(tree);
 		}
 	}
-	
+
 	public void union(int a, int b) {
 		Tree minTree = elements.get(a);
 		Tree maxTree = elements.get(b);
-		
+
 		if(maxTree.size <  minTree.size){
 			Tree temp = minTree;
 			minTree=maxTree;
@@ -38,7 +38,7 @@ public class QuickUnion implements Finder {
 			iterate=iterate.parent;
 		}
 	}
-	
+
 	private Tree getRoot(Tree tree){
 		Tree parent =tree;
 		if(tree!=null && tree.parent!=null){
@@ -46,7 +46,7 @@ public class QuickUnion implements Finder {
 		}
 		return parent;
 	}
-	
+
 	private int getRootValue(Tree tree ){
 		int val=tree.value;
 		Tree root = getRoot(tree);
@@ -58,13 +58,11 @@ public class QuickUnion implements Finder {
 	public boolean isConnected(int a, int b) {
 		int aRoot = getRootValue(elements.get(a));
 		int bRoot=getRootValue(elements.get(b));
-		boolean connected = aRoot==bRoot ;
-		return connected;
+		return aRoot==bRoot ;
 	}
 
 	@Override
 	public void print() {
-		// TODO Auto-generated method stub
 		for(Tree tree:elements){
 			tree.print();
 		}

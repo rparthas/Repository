@@ -6,19 +6,19 @@ import java.util.List;
 
 public class UnionFind implements Finder {
 
-	List<List<Integer>> numbers = new ArrayList<List<Integer>>();
+	List<List<Integer>> numbers = new ArrayList<>();
 
 	public UnionFind(int number) {
 		for (int i = 0; i < number; i++) {
-			List<Integer> temp = new ArrayList<Integer>();
+			List<Integer> temp = new ArrayList<>();
 			numbers.add(temp);
 			temp.add(i);
 		}
 	}
 
 	public void union(int a, int b) {
-		List<Integer> addList =new ArrayList<Integer>();
-		List<Integer> removeIndex = new ArrayList<Integer>();
+		List<Integer> addList =new ArrayList<>();
+		List<Integer> removeIndex = new ArrayList<>();
 		for (List<Integer> list : numbers) {
 			if (list.contains(a) ) {
 				addList.addAll(list);
@@ -49,7 +49,6 @@ public class UnionFind implements Finder {
 
 	@Override
 	public void print() {
-		// TODO Auto-generated method stub
 		System.out.println("Connected set"+numbers);
 	}
 }

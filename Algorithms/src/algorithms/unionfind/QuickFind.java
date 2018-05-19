@@ -32,7 +32,6 @@ public class QuickFind implements Finder {
 
 	@Override
 	public void print() {
-		// TODO Auto-generated method stub
 		System.out.println("Connected set"+numbers);
 	}
 }
