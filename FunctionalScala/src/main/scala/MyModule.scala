@@ -1,6 +1,6 @@
 object MyModule {
 
-  private def abs(number: Int) = {
+  def abs(number: Int) = {
     if (number <= 0)
       -number
     else
@@ -82,6 +82,10 @@ object MyModule {
     }
   }
 
+  def compose[A, B, C](f: B => C, g: A => B): A => C = {
+    (a: A) => f(g(a))
+  }
+
   def add(a: Int, b: Int): Int = a + b
 
   def ordered(a: Int, b: Int) = a < b
@@ -90,8 +94,9 @@ object MyModule {
 
 
   def main(args: Array[String]) = {
-
+    println("UnCurry Example:" + uncurry(partialAdd)(2, 3))
     println("Curry Example:" + curry(add)(2, 3))
+    println("Compose Example:" + compose(partialAdd(2), partialAdd(3))(4))
     println(display("fibonacci", 10, fib))
     println(display("abs", -42, abs))
     println("findFirst based on condition is " + findFirst(Array(1, 2, 3, 4), equal))
