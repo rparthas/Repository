@@ -1,6 +1,8 @@
+import List._
+
 object MyModule {
 
-  def abs(number: Int) = {
+  def abs(number: Int): Int = {
     if (number <= 0)
       -number
     else
@@ -8,7 +10,7 @@ object MyModule {
   }
 
 
-  def display(name: String, number: Int, f: Int => Int) = {
+  def display(name: String, number: Int, f: Int => Int): String = {
     val msg = "%s of %d is %d"
     msg.format(name, number, f(number))
   }
@@ -88,12 +90,12 @@ object MyModule {
 
   def add(a: Int, b: Int): Int = a + b
 
-  def ordered(a: Int, b: Int) = a < b
+  def ordered(a: Int, b: Int): Boolean = a < b
 
   def equal(a: Int): Boolean = a == 2
 
 
-  def main(args: Array[String]) = {
+  def main(args: Array[String]): Unit = {
     println("UnCurry Example:" + uncurry(partialAdd)(2, 3))
     println("Curry Example:" + curry(add)(2, 3))
     println("Compose Example:" + compose(partialAdd(2), partialAdd(3))(4))
@@ -102,6 +104,26 @@ object MyModule {
     println("findFirst based on condition is " + findFirst(Array(1, 2, 3, 4), equal))
     println("isSorted based on ordered is" + isSorted(Array(1, 3, 2, 4), ordered))
     println("partial function " + partial1(4, add)(2))
+
+
+    def ints: List[Int] = List(1, 2, 3, 4, 5)
+
+    println("Sum is " + sum(ints))
+    println("Product is " + product(ints))
+    println("Sum of tail is " + sum(tail(ints)))
+    println("Sum of setHead is " + sum(setHead(ints, 6)))
+    println("Drop value is " + drop(ints, 3))
+    println("Drop While value is " + dropWhile(ints, (a: Int) => a <= 3))
+
+    val x = List(1, 2, 3, 4, 5) match {
+      case Cons(x, Cons(2, Cons(4, _))) => x
+      case Nil => 42
+      case Cons(x, Cons(y, Cons(3, Cons(4, _)))) => x + y
+      case Cons(h, t) => h + sum(t)
+      case _ => 101
+    }
+    println("x is " + x)
+
   }
 
 }
