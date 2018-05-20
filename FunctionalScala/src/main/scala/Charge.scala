@@ -7,7 +7,7 @@ case class Charge(creditCard: CreditCard, amount: Double) {
     throw new Exception("cannot charge different cards")
   }
 
-  def coalesce(charges: List[Charge]): List[Charge] =
+  def coalesce(charges: scala.List[Charge]): scala.List[Charge] =
     charges.groupBy(_.creditCard).values.map(_.reduce(_ combine _)).toList
 
 }
