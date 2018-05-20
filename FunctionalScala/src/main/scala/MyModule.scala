@@ -63,7 +63,7 @@ object MyModule {
         loop(index + 1, acc && ordered(as(index), as(index + 1)))
     }
 
-    loop(0, true)
+    loop(0, acc = true)
 
   }
 
