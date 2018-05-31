@@ -114,6 +114,7 @@ object MyModule {
     println("Sum of setHead is " + sum(setHead(ints, 6)))
     println("Drop value is " + drop(ints, 3))
     println("Drop While value is " + dropWhile(ints, (a: Int) => a <= 3))
+    println("init is " + init(ints))
 
     val x = List(1, 2, 3, 4, 5) match {
       case Cons(x, Cons(2, Cons(4, _))) => x
