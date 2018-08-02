@@ -71,23 +71,82 @@ object List {
       case Cons(h, t) => Cons(h, init(t))
     }
 
-  def foldRight[A,B](as:List[A],z:B)(f:(A,B) => B): B = {
-    as match{
+  def foldRight[A, B](as: List[A], z: B)(f: (A, B) => B): B = {
+    as match {
       case Nil => z
-      case Cons(x,xs) => f(x,foldRight(xs,z)(f))
+      case Cons(head, tail) => f(head, foldRight(tail, z)(f))
     }
   }
 
-//  def init2[A](l: List[A]): List[A] = {
-//    val buf = new ListBuffer[A]
-//
-//    @annotation.tailrec
-//    def go(cur: List[A]): List[A] = cur match {
-//      case Nil => sys.error("init of empty list")
-//      case Cons(_, Nil) => List(buf.toList: _*)
-//      case Cons(h, t) => buf += h; go(t)
-//    }
-//
-//    go(l)
-//  }
+  def map(as: List[Int])(f: Int => Int): List[Int] = {
+    as match {
+      case Nil => Nil
+      case Cons(head, tail) => Cons(f(head), map(tail)(f))
+    }
+  }
+
+  def filter[A](as: List[A])(f: A => Boolean): List[A] ={
+    as match {
+      case Nil => Nil
+      case Cons(head, tail) => if(f(head)) Cons(head,filter(tail)(f)) else filter(tail)(f)
+    }
+  }
+
+  def flatMap[A,B](as: List[A])(f: A => List[B]): List[B] = {
+    as match {
+      case Nil => Nil
+      case Cons(head, tail) => append(f(head),flatMap(tail)(f))
+      }
+    }
+
+  def zipWith[A,B,C](a: List[A], b: List[B])(f: (A,B) => C): List[C] = (a,b) match {
+    case (Nil, _) => Nil
+    case (_, Nil) => Nil
+    case (Cons(h1,t1), Cons(h2,t2)) => Cons(f(h1,h2), zipWith(t1,t2)(f))
+  }
+
+
+  def sum2(ns: List[Int]) = {
+    foldRight(ns, 0)((x, y) => x + y)
+  }
+
+  def product2(ns: List[Int]) = {
+    foldRight(ns, 1)(_ * _)
+  }
+
+  def sum3(ns: List[Int]) = {
+    foldLeft(ns, 0)((x, y) => x + y)
+  }
+
+  def product3(ns: List[Int]) = {
+    foldLeft(ns, 1)(_ * _)
+  }
+
+  def length[A](as: List[A]): Int = {
+    foldRight(as, 0)((_, acc) => acc + 1)
+  }
+
+  def foldLeft[A, B](as: List[A], z: B)(f: (B, A) => B): B = {
+    as match {
+      case Nil => z
+      case Cons(head, tail) => foldLeft(tail, f(z, head))(f)
+    }
+  }
+
+  def length2[A](as: List[A]): Int = foldLeft(as, 0)((acc, _) => acc + 1)
+
+  def reverse[A](as: List[A]): List[A] = foldLeft(as, List[A]())((acc, head) => Cons(head, acc))
+
+  //  def init2[A](l: List[A]): List[A] = {
+  //    val buf = new ListBuffer[A]
+  //
+  //    @annotation.tailrec
+  //    def go(cur: List[A]): List[A] = cur match {
+  //      case Nil => sys.error("init of empty list")
+  //      case Cons(_, Nil) => List(buf.toList: _*)
+  //      case Cons(h, t) => buf += h; go(t)
+  //    }
+  //
+  //    go(l)
+  //  }
 }

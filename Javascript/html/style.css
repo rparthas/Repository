@@ -1,0 +1,38 @@
+body{
+    background-color: wheat;
+}
+h1{
+    font-size: 6vh;
+    text-align: center;
+    letter-spacing: 5px;
+}
+p.main{
+    color: brown;   
+    font-size: 20px;
+}
+a{
+    color:green;
+    text-decoration: none;
+}
+ol{
+    list-style: none;
+    margin: 10px;
+}
+li{
+    float: left;
+}
+
+@media screen and (max-width: 800px) {
+    li{
+        padding: 10px;
+    }
+}
+
+div{
+    border: dashed 10px black;
+    width: 40vw;
+    float: none;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    margin: 0 auto;
+}

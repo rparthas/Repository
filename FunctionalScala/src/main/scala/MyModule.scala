@@ -125,6 +125,19 @@ object MyModule {
     }
     println("x is " + x)
 
+    println("Merge two lists is "+foldRight(List(1,2,3), Nil:List[Int])(Cons(_,_)))
+    println("Length of list is "+length(List(1,2,3)))
+
+    println("Sum is " + sum3(ints))
+    println("Product is " + product3(ints))
+    println("Reverse is " + reverse(ints))
+
+
+    println("Add impl is"+ map(ints)(a=> a+1))
+    println("Even List is"+ filter(ints)(a=> a%2 == 0))
+
+    println("FlatMap example "+ flatMap(List(1,2,3))(i => List(i,i,i)))
+
   }
 
 }
