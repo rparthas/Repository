@@ -1,5 +1,5 @@
 import React from 'react';
-import Context from './context';
+import { AppContext } from './context';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 import { colors } from './Constants';
 
@@ -8,7 +8,7 @@ export default class ColorChooser extends React.Component{
     render() {
         const colorChooser ='Color-Chooser';
         return (
-            <Context.AppContext.Consumer>
+            <AppContext.Consumer>
                 {
                     (store) => 
                         <div>
@@ -26,7 +26,7 @@ export default class ColorChooser extends React.Component{
                         </div>
                     }
                 
-            </Context.AppContext.Consumer>
+            </AppContext.Consumer>
         );
     }
 }

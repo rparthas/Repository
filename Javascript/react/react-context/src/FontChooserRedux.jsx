@@ -1,5 +1,5 @@
 import React from 'react';
-import Context from './context';
+import { AppContext } from './context';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 import { fonts } from './Constants';
 
@@ -8,7 +8,7 @@ export default class FontChooser extends  React.Component{
     render(){
         const fontChooser ='font-chooser';
         return (
-            <Context.AppContext.Consumer>
+            <AppContext.Consumer>
                 {
                     (store) => 
                     <div>
@@ -26,7 +26,7 @@ export default class FontChooser extends  React.Component{
                     </div>
                 }
                
-            </Context.AppContext.Consumer>
+            </AppContext.Consumer>
     );
     }
 }

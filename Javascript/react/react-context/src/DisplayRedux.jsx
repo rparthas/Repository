@@ -1,10 +1,10 @@
 import React from 'react';
-import Context from './context';
+import { AppContext } from './context';
 import { fontCalculator } from './Constants';
 
 const display = ({font}) =>{
     return (
-        <Context.AppContext.Consumer>
+        <AppContext.Consumer>
         {
            ({state}) => 
                 <h2 style ={{
@@ -14,7 +14,7 @@ const display = ({font}) =>{
                             Display Text
                 </h2>
         }
-        </Context.AppContext.Consumer>
+        </AppContext.Consumer>
     );
 } 
 

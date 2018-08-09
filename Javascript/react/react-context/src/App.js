@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ColorChooser from './ColorChooser';
 import ColorChooserContext from './ColorChooserContext';
-import Context from './context';
+import { AppContext } from './context';
 import ColorChooserRedux from './ColorChooserRedux';
 import FontChooserRedux from './FontChooserRedux';
 import DisplayRedux from './DisplayRedux';
@@ -29,7 +29,7 @@ class App extends Component {
     if(this.props.context){
     app = (<ColorChooserContext/>);
     }else if(this.props.redux){
-      app = (<Context.AppContext.Provider value={{
+      app = (<AppContext.Provider value={{
         state: this.state,
         actions:{
           updateColor:(color) => this.setState({color}),
@@ -39,7 +39,7 @@ class App extends Component {
           <ColorChooserRedux/>
           <FontChooserRedux/>
           <DisplayRedux/>
-    </Context.AppContext.Provider>);
+    </AppContext.Provider>);
     }
     return app;
   }

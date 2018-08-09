@@ -1,5 +1,5 @@
 import React from 'react';
-import Context from './context';
+import { ColorContext } from './context';
 import FontChooserContext from './FontChooserContext';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 import { colors } from './Constants';
@@ -22,9 +22,9 @@ export default class ColorChooserContext extends React.Component{
                         <MenuItem eventKey={color}>{color}</MenuItem>
                     )}
                 </DropdownButton>
-                <Context.ColorContext.Provider value={this.state.color}>
+                <ColorContext.Provider value={this.state.color}>
                     <FontChooserContext/>
-                </Context.ColorContext.Provider>
+                </ColorContext.Provider>
             </div>
         );
     }

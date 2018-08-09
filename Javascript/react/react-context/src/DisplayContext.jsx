@@ -1,11 +1,11 @@
 import React from 'react';
-import Context from './context';
+import { ColorContext } from './context';
 import { fontCalculator } from './Constants';
 
 
 const display = ({font}) =>{
     return (
-        <Context.ColorContext.Consumer>
+        <ColorContext.Consumer>
         {
            (color) => 
                 <h2 style ={{
@@ -15,7 +15,7 @@ const display = ({font}) =>{
                             Display Text
                 </h2>
         }
-        </Context.ColorContext.Consumer>
+        </ColorContext.Consumer>
     );
 } 
 
