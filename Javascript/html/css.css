@@ -1,0 +1,32 @@
+input[type=number]:in-range {
+    font-weight: bold;
+}
+
+input[type=number]:invalid {
+    background-color: red;
+}
+
+textarea {
+    opacity: 0.75;
+    background-color: brown;
+    text-shadow: 0.1em 0.1em 0.2em white;
+    padding: 2vh auto;
+}
+
+pre:read-only:hover {
+    border: 5px dashed red;
+}
+
+*:target {
+    border-left: 5px solid gray;
+    background: greenyellow top right no-repeat;
+}
+
+p:first-of-type::first-letter {
+    font-size: 200%;
+}
+
+p::first-line {
+    font-size: 150%;
+    color: purple;
+}
