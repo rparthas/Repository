@@ -30,3 +30,5 @@ p::first-line {
     font-size: 150%;
     color: purple;
 }
+
+a[href] img:only-child {border: 2px solid black;}
