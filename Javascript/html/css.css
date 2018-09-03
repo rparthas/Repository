@@ -31,4 +31,11 @@ p::first-line {
     color: purple;
 }
 
-a[href] img:only-child {border: 2px solid black;}
+a[href] img:only-child {
+    border: 2px solid black;
+}
+
+.up {
+    vertical-align: text-top;
+    text-shadow: green 10px 0.5em 0.5px;
+}
