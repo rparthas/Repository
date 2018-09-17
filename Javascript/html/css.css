@@ -39,3 +39,48 @@ a[href] img:only-child {
     vertical-align: text-top;
     text-shadow: green 10px 0.5em 0.5px;
 }
+
+.vertical-right {
+    writing-mode: vertical-rl;
+}
+
+body {
+    line-height: 1.5;
+}
+
+#em6 {
+    height: 6em;
+    border: 1px solid
+}
+
+#em3 {
+    height: auto;
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+#negmar {
+    width: 200px;
+    margin-top: 10px;
+    border: 2px dashed green;
+}
+
+#negmar>div {
+    margin-left: auto;
+    width: 150px;
+    margin-right: auto;
+    border: 1px solid yellow;
+}
+
+#newdiv {
+    font-size: 15px;
+    line-height: 1em;
+    margin-top: 10px;
+}
+
+#newdiv span {
+    background: #FAA;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-decoration-break: slice;
+}
