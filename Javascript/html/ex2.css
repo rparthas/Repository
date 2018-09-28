@@ -1,0 +1,15 @@
+html {
+    font-size: 10px;
+}
+
+ol {
+    list-style-type: lower-alpha;
+}
+
+ul {
+    list-style: square;
+}
+
+ul, ol {
+    line-height: 1.5
+}
