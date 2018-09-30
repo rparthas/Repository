@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Technical Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        :root {
+            --bg-color: #a0b3b6;
+            font-family: 'Open Sans', Arial, sans-serif;
+        }
+
+        #navbar {
+            text-align: right;
+            display: inline;
+            position: fixed;
+            margin-left: 60%;
+        }
+
+        #navbar ul {
+            list-style: none;
+        }
+
+        #navbar ul li {
+            display: inline;
+            padding: 3vw;
+        }
+
+        #navbar ul li a {
+            text-decoration: none;
+            color: #27664c;
+            font-weight: bolder;
+            font-size: 1.5em;
+        }
+
+        main {
+            text-align: center;
+        }
+
+        #welcome-section {
+            height: 50vh;
+            padding-top: 50vh;
+            background-color: var(--bg-color);
+        }
+
+        .about {
+            color: green;
+        }
+
+        #header-img {
+            max-width: 20%;
+        }
+
+        #contact {
+            background-color: var(--bg-color);
+        }
+
+        .links {
+            margin: 0 25%;
+            display: flex;
+            flex-basis: 40%;
+        }
+
+        #profile-link {
+            flex-grow: 2;
+        }
+
+        @media(max-width:400px) {
+            #profile-link {
+                flex-grow: 1;
+            }
+        }
+
+        .link-div {
+            border-radius: 5vw;
+            width: 10vw;
+            height: 10vw;
+            border: solid 1px green;
+            background-color: #487c7c;
+            line-height: 10vw;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+        window.alert = function () {};
+    </script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#welcome-section" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Work</a></li>
+            <li><a href="#Contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="welcome-section">
+            <h1>
+                Hey i'am Raja.
+            </h1>
+            <p class="about">a web developer</p>
+        </section>
+        <section id="projects">
+            <div class="project">
+                <a href="https://codepen.io/rparthas-the-flexboxer/pen/NOPdeK">
+                    <img id="header-img" src="https://s3.amazonaws.com/freecodecamp/original_trombones.png" alt="trombones" /></a>
+                <div class="project-tile">
+                    FreeCodeCamp Landing Page
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h1>
+                Let's work together...
+            </h1>
+            <p class="about">How do you take your coffee?</p>
+            <div class="links">
+                <a target="_blank" href="facebook.com" id="profile-link">
+                    <div class="link-div">Facebook</div>
+                </a>
+                <a href="github.com" id="profile-link">
+                    <div class="link-div">Github</div>
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
