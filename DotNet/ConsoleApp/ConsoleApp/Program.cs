@@ -12,7 +12,7 @@ namespace ConsoleApp
             Console.WriteLine("\a");
 
             Console.Write("Enter your name ");
-            String name = Console.ReadLine();
+            string name = Console.ReadLine();
             Console.WriteLine("{0} is a sweet name",name);
 
             Class1 class1 = new Class1();
@@ -23,20 +23,14 @@ namespace ConsoleApp
             Console.WriteLine("Are Strings equal ? {0}", string.Compare("Hi", "hi", true));
 
             Console.Write("Enter your number ");
-            String input = Console.ReadLine();
-            if (Double.TryParse(input, out double number))
-            {
-                Console.WriteLine($"Entered is a number {number}");
-            }
-            else
-            {
-                Console.WriteLine($"Please enter a number {input}");
-            }
+            string input = Console.ReadLine();
+            Console.WriteLine(
+                double.TryParse(input, out double outNumber)
+                    ? $"Entered is a number {outNumber}"
+                    : $"Please enter a number {input}");
 
-
-            /*const byte a = 10;
             var b = 3;
-            Console.WriteLine((float)a / (float)b);
+            Console.WriteLine((float)10 / (float)b);
             checked
             {
                 byte number = 254;
@@ -49,13 +43,15 @@ namespace ConsoleApp
             Console.WriteLine("number is {0}", i);
             try
             {
-                var num = "1234";
-                Console.WriteLine(byte.Parse(num));
+                const string Num = "1234";
+                Console.WriteLine(byte.Parse(Num));
             }
             catch (Exception)
             {
                 Console.WriteLine("failed byte conversion");
-            } */
+            }
+ 
+            Console.ReadKey();
         }
     }
 }
