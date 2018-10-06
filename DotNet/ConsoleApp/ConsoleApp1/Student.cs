@@ -3,7 +3,7 @@ namespace ConsoleApp1 {
 
         private string _university;
         private double _grade;
-        public Student (string name, int age, string university, double grade, decimal salary = 2500) : base (name, age, salary) {
+        public Student (string name, int age, string university, double grade, IRun runner, decimal salary = 2500) : base (name, age, runner, salary) {
             University = university;
             Grade = grade;
         }
@@ -16,6 +16,5 @@ namespace ConsoleApp1 {
             System.Console.WriteLine ($"Also I have  {Grade} in {University}");
         }
 
-       
     }
 }

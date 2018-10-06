@@ -12,9 +12,10 @@ namespace ConsoleApp1 {
         }
 
         static void inheritanceMethod () {
-            Student student = new Student ("Ram", 31, "Harvard", 4.9);
+            Student student = new Student ("Ram", 31, "Harvard", 4.9, new SlowRunner ());
             student.printDetails ();
             System.Console.WriteLine (student);
+            student.Run (5);
         }
 
         static void classMethod () {
