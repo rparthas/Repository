@@ -8,14 +8,28 @@ namespace ConsoleApp1 {
             // arrayMethod();
             //classMethod();
             inheritanceMethod ();
-            //Console.ReadKey ();
+            Console.ReadKey ();
         }
 
         static void inheritanceMethod () {
-            Student student = new Student ("Ram", 31, "Harvard", 4.9, new SlowRunner ());
+            Student student = new Student ("Ram", 31, Student.UniversityTier.Tier1, 4.9, new SlowRunner ());
             student.printDetails ();
             System.Console.WriteLine (student);
             student.Run (5);
+            switch (student.University)
+            {
+                case Student.UniversityTier.Tier1:
+                    Console.WriteLine("Tier1 College");
+                    break;
+                case Student.UniversityTier.Tier2:
+                    Console.WriteLine("Tier2 College");
+                    break;
+                case Student.UniversityTier.Tier3:
+                    Console.WriteLine("Tier3 College");
+                    break;
+                default:
+                    break;
+            }
         }
 
         static void classMethod () {

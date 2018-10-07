@@ -1,19 +1,26 @@
 namespace ConsoleApp1 {
     public class Student : Person {
 
-        private string _university;
+        public enum UniversityTier
+        {
+            Tier1,
+            Tier2,
+            Tier3
+        }
+
+        private UniversityTier _university;
         private double _grade;
-        public Student (string name, int age, string university, double grade, IRun runner, decimal salary = 2500) : base (name, age, runner, salary) {
-            University = university;
+        public Student (string name, int age, UniversityTier university, double grade, IRun runner, decimal salary = 2500) : base (name, age, runner, salary) {
+            _university = university;
             Grade = grade;
         }
 
         public double Grade { get => _grade; set => _grade = value; }
-        public string University { get => _university; set => _university = value; }
+        public UniversityTier University { get => _university; set => _university = value; }
 
         override public void printDetails () {
             base.printDetails ();
-            System.Console.WriteLine ($"Also I have  {Grade} in {University}");
+            System.Console.WriteLine ($"Also I have  {Grade} in {University.ToString()}");
         }
 
     }
