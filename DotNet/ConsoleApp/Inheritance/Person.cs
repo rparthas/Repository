@@ -1,4 +1,4 @@
-namespace ConsoleApp1 {
+namespace Inheritance{
     public class Person {
 
         private string _name;

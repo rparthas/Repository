@@ -1,100 +1,96 @@
 ﻿using System;
 
-namespace ConsoleApp1 {
-    class MainClass {
-        public static void Main (string[] args) {
-            // exceptionMethod();
-            // byteMethod();
-            // arrayMethod();
-            //classMethod();
-            inheritanceMethod ();
-            Console.ReadKey ();
+namespace ConsoleApp1
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            exceptionMethod();
+            byteMethod();
+            arrayMethod();
+            refMethod();
+            Console.ReadKey();
+        }
+        private static void refMethod()
+        {
+            int add = 0;
+            int diff = 0;
+            int a = 3;
+            arithmetic(ref a, 2, out add, out diff);
+            Console.WriteLine($"Ref:{a} sum:{add} diff:{diff}");
         }
 
-        static void inheritanceMethod () {
-            Student student = new Student ("Ram", 31, Student.UniversityTier.Tier1, 4.9, new SlowRunner ());
-            student.printDetails ();
-            System.Console.WriteLine (student);
-            student.Run (5);
-            switch (student.University)
-            {
-                case Student.UniversityTier.Tier1:
-                    Console.WriteLine("Tier1 College");
-                    break;
-                case Student.UniversityTier.Tier2:
-                    Console.WriteLine("Tier2 College");
-                    break;
-                case Student.UniversityTier.Tier3:
-                    Console.WriteLine("Tier3 College");
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        static void classMethod () {
-            Class1 class1 = new Class1 ();
-            class1.method1 (3, "Hello");
-            class1.myProperty = "hello";
-            class1.IntProperty = 4;
-            Console.WriteLine (class1.myProperty);
-            Console.WriteLine (class1.IntProperty);
-        }
-
-        static void consoleMethod () {
+        static void consoleMethod()
+        {
             string message = "Hello World";
-            Console.WriteLine (message);
+            Console.WriteLine(message);
 
-            Console.WriteLine ("\a");
+            Console.WriteLine("\a");
 
-            Console.Write ("Enter your name ");
-            string name = Console.ReadLine ();
-            Console.WriteLine ("{0} is a sweet name", name);
+            Console.Write("Enter your name ");
+            string name = Console.ReadLine();
+            Console.WriteLine("{0} is a sweet name", name);
 
-            Console.WriteLine ("Are Strings equal ? {0}", string.Compare ("Hi", "hi", true));
+            Console.WriteLine("Are Strings equal ? {0}", string.Compare("Hi", "hi", true));
 
-            Console.Write ("Enter your number ");
-            string input = Console.ReadLine ();
-            Console.WriteLine (
-                double.TryParse (input, out double outNumber) ?
+            Console.Write("Enter your number ");
+            string input = Console.ReadLine();
+            Console.WriteLine(
+                double.TryParse(input, out double outNumber) ?
                 $"Entered is a number {outNumber}" :
                 $"Please enter a number {input}");
         }
 
-        static void exceptionMethod () {
-            int i = Convert.ToInt32 ("1");
-            i = int.Parse ("1");
-            Console.WriteLine ("number is {0}", i);
-            try {
+        static void exceptionMethod()
+        {
+            int i = Convert.ToInt32("1");
+            i = int.Parse("1");
+            Console.WriteLine("number is {0}", i);
+            try
+            {
                 const string Num = "1234";
-                Console.WriteLine (byte.Parse (Num));
-            } catch (Exception) {
-                Console.WriteLine ("failed byte conversion");
+                Console.WriteLine(byte.Parse(Num));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("failed byte conversion");
             }
         }
 
-        static void byteMethod () {
+        static void byteMethod()
+        {
             var b = 3;
-            Console.WriteLine ((float) 10 / (float) b);
-            checked {
+            Console.WriteLine((float)10 / (float)b);
+            checked
+            {
                 byte number = 254;
                 number += 1;
-                Console.WriteLine (number);
-                Console.WriteLine (number.GetType ());
+                Console.WriteLine(number);
+                Console.WriteLine(number.GetType());
             }
-            Console.WriteLine ("{0}...{1}", byte.MinValue, byte.MaxValue);
+            Console.WriteLine("{0}...{1}", byte.MinValue, byte.MaxValue);
         }
 
-        static void arrayMethod () {
+        static void arrayMethod()
+        {
             char[] charArray = new char[4];
-            Console.WriteLine ($"Length:{charArray.Length}");
+            Console.WriteLine($"Length:{charArray.Length}");
             charArray[0] = 'H';
             charArray[1] = 'E';
             charArray[2] = 'L';
             charArray[3] = 'L';
-            foreach (var chars in charArray) {
-                Console.WriteLine ($"{chars}");
+            foreach (var chars in charArray)
+            {
+                Console.WriteLine($"{chars}");
             }
+        }
+
+        static void arithmetic(ref int a, int b, out int add, out int diff)
+        {
+            add = a + b;
+            diff = a - b;
+            a = a + 2;
         }
     }
 }

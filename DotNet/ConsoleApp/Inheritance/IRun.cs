@@ -1,4 +1,4 @@
-namespace ConsoleApp1 {
+namespace Inheritance {
     public interface IRun {
         void Run (int distance);
     }
