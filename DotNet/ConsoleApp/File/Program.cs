@@ -10,34 +10,50 @@ namespace File
             string path = "Z:\\git\\repository\\DotNet\\ConsoleApp\\File\\";
             FileSync(path);
             FileAsync(path);
-
+            Console.ReadKey();
         }
 
         private static void FileSync(string path)
         {
-            using (StreamReader reader = new StreamReader($"{path}/random.txt"))
+            try
             {
-                String contents = reader.ReadToEnd();
-                using (StreamWriter writer = new StreamWriter($"{path}random-copy.txt"))
+                using (StreamReader reader = new StreamReader($"{path}/random.txt"))
                 {
-                    writer.WriteLine(contents);
+                    String contents = reader.ReadToEnd();
+                    using (StreamWriter writer = new StreamWriter($"{path}random-copy.txt"))
+                    {
+                        writer.WriteLine(contents);
+                    }
                 }
             }
+            catch (Exception exception)
+            {
+
+                Console.WriteLine($"Error ${exception}");
+            }
+          
         }
 
         private static async void FileAsync(string path)
         {
-            using (StreamReader reader = new StreamReader($"{path}/random.txt"))
-            {
-                String contents = await reader.ReadLineAsync();
-                using (StreamWriter writer = new StreamWriter($"{path}random-copy.txt"))
+            try { 
+                using (StreamReader reader = new StreamReader($"{path}/random.txt"))
                 {
-                    while (contents != null)
+                    String contents = await reader.ReadLineAsync();
+                    using (StreamWriter writer = new StreamWriter($"{path}random-copy.txt"))
                     {
-                        await writer.WriteAsync(contents);
-                        contents = await reader.ReadLineAsync();
+                        while (contents != null)
+                        {
+                            await writer.WriteAsync(contents);
+                            contents = await reader.ReadLineAsync();
+                        }
                     }
-                }         
+                }
+            }
+            catch (Exception exception)
+            {
+
+                Console.WriteLine($"Error ${exception}");
             }
         }
     }
