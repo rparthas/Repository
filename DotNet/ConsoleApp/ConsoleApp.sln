@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inheritance", "Inheritance\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "CollectionsFiles\Collections.csproj", "{CF3FBBF9-2B87-44FF-A0C9-81542B42A491}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "File", "File\File.csproj", "{61398678-CDFA-4B87-86EE-519D955C5CA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "File", "File\File.csproj", "{61398678-CDFA-4B87-86EE-519D955C5CA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewFeatures7.0", "NewFeatures7.0\NewFeatures7.0.csproj", "{416BBCE1-49C2-460B-966E-3D9148D96B56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{61398678-CDFA-4B87-86EE-519D955C5CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61398678-CDFA-4B87-86EE-519D955C5CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61398678-CDFA-4B87-86EE-519D955C5CA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{416BBCE1-49C2-460B-966E-3D9148D96B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416BBCE1-49C2-460B-966E-3D9148D96B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416BBCE1-49C2-460B-966E-3D9148D96B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416BBCE1-49C2-460B-966E-3D9148D96B56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
