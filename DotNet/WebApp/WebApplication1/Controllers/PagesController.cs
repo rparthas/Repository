@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Services;
 
 namespace WebApplication1.Controllers
 {
     public class PagesController : Controller
     {
-        public IActionResult Movies()
+        private IMovieService<string> _movieService;
+
+        public PagesController(IMovieService<string> movieService)
         {
-            List<string> result = new List<String>();
-            result.Add("Runaway Jury");
-            result.Add("Gone Girl");
-            result.Add("Shawshank");
-            return View(result);
+            _movieService = movieService;
         }
+        public IActionResult Movies() => View(_movieService.GetMovie());
+       
 
         [Route("movieGuide",Name ="MovieGuide")]
         public IActionResult MovieGuide()
@@ -27,6 +30,19 @@ namespace WebApplication1.Controllers
                 "Shawshank Redemption"
             }; 
             return View();
+        }
+
+
+        public HttpResponseMessage Index()
+        {
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent(
+                   "<strong>test</strong>",
+                   Encoding.UTF8,
+                   "text/html"
+                    )
+            };
         }
     }
 }

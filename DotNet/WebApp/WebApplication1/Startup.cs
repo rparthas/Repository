@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebApplication1.Middleware;
+using WebApplication1.Services;
 
 namespace WebApplication1
 {
@@ -26,6 +27,7 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<IMovieService<string>, MovieService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,8 +56,13 @@ namespace WebApplication1
                         template:"movies/all",
                         defaults: new {Controller = "Pages", Action = "movies" }
                     );
-            }
-            );
+
+                routes.MapRoute(
+                    "Default",                                              // Route name
+                    "{controller}/{action}/{id}",                           // URL with parameters
+                    new { controller = "Page", action = "Index", id = "" }  // Parameter defaults
+                );
+            });
         }
     }
 }
