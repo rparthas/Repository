@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-WebApplication2-1B90A80F-9536-45AB-A5D0-3ADCAF0C70B5</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20181021050539_InitialMigration.cs" />
+    <Compile Remove="Migrations\20181021050539_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20181021050950_AddEmailToUsers.cs" />
+    <Compile Remove="Migrations\20181021050950_AddEmailToUsers.Designer.cs" />
+    <Compile Remove="Migrations\20181021124802_Identity.cs" />
+    <Compile Remove="Migrations\20181021124802_Identity.Designer.cs" />
+    <Compile Remove="Migrations\20181021133906_IdentityRole.cs" />
+    <Compile Remove="Migrations\20181021133906_IdentityRole.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Login\Login.cshtml" />
+    <Content Remove="Views\Login\Register.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.5" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Views\Login\Register.cshtml" />
+    <Page Include="Views\Login\Login.cshtml" />
+  </ItemGroup>
+
+</Project>

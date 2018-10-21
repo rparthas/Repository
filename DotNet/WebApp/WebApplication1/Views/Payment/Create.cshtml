@@ -4,31 +4,26 @@
     ViewData["Title"] = "View";
 }
 
-<h2>Create</h2>
-
 <h4>PaymentInfo</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        @using (@Html.BeginForm("AddPayment", "Payment")) {
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.name)
-            @Html.EditorFor(model => model.name)
-            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.amount)
-            @Html.EditorFor(model => model.amount)
-            @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Add Payment" class="btn btn-primary" />
-        </div>
 
-        }
-    </div>       
-</div>
+@using (Html.BeginForm("AddPayment", "Payment"))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name, "Name is invalid", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Amount)
+        @Html.EditorFor(model => model.Amount)
+        @Html.ValidationMessageFor(model => model.Amount, "Amount is invalid", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add Payment" class="btn btn-primary" />
+    </div>
+}
+
 
 
 

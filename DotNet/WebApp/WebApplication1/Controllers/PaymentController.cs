@@ -17,10 +17,11 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddPayment(PaymentInfo paymentInfo)
+        public ActionResult AddPayment([Bind]PaymentInfo paymentInfo)
         {
             ViewData["Payment"] = ModelState.IsValid;
-            ViewData["Name"] = paymentInfo.name;
+            ViewData["Name"] = paymentInfo.Name;
+            Console.WriteLine($"PaymentInfo:{paymentInfo}");
             return View("Success");
         }
     }

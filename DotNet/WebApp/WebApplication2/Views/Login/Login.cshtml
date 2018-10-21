@@ -1,0 +1,30 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+    @addTagHelper *, AuthoringTagHelpers
+}
+
+@model WebApplication2.Model.User
+
+<div class="row">
+    <div class="col-md-offset-4 col-md-6">
+        <form asp-controller="Login" asp-action="Login" method="post" role="form"
+              asp-route-returnurl="@ViewData["ReturnUrl"]">
+            <div class="form-group">
+                <label asp-for="UserName"></label>
+                <input type="text" placeholder="Enter your UserName" name="UserName" asp-for="UserName" />
+                <span class="text-danger" asp-validation-for="UserName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input type="password" placeholder="Enter your Password" name="Password" asp-for="Password" />
+                <span class="text-danger" asp-validation-for="Password"></span>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-5">
+                    <input type="submit" class="btn btn-primary" value="Login" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

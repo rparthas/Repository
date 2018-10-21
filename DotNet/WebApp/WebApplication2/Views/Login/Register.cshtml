@@ -1,0 +1,34 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+    @addTagHelper *, AuthoringTagHelpers
+}
+
+@model WebApplication2.Model.RegisterUserViewModel
+
+<div class="row">
+    <div class="col-md-offset-4 col-md-6">
+        <div class="text-danger">@ViewBag.Error</div>
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <form asp-controller="Login" asp-action="Register" method="post" role="form"
+              asp-route-returnurl="@ViewData["ReturnUrl"]">
+            <div class="form-group">
+                <label asp-for="UserName">Username</label>
+                <input type="text" placeholder="Enter your UserName" name="UserName" asp-for="UserName" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input type="password" placeholder="Enter your Password" name="Password" asp-for="Password" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">Elec. mail</label>
+                <input type="text" placeholder="Enter your Email" name="Email" asp-for="Email" />
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-5">
+                    <input type="submit" class="btn btn-primary" value="Register" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

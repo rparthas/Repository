@@ -28,6 +28,7 @@ tarballs/
 test-results/
 Thumbs.db
 .vs/
+wwwroot/
 
 # Mac bundle stuff
 *.dmg
