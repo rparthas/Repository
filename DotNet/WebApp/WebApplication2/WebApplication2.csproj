@@ -6,17 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20181021050539_InitialMigration.cs" />
-    <Compile Remove="Migrations\20181021050539_InitialMigration.Designer.cs" />
-    <Compile Remove="Migrations\20181021050950_AddEmailToUsers.cs" />
-    <Compile Remove="Migrations\20181021050950_AddEmailToUsers.Designer.cs" />
-    <Compile Remove="Migrations\20181021124802_Identity.cs" />
-    <Compile Remove="Migrations\20181021124802_Identity.Designer.cs" />
-    <Compile Remove="Migrations\20181021133906_IdentityRole.cs" />
-    <Compile Remove="Migrations\20181021133906_IdentityRole.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="Views\Login\Login.cshtml" />
     <Content Remove="Views\Login\Register.cshtml" />
   </ItemGroup>

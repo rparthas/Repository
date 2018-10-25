@@ -5,15 +5,19 @@ namespace WebApplication2.Model
     public class RegisterUserViewModel
     {
         [Required]
-        [StringLength(maximumLength: 6,ErrorMessage = "Username Should have length atleast 6")]
+        [StringLength(12, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [Display(Name = "Password")]
         public string UserName { get; set; }
 
         [Required]
-        [StringLength(maximumLength: 6, ErrorMessage = "Password Should have length atleast 6")]
+        [StringLength(12, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         [Required]
         [EmailAddress]
+        [Display(Name = "Email")]
         public string Email { get; set; }
     }
 }

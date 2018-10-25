@@ -42,10 +42,9 @@ namespace WebApplication2.Controllers
                 User user = new User()
                 {
                     UserName = registerUserViewModel.UserName,
-                    Password = registerUserViewModel.Password,
                     Email = registerUserViewModel.Email
                 };
-                var result = await _userManger.CreateAsync(user);
+                var result = await _userManger.CreateAsync(user, registerUserViewModel.Password);
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user: user, isPersistent: false);

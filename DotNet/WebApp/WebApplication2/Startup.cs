@@ -37,8 +37,12 @@ namespace WebApplication2
                     .AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options =>
             {
-                options.Password.RequiredLength = 6;
-                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = false;
+                options.Password.RequiredUniqueChars = 6;
             });
         }
 
@@ -61,7 +65,18 @@ namespace WebApplication2
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+            app.Use(async (context, next) =>
+            {
+                try
+                {
+                    await next.Invoke();
+                }
+                catch (Exception exception)
+                {
 
+                    Console.WriteLine($"{exception},Oops Error generated");
+                }
+            });
             app.UseMvc(routes =>
             {
                

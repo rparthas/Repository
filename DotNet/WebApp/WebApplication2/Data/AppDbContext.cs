@@ -1,5 +1,5 @@
 ﻿using JetBrains.Annotations;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,21 +9,15 @@ using WebApplication2.Model;
 
 namespace WebApplication2.Data
 {
-    public class AppDBContext : DbContext
+    public class AppDBContext : IdentityDbContext<User>
     {
         public AppDBContext(DbContextOptions options) : base(options)
         {
         }
 
-        public DbSet<User> Users { get; set; }
-
-        public DbSet<IdentityUserRole<string>> IdentityUserRole { get; set; }  
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {   modelBuilder.Entity<IdentityUserRole<string>>().HasKey(p => new { p.UserId });
-         
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
         }
-
-
     }
 }

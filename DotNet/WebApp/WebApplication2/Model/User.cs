@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace WebApplication2.Model
 {
-    public class User:IdentityUser<string>
+    public class User:IdentityUser
     {
-    
-        [Required]
-        public string Password { get; set; }
-       
+         
     }
 }
