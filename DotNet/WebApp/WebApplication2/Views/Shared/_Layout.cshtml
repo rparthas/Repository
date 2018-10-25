@@ -27,6 +27,7 @@
         @if (SignInManager.IsSignedIn(User))
         {
             <li> Hello @UserManager.GetUserName(User)!</li>
+            <li> <a href="/Logout">Logout</a></li>
         }
         else
         {

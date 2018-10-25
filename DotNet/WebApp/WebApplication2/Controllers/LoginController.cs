@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication2.Model;
@@ -20,20 +17,33 @@ namespace WebApplication2.Controllers
             _signInManager = signInManager;
         }
 
-
+        [AutoValidateAntiforgeryToken]
         public IActionResult Index()
         {
             ViewData["Title"] = "Login";
             return View("Login");
         }
 
-        public IActionResult Login([Bind]User user)
+        [Route("Login")]
+        [AutoValidateAntiforgeryToken]
+        [HttpPost]
+        public IActionResult Login([Bind]LoginViewModel loginViewModel)
         {
-            return ModelState.IsValid ?
-                    Content("Logged in Successfully") : (IActionResult)View("Login");
+            if (ModelState.IsValid)
+            {
+                User user = new User()
+                {
+                    UserName = loginViewModel.UserName
+                };
+                _signInManager.PasswordSignInAsync(user:user,password:loginViewModel.Password, isPersistent: false,lockoutOnFailure:false);
+                return RedirectToAction("Index", "Server");
+            }
+            return View("Login");
         }
 
         [Route("Register")]
+        [AutoValidateAntiforgeryToken]
+        [HttpPost]
         public async Task<IActionResult> Register([Bind]RegisterUserViewModel registerUserViewModel)
         {
             ViewData["Title"] = "Register";
@@ -49,7 +59,7 @@ namespace WebApplication2.Controllers
                 {
                     await _signInManager.SignInAsync(user: user, isPersistent: false);
                     ViewBag.Error = "";
-                    return Content("Registered Successfully");
+                    return RedirectToAction("Index", "Server");
                 }
             }
             ViewBag.Error = "Unable to register";
@@ -57,7 +67,16 @@ namespace WebApplication2.Controllers
         }
 
         [Route("RegisterForm")]
+        [AutoValidateAntiforgeryToken]
         public IActionResult RegisterForm() => View("Register");
+
+
+        [Route("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return View("Login");
+        } 
 
     }
 }
