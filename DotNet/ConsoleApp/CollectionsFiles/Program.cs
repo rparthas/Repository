@@ -31,6 +31,11 @@ namespace CollectionsFiles
             {
                 Console.WriteLine($"Item is {item}");
             }
+
+            var stack = items.ToStack();
+            while(stack.TryPop(out var result)){
+                System.Console.WriteLine($"Popped item is {result}");
+            }
         }
     }
 }
