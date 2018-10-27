@@ -1,6 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
 
-@inject SignInManager<WebApplication2.Model.User> SignInManager
 @inject UserManager<WebApplication2.Model.User> UserManager
 
 
@@ -24,14 +23,14 @@
 </head>
 <body>
     <ul class="nav navbar-nav navbar-fixed-top">
-        @if (SignInManager.IsSignedIn(User))
+        @if (User.Identity.IsAuthenticated)
         {
             <li> Hello @UserManager.GetUserName(User)!</li>
-            <li> <a href="/Logout">Logout</a></li>
+            <li> <a href="/Account/Logout">Logout</a></li>
         }
         else
         {
-            <li><a href="/RegisterForm">Register</a></li>
+            <li><a href="/Account/Register">Register</a></li>
         }
     </ul>
     <div class="container body-content">

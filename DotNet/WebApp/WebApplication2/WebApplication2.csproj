@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Login\Login.cshtml" />
-    <Content Remove="Views\Login\Register.cshtml" />
+    <Content Remove="Views\Account\Login.cshtml" />
+    <Content Remove="Views\Account\Register.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="Views\Login\Register.cshtml" />
-    <Page Include="Views\Login\Login.cshtml" />
+    <Page Include="Views\Account\Register.cshtml" />
+    <Page Include="Views\Account\Login.cshtml" />
   </ItemGroup>
 
 </Project>

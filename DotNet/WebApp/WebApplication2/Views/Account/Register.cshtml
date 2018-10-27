@@ -10,7 +10,7 @@
     <div class="col-md-offset-4 col-md-6">
         <div class="text-danger">@ViewBag.Error</div>
         <div class="text-danger" asp-validation-summary="All"></div>
-        <form asp-controller="Login" asp-action="Register" method="post" role="form"
+        <form method="post" role="form"
               asp-route-returnurl="@ViewData["ReturnUrl"]">
             <div class="form-group">
                 <label asp-for="UserName">Username</label>

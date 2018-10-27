@@ -13,15 +13,20 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WebApplication2.Data;
 using WebApplication2.Model;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authentication;
 
 namespace WebApplication2
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration,ILogger<Startup> logger)
         {
             Configuration = configuration;
+            _logger = logger;
         }
+
+        private readonly ILogger _logger;
 
         public IConfiguration Configuration { get; }
 
@@ -74,15 +79,20 @@ namespace WebApplication2
                 catch (Exception exception)
                 {
 
-                    Console.WriteLine($"{exception},Oops Error generated");
+                    _logger.LogError($"{exception},Oops Error generated");
                 }
             });
             app.UseMvc(routes =>
             {
                
                 routes.MapRoute(
-                    "Default",                                             
-                    "{controller=Login}/{Action=index}/{id?}"
+                   "Default", // Route name
+                   "{controller}/{action}/{id?}", // URL with parameters*
+                   new
+                   {
+                    controller = "Server",
+                    action = "Index"
+                   }
                 );
 
             });

@@ -1,52 +1,63 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using WebApplication2.Model;
 
 namespace WebApplication2.Controllers
 {
-    public class LoginController : Controller
+
+    public class AccountController : Controller
     {
         private readonly UserManager<User> _userManger;
 
         private readonly SignInManager<User> _signInManager;
 
-        public LoginController(UserManager<User> userManager,SignInManager<User> signInManager)
+        private readonly ILogger _logger;
+
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ILogger<AccountController> logger)
         {
             _userManger = userManager;
             _signInManager = signInManager;
+            _logger = logger;
         }
 
-        [AutoValidateAntiforgeryToken]
-        public IActionResult Index()
+        public IActionResult Login(string returnUrl)
         {
             ViewData["Title"] = "Login";
+            ViewData["ReturnUrl"] = returnUrl;
             return View("Login");
         }
 
-        [Route("Login")]
-        [AutoValidateAntiforgeryToken]
         [HttpPost]
-        public IActionResult Login([Bind]LoginViewModel loginViewModel)
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login([Bind]LoginViewModel loginViewModel, string returnUrl = null)
         {
+            ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
                 User user = new User()
                 {
                     UserName = loginViewModel.UserName
                 };
-                _signInManager.PasswordSignInAsync(user:user,password:loginViewModel.Password, isPersistent: false,lockoutOnFailure:false);
-                return RedirectToAction("Index", "Server");
+                var result = await _signInManager.PasswordSignInAsync(userName:loginViewModel.UserName, password: loginViewModel.Password, isPersistent: false, lockoutOnFailure: false);
+                if (result.Succeeded)
+                {
+                    return Redirect(returnUrl);
+                }
+               
             }
             return View("Login");
         }
 
-        [Route("Register")]
-        [AutoValidateAntiforgeryToken]
         [HttpPost]
-        public async Task<IActionResult> Register([Bind]RegisterUserViewModel registerUserViewModel)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register([Bind]RegisterUserViewModel registerUserViewModel, string ReturnUrl = null)
         {
             ViewData["Title"] = "Register";
+            ViewData["ReturnUrl"] = ReturnUrl;
             if (ModelState.IsValid)
             {
                 User user = new User()
@@ -59,23 +70,24 @@ namespace WebApplication2.Controllers
                 {
                     await _signInManager.SignInAsync(user: user, isPersistent: false);
                     ViewBag.Error = "";
-                    return RedirectToAction("Index", "Server");
+                    return Redirect(ReturnUrl);
                 }
             }
             ViewBag.Error = "Unable to register";
             return View("Register");
         }
 
-        [Route("RegisterForm")]
-        [AutoValidateAntiforgeryToken]
-        public IActionResult RegisterForm() => View("Register");
+        public IActionResult Register(string returnUrl)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View("Register");
+        }
 
 
-        [Route("Logout")]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return View("Login");
+            return Redirect("/");
         } 
 
     }

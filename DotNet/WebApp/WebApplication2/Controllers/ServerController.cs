@@ -3,15 +3,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication2.Controllers
 {
-    [Route("Server")]
+    [Authorize]
     public class ServerController:Controller
     {
-        [Route("Index")]
-        [Authorize]
+        
         public IActionResult Index()
         {
             ViewData["Title"] = "Servers";
-            return View();
+            return View("Servers");
+        }
+
+        
+        public IActionResult AddServer()
+        {
+            ViewData["Title"] = "Servers Add";
+            return View("Servers");
         }
     }
 }
