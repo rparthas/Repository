@@ -49,6 +49,7 @@ namespace WebApplication2.Controllers
                 }
                
             }
+            ViewBag.Error = "Username / Password is wrong. Please try again";
             return View("Login");
         }
 

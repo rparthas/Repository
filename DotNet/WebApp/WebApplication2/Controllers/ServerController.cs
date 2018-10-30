@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using WebApplication2.Model;
 
 namespace WebApplication2.Controllers
 {
@@ -10,7 +12,14 @@ namespace WebApplication2.Controllers
         public IActionResult Index()
         {
             ViewData["Title"] = "Servers";
-            return View("Servers");
+            List<Server> servers = new List<Server>();
+            servers.Add(new Server()
+            {
+                Name="ABC",
+                Location="Asia",
+                Status="Online"
+            });
+            return View("Servers",servers);
         }
 
         

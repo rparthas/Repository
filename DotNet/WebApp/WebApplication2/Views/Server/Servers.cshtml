@@ -2,6 +2,21 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@model IEnumerable<WebApplication2.Model.Server>
 <h2>@ViewData["Title"]</h2>
 
+<div class="row">
+    <div class="col-md-2">Name</div>
+    <div class="col-md-2">Location</div>
+    <div class="col-md-2">Status</div>
+</div>
+
+    @foreach (var item in Model){
+        <div class="row">
+            <div class="col-md-2">@item.Name</div>
+            <div class="col-md-2">@item.Location</div>
+            <div class="col-md-2">@item.Status</div>
+        </div>
+        }
+</tbody>
+</table>
