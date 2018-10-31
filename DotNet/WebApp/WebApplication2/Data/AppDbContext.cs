@@ -19,5 +19,7 @@ namespace WebApplication2.Data
         {
             base.OnModelCreating(builder);
         }
+
+        public DbSet<Server> Servers { get; set; }
     }
 }
