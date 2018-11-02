@@ -15,6 +15,7 @@ using WebApplication2.Data;
 using WebApplication2.Model;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authentication;
+using WebApplication2.Services;
 
 namespace WebApplication2
 {
@@ -37,6 +38,7 @@ namespace WebApplication2
             services.AddDbContext<AppDBContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
                });
+            services.AddTransient<IServerDataService, ServerDataService>();
             services.AddIdentity<User, IdentityRole>()
                     .AddEntityFrameworkStores<AppDBContext>()
                     .AddDefaultTokenProviders();

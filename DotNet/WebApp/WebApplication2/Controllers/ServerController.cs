@@ -1,32 +1,44 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebApplication2.Model;
+using WebApplication2.Services;
 
 namespace WebApplication2.Controllers
 {
     [Authorize]
+    [Route("[controller]/[Action]/[id?]")]
     public class ServerController:Controller
     {
+        IServerDataService _serverDataService;
+
+        public ServerController(IServerDataService serverDataService)
+        {
+            _serverDataService = serverDataService;
+        }
         
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ViewData["Title"] = "Servers";
-            List<Server> servers = new List<Server>();
-            servers.Add(new Server()
-            {
-                Name="ABC",
-                Location="Asia",
-                Status="Online"
-            });
-            return View("Servers",servers);
+            IEnumerable<ServerViewModel> servers = await _serverDataService.FindServer(new ServerViewModel());
+            return View("Index",servers);
         }
 
-        
+        [HttpGet]
         public IActionResult AddServer()
         {
-            ViewData["Title"] = "Servers Add";
-            return View("Servers");
+            ViewData["Title"] = "Add Servers";
+            return View("AddServer");
+        }
+
+        [HttpPost]
+        public IActionResult AddServer([Bind]ServerViewModel serverViewModel)
+        {
+
+            ViewData["Title"] = "Servers";
+            _serverDataService.AddServer(serverViewModel);
+            return View("Index");
         }
     }
 }
