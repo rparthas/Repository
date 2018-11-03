@@ -8,8 +8,6 @@ namespace WebApplication2.Services
     {
         bool AddServer(ServerViewModel server);
 
-        bool RemoveServer(ServerViewModel server);
-
         Task<IEnumerable<ServerViewModel>> FindServer(ServerViewModel server);
     }
 }

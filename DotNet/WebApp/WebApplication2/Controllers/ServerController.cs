@@ -8,7 +8,6 @@ using WebApplication2.Services;
 namespace WebApplication2.Controllers
 {
     [Authorize]
-    [Route("[controller]/[Action]/[id?]")]
     public class ServerController:Controller
     {
         IServerDataService _serverDataService;
@@ -33,12 +32,12 @@ namespace WebApplication2.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddServer([Bind]ServerViewModel serverViewModel)
+        public  async Task<IActionResult> AddServer([Bind]ServerViewModel serverViewModel)
         {
 
             ViewData["Title"] = "Servers";
             _serverDataService.AddServer(serverViewModel);
-            return View("Index");
+            return await Index();
         }
     }
 }

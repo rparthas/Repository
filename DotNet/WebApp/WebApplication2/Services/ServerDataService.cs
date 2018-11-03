@@ -27,6 +27,7 @@ namespace WebApplication2.Services
                     Status = serverViewModel.Status
                 };
                 _dbContext.Add<Server>(server);
+                _dbContext.SaveChanges();
                 return true;
             }
             catch (Exception) { }
@@ -42,21 +43,17 @@ namespace WebApplication2.Services
 
             using (_dbContext)
             {
-                List<Server> _servers = await (from s in _dbContext.Servers
-                                               where (serverViewModel.Name == null || s.Name == serverViewModel.Name)
-                                               && (serverViewModel.Status == null || s.Status == serverViewModel.Status)
-                                               && (serverViewModel.Location == null || s.Location == serverViewModel.Location)
-                                               select s).ToListAsync();
+                List<Server> _servers = await FindServers(serverViewModel);
                 Parallel.ForEach(_servers, (server) =>
-                 {
-                     ServerViewModel viewModel = new ServerViewModel
-                     {
-                         Name = server.Name,
-                         Status = server.Status,
-                         Location = server.Location
-                     };
-                     servers.Add(viewModel);
-                 });
+                {
+                    ServerViewModel viewModel = new ServerViewModel
+                    {
+                        Name = server.Name,
+                        Status = server.Status,
+                        Location = server.Location
+                    };
+                    servers.Add(viewModel);
+                });
             }
 
 
@@ -64,9 +61,13 @@ namespace WebApplication2.Services
             return servers;
         }
 
-        public bool RemoveServer(ServerViewModel serverViewModel)
+        private async Task<List<Server>> FindServers(ServerViewModel serverViewModel)
         {
-            throw new NotImplementedException();
+            return await (from s in _dbContext.Servers
+                          where (serverViewModel.Name == null || s.Name == serverViewModel.Name)
+                          && (serverViewModel.Status == null || s.Status == serverViewModel.Status)
+                          && (serverViewModel.Location == null || s.Location == serverViewModel.Location)
+                          select s).ToListAsync();
         }
     }
 }

@@ -1,13 +1,15 @@
 ﻿@model IEnumerable<WebApplication2.Model.ServerViewModel>
 
 @{
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+    @addTagHelper *, AuthoringTagHelpers
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    <a asp-controller="Server" asp-action="AddServer">Create New</a>
+    <a asp-action="AddServer">Create New</a>
 </p>
 <div class="row">
     <div class="col-md-offset-3 col-md-2">
@@ -20,10 +22,11 @@
         @Html.DisplayNameFor(model => model.Status)
     </div>
 </div>
-<div class="row">
 
-    @foreach (var item in Model)
-    {
+
+@foreach (var item in Model)
+{
+    <div class="row">
         <div class="col-md-offset-3 col-md-2">
             @Html.DisplayFor(modelItem => item.Name)
         </div>
@@ -33,12 +36,8 @@
         <div class="col-md-2">
             @Html.DisplayFor(modelItem => item.Status)
         </div>
-    }
-</div>
+    </div>
+}
 
 
-
-@*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
 
