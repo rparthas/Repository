@@ -22,8 +22,8 @@ CHIP DMux4Way {
     And(a=sel[0], b=notsel1, out=bfactor);
     And(a=notsel0, b=sel[1], out=cfactor);
     And(a=sel[0], b=sel[1], out=dfactor);
-    And(a=in, b=afactor, out=a);
-    And(a=in, b=bfactor, out=b);
-    And(a=in, b=cfactor, out=c);
-    And(a=in, b=dfactor, out=d);
+    DMux(in=in, sel=afactor, a=tempa, b=a);
+    DMux(in=in, sel=bfactor, a=tempb, b=b);
+    DMux(in=in, sel=cfactor, a=tempc, b=c);
+    DMux(in=in, sel=dfactor, a=tempd, b=d);
 }
