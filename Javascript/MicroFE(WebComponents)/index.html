@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Micro FE Test Site</title>
+    <!-- <link rel="import" href="./recommender.html" /> -->
+    <script src="./books.js"></script>
+    <script src="./recommender.js" defer></script>
+
+</head>
+
+<body>
+    <template id="book-recommender">
+        <style>
+            p {
+                color: white;
+                background-color: #666;
+                padding: 5px;
+            }
+        </style>
+        <p>
+            Recommendations for you:
+            <slot name="recommendation">My default text</slot>
+        </p>
+    </template>
+    <book-list></book-list>
+    <book-recommender>
+        <p slot="recommendation">Book2</p>
+    </book-recommender>
+</body>
+
+</html>
