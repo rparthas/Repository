@@ -19,11 +19,8 @@ class BookDetails extends React.Component {
     }
 }
 
-ReactDOM.render( < BookDetails book = "book1" / > , document.getElementById('app'));
+ReactDOM.render( < BookDetails book = "book1" /> , document.getElementById('book'));
 
-function updateBook(book) {
-    ReactDOM.render( < BookDetails book = {
-            book
-        }
-        /> , document.getElementById('app'));
-    }
+document.addEventListener("bookSelected", function (event) {
+    ReactDOM.render(<BookDetails book = {event.detail.book}/> , document.getElementById('book'));
+});
