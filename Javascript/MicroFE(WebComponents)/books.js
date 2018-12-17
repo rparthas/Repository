@@ -6,5 +6,8 @@ class Books extends HTMLElement {
         this._wrapper.innerHTML = "<ul><li>Book1</li><li>Book2</li></ul>";
         shadow.appendChild(this._wrapper);
     }
+    connectedCallback() {
+        console.log("Books loaded");
+    }
 }
 customElements.define('book-list', Books);
