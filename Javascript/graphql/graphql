@@ -1,0 +1,64 @@
+//List Photos
+query listPhotos {
+    totalPhotos
+    allPhotos {
+        ...photo
+    }
+    recentPhotos(after: "1/12/2019") {
+        ...photo
+    }
+}
+
+fragment photo on Photo {
+    description
+    name
+    url
+    id
+    category
+    created
+    postedBy {
+        name
+        avatar
+    }
+}
+
+//List Users
+query listUsers{
+  allUsers{
+    githubLogin
+    name
+    avatar
+    postedPhotos {
+      category
+      description
+    }
+  }
+}
+
+//User Creation
+mutation newUser {
+  postUser(name: "Ram", avatar: "male") {
+    githubLogin
+    name
+    avatar
+    postedPhotos {
+      name
+      id
+      url
+      description
+      category
+    }
+  }
+}
+
+//Photo Creation
+mutation newPhoto($input: PostPhotoInput!) {
+  postPhoto(input:$input) {
+		id
+    name
+    url
+    description
+    category
+  }
+}
+
