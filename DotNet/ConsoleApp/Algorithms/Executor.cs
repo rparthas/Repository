@@ -5,27 +5,36 @@ namespace Algorithms
 {
     public class Executor
     {
-        static Stopwatch stopWatch = new Stopwatch();
+        
         static void Main(string[] args)
         {
-            var count = 100000;
+            
+            ExecuteSort(new InsertionSort());
+            ExecuteSort(new MergeSort());
+        }
+
+
+        public static void ExecuteSort(ISorter sorter)
+        {
+            var numbers = GenerateRandomNumbers(100000);
+//            PrintResult(numbers, "Input:");
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            var result = sorter.Sort(numbers);
+            PrintElapsed(stopWatch);
+//            PrintResult(result, "Sorted Output:");
+        }
+
+        private static int[] GenerateRandomNumbers(int count)
+        {
             Random rnd = new Random();
             var numbers = new int[count];
             for (var index = 0; index < count; index++)
             {
                 numbers[index] = rnd.Next(1, count);
             }
-            ExecuteSort(new InsertionSort(), numbers);
-        }
 
-
-        public static void ExecuteSort(ISorter sorter,int[] numbers)
-        {
-            PrintResult(numbers, "Input:");
-            stopWatch.Start();
-            var result = sorter.Sort(numbers);
-            PrintElapsed();
-            PrintResult(result, "Sorted Output:");
+            return numbers;
         }
 
 
@@ -40,7 +49,7 @@ namespace Algorithms
             Console.WriteLine("");
         }
 
-        static void PrintElapsed()
+        static void PrintElapsed(Stopwatch stopWatch)
         {
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;
