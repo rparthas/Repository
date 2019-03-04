@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Algorithms
 {
@@ -14,42 +15,28 @@ namespace Algorithms
         }
 
 
-        public static void ExecuteSort(ISorter sorter)
+        private static void ExecuteSort(ISorter sorter)
         {
             var numbers = GenerateRandomNumbers(100000);
-//            PrintResult(numbers, "Input:");
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
             var result = sorter.Sort(numbers);
             PrintElapsed(stopWatch);
-//            PrintResult(result, "Sorted Output:");
         }
 
         private static int[] GenerateRandomNumbers(int count)
         {
-            Random rnd = new Random();
-            var numbers = new int[count];
-            for (var index = 0; index < count; index++)
-            {
-                numbers[index] = rnd.Next(1, count);
-            }
+            
+            Random randNum = new Random();
+            int[] numbers = Enumerable
+                .Repeat(0, count)
+                .Select(i => randNum.Next(1, count))
+                .ToArray();
 
             return numbers;
         }
 
-
-        public static void PrintResult(int[] numbers, string message)
-        {
-            Console.WriteLine(message);
-            foreach (var number in numbers)
-            {
-                Console.Write(number + " ");
-            }
-
-            Console.WriteLine("");
-        }
-
-        static void PrintElapsed(Stopwatch stopWatch)
+        private static void PrintElapsed(Stopwatch stopWatch)
         {
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;
