@@ -15,12 +15,14 @@ namespace Algorithms.Test
 
         private static void AssertSortNumbers(ISorter sorter)
         {
-            var numbers = new int[]
+            const int count = 10;
+            var numbers = new int[count];
+            for (var i = count; i >= 1; i--)
             {
-                8, 7, 6, 5, 4, 3, 2, 1
-            };
+                numbers[count - i] = i;
+            }
             numbers = sorter.Sort(numbers);
-            int counter = 1;
+            var counter = 1;
             foreach (var number in numbers)
             {
                 Assert.Equal(counter++, number);
