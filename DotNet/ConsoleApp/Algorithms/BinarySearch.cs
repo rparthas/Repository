@@ -4,29 +4,18 @@ namespace Algorithms
     {
         public int Search(int[] numbers, int numberToFind)
         {
-            var start = 0;
-            var end = numbers.Length;
-
-            while (start <= end)
+            var mid = numbers.Length / 2;
+            for (int start = 0, end = numbers.Length;
+                start <= end && start + mid < numbers.Length && end - mid >= 0;
+                mid = (end - start) / 2)
             {
-                var mid = (end - start) / 2;
-                if (start + mid >= numbers.Length || end - mid < 0)
-                {
-                    return -1;
-                }
-
                 if (numbers[start + mid] == numberToFind)
-                {
                     return start + mid;
-                }
 
                 if (numbers[start + mid] > numberToFind)
-                {
                     end = start + mid;
-                    continue;
-                }
-
-                start = end - mid;
+                else
+                    start = end - mid;
             }
 
             return -1;
