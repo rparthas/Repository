@@ -12,4 +12,6 @@ class WordCount extends SparkJob {
   }
 
   override def getJobName(): String = "WordCount"
+
+  override def getSparkMaster(): String = "spark://spark-master:7077"
 }

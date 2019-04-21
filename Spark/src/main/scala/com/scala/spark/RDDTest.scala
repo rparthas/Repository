@@ -13,7 +13,14 @@ class RDDTest() extends SparkJob {
     val stopWords = sc.parallelize(List("the it is to that")).flatMap(l => l.split(" "))
     words.subtract(stopWords).sortBy(a => a).collect().foreach(a => println("Word:" + a))
 
+    val memberTx = sc.parallelize(List((110, 50.35), (127, 305.2), (126, 211.0),
+      (105, 6.0), (165, 31.0), (110, 40.11)))
+    val memberInfo = sc.parallelize(List((110, "a"), (127, "b"), (126, "b"), (105, "a"), (165, "c")))
+    val memberTxInfo = memberTx.join(memberInfo)
+    memberTxInfo.sortBy(a=>a._1).collect().foreach(println)
   }
 
   override def getJobName(): String = "RDDTest"
+
+
 }
