@@ -2,7 +2,7 @@ package com.scala.spark
 
 import org.apache.spark.SparkContext
 
-class RDDTest() extends SparkJob {
+class RDDFuncs() extends SparkJob {
   override def execute(sc: SparkContext): Unit = {
     val rdd1 = sc.parallelize(Array(1, 2, 3, 4, 5))
     val rdd2 = sc.parallelize(Array(1, 6, 7, 8))
@@ -20,7 +20,7 @@ class RDDTest() extends SparkJob {
     memberTxInfo.sortBy(a=>a._1).collect().foreach(println)
   }
 
-  override def getJobName(): String = "RDDTest"
+  override def getJobName(): String = "RDDFuncs"
 
 
 }

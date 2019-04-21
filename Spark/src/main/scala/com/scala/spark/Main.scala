@@ -7,7 +7,8 @@ object Main {
 
 //    val sparkJob = new WordCount()
 //    val sparkJob = new RDDTest()
-    val sparkJob = new Movie()
+//    val sparkJob = new Movie()
+    val sparkJob = new SparkQLFuncs()
     val config = new SparkConf()
       .setMaster(sparkJob.getSparkMaster())
       .setAppName(sparkJob.getJobName())
