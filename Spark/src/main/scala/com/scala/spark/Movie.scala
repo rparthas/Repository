@@ -1,7 +1,7 @@
 package com.scala.spark
 
-import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.SparkSession
 
 class Movie extends SparkJob {
 
@@ -40,9 +40,9 @@ class Movie extends SparkJob {
 
   }
 
-  override def execute(sc: SparkContext): Unit = {
-    val movieFile = sc.textFile("movies.tsv")
-    val movieRatings = sc.textFile("movie-ratings.tsv")
+  override def execute(spark: SparkSession): Unit = {
+    val movieFile = spark.sparkContext.textFile("movies.tsv")
+    val movieRatings = spark.sparkContext.textFile("movie-ratings.tsv")
 
     displayHighestRatedMoviePerYear(movieFile, movieRatings)
     displayYearCount(movieFile)
