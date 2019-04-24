@@ -41,8 +41,8 @@ class Movie extends SparkJob {
   }
 
   override def execute(spark: SparkSession): Unit = {
-    val movieFile = spark.sparkContext.textFile("movies.tsv")
-    val movieRatings = spark.sparkContext.textFile("movie-ratings.tsv")
+    val movieFile = spark.sparkContext.textFile("data/movies.tsv")
+    val movieRatings = spark.sparkContext.textFile("data/movie-ratings.tsv")
 
     displayHighestRatedMoviePerYear(movieFile, movieRatings)
     displayYearCount(movieFile)
