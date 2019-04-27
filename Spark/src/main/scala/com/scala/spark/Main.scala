@@ -8,9 +8,10 @@ object Main {
   def main(args: Array[String]): Unit = {
 
     //    val sparkJob = new WordCount()
-//    val sparkJob = new RDDFuncs()
-            val sparkJob = new Movie()
-//        val sparkJob = new SparkQLFuncs()
+    //    val sparkJob = new RDDFuncs()
+    //            val sparkJob = new Movie()
+    //        val sparkJob = new SparkQLFuncs()
+    val sparkJob = new WindowFuncs()
 
     val config = new SparkConf()
       .setMaster(sparkJob.getSparkMaster())
