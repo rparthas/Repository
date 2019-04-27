@@ -1,7 +1,7 @@
 package com.scala.spark
 
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{DataFrame, SQLContext, SparkSession, functions}
 
 class Movie extends SparkJob {
 
@@ -44,10 +44,56 @@ class Movie extends SparkJob {
     val movieFile = spark.sparkContext.textFile("data/movies.tsv")
     val movieRatings = spark.sparkContext.textFile("data/movie-ratings.tsv")
 
-    displayHighestRatedMoviePerYear(movieFile, movieRatings)
-    displayYearCount(movieFile)
-    displayActorCount(movieFile)
-    displayMostWorkedActors(movieFile)
+    //    displayHighestRatedMoviePerYear(movieFile, movieRatings)
+    //    displayYearCount(movieFile)
+    //    displayActorCount(movieFile)
+    //    displayMostWorkedActors(movieFile)
+
+
+    val movies = spark.sqlContext.read.load("data/movies.parquet")
+    import spark.sqlContext.implicits._
+    //displayCountByYear(movies,spark.sqlContext)
+    //displayCountByActorName(movies,spark.sqlContext)
+    val movieRatingsDF = movieRatings.map(line => {
+      val split = line.split("\t")
+      (split(0), split(1), split(2))
+    }).toDF("movie_rating", "movie_title", "produced_year")
+    displayHighestRatedMoviePerYear(movies, movieRatingsDF, spark.sqlContext)
+  }
+
+  def displayHighestRatedMoviePerYear(movies: DataFrame, movieRatings: DataFrame, sqlContext: SQLContext) = {
+    import sqlContext.implicits._
+
+    movies.groupBy("produced_year", "movie_title")
+      .agg(functions.collect_list("actor_name").as("actors"))
+      .join(movieRatings, Seq("movie_title", "produced_year"))
+      .sort($"produced_year", $"movie_rating".desc)
+      .groupBy($"produced_year")
+      .agg(functions.first($"movie_title").as("title"),
+        functions.first($"actors").as("actors"),
+        functions.first($"movie_rating").as("rating"))
+      .sort($"produced_year")
+      .show(50)
+
+
+  }
+
+  private def displayCountByActorName(movies: DataFrame, sqlContext: SQLContext) = {
+    import sqlContext.implicits._
+    movies.select("actor_name", "produced_year")
+      .groupBy('actor_name)
+      .count()
+      .sort($"count".desc)
+      .show(100)
+  }
+
+  private def displayCountByYear(movies: DataFrame, sqlContext: SQLContext) = {
+    import sqlContext.implicits._
+    movies.select("movie_title", "produced_year")
+      .groupBy('produced_year)
+      .count()
+      .sort($"count".desc)
+      .show(50)
   }
 
   def displayMostWorkedActors(movieFile: RDD[String]) = {
