@@ -73,9 +73,9 @@ class Movie extends SparkJob {
         functions.first($"actors").as("actors"),
         functions.first($"movie_rating").as("rating"))
       .select(
-        'produced_year,
-        functions.coalesce($"title", functions.lit("no name")).as("title"),
         functions.coalesce($"produced_year", functions.lit("0000")).as("year"),
+        functions.coalesce($"title", functions.lit("no name")).as("title"),
+        'rating,
         'actors
       )
       .sort($"produced_year")
