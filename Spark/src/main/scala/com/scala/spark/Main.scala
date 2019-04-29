@@ -9,9 +9,9 @@ object Main {
 
     //    val sparkJob = new WordCount()
     //    val sparkJob = new RDDFuncs()
-    //            val sparkJob = new Movie()
+                val sparkJob = new Movie()
     //        val sparkJob = new SparkQLFuncs()
-    val sparkJob = new WindowFuncs()
+//    val sparkJob = new WindowFuncs()
 
     val config = new SparkConf()
       .setMaster(sparkJob.getSparkMaster())

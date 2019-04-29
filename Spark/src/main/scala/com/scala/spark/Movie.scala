@@ -1,6 +1,7 @@
 package com.scala.spark
 
 import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.{DataFrame, SQLContext, SparkSession, functions}
 
 class Movie extends SparkJob {
@@ -44,16 +45,16 @@ class Movie extends SparkJob {
     val movieFile = spark.sparkContext.textFile("data/movies.tsv")
     val movieRatings = spark.sparkContext.textFile("data/movie-ratings.tsv")
 
-    displayHighestRatedMoviePerYear(movieFile, movieRatings)
-    displayYearCount(movieFile)
-    displayActorCount(movieFile)
-    displayMostWorkedActors(movieFile)
+    //    displayHighestRatedMoviePerYear(movieFile, movieRatings)
+    //    displayYearCount(movieFile)
+    //    displayActorCount(movieFile)
+    //    displayMostWorkedActors(movieFile)
 
 
     val movies = spark.sqlContext.read.load("data/movies.parquet")
     import spark.sqlContext.implicits._
-    displayCountByYear(movies, spark.sqlContext)
-    displayCountByActorName(movies, spark.sqlContext)
+    //    displayCountByYear(movies, spark.sqlContext)
+    //    displayCountByActorName(movies, spark.sqlContext)
     val movieRatingsDF = movieRatings.map(line => {
       val split = line.split("\t")
       (split(0), split(1), split(2))
@@ -64,22 +65,34 @@ class Movie extends SparkJob {
   def displayHighestRatedMoviePerYear(movies: DataFrame, movieRatings: DataFrame, sqlContext: SQLContext) = {
     import sqlContext.implicits._
 
-    movies.groupBy("produced_year", "movie_title")
+
+    val movieDetails = movies.groupBy("produced_year", "movie_title")
       .agg(functions.collect_set("actor_name").as("actors"))
       .join(functions.broadcast(movieRatings), Seq("movie_title", "produced_year"), "outer")
-      .sort($"produced_year", $"movie_rating".desc)
-      .groupBy($"produced_year")
-      .agg(functions.first($"movie_title").as("title"),
-        functions.first($"actors").as("actors"),
-        functions.first($"movie_rating").as("rating"))
       .select(
         functions.coalesce($"produced_year", functions.lit("0000")).as("year"),
-        functions.coalesce($"title", functions.lit("no name")).as("title"),
-        'rating,
+        functions.coalesce($"movie_title", functions.lit("no name")).as("title"),
+        'movie_rating.as("rating"),
         'actors
       )
-      .sort($"produced_year")
-      .show(50)
+
+
+    val rankingWindow = Window.partitionBy('year).orderBy('rating)
+    movieDetails.withColumn("rank", functions.rank().over(rankingWindow))
+      .where('rank <= 1)
+      .sort($"year")
+      .show(100)
+
+
+    movieDetails
+      .sort($"year", $"rating".desc)
+      .groupBy($"year")
+      .agg(functions.first($"title"),
+        functions.first($"actors"),
+        functions.first($"rating"))
+      .sort($"year")
+      .show(100)
+    stopWatch.stop();
 
 
   }
