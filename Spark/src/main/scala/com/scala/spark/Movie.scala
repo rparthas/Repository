@@ -45,16 +45,16 @@ class Movie extends SparkJob {
     val movieFile = spark.sparkContext.textFile("data/movies.tsv")
     val movieRatings = spark.sparkContext.textFile("data/movie-ratings.tsv")
 
-    //    displayHighestRatedMoviePerYear(movieFile, movieRatings)
-    //    displayYearCount(movieFile)
-    //    displayActorCount(movieFile)
-    //    displayMostWorkedActors(movieFile)
+        displayHighestRatedMoviePerYear(movieFile, movieRatings)
+        displayYearCount(movieFile)
+        displayActorCount(movieFile)
+        displayMostWorkedActors(movieFile)
 
 
     val movies = spark.sqlContext.read.load("data/movies.parquet")
     import spark.sqlContext.implicits._
-    //    displayCountByYear(movies, spark.sqlContext)
-    //    displayCountByActorName(movies, spark.sqlContext)
+        displayCountByYear(movies, spark.sqlContext)
+        displayCountByActorName(movies, spark.sqlContext)
     val movieRatingsDF = movieRatings.map(line => {
       val split = line.split("\t")
       (split(0), split(1), split(2))
@@ -77,7 +77,7 @@ class Movie extends SparkJob {
       )
 
 
-    val rankingWindow = Window.partitionBy('year).orderBy('rating)
+    val rankingWindow = Window.partitionBy('year).orderBy('rating.desc)
     movieDetails.withColumn("rank", functions.rank().over(rankingWindow))
       .where('rank <= 1)
       .sort($"year")
@@ -92,8 +92,6 @@ class Movie extends SparkJob {
         functions.first($"rating"))
       .sort($"year")
       .show(100)
-    stopWatch.stop();
-
 
   }
 
