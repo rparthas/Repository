@@ -42,8 +42,8 @@ class Movie extends SparkJob {
   }
 
   override def execute(spark: SparkSession): Unit = {
-    val movieFile = spark.sparkContext.textFile("data/movies.tsv")
-    val movieRatings = spark.sparkContext.textFile("data/movie-ratings.tsv")
+    val movieFile = spark.sparkContext.textFile("data/movie/movies.tsv")
+    val movieRatings = spark.sparkContext.textFile("data/movie/movie-ratings.tsv")
 
         displayHighestRatedMoviePerYear(movieFile, movieRatings)
         displayYearCount(movieFile)
@@ -51,7 +51,7 @@ class Movie extends SparkJob {
         displayMostWorkedActors(movieFile)
 
 
-    val movies = spark.sqlContext.read.load("data/movies.parquet")
+    val movies = spark.sqlContext.read.load("data/movie/movies.parquet")
     import spark.sqlContext.implicits._
         displayCountByYear(movies, spark.sqlContext)
         displayCountByActorName(movies, spark.sqlContext)

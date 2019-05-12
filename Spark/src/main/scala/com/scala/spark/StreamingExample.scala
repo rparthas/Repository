@@ -2,7 +2,7 @@ package com.scala.spark
 
 import com.scala.spark.model._
 import org.apache.spark.sql.streaming.{GroupStateTimeout, OutputMode}
-import org.apache.spark.sql.types.{DoubleType, StringType, StructType, TimestampType}
+import org.apache.spark.sql.types.{StringType, StructType, TimestampType}
 import org.apache.spark.sql.{DataFrame, SparkSession, functions}
 
 class StreamingExample extends SparkJob {

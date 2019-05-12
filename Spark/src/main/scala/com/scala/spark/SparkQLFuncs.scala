@@ -20,9 +20,9 @@ class SparkQLFuncs extends SparkJob {
       StructField("produced_year", LongType, true)))
 
     var movies = spark.read.option("header", "false").option("sep", "\t")
-      .schema(movieSchema).csv("data/movies.tsv")
+      .schema(movieSchema).csv("data/movie/movies.tsv")
     movies.show(10)
-    movies = spark.read.load("data/movies.parquet")
+    movies = spark.read.load("data/movie/movies.parquet")
     movies.show(10)
 
     movies.select("actor_name").show(10)
