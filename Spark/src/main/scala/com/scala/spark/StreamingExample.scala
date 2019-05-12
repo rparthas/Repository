@@ -1,7 +1,7 @@
 package com.scala.spark
 
-import com.scala.spark.model.{Rack, RackInfo, RackState}
-import org.apache.spark.sql.streaming.GroupStateTimeout
+import com.scala.spark.model._
+import org.apache.spark.sql.streaming.{GroupStateTimeout, OutputMode}
 import org.apache.spark.sql.types.{DoubleType, StringType, StructType, TimestampType}
 import org.apache.spark.sql.{DataFrame, SparkSession, functions}
 
@@ -11,7 +11,8 @@ class StreamingExample extends SparkJob {
     //    processStream(fixedWindow(spark))
     //    processStream(slidingWindow(spark))
     //    processStream(slidingWindowWithWaterMark(spark), "update")
-    sessionProcessing(spark)
+    //    sessionProcessing(spark)
+    sessionWithTimeout(spark)
 
   }
 
@@ -44,11 +45,7 @@ class StreamingExample extends SparkJob {
   private def slidingWindow(spark: SparkSession) = {
     import spark.sqlContext.implicits._
 
-    val iotDataSchema = new StructType().add("rack", StringType, false)
-      .add("temperature", DoubleType, false)
-      .add("ts", TimestampType, false)
-
-    val mobileStreaming = spark.readStream.schema(iotDataSchema)
+    val mobileStreaming = spark.readStream.schema(Rack.iotDataSchema)
       .json("data/iot")
 
     val iotDF = mobileStreaming.groupBy(functions.window('ts, "10 minutes",
@@ -60,11 +57,7 @@ class StreamingExample extends SparkJob {
   private def slidingWindowWithWaterMark(spark: SparkSession) = {
     import spark.sqlContext.implicits._
 
-    val iotDataSchema = new StructType().add("rack", StringType, false)
-      .add("temperature", DoubleType, false)
-      .add("ts", TimestampType, false)
-
-    val mobileStreaming = spark.readStream.schema(iotDataSchema)
+    val mobileStreaming = spark.readStream.schema(Rack.iotDataSchema)
       .json("data/iot")
 
     val iotDF = mobileStreaming.
@@ -79,11 +72,7 @@ class StreamingExample extends SparkJob {
   def sessionProcessing(spark: SparkSession): Unit = {
     import spark.sqlContext.implicits._
 
-
-    val iotDataSchema = new StructType().add("rack", StringType, false)
-      .add("temperature", DoubleType, false)
-      .add("ts", TimestampType, false)
-    val iotSSDF = spark.readStream.schema(iotDataSchema).json("data/iot")
+    val iotSSDF = spark.readStream.schema(Rack.iotDataSchema).json("data/iot")
     val iotPatternDF = iotSSDF.as[RackInfo]
       .groupByKey(_.rack)
       .mapGroupsWithState[RackState, RackState](GroupStateTimeout.NoTimeout())(Rack.updateAcrossAllRackStatus)
@@ -93,6 +82,25 @@ class StreamingExample extends SparkJob {
       .outputMode("update")
       .start()
     iotPatternSQ.awaitTermination()
+
+  }
+
+  def sessionWithTimeout(spark: SparkSession) = {
+    import spark.sqlContext.implicits._
+
+    val userActivityDF = spark.readStream.schema(User.userActivitySchema).json("data/user")
+    val userActivityDS = userActivityDF.withWatermark("ts", "30 minutes").as[UserActivity]
+
+    val userSessionDs = userActivityDS.groupByKey(_.user)
+      .flatMapGroupsWithState[UserSessionState, UserSessionInfo](OutputMode.Append,
+      GroupStateTimeout.EventTimeTimeout)(User.updateAcrossAllUserActivities)
+
+    val userSessionSQ = userSessionDs.writeStream
+      .format("console")
+      .option("truncate", false)
+      .outputMode("append")
+      .start()
+    userSessionSQ.awaitTermination()
 
   }
 

@@ -1,6 +1,7 @@
 package com.scala.spark.model
 
 import org.apache.spark.sql.streaming.GroupState
+import org.apache.spark.sql.types.{DoubleType, StringType, StructType, TimestampType}
 
 case class RackInfo(rack: String, temperature: Double, ts: java.sql.Timestamp)
 
@@ -36,4 +37,8 @@ object Rack {
     })
     rackState
   }
+
+  val iotDataSchema = new StructType().add("rack", StringType, false)
+    .add("temperature", DoubleType, false)
+    .add("ts", TimestampType, false)
 }
