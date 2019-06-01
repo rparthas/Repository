@@ -109,7 +109,6 @@ class StreamingExample extends SparkJob {
     val mobileDataSchema = new StructType().add("id", StringType, false)
       .add("action", StringType, false)
       .add("ts", TimestampType, false)
-    // mobileDataSchema is defined in previous example
     val mobileDupSSDF = spark.readStream.schema(mobileDataSchema)
       .json("data")
     val windowCountDupDF = mobileDupSSDF.withWatermark("ts", "10 minutes")
