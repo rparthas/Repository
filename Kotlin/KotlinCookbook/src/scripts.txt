@@ -1,0 +1,5 @@
+kotlinc One.kt
+kotlin Onekt
+kotlinc One.kt -include-runtime -d One.jar
+java -jar ~/.sdkman/candidates/kotlin/current/lib/kotlin-compiler.jar -script Script.kts
+native-image -jar One.jar

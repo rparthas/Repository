@@ -10,6 +10,11 @@ fun main(args: Array<String>) {
     MySingleton.myFunction()
     println(addProduct("pencil"))
     println(addProduct("pen", 2.5, "It is a pen"))
+
+    val jk = Person("JK", "test", "Rowling")
+    if (jk.middleName != null) {
+        println("Length of middle name is ${jk.middleName.length}")
+    }
 }
 
 fun addProduct(name: String, price: Double = 0.0, desc: String? = null) =
