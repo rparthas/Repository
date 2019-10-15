@@ -4,6 +4,6 @@ fun main(args: Array<String>) {
     println("${jk as? Person}")
 
     val a: Int = 3
-//    val b: Long = a
-//    println("value of b is $b")
+    val b: Long = a.toLong()
+    println("value of b is $b")
 }
