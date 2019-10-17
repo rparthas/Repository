@@ -24,6 +24,7 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.5.2'
+    testCompile 'org.hamcrest:hamcrest-library:2.1'
 }
 
 compileKotlin {
