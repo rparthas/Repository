@@ -1,3 +1,6 @@
+import random
+
+
 def sort(arr):
     for x in range(len(arr)):
         index = find_small(arr, x)
@@ -22,6 +25,6 @@ def swap(arr, i, j):
 
 
 number = 1000
-array = [number - i for i in range(number)]
-print(array)
+array = [i + 1 for i in range(number)]
+random.shuffle(array)
 print(sort(array))
