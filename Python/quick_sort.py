@@ -6,11 +6,11 @@ def sort(arr):
         return []
     if len(arr) == 1:
         return arr
-    left_arr, right_arr = sort_based_on_pivot(arr)
+    left_arr, right_arr = partition(arr)
     return sort(left_arr) + sort(right_arr)
 
 
-def sort_based_on_pivot(arr):
+def partition(arr):
     pivot_index = ((len(arr) - 1) / 2).__int__()
     left_arr = []
     right_arr = []
@@ -26,7 +26,7 @@ def sort_based_on_pivot(arr):
     return left_arr, right_arr
 
 
-number = 10000
+number = 100000
 array = [i + 1 for i in range(number)]
 random.shuffle(array)
-print(sort(array))
+print(sort(array)[0:10])
