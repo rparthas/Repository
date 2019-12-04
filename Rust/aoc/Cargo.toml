@@ -1,0 +1,7 @@
+[package]
+name = "AOC"
+version = "0.1.0"
+authors = ["Rajagopal <psraja@thoughtworks.com>"]
+edition = "2018"
+
+[dependencies]
