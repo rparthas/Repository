@@ -1,34 +1,19 @@
-x, y = "GeekforGeeks", "GeeksQuiz"
+x, y = "GeeksforGeek", "GeekQuizGeeks"
 x, y = "abcdxyz", "xyzabcd"
 x, y = "zxabcdezy", "yzabcdezx"
 x, y = 'OldSite:GeeksforGeeks.org', 'NewSite:GeeksQuiz.com'
 
-s1, s2 = 0, 0
 best_match = ''
-count = 0
 
+lc_map = [['' for j in range(len(y) + 1)] for i in range(len(x) + 1)]
 
-def check_best_match():
-    global best_match
-    best_match = match if len(match) > len(best_match) else best_match
-
-
-while s1 < len(x):
-    s2 = 0
-    match = ''
-    matched = False
-    while s2 < len(y) and s1 < len(x):
+for s1 in range(len(x)):
+    for s2 in range(len(y)):
         if x[s1] == y[s2]:
-            match += x[s1]
-            s1 += 1
-            matched = True
-        else:
-            check_best_match()
-            match = ''
-        s2 += 1
-        count += 1
-    s1 = s1 if matched else s1 + 1
-    check_best_match()
+            if s1 == 0 or s2 == 0:
+                lc_map[s1][s2] = x[s1]
+            else:
+                lc_map[s1][s2] = lc_map[s1 - 1][s2 - 1] + x[s1]
+            best_match = lc_map[s1][s2] if len(lc_map[s1][s2]) > len(best_match) else best_match
 
 print('Longest common substring is', best_match)
-print('loops:', count, 'out of', len(x) * len(y))
