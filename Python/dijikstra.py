@@ -1,3 +1,6 @@
+import functools
+
+
 class Edge:
     def __init__(self, node1, node2, weight):
         self.node1 = node1
@@ -15,8 +18,8 @@ edges = {"A": [Edge("A", "B", 5), Edge("A", "C", 2)],
          "E": [Edge("E", "F", 1)]
          }
 
-start, end = "A", "F"
-route_map = {start: 0}
+start = "A"
+route_map = {start: [Edge(start, start, 0)]}
 
 
 def sort_edge(edges_for_node):
@@ -31,15 +34,27 @@ def sort_edge(edges_for_node):
     return edges_for_node
 
 
+def get_route_cost(route_to_node):
+    weights = map(lambda x: x.weight, route_to_node)
+    return functools.reduce(lambda a, b: a + b, weights)
+
+
 edges_to_process = edges[start]
 while len(edges_to_process) > 0:
     edge = sort_edge(edges_to_process).pop(0)
     if edge.node2 not in route_map:
         if edge.node2 in edges:
             edges_to_process = edges_to_process + edges[edge.node2]
-        route_map[edge.node2] = route_map[edge.node1] + edge.weight
-    elif route_map[edge.node1] + edge.weight < route_map[edge.node2]:
-        route_map[edge.node2] = route_map[edge.node1] + edge.weight
+        route_map[edge.node2] = route_map[edge.node1] + [edge]
+    elif get_route_cost(route_map[edge.node1]) + edge.weight < get_route_cost(route_map[edge.node2]):
+        route_map[edge.node2] = route_map[edge.node1] + [edge]
 
-for route in route_map:
-    print(route, "->", route_map[route])
+for node_to_process in route_map:
+    if node_to_process == start:
+        continue
+    final_route = []
+    cost = 0
+    for route in route_map[node_to_process]:
+        final_route.append(route.node2)
+        cost += route.weight
+    print(final_route, " with cost ", cost)
