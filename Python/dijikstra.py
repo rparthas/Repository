@@ -22,16 +22,12 @@ start = "A"
 route_map = {start: [Edge(start, start, 0)]}
 
 
-def sort_edge(edges_for_node):
+def get_least_weight_edge(edges_for_node):
+    index = 0
     for i in range(len(edges_for_node)):
-        repl = i
-        j = i + 1
-        while j < len(edges_for_node):
-            if edges_for_node[j].weight < edges_for_node[i].weight:
-                repl = j
-            j += 1
-        edges_for_node[i], edges_for_node[repl] = edges_for_node[repl], edges_for_node[i]
-    return edges_for_node
+        if edges_for_node[i].weight < edges_for_node[index].weight:
+            index = i
+    return index
 
 
 def get_route_cost(route_to_node):
@@ -41,7 +37,7 @@ def get_route_cost(route_to_node):
 
 edges_to_process = edges[start]
 while len(edges_to_process) > 0:
-    edge = sort_edge(edges_to_process).pop(0)
+    edge = edges_to_process.pop(get_least_weight_edge(edges_to_process))
     if edge.node2 not in route_map:
         if edge.node2 in edges:
             edges_to_process = edges_to_process + edges[edge.node2]
@@ -52,8 +48,7 @@ while len(edges_to_process) > 0:
 for node_to_process in route_map:
     if node_to_process == start:
         continue
-    final_route = []
-    cost = 0
+    final_route, cost = [], 0
     for route in route_map[node_to_process]:
         final_route.append(route.node2)
         cost += route.weight
