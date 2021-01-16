@@ -1,9 +1,11 @@
 def mul(num1, num2):
-    factor = len(str(num1))
+    num1_len = len(str(num1))
     num2_len = len(str(num2))
-    factor = num2_len if factor < num2_len else factor
+    factor = max(num1_len, num2_len)
+
     if factor <= 4:
         return num1 * num2
+
     divisor = pow(10, int(factor / 2))
     a = int(num1 / divisor)
     b = int(num1 - divisor * a)
@@ -12,6 +14,7 @@ def mul(num1, num2):
     p = mul(a, c)
     q = mul(b, d)
     r = mul((a + b), (c + d)) - p - q
+
     multiplier = factor if factor % 2 == 0 else factor - 1
     return (pow(10, multiplier) * p) + (divisor * r) + q
 
