@@ -5,8 +5,7 @@ use rustcc1::ex4;
 use rustcc1::ex5;
 use rustcc1::ex6;
 use rustcc1::ex7;
-
-
+use rustcc1::ex8;
 
 fn main() {
     ex1();
@@ -16,5 +15,6 @@ fn main() {
     ex5();
     ex6();
     ex7();
+    ex8();
 }
 
