@@ -1,11 +1,12 @@
-use rustcc1::ex1;
-use rustcc1::ex2;
-use rustcc1::ex3;
-use rustcc1::ex4;
-use rustcc1::ex5;
-use rustcc1::ex6;
-use rustcc1::ex7;
-use rustcc1::ex8;
+use rustcc1::ex1to3::ex1;
+use rustcc1::ex1to3::ex2;
+use rustcc1::ex1to3::ex3;
+use rustcc1::ex4to6::ex4;
+use rustcc1::ex4to6::ex5;
+use rustcc1::ex4to6::ex6;
+use rustcc1::ex7to8::ex7;
+use rustcc1::ex7to8::ex8;
+use rustcc1::final_project;
 
 fn main() {
     ex1();
@@ -16,5 +17,6 @@ fn main() {
     ex6();
     ex7();
     ex8();
+    final_project::execute();
 }
 
