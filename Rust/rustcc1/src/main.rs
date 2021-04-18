@@ -17,6 +17,6 @@ fn main() {
     ex6();
     ex7();
     ex8();
-    final_project::execute();
+    // final_project::execute();
 }
 
