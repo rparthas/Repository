@@ -1,22 +1,22 @@
-use rustcc1::ex1to3::ex1;
-use rustcc1::ex1to3::ex2;
-use rustcc1::ex1to3::ex3;
-use rustcc1::ex4to6::ex4;
-use rustcc1::ex4to6::ex5;
-use rustcc1::ex4to6::ex6;
-use rustcc1::ex7to8::ex7;
-use rustcc1::ex7to8::ex8;
-use rustcc1::final_project;
+use rustcc1::exercises::ex1;
+use rustcc1::exercises::ex2;
+use rustcc1::exercises::ex3;
+use rustcc1::exercises::ex4;
+use rustcc1::exercises::ex5;
+use rustcc1::exercises::ex6;
+use rustcc1::exercises::ex7;
+use rustcc1::exercises::ex8;
+// use rustcc1::final_project;
 
 fn main() {
-    ex1();
-    ex2();
-    ex3();
-    ex4();
-    ex5();
-    ex6();
-    ex7();
-    ex8();
+    ex1::main();
+    ex2::main();
+    ex3::main();
+    ex4::main();
+    ex5::main();
+    ex6::main();
+    ex7::main();
+    ex8::main();
     // final_project::execute();
 }
 
