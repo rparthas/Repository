@@ -10,6 +10,7 @@ public class Example {
 //        threads();
 //        executorService(Executors.newFixedThreadPool(10), false, 1000);
 //        executorService(Executors.newSingleThreadExecutor(), false, 100);
+//        executorService(Executors.newCachedThreadPool(), false, 1000);
 //        executorServiceWithShutdown();
 //        executorServiceWithFuture();
 //        executorServiceWithFutureCall(true);
