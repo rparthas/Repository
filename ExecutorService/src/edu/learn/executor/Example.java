@@ -8,7 +8,7 @@ public class Example {
     public static void main(String... args) throws InterruptedException {
         System.out.println("Started:" + Util.printStats());
 //        threads();
-//        executorService(Executors.newFixedThreadPool(10), false, 1000);
+//        executorService(Executors.newFixedThreadPool(10), true, 1000);
 //        executorService(Executors.newSingleThreadExecutor(), false, 100);
 //        executorService(Executors.newCachedThreadPool(), false, 1000);
 //        executorServiceWithShutdown();
@@ -16,9 +16,8 @@ public class Example {
 //        executorServiceWithFutureCall(true);
 //        executorServiceWithFutureCall(false);
 //        executorServiceWithSchedule();
-//        executorService(Executors.newWorkStealingPool(), false, 1000);
+//        executorService(Executors.newWorkStealingPool(), true, 1000);
         System.out.println("Completed:" + Util.printStats());
-
     }
 
     private static void threads() {
