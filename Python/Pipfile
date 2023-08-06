@@ -1,6 +1,0 @@
-[packages]
-numpy = "==1.19.5"
-duckdb = "==0.8.0"
-
-[requires]
-python_version = "3.6"
