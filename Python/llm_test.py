@@ -34,11 +34,11 @@ def get_matching_docs(query, directory):
     return docs
 
 
-def open_ai(query):
+def open_ai(query, directory):
     model_name = "gpt-3.5-turbo"
     llm = ChatOpenAI(model_name=model_name)
     chain = load_qa_chain(llm, chain_type="stuff", verbose=True)
-    answer = chain.run(input_documents=get_matching_docs(query), question=query)
+    answer = chain.run(input_documents=get_matching_docs(query, directory), question=query)
     print(answer)
 
 
@@ -64,7 +64,7 @@ def summarize(directory):
     print(chain.run(docs))
 
 
-# get_matching_docs("What are the different kinds of pets people commonly own?", 'data/pets')
-# open_ai("What are the emotional benefits of owning a pet?")
-# generate_company_name("colorful socks")
+get_matching_docs("What are the different kinds of pets people commonly own?", 'data/pets')
+open_ai("What are the emotional benefits of owning a pet?", 'data/pets')
+generate_company_name("colorful socks")
 summarize('data/pets')
